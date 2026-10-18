@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>글레브의 러시아어 말하기 연습</title>
+<style>
+  *{box-sizing:border-box}
+  :root{
+    --bg:#fff7ed; --card:#ffffff; --ink:#2d2118; --muted:#8a7462;
+    --accent:#d96f32; --accent2:#b84a1f; --soft:#fdebd7; --line:#f0dcc8;
+    --green:#2f7d5b;
+  }
+  body{margin:0;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","Noto Sans KR",sans-serif;background:linear-gradient(180deg,#fff7ed 0%,#ffedd5 100%);color:var(--ink);min-height:100vh}
+  .wrap{max-width:760px;margin:0 auto;padding:24px 18px 48px}
+  header{text-align:center;padding:18px 0 8px}
+  .badge{display:inline-block;background:var(--soft);color:var(--accent2);padding:6px 12px;border-radius:999px;font-size:14px;font-weight:700}
+  h1{font-size:32px;line-height:1.25;margin:14px 0 8px}
+  .sub{color:var(--muted);font-size:17px;line-height:1.6;margin:0}
+  .progress-wrap{margin:24px 0 14px}
+  .progress-top{display:flex;justify-content:space-between;align-items:center;font-weight:700;font-size:15px;color:var(--accent2)}
+  .bar{height:12px;background:#f3ddc7;border-radius:999px;overflow:hidden;margin-top:8px}
+  .bar-fill{height:100%;background:linear-gradient(90deg,#f59e0b,#d96f32);border-radius:999px;transition:width .3s ease;width:12.5%}
+  .dots{display:flex;gap:8px;justify-content:center;margin:14px 0 4px;flex-wrap:wrap}
+  .dot{width:34px;height:34px;border-radius:50%;border:2px solid var(--line);background:#fff;font-weight:800;color:var(--muted);cursor:pointer}
+  .dot.active{background:var(--accent);border-color:var(--accent);color:#fff}
+  .dot.done{border-color:#86c5a8;color:var(--green);background:#eaf7f0}
+  .card{background:var(--card);border:1px solid var(--line);border-radius:24px;padding:28px 24px;box-shadow:0 14px 35px rgba(120,65,20,.10);margin-top:16px}
+  .q-label{font-size:14px;font-weight:800;color:var(--accent);letter-spacing:.04em}
+  .question{font-size:28px;line-height:1.4;font-weight:900;margin:10px 0 8px}
+  .tip{color:var(--muted);font-size:16px;line-height:1.6;margin:0 0 18px}
+  textarea{width:100%;min-height:130px;border:2px solid var(--line);border-radius:18px;padding:16px;font-size:19px;line-height:1.6;resize:vertical;font-family:inherit;outline:none;background:#fffdf9}
+  textarea:focus{border-color:var(--accent)}
+  .row{display:flex;gap:10px;flex-wrap:wrap;margin-top:16px}
+  button{border:0;border-radius:999px;padding:13px 18px;font-size:16px;font-weight:800;cursor:pointer;font-family:inherit}
+  .btn-hint{background:var(--soft);color:var(--accent2)}
+  .btn-nav{background:#fff;border:2px solid var(--line);color:var(--ink)}
+  .btn-primary{background:var(--accent);color:#fff;flex:1;min-width:160px}
+  .btn-primary:hover{background:var(--accent2)}
+  button:disabled{opacity:.45;cursor:not-allowed}
+  .hint{display:none;margin-top:18px;background:#fff8ef;border:1px dashed #e9b98a;border-radius:18px;padding:18px}
+  .hint.show{display:block}
+  .hint h3{margin:0 0 12px;font-size:17px;color:var(--accent2)}
+  .example{padding:12px 0;border-top:1px solid var(--line)}
+  .example:first-of-type{border-top:0;padding-top:2px}
+  .ru{font-size:20px;font-weight:800;line-height:1.5}
+  .pron{color:#9a5b2f;font-size:16px;margin-top:2px}
+  .ko{color:var(--muted);font-size:16px;margin-top:2px;line-height:1.5}
+  .summary{display:none;margin-top:22px;background:#fff;border:1px solid var(--line);border-radius:24px;padding:26px 24px;box-shadow:0 14px 35px rgba(120,65,20,.08)}
+  .summary.show{display:block}
+  .summary h2{margin:0 0 6px;font-size:24px}
+  .summary-item{padding:16px 0;border-top:1px solid var(--line)}
+  .summary-q{font-weight:900;font-size:18px}
+  .summary-a{white-space:pre-wrap;font-size:18px;line-height:1.6;margin-top:6px;background:#fff8ef;border-radius:12px;padding:12px}
+  .empty{color:var(--muted)}
+  footer{text-align:center;color:var(--muted);font-size:14px;line-height:1.7;margin-top:24px}
+  @media(max-width:560px){h1{font-size:27px}.question{font-size:24px}.card{padding:22px 18px}.ru{font-size:18px}button{padding:12px 15px}}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <span class="badge">🇷🇺 러시아어 말하기 연습</span>
+    <h1>안녕, 글레브!<br>천천히 말해봐요 😊</h1>
+    <p class="sub">질문은 한국어로만 보여요.<br>먼저 직접 답해보고, 어려우면 힌트를 눌러보세요.</p>
+  </header>
+
+  <div class="progress-wrap">
+    <div class="progress-top"><span id="counter">1 / 8 질문</span><span id="percent">13%</span></div>
+    <div class="bar"><div class="bar-fill" id="barFill"></div></div>
+    <div class="dots" id="dots"></div>
+  </div>
+
+  <main class="card">
+    <div class="q-label" id="qLabel">질문 1</div>
+    <div class="question" id="question"></div>
+    <p class="tip">러시아어로 써보세요. 한글로 소리 나는 대로 써도 괜찮아요.</p>
+    <textarea id="answer" placeholder="여기에 러시아어로 답을 써보세요..."></textarea>
+    <div class="row">
+      <button class="btn-hint" id="hintBtn" type="button">💡 힌트 보기</button>
+      <button class="btn-nav" id="prevBtn" type="button">← 이전</button>
+      <button class="btn-primary" id="nextBtn" type="button">다음 질문 →</button>
+    </div>
+    <section class="hint" id="hintBox" aria-hidden="true">
+      <h3>이렇게 말할 수 있어요</h3>
+      <div id="hintList"></div>
+    </section>
+  </main>
+
+  <div class="row" style="margin-top:18px">
+    <button class="btn-primary" id="summaryBtn" type="button" style="background:var(--green)">📋 내 답변 모아보기</button>
+    <button class="btn-nav" id="copyBtn" type="button">답변 복사하기</button>
+  </div>
+
+  <section class="summary" id="summary">
+    <h2>내 답변 모아보기</h2>
+    <p class="tip">지금까지 쓴 답을 한 번에 확인하고 소리 내어 읽어보세요.</p>
+    <div id="summaryList"></div>
+  </section>
+
+  <footer>강세 표시(´)가 있는 모음을 길고 세게 읽어보세요.<br>틀려도 괜찮아요. 천천히, 한 문장씩!</footer>
+</div>
+
+<script>
+const data = [
+  {q:"러시아어를 왜 배우고 싶어?", hints:[
+    ["Я хочу́ учи́ть ру́сский, потому́ что мне интере́сна Росси́я.","야 하추 우치찌 루스키, 빠따무 쉬따 므녜 인쩨례스나 라씨야","러시아에 관심이 있어서 러시아어를 배우고 싶어요."],
+    ["Я хочу́ разгова́ривать с ру́сскими друзья́ми.","야 하추 라즈가바리바찌 스 루스끼미 드루지야미","러시아 친구들과 대화하고 싶어요."],
+    ["Мне нра́вится ру́сский язы́к.","므녜 느라비짜 루스키 이즥","러시아어가 좋아요."]
+  ]},
+  {q:"너에 대해 소개해 봐.", hints:[
+    ["Меня́ зову́т Глеб. Я из Коре́и.","미냐 자붓 글롑. 야 이스 까례이","제 이름은 글레브이고, 한국 출신이에요."],
+    ["Я учу́ ру́сский язы́к.","야 우추 루스키 이즥","저는 러시아어를 배우고 있어요."],
+    ["Мне нра́вится му́зыка и спорт.","므녜 느라비짜 무즤까 이 스뽀릇","음악과 운동을 좋아해요."]
+  ]},
+  {q:"러시아에 언제 갈 거야? 계획이 있어?", hints:[
+    ["Я хочу́ пое́хать в Росси́ю в сле́дующем году́.","야 하추 빠예하찌 브 라씨유 프 슬례두쉼 가두","내년에 러시아에 가고 싶어요."],
+    ["Пока́ то́чного пла́на нет.","빠까 또취나바 쁠라나 녯","아직 정확한 계획은 없어요."],
+    ["Я хочу́ посети́ть Москву́ и Санкт-Петербу́рг.","야 하추 빠시치찌 마스크부 이 쌍크뜨 피쩨르부르크","모스크바와 상트페테르부르크에 가보고 싶어요."]
+  ]},
+  {q:"너의 성격에 대해 말해 봐.", hints:[
+    ["Я споко́йный и дружелю́бный.","야 스빠꼬인늬 이 드루젤류브늬","저는 차분하고 친근해요."],
+    ["Я о́чень люблю́ помога́ть лю́дям.","야 오친 류블류 빠마가찌 류쟘","사람을 돕는 걸 정말 좋아해요."],
+    ["Иногда́ я стесня́юсь.","이낙다 야 스찌스냐유스","가끔 수줍어해요."]
+  ]},
+  {q:"가족에 대해 말해 봐.", hints:[
+    ["У меня́ есть ма́ма и па́па.","우 미냐 예스찌 마마 이 파파","엄마와 아빠가 계세요."],
+    ["Мы живём вме́сте.","므이 쥐뵴 므몌스쩨","우리는 함께 살아요."],
+    ["В мое́й семье́ три челове́ка.","프 마예이 시미예 뜨리 칠라볘까","저희 가족은 세 명이에요. (숫자는 바꿔보세요)"]
+  ]},
+  {q:"취미가 뭐야?", hints:[
+    ["Моё хо́бби — му́зыка.","마요 홉비 — 무즤까","제 취미는 음악이에요."],
+    ["Я люблю́ слу́шать му́зыку и петь.","야 류블류 슬루샤찌 무즤꾸 이 뼤찌","음악 듣고 노래하는 걸 좋아해요."],
+    ["Я люблю́ спорт и гуля́ть.","야 류블류 스뽀릇 이 굴랴찌","운동하고 산책하는 걸 좋아해요."],
+    ["В свобо́дное вре́мя я смотрю́ фи́льмы.","프 스바보드나예 브례먀 야 스마뜨류 필므이","여가 시간에는 영화를 봐요."]
+  ]},
+  {q:"무슨 일을 해? / 학생이야?", hints:[
+    ["Я студе́нт.","야 스뚜졘뜨","저는 학생이에요."],
+    ["Я изуча́ю ру́сский язы́к.","야 이주차유 루스키 이즥","러시아어를 공부하고 있어요."],
+    ["Сейча́с я не рабо́таю, я учу́сь.","시차스 야 녜 라보따유, 야 우추스","지금은 일하지 않고 공부해요."],
+    ["Я рабо́таю.","야 라보따유","저는 일해요."]
+  ]},
+  {q:"가장 좋아하는 러시아 단어나 표현은 뭐야?", hints:[
+    ["Моё люби́мое сло́во — «спаси́бо».","마요 류비마예 슬로바 — 스파시바","가장 좋아하는 단어는 “고마워요”예요."],
+    ["Мне нра́вится сло́во «друг».","므녜 느라비짜 슬로바 드룩","“친구”라는 단어가 좋아요."],
+    ["Моё люби́мое выраже́ние: «Всё бу́дет хорошо́».","마요 류비마예 븨라줴니예: 프쇼 부젯 하라쇼","가장 좋아하는 표현은 “다 잘될 거예요”예요."]
+  ]}
+];
+
+let idx = 0;
+const answers = Array(data.length).fill("");
+const hintOpen = Array(data.length).fill(false);
+const $ = id => document.getElementById(id);
+
+function renderDots(){
+  $("dots").innerHTML = data.map((_,i)=>
+    `<button type="button" class="dot ${i===idx?'active':''} ${answers[i].trim()?'done':''}" data-i="${i}" aria-label="질문 ${i+1}">${i+1}</button>`
+  ).join("");
+  document.querySelectorAll(".dot").forEach(d=>d.onclick=()=>{save(); idx=+d.dataset.i; render();});
+}
+function render(){
+  const item = data[idx];
+  $("counter").textContent = `${idx+1} / ${data.length} 질문`;
+  $("percent").textContent = Math.round((idx+1)/data.length*100)+"%";
+  $("barFill").style.width = ((idx+1)/data.length*100)+"%";
+  $("qLabel").textContent = `질문 ${idx+1}`;
+  $("question").textContent = item.q;
+  $("answer").value = answers[idx];
+  $("prevBtn").disabled = idx===0;
+  $("nextBtn").textContent = idx===data.length-1 ? "마지막 질문이에요 ✓" : "다음 질문 →";
+  $("nextBtn").disabled = idx===data.length-1;
+  $("hintBox").className = "hint" + (hintOpen[idx] ? " show" : "");
+  $("hintBox").setAttribute("aria-hidden", String(!hintOpen[idx]));
+  $("hintBtn").textContent = hintOpen[idx] ? "🙈 힌트 숨기기" : "💡 힌트 보기";
+  $("hintList").innerHTML = item.hints.map(h=>
+    `<div class="example"><div class="ru">${h[0]}</div><div class="pron">(${h[1]})</div><div class="ko">${h[2]}</div></div>`
+  ).join("");
+  renderDots();
+}
+function save(){ answers[idx] = $("answer").value; }
+$("answer").addEventListener("input", ()=>{ answers[idx]=$("answer").value; renderDots(); });
+$("hintBtn").onclick = ()=>{ hintOpen[idx]=!hintOpen[idx]; render(); };
+$("prevBtn").onclick = ()=>{ save(); if(idx>0){idx--; render();} };
+$("nextBtn").onclick = ()=>{ save(); if(idx<data.length-1){idx++; render(); window.scrollTo({top:0,behavior:"smooth"});} };
+
+function summaryText(){
+  return data.map((d,i)=>`${i+1}. ${d.q}\n${answers[i].trim() || "(아직 작성하지 않았어요)"}`).join("\n\n");
+}
+function showSummary(){
+  save();
+  $("summaryList").innerHTML = data.map((d,i)=>
+    `<div class="summary-item"><div class="summary-q">${i+1}. ${d.q}</div><div class="summary-a ${answers[i].trim()?'':'empty'}">${(answers[i].trim()||"아직 작성하지 않았어요").replace(/</g,"&lt;")}</div></div>`
+  ).join("");
+  $("summary").classList.add("show");
+  $("summary").scrollIntoView({behavior:"smooth"});
+}
+$("summaryBtn").onclick = showSummary;
+$("copyBtn").onclick = async ()=>{
+  save();
+  try{ await navigator.clipboard.writeText(summaryText()); $("copyBtn").textContent="✅ 복사했어요!"; }
+  catch(e){ showSummary(); }
+  setTimeout(()=>$("copyBtn").textContent="답변 복사하기",1800);
+};
+render();
+</script>
+</body>
+</html>
