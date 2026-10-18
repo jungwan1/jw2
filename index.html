@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>글레브의 러시아어 말하기 연습</title>
+<title>글렙의 러시아어 말하기 연습</title>
 <style>
   *{box-sizing:border-box}
   :root{
@@ -46,6 +46,7 @@
   .ru{font-size:20px;font-weight:800;line-height:1.5}
   .pron{color:#9a5b2f;font-size:16px;margin-top:2px}
   .ko{color:var(--muted);font-size:16px;margin-top:2px;line-height:1.5}
+  .notice{margin:18px 0 0;background:#fff1d6;border:2px solid #f0b26b;border-radius:18px;padding:16px 18px;font-size:17px;line-height:1.65;font-weight:700;color:#7c3f16;text-align:center}
   .summary{display:none;margin-top:22px;background:#fff;border:1px solid var(--line);border-radius:24px;padding:26px 24px;box-shadow:0 14px 35px rgba(120,65,20,.08)}
   .summary.show{display:block}
   .summary h2{margin:0 0 6px;font-size:24px}
@@ -61,9 +62,11 @@
 <div class="wrap">
   <header>
     <span class="badge">🇷🇺 러시아어 말하기 연습</span>
-    <h1>안녕, 글레브!<br>천천히 말해봐요 😊</h1>
+    <h1>안녕, 글렙!<br>천천히 말해봐요 😊</h1>
     <p class="sub">질문은 한국어로만 보여요.<br>먼저 직접 답해보고, 어려우면 힌트를 눌러보세요.</p>
   </header>
+
+  <div class="notice" role="note">💬 러시아어 타이핑이 어려우면 한글로 발음만 적어도 돼요. 예를 들어 브메스쩨, 브메스째처럼 조금 달라도 괜찮아요. 의미만 통하면 돼요!</div>
 
   <div class="progress-wrap">
     <div class="progress-top"><span id="counter">1 / 8 질문</span><span id="percent">13%</span></div>
@@ -74,8 +77,8 @@
   <main class="card">
     <div class="q-label" id="qLabel">질문 1</div>
     <div class="question" id="question"></div>
-    <p class="tip">러시아어로 써보세요. 한글로 소리 나는 대로 써도 괜찮아요.</p>
-    <textarea id="answer" placeholder="여기에 러시아어로 답을 써보세요..."></textarea>
+    <p class="tip">러시아어 타이핑이 어려우면 한글로 발음만 적어도 돼요. 예를 들어 브메스쩨, 브메스째처럼 조금 달라도 괜찮아요. 의미만 통하면 돼요!</p>
+    <textarea id="answer" placeholder="한글로 발음만 적어도 돼요. 예: 브메스쩨, 브메스째처럼 조금 달라도 괜찮아요. 의미만 통하면 돼요!"></textarea>
     <div class="row">
       <button class="btn-hint" id="hintBtn" type="button">💡 힌트 보기</button>
       <button class="btn-nav" id="prevBtn" type="button">← 이전</button>
@@ -109,7 +112,7 @@ const data = [
     ["Мне нра́вится ру́сский язы́к.","므녜 느라비짜 루스키 이즥","러시아어가 좋아요."]
   ]},
   {q:"너에 대해 소개해 봐.", hints:[
-    ["Меня́ зову́т Глеб. Я из Коре́и.","미냐 자붓 글롑. 야 이스 까례이","제 이름은 글레브이고, 한국 출신이에요."],
+    ["Меня́ зову́т Глеб. Я из Коре́и.","미냐 자붓 글롑. 야 이스 까례이","제 이름은 글렙이고, 한국 출신이에요."],
     ["Я учу́ ру́сский язы́к.","야 우추 루스키 이즥","저는 러시아어를 배우고 있어요."],
     ["Мне нра́вится му́зыка и спорт.","므녜 느라비짜 무즤까 이 스뽀릇","음악과 운동을 좋아해요."]
   ]},
