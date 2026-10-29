@@ -60,11 +60,16 @@ label small{font-weight:400;color:var(--soft)}
 .note{font-size:11.5px;line-height:1.6;color:rgba(244,239,226,.62);border-top:1px solid rgba(232,214,168,.25);padding:14px 0 0;margin-top:10px}
 .chk{display:flex;gap:9px;align-items:flex-start;font-size:13px;margin-top:20px}
 .chk input{width:18px;height:18px;margin-top:2px;accent-color:var(--navy)}
-.assets{margin-top:22px;border-top:1px solid var(--line);padding-top:4px}
-.assets>summary{cursor:pointer;list-style:none;font-weight:600;font-size:14px;color:var(--navy);padding:12px 0 2px;display:flex;justify-content:space-between}
+.assets{margin-top:22px;border-top:0;padding-top:0}
+.assets>summary{cursor:pointer;list-style:none;display:flex;align-items:center;gap:14px;padding:16px 18px;border:1.5px solid var(--gold);border-radius:10px;background:linear-gradient(135deg,rgba(201,169,97,.10),rgba(201,169,97,.03));color:var(--navy);box-shadow:0 2px 10px rgba(201,169,97,.15);transition:background .2s}
+.assets>summary:hover{background:rgba(201,169,97,.16)}
 .assets>summary::-webkit-details-marker{display:none}
-.assets>summary::after{content:"+ 입력";color:var(--gold);font-weight:500;font-size:13px}
-.assets[open]>summary::after{content:"− 접기"}
+.assets .plus{flex:none;width:32px;height:32px;border-radius:50%;background:var(--gold);color:#fff;display:flex;align-items:center;justify-content:center;font-size:22px;font-weight:600;line-height:1}
+.assets[open] .plus{font-size:0}.assets[open] .plus::before{content:"−";font-size:22px}
+.assets .st{display:flex;flex-direction:column;gap:3px}
+.assets .st b{font-size:15.5px;font-weight:700}.assets .st small{font-weight:400;color:var(--soft);font-size:13px}
+.assets .st em{font-style:normal;font-size:13px;color:#7a6a45;line-height:1.45}
+.kor{display:block;font-size:12px;color:var(--soft);margin:4px 2px 0;min-height:0}
 .assets .hint{font-size:12px;color:var(--soft);margin:4px 0 0}
 .liqnote{font-size:12px;color:var(--gold2);text-align:right;margin-top:-6px;padding-bottom:8px}
 details{font-size:12px;color:var(--soft);margin-top:8px}
@@ -98,29 +103,29 @@ footer a{color:var(--gold);text-decoration:none}
 <section class="card" id="calc">
   <div class="sec-t">예상 변제금 계산</div><span class="orn"></span>
   <label>무담보 채무 총액 <small>(카드·대출 등)</small></label>
-  <div class="inp"><input id="debt" type="number" inputmode="numeric" min="0" placeholder="예: 5000"><span>만원</span></div>
+  <div class="inp"><input id="debt" class="money" type="text" inputmode="numeric" autocomplete="off" placeholder="예: 5000"><span>만원</span></div>
   <label>월 실수령 소득</label>
-  <div class="inp"><input id="income" type="number" inputmode="numeric" min="0" placeholder="예: 250"><span>만원</span></div>
+  <div class="inp"><input id="income" class="money" type="text" inputmode="numeric" autocomplete="off" placeholder="예: 250"><span>만원</span></div>
   <label>부양 가구원 수 <small>(본인 포함)</small></label>
   <div class="inp"><select id="hh"><option value="1">1인</option><option value="2">2인</option><option value="3">3인</option><option value="4">4인</option><option value="5">5인</option><option value="6">6인</option></select></div>
   <label>월세·추가 생계비 <small>(선택)</small></label>
-  <div class="inp"><input id="extra" type="number" inputmode="numeric" min="0" placeholder="0"><span>만원</span></div>
-  <details class="assets" id="assetBox"><summary>보유 재산 <small style="font-weight:400;color:var(--soft)">(선택)</small></summary>
+  <div class="inp"><input id="extra" class="money" type="text" inputmode="numeric" autocomplete="off" placeholder="0"><span>만원</span></div>
+  <details class="assets" id="assetBox"><summary><span class="plus">+</span><span class="st"><b>보유 재산 <small>(선택)</small></b><em>보유 재산이 있으신가요? 부동산·차량·예금 등이 있으면 눌러서 입력하세요</em></span></summary>
     <p class="hint">재산이 있으면 변제금이 늘어날 수 있어요. 없으면 비워 두세요.</p>
     <label>부동산 시세</label>
-    <div class="inp"><input id="a_re" type="number" inputmode="numeric" min="0" placeholder="0"><span>만원</span></div>
+    <div class="inp"><input id="a_re" class="money" type="text" inputmode="numeric" autocomplete="off" placeholder="0"><span>만원</span></div>
     <label>부동산 담보대출 잔액</label>
-    <div class="inp"><input id="a_mort" type="number" inputmode="numeric" min="0" placeholder="0"><span>만원</span></div>
+    <div class="inp"><input id="a_mort" class="money" type="text" inputmode="numeric" autocomplete="off" placeholder="0"><span>만원</span></div>
     <label>임차보증금 <small>(전·월세)</small></label>
-    <div class="inp"><input id="a_dep" type="number" inputmode="numeric" min="0" placeholder="0"><span>만원</span></div>
+    <div class="inp"><input id="a_dep" class="money" type="text" inputmode="numeric" autocomplete="off" placeholder="0"><span>만원</span></div>
     <label>차량 가액</label>
-    <div class="inp"><input id="a_car" type="number" inputmode="numeric" min="0" placeholder="0"><span>만원</span></div>
+    <div class="inp"><input id="a_car" class="money" type="text" inputmode="numeric" autocomplete="off" placeholder="0"><span>만원</span></div>
     <label>예금·적금·보험 해약환급금</label>
-    <div class="inp"><input id="a_sav" type="number" inputmode="numeric" min="0" placeholder="0"><span>만원</span></div>
+    <div class="inp"><input id="a_sav" class="money" type="text" inputmode="numeric" autocomplete="off" placeholder="0"><span>만원</span></div>
     <label>퇴직금 예상액</label>
-    <div class="inp"><input id="a_ret" type="number" inputmode="numeric" min="0" placeholder="0"><span>만원</span></div>
+    <div class="inp"><input id="a_ret" class="money" type="text" inputmode="numeric" autocomplete="off" placeholder="0"><span>만원</span></div>
     <label>기타 재산</label>
-    <div class="inp"><input id="a_oth" type="number" inputmode="numeric" min="0" placeholder="0"><span>만원</span></div>
+    <div class="inp"><input id="a_oth" class="money" type="text" inputmode="numeric" autocomplete="off" placeholder="0"><span>만원</span></div>
   </details>
   <div class="err" id="err">채무 총액과 월 소득을 입력해 주세요.</div>
   <button class="btn" id="calcBtn">예상 변제금 확인하기</button>
@@ -154,7 +159,7 @@ footer a{color:var(--gold);text-decoration:none}
     <label>연락처</label>
     <div class="inp"><input id="phone" type="tel" inputmode="tel" placeholder="010-0000-0000" required autocomplete="tel"></div>
     <label>채무액</label>
-    <div class="inp"><input id="debt2" type="number" inputmode="numeric"><span>만원</span></div>
+    <div class="inp"><input id="debt2" class="money" type="text" inputmode="numeric" autocomplete="off"><span>만원</span></div>
     <div class="chk"><input type="checkbox" id="agree"><label for="agree" style="margin:0;font-weight:500">[필수] 개인정보 수집·이용에 동의합니다.</label></div>
     <details><summary>자세히 보기</summary>
       수집 항목: 이름, 연락처, 채무액 / 이용 목적: 개인회생·파산 상담 연락 / 보유 기간: 상담 종료 후 1년 (또는 동의 철회 시 즉시 파기). 동의를 거부할 수 있으나 거부 시 상담 신청이 제한됩니다. <!-- TODO: 법무법인 재유의 실제 개인정보처리방침에 맞게 수정 -->
@@ -177,6 +182,13 @@ footer a{color:var(--gold);text-decoration:none}
 </footer>
 </div>
 
+<script>
+function raw(x){return String(x||'').replace(/[^0-9]/g,'');}
+function v(id){return raw(document.getElementById(id).value);}
+function korMan(n){n=parseInt(n,10);if(!n)return '';const e=Math.floor(n/10000),m=n%10000;let t=[];if(e)t.push(e.toLocaleString('ko-KR')+'억');if(m)t.push(m.toLocaleString('ko-KR')+'만');return t.join(' ')+' 원';}
+function fmtEl(el){const pos=el.selectionStart==null?el.value.length:el.selectionStart;const digitsBefore=raw(el.value.slice(0,pos)).length;const r=raw(el.value).replace(/^0+(?=\d)/,'');const f=r?Number(r).toLocaleString('en-US'):'';el.value=f;if(document.activeElement===el){let c=0,p=0;while(p<f.length&&c<digitsBefore){if(/\d/.test(f[p]))c++;p++;}try{el.setSelectionRange(p,p);}catch(e){}}const h=el._kor;if(h)h.textContent=korMan(r);}
+document.addEventListener('DOMContentLoaded',function(){document.querySelectorAll('input.money').forEach(function(el){const h=document.createElement('span');h.className='kor';el.closest('.inp').insertAdjacentElement('afterend',h);el._kor=h;el.addEventListener('input',function(){fmtEl(el);});fmtEl(el);});});
+</script>
 <script>
 /* ============================================================
  * 폼 전송 설정 (PLACEHOLDER)
@@ -236,11 +248,11 @@ if (typeof document !== 'undefined') {
   const $ = id => document.getElementById(id);
   const won = n => Math.round(n).toLocaleString('ko-KR') + '원';
   $('calcBtn').addEventListener('click', () => {
-    const d = parseFloat($('debt').value), i = parseFloat($('income').value);
+    const d = parseFloat(v('debt')), i = parseFloat(v('income'));
     if (!(d>0) || !(i>=0) || isNaN(i)) { $('err').style.display='block'; return; }
     $('err').style.display='none';
-    const assets = {re:$('a_re').value, mort:$('a_mort').value, dep:$('a_dep').value, car:$('a_car').value, sav:$('a_sav').value, ret:$('a_ret').value, oth:$('a_oth').value};
-    const r = estimate(d, i, +$('hh').value, parseFloat($('extra').value)||0, assets);
+    const assets = {re:v('a_re'), mort:v('a_mort'), dep:v('a_dep'), car:v('a_car'), sav:v('a_sav'), ret:v('a_ret'), oth:v('a_oth')};
+    const r = estimate(d, i, +$('hh').value, parseFloat(v('extra'))||0, assets);
     window._liq = r.liq;
     const low = r.low, heavy = r.assetHeavy;
     document.querySelectorAll('.normalRow').forEach(el => el.style.display = (low||heavy) ? 'none' : '');
@@ -264,7 +276,7 @@ if (typeof document !== 'undefined') {
     }
     $('rLiving').textContent = won(r.living);
     $('result').style.display='block'; $('lead').style.display='block';
-    $('debt2').value = d;
+    $('debt2').value = d; fmtEl($('debt2'));
     $('result').scrollIntoView({behavior:'smooth'});
   });
   $('leadForm').addEventListener('submit', async e => {
@@ -274,10 +286,10 @@ if (typeof document !== 'undefined') {
     if(!name||!/^0\d{1,2}-?\d{3,4}-?\d{4}$/.test(phone)){e2.textContent='이름과 올바른 연락처를 입력해 주세요.';e2.style.display='block';return;}
     if(!$('agree').checked){e2.textContent='개인정보 수집·이용 동의가 필요합니다.';e2.style.display='block';return;}
     e2.style.display='none';
-    const data={name,phone,debt_man:$('debt2').value,income_man:$('income').value,household:$('hh').value,
-      extra_man:$('extra').value||'0',result_monthly:$('rMonthly').textContent,result_pct:$('rPct').textContent,
-      asset_realestate:$('a_re').value||'0',asset_mortgage:$('a_mort').value||'0',asset_deposit:$('a_dep').value||'0',
-      asset_car:$('a_car').value||'0',asset_savings:$('a_sav').value||'0',asset_retire:$('a_ret').value||'0',asset_other:$('a_oth').value||'0',
+    const data={name,phone,debt_man:v('debt2'),income_man:v('income'),household:$('hh').value,
+      extra_man:v('extra')||'0',result_monthly:$('rMonthly').textContent,result_pct:$('rPct').textContent,
+      asset_realestate:v('a_re')||'0',asset_mortgage:v('a_mort')||'0',asset_deposit:v('a_dep')||'0',
+      asset_car:v('a_car')||'0',asset_savings:v('a_sav')||'0',asset_retire:v('a_ret')||'0',asset_other:v('a_oth')||'0',
       liquidation_value:Math.round(window._liq||0),
       agreed:true,source:getSource(),ts:new Date().toISOString()};
     if (FORM_ENDPOINT) {
