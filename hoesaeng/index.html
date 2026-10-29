@@ -4,56 +4,92 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>내 빚, 얼마까지 줄어들까? 30초 확인 | 법무법인 재유</title>
+<meta name="theme-color" content="#fbf8f1">
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Gothic+A1:wght@400;600;700;800&family=Noto+Serif+KR:wght@600;700&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Gothic+A1:wght@300;400;500;600;700&family=Noto+Serif+KR:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
-:root{--navy:#0e1e48;--gold:#b8923e;--goldl:#d9bd7e;--ivory:#fcf9f2;--line:#e7dcc3;--soft:#4a5674}
+:root{--navy:#14254f;--navy2:#0c1838;--gold:#a8853f;--gold2:#c9a962;--goldl:#e8d6a8;--ivory:#fbf8f1;--paper:#fffdf8;--line:#e6dcc6;--soft:#5d6680;--serif:'Noto Serif KR',serif}
 *{box-sizing:border-box}
-body{margin:0;font-family:'Gothic A1',sans-serif;background:var(--ivory);color:var(--navy);line-height:1.55}
-.wrap{max-width:480px;margin:0 auto;padding:0 20px}
-header{padding:18px 0;border-bottom:1px solid var(--line);display:flex;justify-content:space-between;align-items:center}
-header .tag{color:var(--gold);font-weight:700;font-size:13px}
-header .brand{font-family:'Noto Serif KR',serif;font-weight:700;font-size:16px}
-.hero{text-align:center;padding:34px 0 18px}
-.hero h1{font-family:'Noto Serif KR',serif;font-size:30px;line-height:1.3;margin:0 0 14px}
-.pill{display:inline-block;background:var(--navy);color:#f0d796;font-family:'Noto Serif KR',serif;font-size:20px;padding:6px 26px;border-radius:40px;border:1px solid var(--gold)}
-.hero p{color:var(--soft);font-size:14px;margin:14px 0 0}
-.card{background:#fff;border:1px solid var(--line);border-radius:14px;padding:22px 18px;margin:18px 0;box-shadow:0 6px 24px rgba(14,30,72,.06)}
-label{display:block;font-weight:700;font-size:14px;margin:14px 0 6px}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;font-family:'Gothic A1',sans-serif;font-weight:400;background:var(--ivory);color:var(--navy);line-height:1.65;letter-spacing:-.01em;-webkit-font-smoothing:antialiased}
+.wrap{max-width:520px;margin:0 auto;padding:0 22px}
+header{position:relative;z-index:2;max-width:520px;margin:0 auto;padding:20px 22px 0;display:flex;justify-content:space-between;align-items:center}
+header .tag{color:var(--gold);font-weight:600;font-size:12.5px;letter-spacing:.12em}
+header .brand{font-family:var(--serif);font-weight:600;font-size:16px;letter-spacing:.06em}
+header::after{content:"";position:absolute;left:22px;right:22px;bottom:-14px;height:1px;background:linear-gradient(90deg,transparent,var(--gold2),transparent)}
+.hero{position:relative;text-align:center;padding:64px 0 54px;overflow:hidden}
+.hero-bg{position:absolute;inset:-80px 0 0;background:url(hero.jpg) center 40%/cover no-repeat;opacity:.55;z-index:0}
+.hero-bg::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(251,248,241,.55) 0%,rgba(251,248,241,.35) 45%,var(--ivory) 100%)}
+.hero .in{position:relative;z-index:1}
+.eyebrow{font-size:12px;letter-spacing:.32em;color:var(--gold);font-weight:600;margin-bottom:18px}
+.hero h1{font-family:var(--serif);font-weight:700;font-size:34px;line-height:1.32;margin:0 0 22px;letter-spacing:-.02em;text-shadow:0 1px 0 rgba(255,255,255,.6)}
+.pill{display:inline-block;background:var(--navy);color:var(--goldl);font-family:var(--serif);font-weight:500;font-size:19px;letter-spacing:.08em;padding:9px 34px;border-radius:999px;box-shadow:0 0 0 1px var(--navy),0 0 0 3px rgba(201,169,98,.55),0 10px 24px rgba(20,37,79,.18)}
+.hero p{color:var(--soft);font-size:14.5px;margin:22px 0 0}
+.steps{display:flex;justify-content:center;gap:0;margin-top:26px;font-size:12.5px;color:var(--navy)}
+.steps div{padding:0 14px;border-left:1px solid var(--line)}
+.steps div:first-child{border-left:0}
+.steps b{display:block;font-family:var(--serif);color:var(--gold);font-weight:500;font-size:13px}
+.card{position:relative;background:var(--paper);border:1px solid var(--line);border-radius:4px;padding:30px 22px 26px;margin:0 0 22px;box-shadow:0 1px 2px rgba(20,37,79,.04),0 18px 40px -18px rgba(20,37,79,.18)}
+.card::before{content:"";position:absolute;inset:5px;border:1px solid rgba(201,169,98,.28);border-radius:2px;pointer-events:none}
+.sec-t{font-family:var(--serif);font-weight:600;font-size:21px;margin:0 0 4px;text-align:center}
+.sec-s{text-align:center;font-size:13px;color:var(--soft);margin:0 0 8px}
+.orn{display:block;width:44px;height:1px;background:var(--gold2);margin:12px auto 6px}
+h2{font-family:var(--serif);font-weight:600;font-size:21px;margin:0 0 4px}
+label{display:block;font-weight:600;font-size:13.5px;margin:18px 0 7px;letter-spacing:.01em}
 label small{font-weight:400;color:var(--soft)}
-.inp{display:flex;align-items:center;border:1px solid #d8cfba;border-radius:10px;background:var(--ivory);padding:0 12px}
-.inp input,.inp select{flex:1;border:0;background:transparent;font:inherit;font-size:17px;padding:13px 0;color:var(--navy);outline:none;min-width:0}
+.inp{display:flex;align-items:center;border:0;border-bottom:1px solid #cfc2a3;background:transparent;padding:0 2px;transition:border-color .2s}
+.inp:focus-within{border-bottom-color:var(--navy);box-shadow:0 1px 0 var(--navy)}
+.inp input,.inp select{flex:1;border:0;background:transparent;font:inherit;font-size:18px;padding:11px 0;color:var(--navy);outline:none;min-width:0;-webkit-appearance:none;appearance:none}
+.inp select{background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8'%3E%3Cpath d='M1 1l5 5 5-5' fill='none' stroke='%23a8853f' stroke-width='1.4'/%3E%3C/svg%3E") right 4px center no-repeat}
+.inp input::placeholder{color:#b9b3a3}
 .inp span{color:var(--soft);font-size:14px}
-.btn{display:block;width:100%;margin-top:20px;padding:16px;border:0;border-radius:12px;background:var(--navy);color:#f0d796;font:inherit;font-weight:800;font-size:17px;cursor:pointer;border-bottom:3px solid var(--gold)}
-.btn.gold{background:var(--gold);color:#fff;border-bottom-color:#8d6d27}
-.err{color:#b3261e;font-size:13px;margin-top:8px;display:none}
-#result{display:none}
-.res-row{display:flex;justify-content:space-between;align-items:baseline;padding:12px 0;border-bottom:1px dashed var(--line)}
+.btn{display:block;width:100%;margin-top:28px;padding:17px;border:0;border-radius:2px;background:linear-gradient(180deg,#1b2f60,var(--navy2));color:var(--goldl);font:inherit;font-family:var(--serif);font-weight:600;font-size:17px;letter-spacing:.06em;cursor:pointer;box-shadow:inset 0 0 0 1px rgba(201,169,98,.45),0 12px 26px -12px rgba(12,24,56,.6);transition:transform .15s}
+.btn:active{transform:translateY(1px)}
+.btn.gold{background:linear-gradient(180deg,#bf9b52,#9a7733);color:#fff;box-shadow:inset 0 0 0 1px rgba(255,255,255,.25),0 12px 26px -12px rgba(122,92,30,.7)}
+.err{color:#a3261e;font-size:13px;margin-top:10px;display:none}
+#result{display:none;background:linear-gradient(180deg,var(--navy),var(--navy2));color:#f4efe2;border-color:var(--navy)}
+#result::before{border-color:rgba(201,169,98,.45)}
+#result h2{color:var(--goldl);text-align:center;font-size:15px;letter-spacing:.3em;font-weight:500}
+.res-row{display:flex;justify-content:space-between;align-items:baseline;padding:13px 0;border-bottom:1px solid rgba(232,214,168,.15);font-size:14px}
 .res-row:last-of-type{border-bottom:0}
-.res-row b{font-family:'Noto Serif KR',serif;font-size:22px}
-.res-row.big b{color:var(--gold);font-size:30px}
-.note{font-size:12.5px;color:var(--soft);background:var(--ivory);border-left:3px solid var(--gold);padding:10px 12px;margin-top:14px}
-h2{font-family:'Noto Serif KR',serif;font-size:21px;margin:0 0 4px}
-.chk{display:flex;gap:8px;align-items:flex-start;font-size:13px;margin-top:14px}
-.chk input{width:18px;height:18px;margin-top:2px}
-details{font-size:12.5px;color:var(--soft);margin-top:6px}
+.res-row b{font-family:var(--serif);font-weight:600;font-size:21px;color:#fff}
+.res-row.big{display:block;text-align:center;padding:14px 0 20px}
+.res-row.big span{display:block;font-size:13px;color:rgba(244,239,226,.75);letter-spacing:.08em}
+.res-row.big b{display:block;color:var(--gold2);font-size:38px;margin-top:4px}
+.note{font-size:11.5px;line-height:1.6;color:rgba(244,239,226,.62);border-top:1px solid rgba(232,214,168,.25);padding:14px 0 0;margin-top:10px}
+.chk{display:flex;gap:9px;align-items:flex-start;font-size:13px;margin-top:20px}
+.chk input{width:18px;height:18px;margin-top:2px;accent-color:var(--navy)}
+details{font-size:12px;color:var(--soft);margin-top:8px}
+details summary{cursor:pointer;color:var(--gold)}
 #thanks{display:none;text-align:center;padding:10px 0}
-footer{border-top:1px solid var(--line);padding:22px 0 36px;font-size:12px;color:var(--soft)}
-footer b{color:var(--navy)}
-footer a{color:var(--gold)}
+.lawyer{text-align:center;padding:30px 0 34px}
+.lawyer .t{font-family:var(--serif);font-weight:700;font-size:26px;color:var(--gold);letter-spacing:.04em}
+.lawyer .s{font-size:14px;color:var(--navy);margin-top:2px;letter-spacing:.04em}
+.lawyer .orn{margin:0 auto 18px;width:60px}
+footer{border-top:1px solid var(--line);padding:26px 0 44px;font-size:11.5px;color:var(--soft);line-height:1.8}
+footer b{color:var(--navy);font-family:var(--serif);font-weight:600;font-size:13px}
+footer a{color:var(--gold);text-decoration:none}
+@media(min-width:760px){.hero{padding:90px 0 70px}.hero h1{font-size:44px}.wrap,header{max-width:560px}}
 </style>
 </head>
 <body>
-<div class="wrap">
 <header><span class="tag">개인회생 · 파산</span><span class="brand">법무법인 재유</span></header>
 
 <section class="hero">
+  <div class="hero-bg"></div>
+  <div class="in wrap">
+  <div class="eyebrow">DEBT RELIEF CHECK</div>
   <h1>내 빚, 얼마까지<br>줄어들까?</h1>
   <span class="pill">30초 확인</span>
-  <p>채무액과 소득만 입력하면 예상 월 변제금을 계산해 드립니다.</p>
+  <p>채무액과 소득만 입력하면<br>예상 월 변제금을 계산해 드립니다.</p>
+  <div class="steps"><div><b>01</b>채무·소득 입력</div><div><b>02</b>예상 변제금 확인</div><div><b>03</b>가능 여부 확인</div></div>
+  </div>
 </section>
 
+<div class="wrap">
 <section class="card" id="calc">
+  <div class="sec-t">예상 변제금 계산</div><span class="orn"></span>
   <label>무담보 채무 총액 <small>(카드·대출 등)</small></label>
   <div class="inp"><input id="debt" type="number" inputmode="numeric" min="0" placeholder="예: 5000"><span>만원</span></div>
   <label>월 실수령 소득</label>
@@ -76,8 +112,8 @@ footer a{color:var(--gold)}
 </section>
 
 <section class="card" id="lead" style="display:none">
-  <h2>가능 여부 확인받기</h2>
-  <p style="font-size:14px;color:var(--soft);margin:0">회생전문 변호사가 개인회생 진행 가능 여부를 확인해 연락드립니다.</p>
+  <div class="sec-t">가능 여부 확인받기</div><span class="orn"></span>
+  <p class="sec-s">회생전문 변호사가 개인회생 진행 가능 여부를 확인해 연락드립니다.</p>
   <form id="leadForm" novalidate>
     <label>이름</label>
     <div class="inp"><input id="name" required autocomplete="name"></div>
@@ -85,7 +121,7 @@ footer a{color:var(--gold)}
     <div class="inp"><input id="phone" type="tel" inputmode="tel" placeholder="010-0000-0000" required autocomplete="tel"></div>
     <label>채무액</label>
     <div class="inp"><input id="debt2" type="number" inputmode="numeric"><span>만원</span></div>
-    <div class="chk"><input type="checkbox" id="agree"><label for="agree" style="margin:0;font-weight:600">[필수] 개인정보 수집·이용에 동의합니다.</label></div>
+    <div class="chk"><input type="checkbox" id="agree"><label for="agree" style="margin:0;font-weight:500">[필수] 개인정보 수집·이용에 동의합니다.</label></div>
     <details><summary>자세히 보기</summary>
       수집 항목: 이름, 연락처, 채무액 / 이용 목적: 개인회생·파산 상담 연락 / 보유 기간: 상담 종료 후 1년 (또는 동의 철회 시 즉시 파기). 동의를 거부할 수 있으나 거부 시 상담 신청이 제한됩니다. <!-- TODO: 법무법인 재유의 실제 개인정보처리방침에 맞게 수정 -->
     </details>
@@ -94,6 +130,8 @@ footer a{color:var(--gold)}
   </form>
   <div id="thanks"><h2>신청이 접수되었습니다</h2><p style="color:var(--soft);font-size:14px">확인 후 기재하신 연락처로 연락드리겠습니다.</p></div>
 </section>
+
+<section class="lawyer"><span class="orn"></span><div class="t">회생전문 변호사</div><div class="s">20년 경력의 법무법인 재유</div></section>
 
 <footer>
   <b>법무법인 재유</b><br>
