@@ -1,0 +1,187 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>내 빚, 얼마까지 줄어들까? 30초 확인 | 법무법인 재유</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Gothic+A1:wght@400;600;700;800&family=Noto+Serif+KR:wght@600;700&display=swap" rel="stylesheet">
+<style>
+:root{--navy:#0e1e48;--gold:#b8923e;--goldl:#d9bd7e;--ivory:#fcf9f2;--line:#e7dcc3;--soft:#4a5674}
+*{box-sizing:border-box}
+body{margin:0;font-family:'Gothic A1',sans-serif;background:var(--ivory);color:var(--navy);line-height:1.55}
+.wrap{max-width:480px;margin:0 auto;padding:0 20px}
+header{padding:18px 0;border-bottom:1px solid var(--line);display:flex;justify-content:space-between;align-items:center}
+header .tag{color:var(--gold);font-weight:700;font-size:13px}
+header .brand{font-family:'Noto Serif KR',serif;font-weight:700;font-size:16px}
+.hero{text-align:center;padding:34px 0 18px}
+.hero h1{font-family:'Noto Serif KR',serif;font-size:30px;line-height:1.3;margin:0 0 14px}
+.pill{display:inline-block;background:var(--navy);color:#f0d796;font-family:'Noto Serif KR',serif;font-size:20px;padding:6px 26px;border-radius:40px;border:1px solid var(--gold)}
+.hero p{color:var(--soft);font-size:14px;margin:14px 0 0}
+.card{background:#fff;border:1px solid var(--line);border-radius:14px;padding:22px 18px;margin:18px 0;box-shadow:0 6px 24px rgba(14,30,72,.06)}
+label{display:block;font-weight:700;font-size:14px;margin:14px 0 6px}
+label small{font-weight:400;color:var(--soft)}
+.inp{display:flex;align-items:center;border:1px solid #d8cfba;border-radius:10px;background:var(--ivory);padding:0 12px}
+.inp input,.inp select{flex:1;border:0;background:transparent;font:inherit;font-size:17px;padding:13px 0;color:var(--navy);outline:none;min-width:0}
+.inp span{color:var(--soft);font-size:14px}
+.btn{display:block;width:100%;margin-top:20px;padding:16px;border:0;border-radius:12px;background:var(--navy);color:#f0d796;font:inherit;font-weight:800;font-size:17px;cursor:pointer;border-bottom:3px solid var(--gold)}
+.btn.gold{background:var(--gold);color:#fff;border-bottom-color:#8d6d27}
+.err{color:#b3261e;font-size:13px;margin-top:8px;display:none}
+#result{display:none}
+.res-row{display:flex;justify-content:space-between;align-items:baseline;padding:12px 0;border-bottom:1px dashed var(--line)}
+.res-row:last-of-type{border-bottom:0}
+.res-row b{font-family:'Noto Serif KR',serif;font-size:22px}
+.res-row.big b{color:var(--gold);font-size:30px}
+.note{font-size:12.5px;color:var(--soft);background:var(--ivory);border-left:3px solid var(--gold);padding:10px 12px;margin-top:14px}
+h2{font-family:'Noto Serif KR',serif;font-size:21px;margin:0 0 4px}
+.chk{display:flex;gap:8px;align-items:flex-start;font-size:13px;margin-top:14px}
+.chk input{width:18px;height:18px;margin-top:2px}
+details{font-size:12.5px;color:var(--soft);margin-top:6px}
+#thanks{display:none;text-align:center;padding:10px 0}
+footer{border-top:1px solid var(--line);padding:22px 0 36px;font-size:12px;color:var(--soft)}
+footer b{color:var(--navy)}
+footer a{color:var(--gold)}
+</style>
+</head>
+<body>
+<div class="wrap">
+<header><span class="tag">개인회생 · 파산</span><span class="brand">법무법인 재유</span></header>
+
+<section class="hero">
+  <h1>내 빚, 얼마까지<br>줄어들까?</h1>
+  <span class="pill">30초 확인</span>
+  <p>채무액과 소득만 입력하면 예상 월 변제금을 계산해 드립니다.</p>
+</section>
+
+<section class="card" id="calc">
+  <label>무담보 채무 총액 <small>(카드·대출 등)</small></label>
+  <div class="inp"><input id="debt" type="number" inputmode="numeric" min="0" placeholder="예: 5000"><span>만원</span></div>
+  <label>월 실수령 소득</label>
+  <div class="inp"><input id="income" type="number" inputmode="numeric" min="0" placeholder="예: 250"><span>만원</span></div>
+  <label>부양 가구원 수 <small>(본인 포함)</small></label>
+  <div class="inp"><select id="hh"><option value="1">1인</option><option value="2">2인</option><option value="3">3인</option><option value="4">4인</option><option value="5">5인</option><option value="6">6인</option></select></div>
+  <label>월세·추가 생계비 <small>(선택)</small></label>
+  <div class="inp"><input id="extra" type="number" inputmode="numeric" min="0" placeholder="0"><span>만원</span></div>
+  <div class="err" id="err">채무 총액과 월 소득을 입력해 주세요.</div>
+  <button class="btn" id="calcBtn">예상 변제금 확인하기</button>
+</section>
+
+<section class="card" id="result">
+  <h2>예상 결과</h2>
+  <div class="res-row big"><span>예상 월 변제금</span><b id="rMonthly">-</b></div>
+  <div class="res-row"><span>36개월 총 변제 예상액</span><b id="rTotal">-</b></div>
+  <div class="res-row"><span>예상 감면 비율</span><b id="rPct">-</b></div>
+  <div class="res-row"><span>적용 생계비 (월)</span><span id="rLiving">-</span></div>
+  <div class="note">※ 예상치이며 실제 변제금과 감면 여부는 재산·소득 및 법원 결정에 따라 달라집니다. 2026년 기준 중위소득 60%(보건복지부 고시)를 기본 생계비로 적용하고 변제기간 36개월로 단순 계산한 결과로, 재산(청산가치), 추가 생계비 인정 여부 등에 따라 달라질 수 있습니다.</div>
+</section>
+
+<section class="card" id="lead" style="display:none">
+  <h2>가능 여부 확인받기</h2>
+  <p style="font-size:14px;color:var(--soft);margin:0">회생전문 변호사가 개인회생 진행 가능 여부를 확인해 연락드립니다.</p>
+  <form id="leadForm" novalidate>
+    <label>이름</label>
+    <div class="inp"><input id="name" required autocomplete="name"></div>
+    <label>연락처</label>
+    <div class="inp"><input id="phone" type="tel" inputmode="tel" placeholder="010-0000-0000" required autocomplete="tel"></div>
+    <label>채무액</label>
+    <div class="inp"><input id="debt2" type="number" inputmode="numeric"><span>만원</span></div>
+    <div class="chk"><input type="checkbox" id="agree"><label for="agree" style="margin:0;font-weight:600">[필수] 개인정보 수집·이용에 동의합니다.</label></div>
+    <details><summary>자세히 보기</summary>
+      수집 항목: 이름, 연락처, 채무액 / 이용 목적: 개인회생·파산 상담 연락 / 보유 기간: 상담 종료 후 1년 (또는 동의 철회 시 즉시 파기). 동의를 거부할 수 있으나 거부 시 상담 신청이 제한됩니다. <!-- TODO: 법무법인 재유의 실제 개인정보처리방침에 맞게 수정 -->
+    </details>
+    <div class="err" id="err2"></div>
+    <button class="btn gold" type="submit">회생전문 변호사에게 가능 여부 확인받기</button>
+  </form>
+  <div id="thanks"><h2>신청이 접수되었습니다</h2><p style="color:var(--soft);font-size:14px">확인 후 기재하신 연락처로 연락드리겠습니다.</p></div>
+</section>
+
+<footer>
+  <b>법무법인 재유</b><br>
+  대표변호사 강명구 · 사업자등록번호 120-87-34450<br>
+  서울 서초구 서초대로46길 106, 4층<br>
+  <a href="http://jlawfirm.co.kr/" target="_blank" rel="noopener">jlawfirm.co.kr</a><br>
+  광고책임변호사: 유성우 변호사 <!-- TODO: 변호사 광고 규정에 따른 광고책임변호사 표기 -->
+  <p style="margin-top:10px">본 계산 결과는 참고용 예상치이며 법률 자문이 아닙니다.</p>
+</footer>
+</div>
+
+<script>
+/* ============================================================
+ * 폼 전송 설정 (PLACEHOLDER)
+ * FORM_ENDPOINT 에 실제 수신 주소(예: 구글 Apps Script, Zapier, 자체 서버, CRM 웹훅)를 넣으세요.
+ * 비어 있으면 서버 전송 없이 감사 메시지만 표시하고 console.log 로 데이터를 출력합니다.
+ * ============================================================ */
+const FORM_ENDPOINT = "https://script.google.com/macros/s/AKfycbwgSmFGlhFv6b-IS35KkaPaaL9dM7evxYj1h8A-EajrN6tUiyaq1-Zmmjty6qY1PcAB/exec"; // 예: "https://script.google.com/macros/s/XXXX/exec"
+
+/* 유입경로: URL의 utm_source / utm_campaign (첫 방문 시 sessionStorage에 저장) */
+function getSource(){
+  try{
+    const q=new URLSearchParams(location.search);
+    const src=q.get('utm_source'), cmp=q.get('utm_campaign');
+    if(src||cmp){ sessionStorage.setItem('hs_src',[src||'-',cmp||'-'].join(' / ')); }
+    return sessionStorage.getItem('hs_src') || (document.referrer ? 'referrer: '+document.referrer : '직접 방문');
+  }catch(e){ return ''; }
+}
+if (typeof location !== 'undefined') getSource();
+
+/* 2026년 개인회생 기본 생계비 = 2026년 기준 중위소득 × 60% (원/월)
+ * 출처: 보건복지부 고시 제2025-135호 「2026년 기준 중위소득」(2025.8.1 공표, 2026.1.1 시행)
+ *   기준 중위소득 100%: 1인 2,564,238 / 2인 4,199,292 / 3인 5,359,036 / 4인 6,494,738 / 5인 7,556,719 / 6인 8,555,952
+ * 60% 적용 근거: 채무자회생법 제579조, 서울회생법원 실무준칙 제405호
+ * 확인: https://www.ikhoss.com/personal-rehabilitation-minimum-living-cost/ ,
+ *       https://hoesaeng.manuz.com/living-cost (2026-10-29 확인)
+ * 2027년 1월부터는 2027년 고시 값으로 갱신 필요 */
+const LIVING_COST_2026 = {1:1538543, 2:2519575, 3:3215422, 4:3896843, 5:4534031, 6:5133571};
+const MONTHS = 36;
+
+function estimate(debtMan, incomeMan, hh, extraMan){
+  const debt = debtMan*10000, income = incomeMan*10000, extra = (extraMan||0)*10000;
+  const living = LIVING_COST_2026[hh] + extra;
+  const monthly = Math.max(0, income - living);
+  const total = monthly*MONTHS;
+  let pct = debt>0 ? 1 - total/debt : 0;
+  pct = Math.min(0.95, Math.max(0, pct));
+  return {living, monthly, total, pct};
+}
+if (typeof module !== 'undefined') { module.exports = {estimate, LIVING_COST_2026}; }
+
+if (typeof document !== 'undefined') {
+  const $ = id => document.getElementById(id);
+  const won = n => Math.round(n).toLocaleString('ko-KR') + '원';
+  $('calcBtn').addEventListener('click', () => {
+    const d = parseFloat($('debt').value), i = parseFloat($('income').value);
+    if (!(d>0) || !(i>=0) || isNaN(i)) { $('err').style.display='block'; return; }
+    $('err').style.display='none';
+    const r = estimate(d, i, +$('hh').value, parseFloat($('extra').value)||0);
+    $('rMonthly').textContent = won(r.monthly);
+    $('rTotal').textContent = won(r.total);
+    $('rPct').textContent = '약 ' + Math.round(r.pct*100) + '%';
+    $('rLiving').textContent = won(r.living);
+    $('result').style.display='block'; $('lead').style.display='block';
+    $('debt2').value = d;
+    $('result').scrollIntoView({behavior:'smooth'});
+  });
+  $('leadForm').addEventListener('submit', async e => {
+    e.preventDefault();
+    const name=$('name').value.trim(), phone=$('phone').value.trim();
+    const e2=$('err2');
+    if(!name||!/^0\d{1,2}-?\d{3,4}-?\d{4}$/.test(phone)){e2.textContent='이름과 올바른 연락처를 입력해 주세요.';e2.style.display='block';return;}
+    if(!$('agree').checked){e2.textContent='개인정보 수집·이용 동의가 필요합니다.';e2.style.display='block';return;}
+    e2.style.display='none';
+    const data={name,phone,debt_man:$('debt2').value,income_man:$('income').value,household:$('hh').value,
+      extra_man:$('extra').value||'0',result_monthly:$('rMonthly').textContent,result_pct:$('rPct').textContent,
+      agreed:true,source:getSource(),ts:new Date().toISOString()};
+    if (FORM_ENDPOINT) {
+      try {
+        // Apps Script 웹 앱은 CORS 응답을 주지 않으므로 no-cors + text/plain(JSON 문자열)로 전송 (응답 내용은 확인 불가)
+        await fetch(FORM_ENDPOINT,{method:'POST',mode:'no-cors',headers:{'Content-Type':'text/plain;charset=utf-8'},body:JSON.stringify(data)});
+      } catch(err){ e2.textContent='전송 중 오류가 발생했습니다. 잠시 후 다시 시도해 주세요.'; e2.style.display='block'; return; }
+    } else {
+      console.log('[PLACEHOLDER] FORM_ENDPOINT 미설정 - 리드 데이터:', data);
+    }
+    $('leadForm').style.display='none'; $('thanks').style.display='block';
+  });
+}
+</script>
+</body>
+</html>
