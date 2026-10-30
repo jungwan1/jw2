@@ -280,16 +280,19 @@ if (typeof document !== 'undefined') {
       asset_car:v('a_car')||'0',asset_savings:v('a_sav')||'0',asset_retire:v('a_ret')||'0',asset_other:v('a_oth')||'0',
       liquidation_value:Math.round(window._liq||0),
       agreed:true,source:getSource(),ts:new Date().toISOString()};
+    const body=JSON.stringify(data);
+    let sent=false;
     if (FORM_ENDPOINT) {
-      try {
-        // Apps Script 웹 앱은 CORS 응답을 주지 않으므로 no-cors + text/plain(JSON 문자열)로 전송 (응답 내용은 확인 불가)
-        await fetch(FORM_ENDPOINT,{method:'POST',mode:'no-cors',headers:{'Content-Type':'text/plain;charset=utf-8'},body:JSON.stringify(data)});
-      } catch(err){ $('calcBtn').disabled=false; e2.textContent='전송 중 오류가 발생했습니다. 잠시 후 다시 시도해 주세요.'; e2.style.display='block'; return; }
+      // 1순위 sendBeacon (응답 무관, 페이지 이동에도 전송 유지), 실패 시 no-cors fetch. 응답은 기다리지 않음.
+      try { sent = !!(navigator.sendBeacon && navigator.sendBeacon(FORM_ENDPOINT, new Blob([body],{type:'text/plain;charset=utf-8'}))); } catch(_){ sent=false; }
+      if (!sent) { try { fetch(FORM_ENDPOINT,{method:'POST',mode:'no-cors',keepalive:true,headers:{'Content-Type':'text/plain;charset=utf-8'},body}).catch(function(){}); } catch(_){} }
     } else {
       console.log('[PLACEHOLDER] FORM_ENDPOINT 미설정 - 리드 데이터:', data);
     }
-    $('calcBtn').disabled=false; $('result').style.display='block';
-    $('result').scrollIntoView({behavior:'smooth'});
+    // 전송 결과(opaque/오류)와 관계없이 결과 표시
+    $('calcBtn').disabled=false;
+    const res=$('result'); res.style.display='block'; res.removeAttribute('hidden');
+    setTimeout(function(){ try{ res.scrollIntoView({behavior:'smooth',block:'start'}); }catch(_){ res.scrollIntoView(); } }, 50);
   });
 }
 </script>
