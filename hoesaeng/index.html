@@ -129,7 +129,24 @@ footer a{color:var(--gold);text-decoration:none}
     <div class="inp"><input id="a_oth" class="money" type="text" inputmode="numeric" autocomplete="off" placeholder="0"><span>만원</span></div>
   </details>
   <div class="err" id="err">채무 총액과 월 소득을 입력해 주세요.</div>
-  <button class="btn" id="calcBtn">예상 변제금 확인하기</button>
+  <button class="btn" id="calcBtn">내 변제금 결과 보기</button>
+</section>
+
+<section class="card" id="lead" style="display:none">
+  <div class="sec-t cta-h">결과 확인과 상담 안내를 위해<br>연락처를 남겨 주세요</div><span class="orn"></span>
+  <p class="sec-s">계산 결과를 바탕으로 <em>회생전문 변호사</em>가 월 변제금을 줄일 수 있는 방법을 검토해 연락드립니다.</p>
+  <form id="leadForm" novalidate>
+    <label>이름</label>
+    <div class="inp"><input id="name" required autocomplete="name"></div>
+    <label>연락처</label>
+    <div class="inp"><input id="phone" type="tel" inputmode="tel" placeholder="010-0000-0000" required autocomplete="tel"></div>
+    <div class="chk"><input type="checkbox" id="agree"><label for="agree" style="margin:0;font-weight:500">[필수] 개인정보 수집·이용에 동의합니다.</label></div>
+    <details><summary>자세히 보기</summary>
+      수집 항목: 이름, 연락처, 입력한 채무·소득·재산 정보 / 이용 목적: 계산 결과 안내 및 개인회생·파산 상담 연락 / 보유 기간: 상담 종료 후 1년 (또는 동의 철회 시 즉시 파기). 동의를 거부할 수 있으나 거부 시 계산 결과 확인 및 상담 연락이 제한됩니다. <!-- TODO: 법무법인 재유의 실제 개인정보처리방침에 맞게 수정 -->
+    </details>
+    <div class="err" id="err2"></div>
+    <button class="btn gold" type="submit" id="gateBtn">결과 보기</button>
+  </form>
 </section>
 
 <section class="card" id="result">
@@ -148,28 +165,10 @@ footer a{color:var(--gold);text-decoration:none}
   <div class="res-row"><span>재산(청산가치) 반영액</span><span id="rLiq">-</span></div>
   <div class="liqnote" id="liqNote" style="display:none">재산 기준으로 변제금이 상향됐어요</div>
   <div class="res-row"><span>적용 생계비 (월)</span><span id="rLiving">-</span></div>
+  <p id="contactLine" style="text-align:center;margin:18px 0 4px;color:var(--goldl);font-family:var(--serif);font-size:15px">회생전문 변호사가 확인 후 연락드립니다.</p>
   <div class="note">※ 예상치이며 실제 변제금과 감면 여부는 재산·소득 및 법원 결정에 따라 달라집니다. 2026년 기준 중위소득 60%(보건복지부 고시)를 기본 생계비로 적용하고 변제기간 36개월로 단순 계산한 결과로, 재산(청산가치), 추가 생계비 인정 여부 등에 따라 달라질 수 있습니다. 청산가치는 담보대출 공제, 임차보증금 1,000만원 공제(소액임차인 최우선변제, 지역별 상이), 압류금지 예금 185만원 공제, 퇴직금 50%만 반영한 단순 계산이며, 실제 금액은 법원의 재산 평가에 따라 달라집니다.</div>
 </section>
 
-<section class="card" id="lead" style="display:none">
-  <div class="sec-t cta-h">월 변제금을 줄일 수 있는 방법,<br><em>회생전문 변호사</em>가 알려드립니다.</div><span class="orn"></span>
-  <p class="sec-s">계산 결과를 바탕으로 회생전문 변호사가 변제 계획을 검토해 연락드립니다.</p>
-  <form id="leadForm" novalidate>
-    <label>이름</label>
-    <div class="inp"><input id="name" required autocomplete="name"></div>
-    <label>연락처</label>
-    <div class="inp"><input id="phone" type="tel" inputmode="tel" placeholder="010-0000-0000" required autocomplete="tel"></div>
-    <label>채무액</label>
-    <div class="inp"><input id="debt2" class="money" type="text" inputmode="numeric" autocomplete="off"><span>만원</span></div>
-    <div class="chk"><input type="checkbox" id="agree"><label for="agree" style="margin:0;font-weight:500">[필수] 개인정보 수집·이용에 동의합니다.</label></div>
-    <details><summary>자세히 보기</summary>
-      수집 항목: 이름, 연락처, 채무액 / 이용 목적: 개인회생·파산 상담 연락 / 보유 기간: 상담 종료 후 1년 (또는 동의 철회 시 즉시 파기). 동의를 거부할 수 있으나 거부 시 상담 신청이 제한됩니다. <!-- TODO: 법무법인 재유의 실제 개인정보처리방침에 맞게 수정 -->
-    </details>
-    <div class="err" id="err2"></div>
-    <button class="btn gold" type="submit">변제금 절감 상담 신청</button>
-  </form>
-  <div id="thanks"><h2>신청이 접수되었습니다</h2><p style="color:var(--soft);font-size:14px">확인 후 기재하신 연락처로 연락드리겠습니다.</p></div>
-</section>
 
 <section class="lawyer"><span class="orn"></span><div class="t">회생전문 변호사</div><div class="s">20년 경력의 법무법인 재유</div></section>
 
@@ -276,18 +275,19 @@ if (typeof document !== 'undefined') {
       $('rPct').textContent = '약 ' + Math.round(r.pct*100) + '%';
     }
     $('rLiving').textContent = won(r.living);
-    $('result').style.display='block'; $('lead').style.display='block';
-    $('debt2').value = d; fmtEl($('debt2'));
-    $('result').scrollIntoView({behavior:'smooth'});
+    $('result').style.display='none'; $('lead').style.display='block';
+    $('leadForm').style.display='';
+    $('lead').scrollIntoView({behavior:'smooth'});
   });
   $('leadForm').addEventListener('submit', async e => {
     e.preventDefault();
     const name=$('name').value.trim(), phone=$('phone').value.trim();
     const e2=$('err2');
-    if(!name||!/^0\d{1,2}-?\d{3,4}-?\d{4}$/.test(phone)){e2.textContent='이름과 올바른 연락처를 입력해 주세요.';e2.style.display='block';return;}
+    if(!name){e2.textContent='이름을 입력해 주세요.';e2.style.display='block';return;}
+    if(!/^01[016789]-?\d{3,4}-?\d{4}$/.test(phone.replace(/\s/g,''))){e2.textContent='휴대폰 번호를 정확히 입력해 주세요. (예: 010-1234-5678)';e2.style.display='block';return;}
     if(!$('agree').checked){e2.textContent='개인정보 수집·이용 동의가 필요합니다.';e2.style.display='block';return;}
-    e2.style.display='none';
-    const data={name,phone,debt_man:v('debt2'),income_man:v('income'),household:$('hh').value,
+    e2.style.display='none'; $('gateBtn').disabled=true;
+    const data={name,phone,debt_man:v('debt'),income_man:v('income'),household:$('hh').value,
       extra_man:v('extra')||'0',result_monthly:$('rMonthly').textContent,result_pct:$('rPct').textContent,
       asset_realestate:v('a_re')||'0',asset_mortgage:v('a_mort')||'0',asset_deposit:v('a_dep')||'0',
       asset_car:v('a_car')||'0',asset_savings:v('a_sav')||'0',asset_retire:v('a_ret')||'0',asset_other:v('a_oth')||'0',
@@ -297,11 +297,12 @@ if (typeof document !== 'undefined') {
       try {
         // Apps Script 웹 앱은 CORS 응답을 주지 않으므로 no-cors + text/plain(JSON 문자열)로 전송 (응답 내용은 확인 불가)
         await fetch(FORM_ENDPOINT,{method:'POST',mode:'no-cors',headers:{'Content-Type':'text/plain;charset=utf-8'},body:JSON.stringify(data)});
-      } catch(err){ e2.textContent='전송 중 오류가 발생했습니다. 잠시 후 다시 시도해 주세요.'; e2.style.display='block'; return; }
+      } catch(err){ $('gateBtn').disabled=false; e2.textContent='전송 중 오류가 발생했습니다. 잠시 후 다시 시도해 주세요.'; e2.style.display='block'; return; }
     } else {
       console.log('[PLACEHOLDER] FORM_ENDPOINT 미설정 - 리드 데이터:', data);
     }
-    $('leadForm').style.display='none'; $('thanks').style.display='block';
+    $('gateBtn').disabled=false; $('lead').style.display='none'; $('result').style.display='block';
+    $('result').scrollIntoView({behavior:'smooth'});
   });
 }
 </script>
