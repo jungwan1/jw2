@@ -15,3 +15,5 @@ a.btn:hover{box-shadow:0 6px 14px #d96f3240}a.btn:active{transform:scale(.98);bo
 a.btn{background:#d96f32!important;color:#fff!important;border:none!important;box-shadow:0 4px 0 #a9471a,0 6px 12px #0002!important}
 a.btn::after{color:#fff!important}
 a.btn:active{transform:translateY(3px)!important;box-shadow:0 1px 0 #a9471a!important}
+
+td .ko{display:block;font-size:12px;color:#999;font-weight:400;font-family:"Noto Sans KR",sans-serif;white-space:normal}
