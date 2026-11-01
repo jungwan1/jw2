@@ -77,6 +77,6 @@ async def main(date):
     for _,mp,p in jobs: subprocess.run(["ffmpeg","-v","error","-i",mp,"-ar","24000","-ac","1",p],check=True)
     open(f"{tmp}/l.txt","w").write("".join(f"file '{f}'\n" for f in files))
     out=os.path.join(ROOT,"audio",f"lecture-{date}.mp3")
-    subprocess.run(["ffmpeg","-y","-v","error","-f","concat","-safe","0","-i",f"{tmp}/l.txt","-ac","1","-b:a","64k",out],check=True)
+    subprocess.run(["ffmpeg","-y","-v","error","-f","concat","-safe","0","-i",f"{tmp}/l.txt","-ac","1","-b:a","32k",out],check=True)
     print(out,len(words),"words")
 asyncio.run(main(sys.argv[1]))
