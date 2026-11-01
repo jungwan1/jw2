@@ -12,3 +12,6 @@ table.vt th,table.vt td{border:1px solid #e8d2bc;padding:8px 10px;text-align:lef
 a.btn{position:relative;background:linear-gradient(180deg,#fff,#fff4e8);border:2px solid #f0c9a4;border-radius:16px;padding:16px 40px 16px 16px;box-shadow:0 4px 10px #d96f3226;transition:transform .1s,box-shadow .1s}
 a.btn::after{content:"›";position:absolute;right:16px;top:50%;transform:translateY(-50%);font-size:28px;color:#d96f32}
 a.btn:hover{box-shadow:0 6px 14px #d96f3240}a.btn:active{transform:scale(.98);box-shadow:0 2px 4px #d96f3233}
+a.btn{background:#d96f32!important;color:#fff!important;border:none!important;box-shadow:0 4px 0 #a9471a,0 6px 12px #0002!important}
+a.btn::after{color:#fff!important}
+a.btn:active{transform:translateY(3px)!important;box-shadow:0 1px 0 #a9471a!important}
