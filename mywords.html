@@ -1,0 +1,35 @@
+<!DOCTYPE html><html lang="ko"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta http-equiv="Cache-Control" content="no-cache"><title>📒 내 단어장</title>
+<link href="https://fonts.googleapis.com/css2?family=PT+Sans&display=swap" rel="stylesheet">
+<script>
+// 새 단어는 맨 위에 추가: {d:"날짜", ru:"러시아어", ko:"뜻", ex:"예문", exko:"예문 뜻"}
+const WORDS=[
+{d:"2026-11-01",ru:"сотру́дник",ko:"직원",ex:"У меня́ пять сотру́дников.",exko:"직원이 다섯 명 있어요."},
+{d:"2026-11-01",ru:"продава́ть",ko:"팔다 (я продаю́, вы продаёте)",ex:"Вы продаёте маши́ны?",exko:"기계를 파세요?"},
+{d:"2026-11-01",ru:"в сфе́ре",ko:"~분야에서",ex:"Я рабо́таю в сфе́ре у́мных ферм.",exko:"스마트팜 분야에서 일해요."},
+{d:"2026-11-01",ru:"рабо́тать в + 장소",ko:"~에서 일하다",ex:"Я рабо́таю в компа́нии.",exko:"회사에서 일해요."},
+{d:"2026-11-01",ru:"Кем вы рабо́таете?",ko:"직업이 뭐예요?",ex:"Кем вы рабо́таете? — Я дире́ктор.",exko:"직업이 뭐예요? — 사장이에요."},
+{d:"2026-11-01",ru:"счёт",ko:"계산서 (биле́т '표'와 헷갈림)",ex:"Счёт, пожа́луйста.",exko:"계산서 주세요."},
+{d:"2026-10-31",ru:"посове́товать",ko:"추천하다",ex:"Что вы мо́жете посове́товать?",exko:"뭘 추천해 주실 수 있어요?"},
+{d:"2026-10-31",ru:"до́лго / дорого́й",ko:"오래 / 비싼",ex:"Я до́лго ждал. Э́то дорого́й рестора́н.",exko:"오래 기다렸어요. 여기는 비싼 식당이에요."},
+{d:"2026-10-31",ru:"ждать (жду)",ko:"기다리다",ex:"Я жду дру́га.",exko:"친구를 기다려요."},
+{d:"2026-10-31",ru:"дое́хать до",ko:"(타고) ~까지 가다",ex:"Как дое́хать до гости́ницы?",exko:"호텔까지 어떻게 가요?"},
+{d:"2026-10-31",ru:"Спаси́бо за + 명사",ko:"~에 감사해요",ex:"Спаси́бо за по́мощь.",exko:"도와줘서 고마워요."},
+{d:"2026-10-31",ru:"кото́рый",ko:"~하는 (관계대명사)",ex:"Э́то друг, кото́рый живёт в Москве́.",exko:"모스크바에 사는 친구예요."},
+{d:"2026-10-31",ru:"гото́вить",ko:"요리하다",ex:"Я гото́влю у́жин.",exko:"저녁을 요리해요."},
+{d:"2026-10-31",ru:"нахо́дится",ko:"위치해 있다",ex:"Где нахо́дится метро́?",exko:"지하철역이 어디 있어요?"},
+{d:"2026-10-31",ru:"почему́-то",ko:"왠지",ex:"Почему́-то я уста́л.",exko:"왠지 피곤해요."},
+{d:"2026-10-31",ru:"ла́дить с",ko:"~와 잘 지내다",ex:"Я ла́жу с колле́гами.",exko:"동료들과 잘 지내요."},
+{d:"2026-10-31",ru:"обстано́вка",ko:"분위기, 환경",ex:"Здесь хоро́шая обстано́вка.",exko:"여기 분위기가 좋아요."},
+];
+</script>
+<style>body{margin:0;font-family:-apple-system,"Noto Sans KR",sans-serif;background:linear-gradient(180deg,#fff7ed,#ffedd5);color:#2d2118}.wrap{max-width:560px;margin:0 auto;padding:24px 16px 60px}a.home{display:inline-block;color:#d96f32;text-decoration:none;font-weight:700;margin-bottom:8px}h1{font-size:26px;margin:6px 0 18px}h2{font-size:15px;color:#8a6a52;margin:26px 0 10px;border-bottom:1px solid #f0d5bd;padding-bottom:4px}
+.c{background:#fff;border-radius:14px;padding:14px 16px;margin:10px 0;box-shadow:0 2px 8px #0001}.ru{font-family:"PT Sans",sans-serif;font-weight:400;cursor:pointer;color:#1f3f7a}.w{font-size:22px}.ko{font-size:13px;color:#888;margin-top:2px}.ex{margin-top:10px;font-size:16px}.exko{font-size:12px;color:#999}</style></head>
+<body><div class="wrap"><a class="home" href="index.html">‹ 메인</a><h1>📒 내 단어장</h1><div id="list"></div>
+<p style="font-size:12px;color:#aaa">러시아어를 누르면 소리가 나와요.</p></div>
+<script src="grammar/tts.js"></script>
+<script>
+const g={};WORDS.forEach(w=>(g[w.d]=g[w.d]||[]).push(w));
+const esc=s=>s.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/"/g,'&quot;');
+document.getElementById('list').innerHTML=Object.keys(g).sort().reverse().map(d=>'<h2>'+d+'</h2>'+g[d].map(w=>
+'<div class="c"><div class="ru w" data-s="'+esc(w.ru.replace(/\+.*$/,''))+'">'+esc(w.ru)+'</div><div class="ko">'+esc(w.ko)+'</div><div class="ex"><span class="ru">'+esc(w.ex)+'</span><div class="exko">'+esc(w.exko)+'</div></div></div>').join('')).join('');
+</script></body></html>
