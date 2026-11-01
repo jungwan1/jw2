@@ -3,6 +3,12 @@
 <script>
 // 새 단어는 맨 위에 추가: {d:"날짜", ru:"러시아어", ko:"뜻", ex:"예문", exko:"예문 뜻"}
 const WORDS=[
+{d:"2026-11-01",ru:"э́ти",ko:"이것들 (여러 개)",ex:"Э́ти маши́ны о́чень больши́е.",exko:"이 기계들은 아주 커요."},
+{d:"2026-11-01",ru:"собра́ние",ko:"회의",ex:"У меня́ собра́ние с сотру́дниками.",exko:"직원들과 회의가 있어요."},
+{d:"2026-11-01",ru:"до́рого",ko:"비싸다",ex:"Э́то о́чень до́рого.",exko:"이건 아주 비싸요."},
+{d:"2026-11-01",ru:"миллио́н",ko:"백만",ex:"сто миллио́нов вон",exko:"1억 원"},
+{d:"2026-11-01",ru:"ты́сяча",ko:"천",ex:"де́сять ты́сяч, сто ты́сяч",exko:"1만, 10만"},
+{d:"2026-11-01",ru:"рубль",ko:"루블 (러시아 돈)",ex:"1 рубль, 2 рубля́, 5 рубле́й",exko:"1루블, 2루블, 5루블"},
 {d:"2026-11-01",ru:"сотру́дник",ko:"직원",ex:"У меня́ пять сотру́дников.",exko:"직원이 다섯 명 있어요."},
 {d:"2026-11-01",ru:"продава́ть",ko:"팔다 (я продаю́, вы продаёте)",ex:"Вы продаёте маши́ны?",exko:"기계를 파세요?"},
 {d:"2026-11-01",ru:"в сфе́ре",ko:"~분야에서",ex:"Я рабо́таю в сфе́ре у́мных ферм.",exko:"스마트팜 분야에서 일해요."},
@@ -23,13 +29,14 @@ const WORDS=[
 ];
 </script>
 <style>body{margin:0;font-family:-apple-system,"Noto Sans KR",sans-serif;background:linear-gradient(180deg,#fff7ed,#ffedd5);color:#2d2118}.wrap{max-width:560px;margin:0 auto;padding:24px 16px 60px}a.home{display:inline-block;color:#d96f32;text-decoration:none;font-weight:700;margin-bottom:8px}h1{font-size:26px;margin:6px 0 18px}h2{font-size:15px;color:#8a6a52;margin:26px 0 10px;border-bottom:1px solid #f0d5bd;padding-bottom:4px}
-.c{background:#fff;border-radius:14px;padding:14px 16px;margin:10px 0;box-shadow:0 2px 8px #0001}.ru{font-family:"PT Sans",sans-serif;font-weight:400;cursor:pointer;color:#1f3f7a}.w{font-size:22px}.ko{font-size:13px;color:#888;margin-top:2px}.ex{margin-top:10px;font-size:16px}.exko{font-size:12px;color:#999}</style></head>
+.c{background:#fff;border-radius:14px;padding:14px 16px;margin:10px 0;box-shadow:0 2px 8px #0001}.ru{font-family:"PT Sans",sans-serif;font-weight:400;cursor:pointer;color:#1f3f7a}.w{font-size:22px}.ko{font-size:13px;color:#888;margin-top:2px}.ex{margin-top:10px;font-size:16px}.exko{font-size:12px;color:#999}.db{display:flex;align-items:center;width:100%;box-sizing:border-box;text-align:left;background:#fff;border:2px solid #f0b48a;border-radius:16px;padding:14px 18px;margin:12px 0;box-shadow:0 4px 0 #e8a06e,0 6px 14px #0001;cursor:pointer;font:inherit;color:inherit}.db:active{transform:translateY(3px);box-shadow:0 1px 0 #e8a06e}.db .t{flex:1}.db b{font-size:18px}.db small{display:block;font-family:"PT Sans",sans-serif;font-size:13px;color:#999;margin-top:4px}.db .ar{font-size:26px;color:#d96f32;transition:transform .2s}.db.open .ar{transform:rotate(90deg)}.box{display:none;margin-bottom:18px}.box.open{display:block}</style></head>
 <body><div class="wrap"><a class="home" href="index.html">‹ 메인</a><h1>📒 내 단어장</h1><div id="list"></div>
 <p style="font-size:12px;color:#aaa">러시아어를 누르면 소리가 나와요.</p></div>
 <script src="grammar/tts.js"></script>
 <script>
 const g={};WORDS.forEach(w=>(g[w.d]=g[w.d]||[]).push(w));
 const esc=s=>s.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/"/g,'&quot;');
-document.getElementById('list').innerHTML=Object.keys(g).sort().reverse().map(d=>'<h2>'+d+'</h2>'+g[d].map(w=>
-'<div class="c"><div class="ru w" data-s="'+esc(w.ru.replace(/\+.*$/,''))+'">'+esc(w.ru)+'</div><div class="ko">'+esc(w.ko)+'</div><div class="ex"><span class="ru">'+esc(w.ex)+'</span><div class="exko">'+esc(w.exko)+'</div></div></div>').join('')).join('');
+const card=w=>'<div class="c"><div class="ru w" data-s="'+esc(w.ru.replace(/\+.*$/,''))+'">'+esc(w.ru)+'</div><div class="ko">'+esc(w.ko)+'</div><div class="ex"><span class="ru">'+esc(w.ex)+'</span><div class="exko">'+esc(w.exko)+'</div></div></div>';
+const main=d=>{const m=g[d].filter(w=>!/[+?]/.test(w.ru)).slice(0,4).map(w=>w.ru.replace(/ \(.*$/,''));return m.join(' · ');};
+document.getElementById('list').innerHTML=Object.keys(g).sort().reverse().map(d=>'<button class="db" onclick="this.classList.toggle(\'open\');this.nextElementSibling.classList.toggle(\'open\')"><span class="t"><b>'+d+'</b> <span style="font-size:13px;color:#b9a08a">'+g[d].length+'개</span><small>'+esc(main(d))+'</small></span><span class="ar">›</span></button><div class="box">'+g[d].map(card).join('')+'</div>').join('');
 </script></body></html>
