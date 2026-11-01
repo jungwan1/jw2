@@ -1,0 +1,4 @@
+(function(){let v=null;function pick(){const vs=speechSynthesis.getVoices().filter(x=>/^ru/i.test(x.lang));const male=/yuri|pavel|maxim|dmitr|male|муж/i;const fem=/milena|irina|alena|svetlana|katya|female|жен|google/i;v=vs.find(x=>fem.test(x.name)&&!male.test(x.name))||vs.find(x=>!male.test(x.name))||vs[0]||null}
+if('speechSynthesis'in window){pick();speechSynthesis.onvoiceschanged=pick}
+window.say=function(t){if(!('speechSynthesis'in window))return;speechSynthesis.cancel();const u=new SpeechSynthesisUtterance(t.replace(/\u0301/g,''));u.lang='ru-RU';u.rate=0.9;if(v)u.voice=v;speechSynthesis.speak(u)};
+document.addEventListener('click',e=>{const d=e.target.closest('.dr');if(d){d.classList.add('show');say(d.dataset.a);return}const r=e.target.closest('.ru');if(r)say(r.dataset.s||r.textContent)});})();
