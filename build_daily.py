@@ -1,3 +1,4 @@
+import json
 # Usage: python3 build_daily.py  -> extracts today's daily text from jw1.html into daily.html
 import re
 src=open('/workspace/watchtower-violetta-gleb-preview/jw1.html',encoding='utf-8').read()
@@ -26,6 +27,7 @@ h1{{font-size:26px;margin:18px 0 6px}}.date{{color:#b3541e;font-weight:700;margi
 <script>
 {ru}
 {gr}
+const DAILY_KO0={json.dumps(ko,ensure_ascii=False)};
 const clean=s=>s.normalize('NFD').replace(/\\u0301/g,'').normalize('NFC');
 let ruVoices=[];function lv(){{ruVoices=speechSynthesis.getVoices().filter(v=>/^ru/i.test(v.lang));}}
 if('speechSynthesis' in window){{lv();speechSynthesis.onvoiceschanged=lv;}}
@@ -33,7 +35,7 @@ function sp(i,el){{if(!('speechSynthesis' in window))return;speechSynthesis.canc
 const f=ruVoices.find(v=>/milena|svetlana|dariya|daria|irina|anna|ekaterina|female|google/i.test(v.name)&&!/\bmale|dmitri|yuri|pavel|maxim/i.test(v.name));if(f){{u.voice=f;u.pitch=1;}}else{{if(ruVoices[0])u.voice=ruVoices[0];u.pitch=1.3;}}
 document.querySelectorAll('.ru.playing').forEach(e=>e.classList.remove('playing'));el.classList.add('playing');u.onend=u.onerror=()=>el.classList.remove('playing');speechSynthesis.speak(u);
 const g=document.getElementById('g'+i);g.style.display=g.style.display==='none'?'block':'none';}}
-document.getElementById('body').innerHTML=DAILY_RU.map((s,i)=>`<div class="sent"><span class="ru" onclick="sp(${{i}},this)">${{s}}</span><div class="gSec" id="g${{i}}" style="display:none"><ul>${{DAILY_GRAMMAR[i].map(b=>`<li>${{b}}</li>`).join('')}}</ul></div></div>`).join('');
+document.getElementById('body').innerHTML=DAILY_RU.map((s,i)=>`<div class="sent"><span class="ru" onclick="sp(${{i}},this)">${{s}}</span><div class="gSec" id="g${{i}}" style="display:none"><ul>${{(i===0&&DAILY_KO0?`<li><b>한국어:</b> ${{DAILY_KO0}}</li>`:'')}}${{DAILY_GRAMMAR[i].map(b=>`<li>${{b}}</li>`).join('')}}</ul></div></div>`).join('');
 </script></body></html>'''
 open('/workspace/russian/daily.html','w',encoding='utf-8').write(html)
 print('ok',date)
