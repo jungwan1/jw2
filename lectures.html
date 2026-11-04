@@ -1,0 +1,29 @@
+<!DOCTYPE html><html lang="ko"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>강의 듣기</title>
+<style>body{margin:0;font-family:-apple-system,"Noto Sans KR",sans-serif;background:#fff7ed;color:#2d2118}.wrap{max-width:680px;margin:0 auto;padding:14px 12px 60px}a{color:#b84a1f}h1{font-size:22px;margin:8px 0}
+.pb{position:sticky;top:0;background:#fff7ed;padding:8px 0;z-index:2}audio{width:100%}.now{font-weight:700;color:#b84a1f;margin:4px 0 8px}
+.md{display:flex;gap:8px;flex-wrap:wrap;margin:8px 0}button{background:#fff;color:#b84a1f;border:2px solid #f0c9a4;border-radius:999px;padding:10px 14px;font-size:15px;font-weight:700}button.a{background:#d96f32;color:#fff;border-color:#d96f32}
+.it{display:flex;justify-content:space-between;align-items:center;width:100%;text-align:left;border-radius:14px;margin:8px 0;padding:16px;background:#fff;box-shadow:0 4px 10px #d96f3226}.it.on{border-color:#d96f32;background:#fdebd7}</style></head>
+<body><div class="wrap"><a href="index.html?v=6">← 메인</a><h1>🎧 강의 듣기</h1>
+<div class="pb"><div class="now" id="now">강의를 고르세요</div><audio id="au" controls preload="none"></audio>
+<div class="md"><button id="pp" class="a">▶ 재생</button><button id="m1" class="a">연속 듣기</button><button id="m2">한 강의 반복</button></div>
+<div class="md" id="sp"></div></div>
+<div id="list"></div></div>
+<script>
+// 새 강의는 맨 앞에 날짜 추가 (최신순)
+const AUD=['2026-11-04','2026-11-03','2026-11-02','2026-11-01','2026-10-31'];
+const au=document.getElementById('au'),pp=document.getElementById('pp'),m1=document.getElementById('m1'),m2=document.getElementById('m2');
+let cur=-1,mode='all',rate=1;
+const list=document.getElementById('list');
+list.innerHTML=AUD.map((d,i)=>'<button class="it" data-i="'+i+'"><span>'+d+' 강의</span><span>▶</span></button>').join('');
+const items=[...list.querySelectorAll('.it')];
+function load(i,play){cur=i;au.src='audio/lecture-'+AUD[i]+'.mp3?v=1';au.playbackRate=rate;items.forEach((b,j)=>b.classList.toggle('on',j===i));document.getElementById('now').textContent='지금: '+AUD[i]+' 강의';if(play)au.play().catch(()=>{});}
+items.forEach(b=>b.onclick=()=>load(+b.dataset.i,true));
+pp.onclick=()=>{if(cur<0){load(0,true);return}if(au.paused)au.play().catch(()=>{});else au.pause()};
+au.onplay=()=>pp.textContent='⏸ 일시정지';au.onpause=()=>pp.textContent='▶ 재생';
+au.onloadedmetadata=()=>au.playbackRate=rate;
+function setMode(m){mode=m;au.loop=(m==='one');m1.classList.toggle('a',m==='all');m2.classList.toggle('a',m==='one')}
+m1.onclick=()=>setMode('all');m2.onclick=()=>setMode('one');
+au.onended=()=>{if(mode==='all'&&cur+1<AUD.length)load(cur+1,true)};
+const sp=document.getElementById('sp');sp.innerHTML=[0.85,1,1.2].map(r=>'<button'+(r==1?' class="a"':'')+' data-r="'+r+'">'+r+'×</button>').join('');
+sp.querySelectorAll('button').forEach(b=>b.onclick=()=>{rate=+b.dataset.r;au.playbackRate=rate;sp.querySelectorAll('button').forEach(x=>x.classList.toggle('a',x===b))});
+</script></body></html>
