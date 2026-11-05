@@ -24,14 +24,15 @@ a.b.main::after{color:#fff}
 .foot{margin-top:40px;font-family:"Playfair Display",serif;font-style:italic;color:var(--mute);font-size:13px;letter-spacing:.08em}
 a.b.wt{border:1.5px solid var(--gold);font-weight:700;font-size:21px}a.b.wt .wk{display:block;font-family:"Noto Sans KR",sans-serif;font-weight:400;font-size:13px;color:var(--mute);margin-top:6px}</style></head>
 <body><div class="wrap">
-<div class="mono">Г</div>
+<div class="mono" id="mk" style="-webkit-tap-highlight-color:transparent;user-select:none;-webkit-user-select:none">Г</div>
 
 <div class="orn">✦</div>
 <a class="b wt" href="watchtower.html">이번 주 파수대<span class="wk">11월 2일–8일 연구 기사</span></a>
 <a class="b main" href="daily.html?v=23">일용할 성구</a>
-<div class="row"><a class="b" href="review/index.html?v=10">배운 내용 복습</a>
+<div class="row" id="hx" style="display:none"><a class="b" href="review/index.html?v=10">배운 내용 복습</a>
 <a class="b" href="lectures.html?v=1">강의 듣기</a></div>
 <div class="row"><a class="b" href="grammar/index.html">파워 러시아어 문법</a>
 <a class="b" href="words/index.html">문법 제대로 알기</a></div>
 <div class="foot">Шаг за шагом · 한 걸음씩</div>
-</div></body></html>
+</div><script>document.getElementById("mk").addEventListener("click",function(){var r=document.getElementById("hx");r.style.display=r.style.display==="none"?"":"none";});</script>
+</body></html>
