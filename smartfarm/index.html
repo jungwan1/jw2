@@ -1,0 +1,265 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>스마트팜 피해 상담 | 법무법인 재유</title>
+<meta name="description" content="스마트팜 사기·계약 피해, 방치하지 마세요. 피해 내용을 남겨 주시면 변호사가 확인 후 연락드립니다. 법무법인 재유.">
+<meta name="theme-color" content="#fbf8f1">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Gothic+A1:wght@300;400;500;600;700&family=Noto+Serif+KR:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--navy:#14254f;--navy2:#0c1838;--gold:#a8853f;--gold2:#c9a962;--goldl:#e8d6a8;--ivory:#fbf8f1;--paper:#fffdf8;--line:#e6dcc6;--soft:#5d6680;--serif:'Noto Serif KR',serif}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;font-family:'Gothic A1',sans-serif;font-weight:400;background:var(--ivory);color:var(--navy);line-height:1.65;letter-spacing:-.01em;-webkit-font-smoothing:antialiased}
+.wrap{max-width:520px;margin:0 auto;padding:0 22px}
+header{position:relative;z-index:2;max-width:520px;margin:0 auto;padding:20px 22px 0;display:flex;justify-content:space-between;align-items:center}
+header .tag{color:var(--gold);font-weight:600;font-size:12.5px;letter-spacing:.12em}
+header .brand{font-family:var(--serif);font-weight:600;font-size:16px;letter-spacing:.06em}
+header::after{content:"";position:absolute;left:22px;right:22px;bottom:-14px;height:1px;background:linear-gradient(90deg,transparent,var(--gold2),transparent)}
+.hero{position:relative;text-align:center;padding:56px 0 36px}
+.eyebrow{font-size:12px;letter-spacing:.28em;color:var(--gold);font-weight:600;margin-bottom:16px}
+.hero h1{font-family:var(--serif);font-weight:700;font-size:28px;line-height:1.4;margin:0 0 16px;letter-spacing:-.02em;word-break:keep-all}
+.hero p{color:var(--soft);font-size:14.5px;margin:0;word-break:keep-all}
+.types{display:grid;gap:10px;margin:8px 0 22px}
+.type{background:var(--paper);border:1px solid var(--line);border-radius:4px;padding:14px 16px;position:relative;box-shadow:0 1px 2px rgba(20,37,79,.03)}
+.type::before{content:"";position:absolute;inset:4px;border:1px solid rgba(201,169,98,.22);border-radius:2px;pointer-events:none}
+.type b{display:block;font-family:var(--serif);font-weight:600;font-size:14.5px;color:var(--navy);margin-bottom:2px}
+.type span{font-size:12.5px;color:var(--soft)}
+.type .n{display:inline-block;font-family:var(--serif);color:var(--gold);font-size:12px;letter-spacing:.08em;margin-bottom:4px}
+.card{position:relative;background:var(--paper);border:1px solid var(--line);border-radius:4px;padding:30px 22px 26px;margin:0 0 22px;box-shadow:0 1px 2px rgba(20,37,79,.04),0 18px 40px -18px rgba(20,37,79,.18)}
+.card::before{content:"";position:absolute;inset:5px;border:1px solid rgba(201,169,98,.28);border-radius:2px;pointer-events:none}
+.sec-t{font-family:var(--serif);font-weight:600;font-size:21px;margin:0 0 4px;text-align:center}
+.sec-s{text-align:center;font-size:13px;color:var(--soft);margin:0 0 8px;word-break:keep-all}
+.orn{display:block;width:44px;height:1px;background:var(--gold2);margin:12px auto 18px}
+label{display:block;font-weight:600;font-size:13.5px;margin:16px 0 7px;letter-spacing:.01em}
+label small{font-weight:400;color:var(--soft)}
+.inp{display:flex;align-items:center;border:0;border-bottom:1px solid #cfc2a3;background:transparent;padding:0 2px;transition:border-color .2s}
+.inp:focus-within{border-bottom-color:var(--navy);box-shadow:0 1px 0 var(--navy)}
+.inp input,.inp textarea,.inp select{flex:1;border:0;background:transparent;font:inherit;font-size:17px;padding:11px 0;color:var(--navy);outline:none;min-width:0;-webkit-appearance:none;appearance:none}
+.inp textarea{resize:vertical;min-height:96px;line-height:1.55;padding:10px 0}
+.inp input::placeholder,.inp textarea::placeholder{color:#b9b3a3}
+.inp span{color:var(--soft);font-size:14px;flex:none;margin-left:6px}
+.btn{display:block;width:100%;margin-top:26px;padding:17px;border:0;border-radius:2px;background:linear-gradient(180deg,#1b2f60,var(--navy2));color:var(--goldl);font:inherit;font-family:var(--serif);font-weight:600;font-size:17px;letter-spacing:.06em;cursor:pointer;box-shadow:inset 0 0 0 1px rgba(201,169,98,.45),0 12px 26px -12px rgba(12,24,56,.6);transition:transform .15s,opacity .15s}
+.btn:active{transform:translateY(1px)}
+.btn:disabled{opacity:.55;cursor:default}
+.err{color:#a3261e;font-size:13px;margin-top:10px;display:none}
+.chk{display:flex;gap:9px;align-items:flex-start;font-size:13px;margin-top:20px}
+.chk input{width:18px;height:18px;margin-top:2px;accent-color:var(--navy);flex:none}
+.chk label{margin:0;font-weight:500}
+details.privacy{font-size:12px;color:var(--soft);margin-top:8px}
+details.privacy summary{cursor:pointer;color:var(--gold)}
+#thanks{display:none;text-align:center;padding:18px 8px 8px}
+#thanks .big{font-family:var(--serif);font-weight:700;font-size:24px;color:var(--navy);margin:0 0 12px}
+#thanks p{color:var(--soft);font-size:14.5px;margin:0;word-break:keep-all}
+#thanks .orn{margin:16px auto}
+.contact{text-align:center;font-size:13.5px;color:var(--soft);margin:6px 0 22px;line-height:1.8}
+.contact a{color:var(--gold);text-decoration:none}
+footer{border-top:1px solid var(--line);padding:26px 0 44px;font-size:11.5px;color:var(--soft);line-height:1.8}
+footer b{color:var(--navy);font-family:var(--serif);font-weight:600;font-size:13px}
+footer a{color:var(--gold);text-decoration:none}
+@media(min-width:760px){.hero h1{font-size:34px}.wrap,header{max-width:560px}}
+</style>
+</head>
+<body>
+<header>
+  <span class="tag">스마트팜 사기 · 피해 상담</span>
+  <span class="brand">법무법인 재유</span>
+</header>
+
+<section class="hero">
+  <div class="wrap">
+    <div class="eyebrow">SMART FARM FRAUD</div>
+    <h1>스마트팜 사기,<br>그냥 두지 마세요</h1>
+    <p>배지·관리·수매·대출 약속만 하고 나 몰라라?<br>피해 내용을 남겨 주시면 변호사가 확인 후 연락드립니다.</p>
+  </div>
+</section>
+
+<div class="wrap">
+  <div class="types">
+    <div class="type">
+      <span class="n">01</span>
+      <b>배지·자재? 약속만 하고 끝</b>
+      <span>배지·자재를 준다고 해놓고 지키지 않은 경우</span>
+    </div>
+    <div class="type">
+      <span class="n">02</span>
+      <b>기계값만 떠넘긴 대출·캐피탈</b>
+      <span>이익은 업체, 빚은 당신만 남은 경우</span>
+    </div>
+    <div class="type">
+      <span class="n">03</span>
+      <b>관리·수매 약속 후 연락 두절</b>
+      <span>관리·수매를 약속한 업체가 폐업하거나 잠수한 경우</span>
+    </div>
+  </div>
+
+  <section class="card" id="formCard">
+    <div class="sec-t">피해 상담 신청</div>
+    <span class="orn"></span>
+    <p class="sec-s">지금 바로 남겨 주세요. 확인 후 변호사가 연락드립니다.<br>피해 규모·상대 업체명을 알수록 상담이 빨라집니다.</p>
+
+    <label for="name">이름</label>
+    <div class="inp"><input id="name" name="name" autocomplete="name" required placeholder="홍길동"></div>
+
+    <label for="phone">연락처</label>
+    <div class="inp"><input id="phone" name="phone" type="tel" inputmode="tel" autocomplete="tel" required placeholder="010-0000-0000"></div>
+
+    <label for="region">지역</label>
+    <div class="inp"><input id="region" name="region" autocomplete="address-level1" required placeholder="예: 충남 부여 / 전북 익산"></div>
+
+    <label for="company">회사명 <small>(상대방·업체명)</small></label>
+    <div class="inp"><input id="company" name="company" required placeholder="상대 업체 또는 회사명"></div>
+
+    <label for="damage">피해금액</label>
+    <div class="inp"><input id="damage" name="damage" class="money" type="text" inputmode="numeric" autocomplete="off" required placeholder="예: 5000"><span>만원</span></div>
+
+    <label for="detail">대략의 내용</label>
+    <div class="inp"><textarea id="detail" name="detail" required maxlength="2000" placeholder="예: ○○업체와 계약, 배지·수매 약속 후 연락 두절. 피해 ○○만원."></textarea></div>
+
+    <div class="chk">
+      <input type="checkbox" id="agree">
+      <label for="agree">[필수] 개인정보 수집·이용에 동의합니다.</label>
+    </div>
+    <details class="privacy">
+      <summary>자세히 보기</summary>
+      수집 항목: 이름, 연락처, 지역, 회사명(상대방), 피해금액, 대략의 내용 / 이용 목적: 스마트팜 피해 상담 연락 / 보유 기간: 상담 종료 후 1년 (또는 동의 철회 시 즉시 파기). 동의를 거부할 수 있으나 거부 시 상담 연락이 제한됩니다.
+    </details>
+
+    <div class="err" id="err"></div>
+    <button type="button" class="btn" id="submitBtn">피해 상담 신청하기</button>
+  </section>
+
+  <section class="card" id="thanks">
+    <div class="big">접수되었습니다</div>
+    <span class="orn"></span>
+    <p>남겨 주신 피해 내용을 확인한 뒤<br>변호사가 빠르게 연락드리겠습니다.<br>남겨 주신 연락처로 안내드립니다.</p>
+  </section>
+
+  <p class="contact">
+    문의 <a href="tel:01095921038">010-9592-1038</a><br>
+    <a href="https://cafe.naver.com/jaeyulaw" target="_blank" rel="noopener">cafe.naver.com/jaeyulaw</a>
+  </p>
+
+  <footer>
+    <b>법무법인 재유</b><br>
+    대표변호사 강명구 · 사업자등록번호 120-87-34450<br>
+    서울 서초구 서초대로46길 106, 4층<br>
+    <a href="http://jlawfirm.co.kr/" target="_blank" rel="noopener">jlawfirm.co.kr</a>
+  </footer>
+</div>
+
+<script>
+/* FORM_ENDPOINT 는 배포된 Apps Script 웹 앱 /exec URL입니다.
+   브라우저가 전송을 접수한 뒤에만 감사 화면을 보여 줍니다.
+   주소가 비어 있거나 전송이 실패하면 오류를 표시하고 폼을 유지합니다. */
+const FORM_ENDPOINT = "https://script.google.com/macros/s/AKfycbye0A_zwWJvhQXond0WOMM6gF2NL2ec4kNKSCL8mkwP-SPE39Y15kA4PRBd_AOZFgUQ3g/exec";
+
+function raw(x){ return String(x||'').replace(/[^0-9]/g,''); }
+function fmtMoney(el){
+  const r = raw(el.value).replace(/^0+(?=\d)/,'');
+  el.value = r ? Number(r).toLocaleString('en-US') : '';
+}
+
+function getSource(){
+  try{
+    const q = new URLSearchParams(location.search);
+    const src = q.get('utm_source'), cmp = q.get('utm_campaign');
+    if (src || cmp) {
+      sessionStorage.setItem('sf_src', [src || '-', cmp || '-'].join(' / '));
+    }
+    return sessionStorage.getItem('sf_src') || (document.referrer ? 'referrer: ' + document.referrer : '직접 방문');
+  } catch(e){ return '직접 방문'; }
+}
+getSource();
+
+document.addEventListener('DOMContentLoaded', function(){
+  const money = document.getElementById('damage');
+  if (money) money.addEventListener('input', function(){ fmtMoney(money); });
+
+  const $ = id => document.getElementById(id);
+  $('submitBtn').addEventListener('click', function(){
+    const err = $('err');
+    const name = $('name').value.trim();
+    const phone = $('phone').value.trim().replace(/\s/g,'');
+    const region = $('region').value.trim();
+    const company = $('company').value.trim();
+    const damage = raw($('damage').value);
+    const detail = $('detail').value.trim();
+
+    if (!name){ err.textContent='이름을 입력해 주세요.'; err.style.display='block'; return; }
+    if (!/^01[016789]-?\d{3,4}-?\d{4}$/.test(phone)){
+      err.textContent='휴대폰 번호를 정확히 입력해 주세요. (예: 010-1234-5678)';
+      err.style.display='block'; return;
+    }
+    if (!region){ err.textContent='지역을 입력해 주세요.'; err.style.display='block'; return; }
+    if (!company){ err.textContent='회사명(상대방)을 입력해 주세요.'; err.style.display='block'; return; }
+    if (!damage || !(parseInt(damage,10) > 0)){
+      err.textContent='피해금액을 만원 단위로 입력해 주세요.'; err.style.display='block'; return;
+    }
+    if (!detail){ err.textContent='대략의 내용을 입력해 주세요.'; err.style.display='block'; return; }
+    if (detail.length > 2000){ err.textContent='대략의 내용은 2000자 이내로 작성해 주세요.'; err.style.display='block'; return; }
+    if (!$('agree').checked){
+      err.textContent='개인정보 수집·이용 동의가 필요합니다.'; err.style.display='block'; return;
+    }
+    err.style.display='none';
+    $('submitBtn').disabled = true;
+
+    const data = {
+      name: name,
+      phone: phone,
+      region: region,
+      company: company,
+      damage_man: damage,
+      detail: detail,
+      agreed: true,
+      source: getSource(),
+      ts: new Date().toISOString()
+    };
+    const body = JSON.stringify(data);
+    const showThanks = function(){
+      $('formCard').style.display = 'none';
+      const thanks = $('thanks');
+      thanks.style.display = 'block';
+      setTimeout(function(){
+        try { thanks.scrollIntoView({behavior:'smooth', block:'start'}); }
+        catch(_){ thanks.scrollIntoView(); }
+      }, 50);
+    };
+    const showSendError = function(message){
+      $('submitBtn').disabled = false;
+      err.textContent = message;
+      err.style.display = 'block';
+    };
+    if (!FORM_ENDPOINT) {
+      showSendError('지금은 신청을 받을 수 없습니다. 전화(010-9592-1038)로 문의해 주세요.');
+      return;
+    }
+
+    let queued = false;
+    try {
+      queued = !!(navigator.sendBeacon && navigator.sendBeacon(
+        FORM_ENDPOINT,
+        new Blob([body], {type:'text/plain;charset=utf-8'})
+      ));
+    } catch(_){ queued = false; }
+    if (queued) { showThanks(); return; }
+
+    try {
+      fetch(FORM_ENDPOINT, {
+        method:'POST', mode:'no-cors', keepalive:true,
+        headers:{'Content-Type':'text/plain;charset=utf-8'},
+        body
+      }).then(function(){ showThanks(); }).catch(function(){
+        showSendError('접수 전송에 실패했습니다. 잠시 후 다시 시도하거나 전화(010-9592-1038)로 문의해 주세요.');
+      });
+    } catch(_){
+      showSendError('접수 전송에 실패했습니다. 잠시 후 다시 시도하거나 전화(010-9592-1038)로 문의해 주세요.');
+    }
+  });
+});
+</script>
+</body>
+</html>
