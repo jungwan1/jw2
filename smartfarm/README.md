@@ -26,7 +26,7 @@
    - 실행 계정: **나**
    - 액세스: **모든 사용자**
 4. 배포 후 나오는 `https://script.google.com/macros/s/.../exec` URL을 복사  
-5. `index.html`의 `FORM_ENDPOINT = ""`에 그 URL을 넣고 다시 게시  
+5. 배포된 `/exec` URL은 `index.html`의 `FORM_ENDPOINT`에 들어 있습니다. 웹 앱을 다시 배포하면 그 값을 새 URL로 바꿉니다. 주소가 비어 있거나 브라우저가 전송에 실패하면 감사 화면을 띄우지 않습니다.
 
 스크립트를 수정하면 **배포 관리 > 수정 > 버전: 새 버전**으로 다시 배포해야 반영됩니다.
 
