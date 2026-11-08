@@ -111,8 +111,8 @@ footer a{color:var(--gold);text-decoration:none}
   <div class="inp"><select id="hh"><option value="1">1인</option><option value="2">2인</option><option value="3">3인</option><option value="4">4인</option><option value="5">5인</option><option value="6">6인</option></select></div>
   <label>월세·추가 생계비 <small>(선택)</small></label>
   <div class="inp"><input id="extra" class="money" type="text" inputmode="numeric" autocomplete="off" placeholder="0"><span>만원</span></div>
-  <details class="assets" id="assetBox"><summary><span class="plus">+</span><span class="st"><b>보유 재산 <small>(선택)</small></b><em>부동산·전월세 보증금·차량이 있으면 눌러서 입력하세요</em></span></summary>
-    <p class="hint">부동산, 임차보증금, 차량만 입력합니다. 예금·적금, 보험 해약환급금, 퇴직금, 그 밖의 재산은 칸을 두지 않았습니다. 없다고 본 것이 아니니, 상담에서 확인하면 변제금이 달라질 수 있습니다.</p>
+  <details class="assets" id="assetBox"><summary><span class="plus">+</span><span class="st"><b>보유 재산 <small>(선택)</small></b><em>부동산·전월세 보증금·차량·예금·적금이 있으면 눌러서 입력하세요</em></span></summary>
+    <p class="hint">예금·적금은 입력합니다. 보험 해약환급금, 퇴직금, 그 밖의 재산은 칸을 두지 않았습니다. 없다고 본 것이 아니니, 상담에서 확인하면 변제금이 달라질 수 있습니다.</p>
     <label>부동산 시세</label>
     <div class="inp"><input id="a_re" class="money" type="text" inputmode="numeric" autocomplete="off" placeholder="0"><span>만원</span></div>
     <label>부동산 담보대출 잔액</label>
@@ -121,7 +121,8 @@ footer a{color:var(--gold);text-decoration:none}
     <div class="inp"><input id="a_dep" class="money" type="text" inputmode="numeric" autocomplete="off" placeholder="0"><span>만원</span></div>
     <label>차량 가액</label>
     <div class="inp"><input id="a_car" class="money" type="text" inputmode="numeric" autocomplete="off" placeholder="0"><span>만원</span></div>
-    <input type="hidden" id="a_sav" value="0">
+    <label>예금·적금</label>
+    <div class="inp"><input id="a_sav" class="money" type="text" inputmode="numeric" autocomplete="off" placeholder="0"><span>만원</span></div>
     <input type="hidden" id="a_ret" value="0">
     <input type="hidden" id="a_oth" value="0">
   </details>
@@ -132,7 +133,7 @@ footer a{color:var(--gold);text-decoration:none}
   <div class="inp"><input id="phone" type="tel" inputmode="tel" placeholder="010-0000-0000" required autocomplete="tel"></div>
   <div class="chk"><input type="checkbox" id="agree"><label for="agree" style="margin:0;font-weight:500">[필수] 개인정보 수집·이용에 동의합니다.</label></div>
   <details><summary>자세히 보기</summary>
-    수집 항목: 이름, 연락처, 입력한 채무·소득·재산 정보, 유입경로, 접수시각 / 이용 목적: 계산 결과 안내 및 개인회생·파산 상담 연락 / 보유 기간: 상담 종료 후 1년 (또는 동의 철회 시 즉시 파기). 동의를 거부할 수 있으나 거부 시 계산 결과 확인 및 상담 연락이 제한됩니다. 예금·적금, 보험 해약환급금, 퇴직금, 기타 재산은 이 화면에서 수집하지 않습니다. <!-- TODO: 법무법인 재유의 실제 개인정보처리방침에 맞게 수정 -->
+    수집 항목: 이름, 연락처, 입력한 채무·소득·재산 정보, 유입경로, 접수시각 / 이용 목적: 계산 결과 안내 및 개인회생·파산 상담 연락 / 보유 기간: 상담 종료 후 1년 (또는 동의 철회 시 즉시 파기). 동의를 거부할 수 있으나 거부 시 계산 결과 확인 및 상담 연락이 제한됩니다. 보험 해약환급금, 퇴직금, 기타 재산은 이 화면에서 수집하지 않습니다. <!-- TODO: 법무법인 재유의 실제 개인정보처리방침에 맞게 수정 -->
   </details>
   <div class="err" id="err2"></div>
   <div class="err" id="err">채무 총액과 월 소득을 입력해 주세요.</div>
@@ -156,7 +157,7 @@ footer a{color:var(--gold);text-decoration:none}
   <div class="liqnote" id="liqNote" style="display:none">재산 기준으로 변제금이 상향됐어요</div>
   <div class="res-row"><span>적용 생계비 (월)</span><span id="rLiving">-</span></div>
   <p id="sendStatus" role="status" style="text-align:center;margin:18px 0 4px;color:var(--goldl);font-family:var(--serif);font-size:15px;line-height:1.6"></p>
-  <div class="note">※ 예상치이며 실제 변제금과 감면 여부는 재산·소득 및 법원 결정에 따라 달라집니다. 2026년 기준 중위소득 60%(보건복지부 고시)를 기본 생계비로 적용하고 변제기간 36개월로 단순 계산한 결과입니다. 이 화면에 반영한 재산은 부동산(담보대출을 뺀 금액), 임차보증금(1,000만원 공제, 소액임차인 최우선변제는 지역마다 다름), 차량뿐입니다. 예금·적금, 보험 해약환급금, 퇴직금, 기타 재산은 입력받지 않아 계산식에 0을 넣었습니다. 그 재산이 없다고 판단한 것은 아닙니다. 상담에서 확인하면 결과가 달라질 수 있습니다.</div>
+  <div class="note">※ 예상치이며 실제 변제금과 감면 여부는 재산·소득 및 법원 결정에 따라 달라집니다. 2026년 기준 중위소득 60%(보건복지부 고시)를 기본 생계비로 적용하고 변제기간 36개월로 단순 계산한 결과입니다. 반영한 재산은 부동산(담보대출을 뺀 금액), 임차보증금(1,000만원 공제, 소액임차인 최우선변제는 지역마다 다름), 차량, 예금·적금(185만원 공제)입니다. 보험 해약환급금, 퇴직금, 기타 재산은 입력받지 않아 계산식에 0을 넣었습니다. 그 재산이 없다고 판단한 것은 아닙니다. 상담에서 확인하면 결과가 달라질 수 있습니다.</div>
 </section>
 
 
@@ -210,8 +211,9 @@ const MONTHS = 36;
 
 /* 청산가치(단순 계산, 만원 단위 입력 → 원)
  * 부동산(시세-담보대출, 최소 0) + 임차보증금(-1,000만원 소액임차인 공제, 지역별 상이, 최소 0)
- * + 차량 + 예금·보험(-185만원 압류금지, 최소 0) + 퇴직금×50% + 기타
- * 화면에서는 해약환급금·퇴직금·기타재산을 받지 않고 hidden 값 0을 넣는다.
+ * + 차량 + 예금·적금(-185만원 압류금지, 최소 0) + 퇴직금×50% + 기타
+ * 예금·적금은 입력받는다. 보험 해약환급금은 이 칸에 넣지 않는다.
+ * 퇴직금·기타재산은 화면에서 받지 않고 hidden 값 0이다.
  * 0은 '재산 없음' 판정이 아니라 이번 계산에 넣지 않은 것이다. */
 function liquidation(a){
   a = a||{}; const n = k => Math.max(0, +a[k]||0);
