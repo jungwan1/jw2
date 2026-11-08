@@ -1,0 +1,306 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>내 빚, 얼마까지 줄어들까? 30초 확인 | 법무법인 재유</title>
+<meta name="theme-color" content="#fbf8f1">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Gothic+A1:wght@300;400;500;600;700&family=Noto+Serif+KR:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--navy:#14254f;--navy2:#0c1838;--gold:#a8853f;--gold2:#c9a962;--goldl:#e8d6a8;--ivory:#fbf8f1;--paper:#fffdf8;--line:#e6dcc6;--soft:#5d6680;--serif:'Noto Serif KR',serif}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;font-family:'Gothic A1',sans-serif;font-weight:400;background:var(--ivory);color:var(--navy);line-height:1.65;letter-spacing:-.01em;-webkit-font-smoothing:antialiased}
+.wrap{max-width:520px;margin:0 auto;padding:0 22px}
+header{position:relative;z-index:2;max-width:520px;margin:0 auto;padding:20px 22px 0;display:flex;justify-content:space-between;align-items:center}
+header .tag{color:var(--gold);font-weight:600;font-size:12.5px;letter-spacing:.12em}
+header .brand{font-family:var(--serif);font-weight:600;font-size:16px;letter-spacing:.06em}
+header::after{content:"";position:absolute;left:22px;right:22px;bottom:-14px;height:1px;background:linear-gradient(90deg,transparent,var(--gold2),transparent)}
+.hero{position:relative;text-align:center;padding:64px 0 54px;overflow:hidden}
+.hero-bg{position:absolute;inset:-80px 0 0;background:url(hero.jpg) center 40%/cover no-repeat;opacity:.55;z-index:0}
+.hero-bg::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(251,248,241,.55) 0%,rgba(251,248,241,.35) 45%,var(--ivory) 100%)}
+.hero .in{position:relative;z-index:1}
+.eyebrow{font-size:12px;letter-spacing:.32em;color:var(--gold);font-weight:600;margin-bottom:18px}
+.hero h1{font-family:var(--serif);font-weight:700;font-size:34px;line-height:1.32;margin:0 0 22px;letter-spacing:-.02em;text-shadow:0 1px 0 rgba(255,255,255,.6)}
+.pill{display:inline-block;background:var(--navy);color:var(--goldl);font-family:var(--serif);font-weight:500;font-size:19px;letter-spacing:.08em;padding:9px 34px;border-radius:999px;box-shadow:0 0 0 1px var(--navy),0 0 0 3px rgba(201,169,98,.55),0 10px 24px rgba(20,37,79,.18)}
+.hero p{color:var(--soft);font-size:14.5px;margin:22px 0 0}
+.steps{display:flex;justify-content:center;gap:0;margin-top:26px;font-size:12.5px;color:var(--navy)}
+.steps div{padding:0 14px;border-left:1px solid var(--line)}
+.steps div:first-child{border-left:0}
+.steps b{display:block;font-family:var(--serif);color:var(--gold);font-weight:500;font-size:13px}
+.card{position:relative;background:var(--paper);border:1px solid var(--line);border-radius:4px;padding:30px 22px 26px;margin:0 0 22px;box-shadow:0 1px 2px rgba(20,37,79,.04),0 18px 40px -18px rgba(20,37,79,.18)}
+.card::before{content:"";position:absolute;inset:5px;border:1px solid rgba(201,169,98,.28);border-radius:2px;pointer-events:none}
+.sec-t{font-family:var(--serif);font-weight:600;font-size:21px;margin:0 0 4px;text-align:center}
+.sec-s{text-align:center;font-size:13px;color:var(--soft);margin:0 0 8px}
+.orn{display:block;width:44px;height:1px;background:var(--gold2);margin:12px auto 6px}
+h2{font-family:var(--serif);font-weight:600;font-size:21px;margin:0 0 4px}
+label{display:block;font-weight:600;font-size:13.5px;margin:18px 0 7px;letter-spacing:.01em}
+label small{font-weight:400;color:var(--soft)}
+.inp{display:flex;align-items:center;border:0;border-bottom:1px solid #cfc2a3;background:transparent;padding:0 2px;transition:border-color .2s}
+.inp:focus-within{border-bottom-color:var(--navy);box-shadow:0 1px 0 var(--navy)}
+.inp input,.inp select{flex:1;border:0;background:transparent;font:inherit;font-size:18px;padding:11px 0;color:var(--navy);outline:none;min-width:0;-webkit-appearance:none;appearance:none}
+.inp select{background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8'%3E%3Cpath d='M1 1l5 5 5-5' fill='none' stroke='%23a8853f' stroke-width='1.4'/%3E%3C/svg%3E") right 4px center no-repeat}
+.inp input::placeholder{color:#b9b3a3}
+.inp span{color:var(--soft);font-size:14px}
+.btn{display:block;width:100%;margin-top:28px;padding:17px;border:0;border-radius:2px;background:linear-gradient(180deg,#1b2f60,var(--navy2));color:var(--goldl);font:inherit;font-family:var(--serif);font-weight:600;font-size:17px;letter-spacing:.06em;cursor:pointer;box-shadow:inset 0 0 0 1px rgba(201,169,98,.45),0 12px 26px -12px rgba(12,24,56,.6);transition:transform .15s}
+.btn:active{transform:translateY(1px)}
+.btn.gold{background:linear-gradient(180deg,#bf9b52,#9a7733);color:#fff;box-shadow:inset 0 0 0 1px rgba(255,255,255,.25),0 12px 26px -12px rgba(122,92,30,.7)}
+.err{color:#a3261e;font-size:13px;margin-top:10px;display:none}
+#result{display:none;background:linear-gradient(180deg,var(--navy),var(--navy2));color:#f4efe2;border-color:var(--navy)}
+#result::before{border-color:rgba(201,169,98,.45)}
+#result h2{color:var(--goldl);text-align:center;font-size:15px;letter-spacing:.3em;font-weight:500}
+.res-row{display:flex;justify-content:space-between;align-items:baseline;padding:13px 0;border-bottom:1px solid rgba(232,214,168,.15);font-size:14px}
+.res-row:last-of-type{border-bottom:0}
+.res-row b{font-family:var(--serif);font-weight:600;font-size:21px;color:#fff}
+.res-row.big{display:block;text-align:center;padding:14px 0 20px}
+.res-row.big span{display:block;font-size:13px;color:rgba(244,239,226,.75);letter-spacing:.08em}
+.res-row.big b{display:block;color:var(--gold2);font-size:38px;margin-top:4px}
+.note{font-size:11.5px;line-height:1.6;color:rgba(244,239,226,.62);border-top:1px solid rgba(232,214,168,.25);padding:14px 0 0;margin-top:10px}
+.chk{display:flex;gap:9px;align-items:flex-start;font-size:13px;margin-top:20px}
+.chk input{width:18px;height:18px;margin-top:2px;accent-color:var(--navy)}
+.assets{margin-top:22px;border-top:0;padding-top:0}
+.assets>summary{cursor:pointer;list-style:none;display:flex;align-items:center;gap:14px;padding:16px 18px;border:1.5px solid var(--gold);border-radius:10px;background:linear-gradient(135deg,rgba(201,169,97,.10),rgba(201,169,97,.03));color:var(--navy);box-shadow:0 2px 10px rgba(201,169,97,.15);transition:background .2s}
+.assets>summary:hover{background:rgba(201,169,97,.16)}
+.assets>summary::-webkit-details-marker{display:none}
+.assets .plus{flex:none;width:32px;height:32px;border-radius:50%;background:var(--gold);color:#fff;display:flex;align-items:center;justify-content:center;font-size:22px;font-weight:600;line-height:1}
+.assets[open] .plus{font-size:0}.assets[open] .plus::before{content:"−";font-size:22px}
+.assets .st{display:flex;flex-direction:column;gap:3px}
+.assets .st b{font-size:15.5px;font-weight:700}.assets .st small{font-weight:400;color:var(--soft);font-size:13px}
+.assets .st em{font-style:normal;font-size:13px;color:#7a6a45;line-height:1.45}
+.kor{display:block;font-size:12px;color:var(--soft);margin:4px 2px 0;min-height:0}
+.assets .hint{font-size:12px;color:var(--soft);margin:4px 0 0}
+.liqnote{font-size:12px;color:var(--gold2);text-align:right;margin-top:-6px;padding-bottom:8px}
+details{font-size:12px;color:var(--soft);margin-top:8px}
+details summary{cursor:pointer;color:var(--gold)}
+#thanks{display:none;text-align:center;padding:10px 0}
+.lawyer{text-align:center;padding:30px 0 34px}
+.lawyer .t{font-family:var(--serif);font-weight:700;font-size:26px;color:var(--gold);letter-spacing:.04em}
+.lawyer .s{font-size:14px;color:var(--navy);margin-top:2px;letter-spacing:.04em}
+.lawyer .orn{margin:0 auto 18px;width:60px}
+footer{border-top:1px solid var(--line);padding:26px 0 44px;font-size:11.5px;color:var(--soft);line-height:1.8}
+footer b{color:var(--navy);font-family:var(--serif);font-weight:600;font-size:13px}
+footer a{color:var(--gold);text-decoration:none}
+@media(min-width:760px){.hero{padding:90px 0 70px}.hero h1{font-size:44px}.wrap,header{max-width:560px}}
+.cta-h{font-family:var(--serif);font-size:21px;word-break:keep-all;line-height:1.45;letter-spacing:-.01em}.cta-h em{font-style:normal;color:#b08d45;border-bottom:1px solid rgba(201,169,98,.6)}
+</style>
+</head>
+<body>
+<header><span class="tag">개인회생 · 파산</span><span class="brand">법무법인 재유</span></header>
+
+<section class="hero">
+  <div class="hero-bg"></div>
+  <div class="in wrap">
+  <div class="eyebrow">DEBT RELIEF CHECK</div>
+  <h1>내 빚, 얼마까지<br>줄어들까?</h1>
+  <span class="pill">30초 확인</span>
+  <p>채무액과 소득만 입력하면<br>예상 월 변제금을 계산해 드립니다.</p>
+  <div class="steps"><div><b>01</b>채무·소득 입력</div><div><b>02</b>예상 변제금 확인</div><div><b>03</b>변제금 절감 상담</div></div>
+  </div>
+</section>
+
+<div class="wrap">
+<section class="card" id="calc">
+  <div class="sec-t">예상 변제금 계산</div><span class="orn"></span>
+  <label>무담보 채무 총액 <small>(카드·대출 등)</small></label>
+  <div class="inp"><input id="debt" class="money" type="text" inputmode="numeric" autocomplete="off" placeholder="예: 5000"><span>만원</span></div>
+  <label>월 실수령 소득</label>
+  <div class="inp"><input id="income" class="money" type="text" inputmode="numeric" autocomplete="off" placeholder="예: 250"><span>만원</span></div>
+  <label>부양 가구원 수 <small>(본인 포함)</small></label>
+  <div class="inp"><select id="hh"><option value="1">1인</option><option value="2">2인</option><option value="3">3인</option><option value="4">4인</option><option value="5">5인</option><option value="6">6인</option></select></div>
+  <label>월세·추가 생계비 <small>(선택)</small></label>
+  <div class="inp"><input id="extra" class="money" type="text" inputmode="numeric" autocomplete="off" placeholder="0"><span>만원</span></div>
+  <details class="assets" id="assetBox"><summary><span class="plus">+</span><span class="st"><b>보유 재산 <small>(선택)</small></b><em>부동산·전월세 보증금·차량·예금·적금이 있으면 눌러서 입력하세요</em></span></summary>
+    <p class="hint">예금·적금은 입력합니다. 보험 해약환급금, 퇴직금, 그 밖의 재산은 칸을 두지 않았습니다. 없다고 본 것이 아니니, 상담에서 확인하면 변제금이 달라질 수 있습니다.</p>
+    <label>부동산 시세</label>
+    <div class="inp"><input id="a_re" class="money" type="text" inputmode="numeric" autocomplete="off" placeholder="0"><span>만원</span></div>
+    <label>부동산 담보대출 잔액</label>
+    <div class="inp"><input id="a_mort" class="money" type="text" inputmode="numeric" autocomplete="off" placeholder="0"><span>만원</span></div>
+    <label>임차보증금 <small>(전·월세)</small></label>
+    <div class="inp"><input id="a_dep" class="money" type="text" inputmode="numeric" autocomplete="off" placeholder="0"><span>만원</span></div>
+    <label>차량 가액</label>
+    <div class="inp"><input id="a_car" class="money" type="text" inputmode="numeric" autocomplete="off" placeholder="0"><span>만원</span></div>
+    <label>예금·적금</label>
+    <div class="inp"><input id="a_sav" class="money" type="text" inputmode="numeric" autocomplete="off" placeholder="0"><span>만원</span></div>
+    <input type="hidden" id="a_ret" value="0">
+    <input type="hidden" id="a_oth" value="0">
+  </details>
+  <p class="sec-s" style="margin:26px 0 4px;text-align:left">결과 확인과 상담 안내를 위해 연락처를 남겨 주세요</p>
+  <label>이름</label>
+  <div class="inp"><input id="name" required autocomplete="name"></div>
+  <label>연락처</label>
+  <div class="inp"><input id="phone" type="tel" inputmode="tel" placeholder="010-0000-0000" required autocomplete="tel"></div>
+  <div class="chk"><input type="checkbox" id="agree"><label for="agree" style="margin:0;font-weight:500">[필수] 개인정보 수집·이용에 동의합니다.</label></div>
+  <details><summary>자세히 보기</summary>
+    수집 항목: 이름, 연락처, 입력한 채무·소득·재산 정보, 유입경로, 접수시각 / 이용 목적: 계산 결과 안내 및 개인회생·파산 상담 연락 / 보유 기간: 상담 종료 후 1년 (또는 동의 철회 시 즉시 파기). 동의를 거부할 수 있으나 거부 시 계산 결과 확인 및 상담 연락이 제한됩니다. 보험 해약환급금, 퇴직금, 기타 재산은 이 화면에서 수집하지 않습니다. <!-- TODO: 법무법인 재유의 실제 개인정보처리방침에 맞게 수정 -->
+  </details>
+  <div class="err" id="err2"></div>
+  <div class="err" id="err">채무 총액과 월 소득을 입력해 주세요.</div>
+  <button class="btn" id="calcBtn">내 예상 변제금 결과 보기</button>
+</section>
+
+<section class="card" id="result">
+  <h2>예상 결과</h2>
+  <div id="lowNotice" style="display:none;text-align:center;padding:14px 0 20px;border-bottom:1px solid rgba(232,214,168,.15)">
+    <b style="display:block;font-family:var(--serif);font-weight:600;font-size:24px;line-height:1.45;color:var(--gold2)">현재 소득으로는 개인회생이 어려울 수 있습니다</b>
+    <p style="margin:12px 0 0;font-size:14px;line-height:1.7;color:rgba(244,239,226,.85)">월 소득이 적용 생계비(<span id="rLivingTxt"></span>) 이하라 매달 변제할 금액이 남지 않아요. 이런 경우에는 파산·면책을 함께 살펴보는 경우가 있습니다. 이 문구는 참고용이며 자격 판단이 아닙니다.</p>
+  </div>
+  <div class="res-row big normalRow"><span>예상 월 변제금</span><b id="rMonthly">-</b></div>
+  <div class="res-row normalRow"><span>36개월 총 변제 예상액</span><b id="rTotal">-</b></div>
+  <div id="assetNotice" style="display:none;text-align:center;padding:14px 0 20px;border-bottom:1px solid rgba(232,214,168,.15)">
+    <b style="display:block;font-family:var(--serif);font-weight:600;font-size:22px;line-height:1.45;color:var(--gold2)">개인회생의 실익이 작을 수 있습니다</b>
+    <p style="margin:12px 0 0;font-size:14px;line-height:1.7;color:rgba(244,239,226,.85)">입력한 재산이 채무보다 많거나 비슷해 개인회생의 실익이 작아 보일 수 있습니다. 넣지 않은 재산이 더 있으면 이 숫자는 달라집니다.</p>
+  </div>
+  <div class="res-row normalRow"><span>예상 감면 비율</span><b id="rPct">-</b></div>
+  <div class="res-row"><span>재산(청산가치) 반영액</span><span id="rLiq">-</span></div>
+  <div class="liqnote" id="liqNote" style="display:none">재산 기준으로 변제금이 상향됐어요</div>
+  <div class="res-row"><span>적용 생계비 (월)</span><span id="rLiving">-</span></div>
+  <p id="sendStatus" role="status" style="text-align:center;margin:18px 0 4px;color:var(--goldl);font-family:var(--serif);font-size:15px;line-height:1.6"></p>
+  <div class="note">※ 예상치이며 실제 변제금과 감면 여부는 재산·소득 및 법원 결정에 따라 달라집니다. 2026년 기준 중위소득 60%(보건복지부 고시)를 기본 생계비로 적용하고 변제기간 36개월로 단순 계산한 결과입니다. 반영한 재산은 부동산(담보대출을 뺀 금액), 임차보증금(1,000만원 공제, 소액임차인 최우선변제는 지역마다 다름), 차량, 예금·적금(185만원 공제)입니다. 보험 해약환급금, 퇴직금, 기타 재산은 입력받지 않아 계산식에 0을 넣었습니다. 그 재산이 없다고 판단한 것은 아닙니다. 상담에서 확인하면 결과가 달라질 수 있습니다.</div>
+</section>
+
+
+<section class="lawyer"><span class="orn"></span><div class="t">법무법인 재유</div><div class="s">개인회생·파산 상담</div></section>
+
+<footer>
+  <b>법무법인 재유</b><br>
+  대표변호사 강명구 · 사업자등록번호 120-87-34450<br>
+  서울 서초구 서초대로46길 106, 4층<br>
+  <a href="http://jlawfirm.co.kr/" target="_blank" rel="noopener">jlawfirm.co.kr</a><br>
+  광고책임변호사: 유성우 변호사 <!-- TODO: 변호사 광고 규정에 따른 광고책임변호사 표기 -->
+  <p style="margin-top:10px">본 계산 결과는 참고용 예상치이며 법률 자문이 아닙니다.</p>
+</footer>
+</div>
+
+<script>
+function raw(x){return String(x||'').replace(/[^0-9]/g,'');}
+function v(id){return raw(document.getElementById(id).value);}
+function korMan(n){n=parseInt(n,10);if(!n)return '';const e=Math.floor(n/10000),m=n%10000;let t=[];if(e)t.push(e.toLocaleString('ko-KR')+'억');if(m)t.push(m.toLocaleString('ko-KR')+'만');return t.join(' ')+' 원';}
+function fmtEl(el){const pos=el.selectionStart==null?el.value.length:el.selectionStart;const digitsBefore=raw(el.value.slice(0,pos)).length;const r=raw(el.value).replace(/^0+(?=\d)/,'');const f=r?Number(r).toLocaleString('en-US'):'';el.value=f;if(document.activeElement===el){let c=0,p=0;while(p<f.length&&c<digitsBefore){if(/\d/.test(f[p]))c++;p++;}try{el.setSelectionRange(p,p);}catch(e){}}const h=el._kor;if(h)h.textContent=korMan(r);}
+document.addEventListener('DOMContentLoaded',function(){document.querySelectorAll('input.money').forEach(function(el){const h=document.createElement('span');h.className='kor';el.closest('.inp').insertAdjacentElement('afterend',h);el._kor=h;el.addEventListener('input',function(){fmtEl(el);});fmtEl(el);});});
+</script>
+<script>
+/* ============================================================
+ * 폼 전송 설정 (PLACEHOLDER)
+ * FORM_ENDPOINT 에 실제 수신 주소(예: 구글 Apps Script, Zapier, 자체 서버, CRM 웹훅)를 넣으세요.
+ * 비어 있으면 서버 전송 없이 감사 메시지만 표시하고 console.log 로 데이터를 출력합니다.
+ * ============================================================ */
+const FORM_ENDPOINT = "https://script.google.com/macros/s/AKfycbwgSmFGlhFv6b-IS35KkaPaaL9dM7evxYj1h8A-EajrN6tUiyaq1-Zmmjty6qY1PcAB/exec"; // 예: "https://script.google.com/macros/s/XXXX/exec"
+
+/* 유입경로: URL의 utm_source / utm_campaign (첫 방문 시 sessionStorage에 저장) */
+function getSource(){
+  try{
+    const q=new URLSearchParams(location.search);
+    const src=q.get('utm_source'), cmp=q.get('utm_campaign');
+    if(src||cmp){ sessionStorage.setItem('hs_src',[src||'-',cmp||'-'].join(' / ')); }
+    return sessionStorage.getItem('hs_src') || (document.referrer ? 'referrer: '+document.referrer : '직접 방문');
+  }catch(e){ return ''; }
+}
+if (typeof location !== 'undefined') getSource();
+
+/* 2026년 개인회생 기본 생계비 = 2026년 기준 중위소득 × 60% (원/월)
+ * 출처: 보건복지부 고시 제2025-135호 「2026년 기준 중위소득」(2025.8.1 공표, 2026.1.1 시행)
+ *   기준 중위소득 100%: 1인 2,564,238 / 2인 4,199,292 / 3인 5,359,036 / 4인 6,494,738 / 5인 7,556,719 / 6인 8,555,952
+ * 60% 적용 근거: 채무자회생법 제579조, 서울회생법원 실무준칙 제405호
+ * 확인: https://www.ikhoss.com/personal-rehabilitation-minimum-living-cost/ ,
+ *       https://hoesaeng.manuz.com/living-cost (2026-10-29 확인)
+ * 2027년 1월부터는 2027년 고시 값으로 갱신 필요 */
+const LIVING_COST_2026 = {1:1538543, 2:2519575, 3:3215422, 4:3896843, 5:4534031, 6:5133571};
+const MONTHS = 36;
+
+/* 청산가치(단순 계산, 만원 단위 입력 → 원)
+ * 부동산(시세-담보대출, 최소 0) + 임차보증금(-1,000만원 소액임차인 공제, 지역별 상이, 최소 0)
+ * + 차량 + 예금·적금(-185만원 압류금지, 최소 0) + 퇴직금×50% + 기타
+ * 예금·적금은 입력받는다. 보험 해약환급금은 이 칸에 넣지 않는다.
+ * 퇴직금·기타재산은 화면에서 받지 않고 hidden 값 0이다.
+ * 0은 '재산 없음' 판정이 아니라 이번 계산에 넣지 않은 것이다. */
+function liquidation(a){
+  a = a||{}; const n = k => Math.max(0, +a[k]||0);
+  const man = Math.max(0, n('re') - n('mort')) + Math.max(0, n('dep') - 1000) + n('car')
+    + Math.max(0, n('sav') - 185) + n('ret')*0.5 + n('oth');
+  return man*10000;
+}
+function estimate(debtMan, incomeMan, hh, extraMan, assets){
+  const debt = debtMan*10000, income = incomeMan*10000, extra = (extraMan||0)*10000;
+  const living = LIVING_COST_2026[hh] + extra;
+  const liq = liquidation(assets);
+  let monthly = Math.max(0, income - living);
+  const low = monthly <= 0;
+  const assetHeavy = debt>0 && liq >= debt;
+  let liqRaised = false;
+  if (!assetHeavy && !low && monthly*MONTHS < liq) { monthly = liq/MONTHS; liqRaised = true; }
+  if (debt>0 && monthly*MONTHS > debt) monthly = debt/MONTHS;
+  const total = monthly*MONTHS;
+  let pct = debt>0 ? 1 - total/debt : 0;
+  pct = Math.min(0.95, Math.max(0, pct));
+  return {living, monthly, total, pct, liq, liqRaised, assetHeavy, low: low && !assetHeavy};
+}
+if (typeof module !== 'undefined') { module.exports = {estimate, liquidation, LIVING_COST_2026}; }
+
+if (typeof document !== 'undefined') {
+  const $ = id => document.getElementById(id);
+  const won = n => Math.round(n).toLocaleString('ko-KR') + '원';
+  $('calcBtn').addEventListener('click', async () => {
+    const d = parseFloat(v('debt')), i = parseFloat(v('income'));
+    if (!(d>0) || !(i>=0) || isNaN(i)) { $('err').style.display='block'; return; }
+    $('err').style.display='none';
+    const assets = {re:v('a_re'), mort:v('a_mort'), dep:v('a_dep'), car:v('a_car'), sav:v('a_sav'), ret:v('a_ret'), oth:v('a_oth')};
+    const r = estimate(d, i, +$('hh').value, parseFloat(v('extra'))||0, assets);
+    window._liq = r.liq;
+    const low = r.low, heavy = r.assetHeavy;
+    document.querySelectorAll('.normalRow').forEach(el => el.style.display = (low||heavy) ? 'none' : '');
+    $('lowNotice').style.display = low ? 'block' : 'none';
+    $('assetNotice').style.display = heavy ? 'block' : 'none';
+    $('rLiq').textContent = won(r.liq);
+    $('liqNote').style.display = (r.liqRaised && !low && !heavy) ? 'block' : 'none';
+    if (heavy) {
+      $('rMonthly').textContent = '회생 실익 검토 필요(재산≥채무)';
+      $('rTotal').textContent = '-';
+      $('rPct').textContent = '-';
+    } else if (low) {
+      $('rMonthly').textContent = '회생 어려움(소득≤생계비)';
+      $('rTotal').textContent = '-';
+      $('rPct').textContent = '-';
+      $('rLivingTxt').textContent = won(r.living);
+    } else {
+      $('rMonthly').textContent = won(r.monthly);
+      $('rTotal').textContent = won(r.total);
+      $('rPct').textContent = '약 ' + Math.round(r.pct*100) + '%';
+    }
+    $('rLiving').textContent = won(r.living);
+    const name=$('name').value.trim(), phone=$('phone').value.trim();
+    const e2=$('err2');
+    if(!name){e2.textContent='이름을 입력해 주세요.';e2.style.display='block';return;}
+    if(!/^01[016789]-?\d{3,4}-?\d{4}$/.test(phone.replace(/\s/g,''))){e2.textContent='휴대폰 번호를 정확히 입력해 주세요. (예: 010-1234-5678)';e2.style.display='block';return;}
+    if(!$('agree').checked){e2.textContent='개인정보 수집·이용 동의가 필요합니다.';e2.style.display='block';return;}
+    e2.style.display='none'; $('calcBtn').disabled=true;
+    const data={name,phone,debt_man:v('debt'),income_man:v('income'),household:$('hh').value,
+      extra_man:v('extra')||'0',result_monthly:$('rMonthly').textContent,result_pct:$('rPct').textContent,
+      asset_realestate:v('a_re')||'0',asset_mortgage:v('a_mort')||'0',asset_deposit:v('a_dep')||'0',
+      asset_car:v('a_car')||'0',asset_savings:v('a_sav')||'0',asset_retire:v('a_ret')||'0',asset_other:v('a_oth')||'0',
+      liquidation_value:Math.round(window._liq||0),
+      agreed:true,source:getSource(),ts:new Date().toISOString()};
+    const body=JSON.stringify(data);
+    const res=$('result'); res.style.display='block'; res.removeAttribute('hidden');
+    const status=$('sendStatus');
+    function showStatus(msg){
+      status.textContent=msg;
+      $('calcBtn').disabled=false;
+      $('calcBtn').textContent='다시 전송 요청';
+      setTimeout(function(){ try{ res.scrollIntoView({behavior:'smooth',block:'start'}); }catch(_){ res.scrollIntoView(); } }, 50);
+    }
+    const queuedMsg='전송을 요청했습니다. 접수 완료 여부는 아직 확인되지 않았습니다.';
+    const failMsg='전송하지 못했습니다. 아래 숫자는 이 화면의 예상일 뿐, 접수는 되지 않았습니다.';
+    /* sendBeacon true 와 no-cors 응답은 큐 등록·브라우저 전달일 뿐 시트 저장 확인이 아닙니다.
+       Apps Script 소스가 저장소에 없어 서버 수신은 확인하지 않았습니다. */
+    if (!FORM_ENDPOINT) { showStatus(failMsg); return; }
+    let queued=false;
+    try { queued = !!(navigator.sendBeacon && navigator.sendBeacon(FORM_ENDPOINT, new Blob([body],{type:'text/plain;charset=utf-8'}))); } catch(_){ queued=false; }
+    if (queued) { showStatus(queuedMsg); return; }
+    fetch(FORM_ENDPOINT,{method:'POST',mode:'no-cors',keepalive:true,headers:{'Content-Type':'text/plain;charset=utf-8'},body}).then(function(){ showStatus(queuedMsg); }).catch(function(){ showStatus(failMsg); });
+  });
+}
+</script>
+</body>
+</html>
