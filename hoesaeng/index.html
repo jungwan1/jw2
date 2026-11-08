@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>개인회생·파산 안내 | 법무법인 재유</title>
-<meta name="description" content="법무법인 재유의 개인회생·개인파산 안내입니다. 예상 변제금은 30초 확인에서, 이름과 번호만 남기는 상담은 바로 상담하기에서 받습니다.">
+<meta name="description" content="법무법인 재유. 매달 갚아도 줄지 않는 빚, 이제 정리할 방법을 확인하세요. 개인회생·파산.">
 <meta name="theme-color" content="#f3efe6">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css">
 <style>
@@ -81,6 +81,9 @@ footer strong{color:var(--ink)}
 .ok{background:var(--moss);border-radius:12px;padding:14px}
 .dock{display:none}
 @media(max-width:800px){
+  .wrap{width:min(1080px,calc(100% - 24px))}
+  h1{font-size:22px;letter-spacing:-.045em}
+  h1 br+span{white-space:nowrap}
   .hero,.grid2,.grid3,.lawyers,.band{grid-template-columns:1fr;display:grid}
   .figure{justify-self:start}
   .band{align-items:stretch}
@@ -109,9 +112,8 @@ footer strong{color:var(--ink)}
 <main id="main">
   <div class="wrap hero">
     <div>
-      <p class="kicker">개인회생 · 개인파산</p>
-      <h1>빚이 월급보다 먼저 빠져나갈 때, 어느 절차인지부터 나눠 보세요</h1>
-      <p class="lead">소득이 이어지면 개인회생의 변제계획을, 가진 것과 소득으로 갚기 어려운 지급불능이면 개인파산과 면책을 살펴봅니다. 예상 변제금이 필요하면 30초 확인으로 계산 페이지에 가고, 이름과 번호만 남기려면 바로 상담하기를 누르면 됩니다.</p>
+      <p class="kicker">법무법인 재유 · 개인회생 · 파산</p>
+      <h1>매달 갚아도 줄지 않는 빚,<br><span>이제 정리할 방법을 확인하세요.</span></h1>
       <div class="cta-row">
         <a class="btn pine js-calc" href="calculator.html">30초 확인</a>
         <button type="button" class="btn line js-consult">바로 상담하기</button>
@@ -124,67 +126,66 @@ footer strong{color:var(--ink)}
   </div>
 
   <div class="wrap">
-    <section aria-labelledby="paths">
-      <h2 id="paths">회생과 파산은 다른 길입니다</h2>
-      <p class="sub">어느 쪽이 맞는지 이 페이지에서 단정하지 않습니다. 소득, 재산, 채무의 종류를 보고 상담에서 나눕니다.</p>
+    <section aria-labelledby="when">
+      <h2 id="when">이자가 늘기 전에 절차부터 나누세요</h2>
+      <p class="sub">회생과 파산은 미루기보다 채무와 소득을 적어 보는 쪽이 순서가 분명합니다. 빚이 없어진다는 약속은 하지 않습니다.</p>
       <div class="grid2">
-        <article class="card moss">
+        <article class="card">
           <h3>개인회생</h3>
-          <p>앞으로 반복해서 소득이 있을 때, 생계비를 뺀 금액으로 일정 기간 갚는 변제계획을 법원에 내는 절차입니다. 변제금은 소득, 생계비, 재산에 따라 달라지고, 나머지를 면책받을 수 있는지는 법원 결정입니다.</p>
+          <p>앞으로 소득이 이어질 때, 생계비를 빼고 일정 기간 갚는 계획을 법원에 내는 절차입니다. 변제금은 소득, 생계비, 재산마다 다릅니다.</p>
         </article>
-        <article class="card clay">
+        <article class="card">
           <h3>개인파산·면책</h3>
-          <p>재산과 소득으로 채무를 갚기 어려운 지급불능일 때 스스로 파산을 신청하고 면책을 구하는 절차입니다. 면책이 되어도 세금, 벌금처럼 빠지지 않는 채무가 있고, 면책이 허락되지 않는 사유도 있습니다.</p>
+          <p>재산과 소득으로 빚을 갚기 어려운 지급불능이면 파산과 면책을 살펴봅니다. 면책이 되어도 세금, 벌금처럼 빠지지 않는 채무가 있습니다.</p>
         </article>
-      </div>
-    </section>
-
-    <section aria-labelledby="moments">
-      <h2 id="moments">이런 질문으로 많이 찾아옵니다</h2>
-      <div class="grid3">
-        <article class="card"><h3>이자만 나가고 원금이 안 줄 때</h3><p>카드와 대출이 여러 곳에 나뉘어 있으면, 매달 내는 돈이 이자에 머물 수 있습니다. 채무 목록부터 정리하는 것이 순서입니다.</p></article>
-        <article class="card"><h3>독촉이나 압류 통지가 왔을 때</h3><p>신청서를 냈다고 압류가 바로 풀리지는 않습니다. 중지명령이나 금지명령은 법원이 결정을 한 뒤에 효력이 생깁니다.</p></article>
-        <article class="card"><h3>소득이 줄거나 일을 접었을 때</h3><p>급여가 줄었거나 사업이 끊기면 회생으로 볼지, 파산으로 볼지가 달라집니다. 소득이 없는 달만으로 자격을 정하지 않습니다.</p></article>
       </div>
     </section>
 
     <section id="qualify" aria-labelledby="qualh">
       <h2 id="qualh">신청을 볼 때의 일반 기준</h2>
       <div class="grid2">
-        <article class="card">
-          <h3>개인회생을 묻는 경우</h3>
-          <p>법은 계속적인 수입 가능성이 있는 개인을 신청 대상으로 두고, 무담보 채무 10억 원, 담보부 채무 15억 원 이하를 일반 한도로 적고 있습니다. 최근 대출, 예전에 받은 면책, 재산 규모에 따라 실제 접수는 달라집니다. 한도 안의 숫자라고 접수가 된다는 뜻은 아닙니다.</p>
+        <article class="card moss">
+          <h3>개인회생</h3>
+          <p>법은 계속 수입을 얻을 가능성이 있는 개인을 대상으로 하고, 무담보 채무 10억 원, 담보부 채무 15억 원 이하를 일반 한도로 둡니다. 한도 안이라고 접수가 되는 것은 아닙니다. 최근 대출, 예전 면책, 재산에 따라 달라집니다.</p>
         </article>
-        <article class="card">
-          <h3>개인파산을 묻는 경우</h3>
-          <p>수입이 매우 적거나 거의 없어 변제할 돈이 남지 않으면 파산과 면책을 함께 봅니다. 기초생활 급여를 받는다고 자동으로 대상이 되거나 빠지는 것은 아닙니다. 재산이 남아 있으면 그 재산의 처리가 먼저 문제가 됩니다.</p>
+        <article class="card clay">
+          <h3>개인파산</h3>
+          <p>수입이 매우 적거나 거의 없어 갚을 돈이 남지 않을 때 함께 봅니다. 재산이 남아 있으면 그 재산의 처리가 먼저 문제가 됩니다. 급여를 받는다는 사실만으로 대상이 되거나 빠지지 않습니다.</p>
         </article>
       </div>
-      <article class="card" style="margin-top:14px">
-        <h3>법인 빚은 개인 계산과 다릅니다</h3>
-        <p>법인파산은 회사 명의 재산을 정리하고 법인을 청산하는 절차입니다. 대표 개인의 대출과 회사 채무가 섞여 있으면 어느 절차인지부터 구분해야 합니다. 30초 확인의 계산기는 개인 채무의 예상 변제금만 단순하게 냅니다. 법인 사건의 기간이나 결과를 약속하지 않습니다.</p>
-      </article>
     </section>
 
     <section id="steps" aria-labelledby="steph">
-      <h2 id="steph">상담부터 법원까지, 보통의 순서</h2>
-      <p class="sub">사건에 따라 빠지거나 길어집니다. 며칠 안에 끝난다는 약속은 하지 않습니다.</p>
+      <h2 id="steph">보통의 순서</h2>
+      <p class="sub">사건마다 길어지거나 빠집니다. 며칠 안에 끝난다는 말은 하지 않습니다.</p>
       <ol class="steps">
-        <li><b>01</b><div><strong>무엇을 볼지 나눕니다.</strong><br>회생, 파산, 그 밖의 채무조정은 소득과 재산에 따라 갈립니다.</div></li>
-        <li><b>02</b><div><strong>서류를 챙깁니다.</strong><br>주민등록등본, 소득 자료, 채무 자료, 재산 자료가 자주 필요합니다. 이 페이지에서 서류 발급을 대신하지는 않습니다.</div></li>
-        <li><b>03</b><div><strong>주소지 관할 법원에 신청합니다.</strong><br>보정 요청이 있으면 내용을 채워 다시 냅니다.</div></li>
-        <li><b>04</b><div><strong>개시, 변제, 또는 면책으로 이어집니다.</strong><br>개인회생은 변제계획 인가 뒤 변제 기간이 있고, 파산은 선고와 면책 심사가 따로 있습니다. 걸리는 시간은 법원마다 다릅니다.</div></li>
+        <li><b>01</b><div><strong>회생인지 파산인지 나눕니다.</strong><br>소득이 이어지면 회생, 갚기 어려우면 파산을 같이 봅니다.</div></li>
+        <li><b>02</b><div><strong>서류를 챙깁니다.</strong><br>등본, 소득·채무·재산 자료가 자주 필요합니다. 여기서 서류를 대신 발급하지는 않습니다.</div></li>
+        <li><b>03</b><div><strong>주소지 관할 법원에 신청합니다.</strong><br>보정이 있으면 내용을 채웁니다. 사는 곳이 달라도 이 페이지에서 상담 접수는 남길 수 있습니다.</div></li>
+        <li><b>04</b><div><strong>개시와 변제, 또는 파산과 면책</strong><br>회생은 변제계획 이후 변제 기간이 있고, 파산은 선고와 면책 심사가 따로입니다.</div></li>
       </ol>
     </section>
 
+    <section aria-labelledby="askh">
+      <h2 id="askh">이런 상황에서 많이 묻습니다</h2>
+      <div class="grid3">
+        <article class="card"><h3>주택담보와 신용대출</h3><p>담보 빚과 카드·신용대출은 절차에서 다르게 봅니다. 30초 확인은 무담보 채무와 부동산·보증금·차량만 넣습니다.</p></article>
+        <article class="card"><h3>소득이 줄었을 때</h3><p>급여가 줄거나 일을 접으면 회생으로 볼지 파산으로 볼지가 달라집니다. 한 달 소득만으로 자격을 정하지 않습니다.</p></article>
+        <article class="card"><h3>빚이 여러 곳에 있을 때</h3><p>카드와 대출이 나뉘어 있으면 채권자 목록부터 정리합니다. 어디가 얼마인지는 상담에서 자료를 보고 확인합니다.</p></article>
+      </div>
+    </section>
+
     <section aria-labelledby="calch">
-      <h2 id="calch">30초 확인은 계산 페이지로 이동합니다</h2>
-      <p class="sub">이 버튼은 화면을 아래로 내리는 버튼이 아닙니다. 예상 변제금을 계산하고, 이름과 연락처를 남기는 별도 페이지로 갑니다.</p>
-      <div class="card">
-        <p>계산 페이지에서는 무담보 채무, 월 소득, 부양 가구, 선택 항목인 추가 생계비, 그리고 부동산·임차보증금·차량을 묻습니다. 이름, 연락처, 개인정보 동의 뒤에 예상 결과가 열립니다. 예금·적금, 보험 해약환급금, 퇴직금, 기타 재산은 그 페이지에서도 입력칸이 없습니다. 없다고 보고 뺀 것이 아니라, 상담에서 따로 확인합니다. 결과는 2026년 기준 중위소득 60%를 생계비로 두고 36개월로 나눈 참고 숫자입니다.</p>
-        <div class="cta-row" style="margin-top:16px">
-          <a class="btn pine js-calc" href="calculator.html">30초 확인</a>
-        </div>
+      <h2 id="calch">확인은 이렇게 합니다</h2>
+      <div class="grid2">
+        <article class="card">
+          <h3>30초 확인</h3>
+          <p>계산 페이지로 이동합니다. 채무·소득과 이름·연락처·동의 뒤에 예상 변제금이 나옵니다. 참고 숫자이며 감면이나 자격을 정하지 않습니다.</p>
+        </article>
+        <article class="card">
+          <h3>바로 상담하기</h3>
+          <p>이름과 전화번호만 받습니다. 전송을 요청해도 접수 완료는 이 화면에서 확인되지 않습니다.</p>
+        </article>
       </div>
     </section>
 
@@ -194,42 +195,39 @@ footer strong{color:var(--ink)}
         <button type="button" data-filter="all" aria-pressed="true">전체</button>
         <button type="button" data-filter="recovery" aria-pressed="false">회생</button>
         <button type="button" data-filter="bankruptcy" aria-pressed="false">파산</button>
-        <button type="button" data-filter="corporate" aria-pressed="false">법인</button>
         <button type="button" data-filter="seizure" aria-pressed="false">압류</button>
-        <button type="button" data-filter="credit" aria-pressed="false">신용</button>
+        <button type="button" data-filter="docs" aria-pressed="false">서류</button>
         <button type="button" data-filter="cost" aria-pressed="false">비용</button>
       </div>
       <div class="faq" id="faqList">
-        <details data-cat="recovery"><summary>개인회생은 어떤 절차인가요?</summary><p>재정이 어려운 개인이 앞으로 소득으로 일부만 갚는 계획을 내고, 법원이 인가하면 그 계획대로 변제한 뒤 면책을 구하는 절차입니다. 채권자와 채무자의 관계를 법원이 조정합니다. 감면 비율은 사건마다 다르고, 이 페이지에 비율을 적어 두지 않습니다.</p></details>
-        <details data-cat="recovery"><summary>수입이 들쭉날쭉해도 물을 수 있나요?</summary><p>정규직만 대상인 것은 아닙니다. 아르바이트, 일용, 프리랜서, 자영업이라도 반복되는 수입이 있고 변제를 설명할 수 있으면 회생을 검토합니다. 수입이 거의 없으면 파산을 함께 봅니다. 최근 빌린 돈이나 사행 목적의 채무는 포함 여부가 달라질 수 있습니다.</p></details>
-        <details data-cat="recovery"><summary>변제하는 동안 생활은 어떻게 되나요?</summary><p>변제 기간은 보통 3년으로 정하고, 사정에 따라 더 짧거나 5년 이내가 되기도 합니다. 계산 페이지는 36개월로만 나눕니다. 그 기간에도 일과 생활은 이어가지만, 새 신용카드나 대출은 제한되는 경우가 많습니다. 기간 단축은 법률과 법원 실무의 요건을 따로 봐야 합니다.</p></details>
-        <details data-cat="bankruptcy"><summary>개인파산은 어떤 절차인가요?</summary><p>채무를 재산으로 모두 정리해도 갚지 못하는 지급불능일 때, 채무자 스스로 파산을 신청하는 절차입니다. 파산 선고와 면책 심사는 구분됩니다. 면책이 확정되어도 모든 채무가 사라지는 것은 아니고, 세금·벌금 등 비면책 채권과 불허가 사유가 있습니다.</p></details>
-        <details data-cat="bankruptcy"><summary>파산 신청에 소득이 있어야 하나요?</summary><p>갚을 소득이 없거나 매우 적은 경우에 파산을 검토합니다. 재산이 남아 있으면 그 재산이 절차에 들어갑니다. 대상인지는 상담에서 재산과 채무를 같이 봐야 알 수 있습니다.</p></details>
-        <details data-cat="corporate"><summary>법인파산은 개인회생과 무엇이 다릅니까?</summary><p>회사의 재산과 빚을 정리하고 법인을 끝내는 절차입니다. 부동산, 재고, 매출채권처럼 법인 명의 재산이 대상이 됩니다. 대표 개인이 보증한 빚은 개인 절차와 겹칠 수 있어 따로 봐야 합니다.</p></details>
-        <details data-cat="corporate"><summary>법인 쪽은 어떤 자료가 필요합니까?</summary><p>법인등기, 사업자등록, 재무제표, 재산과 부채를 보여주는 자료가 보통 필요합니다. 회사에 따라 목록이 달라서, 여기서 확정 목록을 드리지 않습니다. 상담에서 빠진 자료를 짚습니다.</p></details>
-        <details data-cat="seizure"><summary>통장 압류는 신청하면 바로 풀리나요?</summary><p>바로 풀리지 않습니다. 보전처분, 중지명령, 금지명령처럼 법원이 결정을 해야 강제집행이 멈추는 효력이 생깁니다. 급여, 예금, 부동산, 자동차는 대상마다 처리가 다릅니다. 이미 시작된 집행이 소급해서 없던 일이 되는 것도 아닙니다.</p></details>
-        <details data-cat="credit"><summary>연체 기록이 있으면 어떻게 되나요?</summary><p>금융채무를 오래 연체하거나 채무불이행자 명부에 오르면 금융 거래와 일부 자격에 불이익이 생길 수 있습니다. 회생이나 파산을 시작했다고 그 기록이 그날 지워지지는 않습니다. 인가나 면책 뒤의 말소는 요건을 따로 확인해야 합니다.</p></details>
-        <details data-cat="cost"><summary>비용은 얼마나 드나요?</summary><p>법원에 내는 인지대와 송달료는 절차와 채권자 수에 따라 따로 있습니다. 변호사 수임료는 채무 규모와 업무 범위에 따라 달라서 이 페이지에 금액을 적지 않습니다. 분납이나 착수금 면제를 여기서 약속하지 않습니다. 범위를 먼저 설명드린 뒤 금액을 안내합니다.</p></details>
+        <details data-cat="recovery"><summary>개인회생은 어떤 절차인가요?</summary><p>소득으로 일부를 갚는 계획을 법원에 내고, 인가 뒤 변제하는 절차입니다. 남은 채무의 면책은 법원 결정입니다. 비율은 사건마다 달라 여기 적지 않습니다.</p></details>
+        <details data-cat="recovery"><summary>소득이 일정하지 않아도 물을 수 있나요?</summary><p>정규직만 대상은 아닙니다. 아르바이트, 일용, 사업 소득처럼 반복되는 수입이 있으면 회생을 볼 수 있습니다. 수입이 거의 없으면 파산을 같이 봅니다.</p></details>
+        <details data-cat="bankruptcy"><summary>개인파산은 어떤 절차인가요?</summary><p>빚을 재산으로 정리해도 갚지 못하는 지급불능일 때 스스로 파산을 신청하고, 이후 면책을 구하는 절차입니다. 파산 선고와 면책 심사는 다릅니다.</p></details>
+        <details data-cat="bankruptcy"><summary>회사 빚도 개인 계산과 같나요?</summary><p>법인 명의 재산을 정리하는 절차는 개인회생과 다릅니다. 대표 개인이 보증한 빚은 따로 봐야 합니다. 30초 확인은 개인 채무만 단순 계산합니다.</p></details>
+        <details data-cat="seizure"><summary>신청하면 압류가 바로 풀리나요?</summary><p>아닙니다. 중지명령이나 금지명령은 법원이 결정을 한 뒤에 효력이 생깁니다. 급여, 예금, 부동산은 대상마다 다릅니다.</p></details>
+        <details data-cat="docs"><summary>어떤 서류가 자주 필요하나요?</summary><p>주민등록등본, 소득 자료, 채무 자료, 재산 자료가 자주 나옵니다. 목록은 사건마다 다르고, 이 페이지에서 발급을 대신하지 않습니다.</p></details>
+        <details data-cat="docs"><summary>사는 지역이 달라도 상담 접수가 되나요?</summary><p>신청 법원은 주소지 관할입니다. 상담 접수 자체는 이 페이지에서 지역과 관계없이 남길 수 있습니다. 사무소는 서울 서초 한 곳입니다.</p></details>
+        <details data-cat="cost"><summary>비용은 얼마인가요?</summary><p>변호사 수임료는 사건마다 달라 금액을 적지 않습니다. 법원 인지대와 송달료는 절차와 채권자 수에 따라 따로 냅니다. 분납이나 환불을 여기서 약속하지 않습니다.</p></details>
+        <details data-cat="recovery"><summary>계산 숫자는 확정인가요?</summary><p>아닙니다. 36개월과 2026년 중위소득 60% 생계비로 나눈 예상입니다. 예금·적금, 보험 해약환급금, 퇴직금, 기타 재산은 넣지 않았습니다. 없다고 본 것이 아닙니다.</p></details>
       </div>
     </section>
 
     <section aria-labelledby="who">
-      <h2 id="who">상담을 맡는 사무소</h2>
+      <h2 id="who">법무법인 재유</h2>
       <div class="lawyers">
         <figure>
           <img class="portrait" src="lawyer-desk.jpg" width="275" height="480" alt="유성우 변호사. 책상에서 노트에 펜을 들고 있는 모습">
-          <figcaption class="cap">상담 장면을 담은 사진</figcaption>
+          <figcaption class="cap">광고책임변호사 유성우</figcaption>
         </figure>
         <figure>
           <img class="portrait" src="lawyer-profile.jpg" width="275" height="480" alt="유성우 변호사 정면 프로필">
           <figcaption class="cap">광고책임변호사 유성우</figcaption>
         </figure>
         <div>
-          <p>법무법인 재유에서 개인회생·파산 상담을 받습니다. 대표변호사는 강명구입니다. 사무실은 서울 서초구 서초대로46길 106, 4층입니다. 수임 범위와 비용은 사건마다 달라 이 화면에 금액을 적지 않습니다.</p>
-          <p>이름과 전화번호만 남기려면 바로 상담하기를 누르세요. 채무와 소득으로 예상 변제금을 보려면 30초 확인으로 계산 페이지에 들어가세요.</p>
+          <p>대표변호사 강명구. 서울 서초구 서초대로46길 106, 4층. 수임료는 사건마다 달라 여기 적지 않습니다.</p>
           <div class="cta-row">
-            <button type="button" class="btn line js-consult">바로 상담하기</button>
             <a class="btn pine js-calc" href="calculator.html">30초 확인</a>
+            <button type="button" class="btn line js-consult">바로 상담하기</button>
           </div>
         </div>
       </div>
@@ -237,8 +235,8 @@ footer strong{color:var(--ink)}
 
     <section class="band" aria-labelledby="closer">
       <div>
-        <h2 id="closer">오늘 남길 수 있는 것은 두 가지입니다</h2>
-        <p>이름과 번호만 남기거나, 계산 페이지에서 예상 변제금까지 볼 수 있습니다. 둘 다 법률 자문이 확정되는 화면은 아닙니다.</p>
+        <h2 id="closer">방법을 확인하세요</h2>
+        <p>예상 변제금은 30초 확인, 이름과 번호만 남기려면 바로 상담하기.</p>
       </div>
       <div class="cta-row">
         <button type="button" class="btn line js-consult">바로 상담하기</button>
