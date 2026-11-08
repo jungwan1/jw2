@@ -121,12 +121,8 @@ footer a{color:var(--gold);text-decoration:none}
     <div class="inp"><input id="a_dep" class="money" type="text" inputmode="numeric" autocomplete="off" placeholder="0"><span>만원</span></div>
     <label>차량 가액</label>
     <div class="inp"><input id="a_car" class="money" type="text" inputmode="numeric" autocomplete="off" placeholder="0"><span>만원</span></div>
-    <label>예금·적금·보험 해약환급금</label>
+    <label>예금·적금</label>
     <div class="inp"><input id="a_sav" class="money" type="text" inputmode="numeric" autocomplete="off" placeholder="0"><span>만원</span></div>
-    <label>퇴직금 예상액</label>
-    <div class="inp"><input id="a_ret" class="money" type="text" inputmode="numeric" autocomplete="off" placeholder="0"><span>만원</span></div>
-    <label>기타 재산</label>
-    <div class="inp"><input id="a_oth" class="money" type="text" inputmode="numeric" autocomplete="off" placeholder="0"><span>만원</span></div>
   </details>
   <p class="sec-s" style="margin:26px 0 4px;text-align:left">결과 확인과 상담 안내를 위해 연락처를 남겨 주세요</p>
   <label>이름</label>
@@ -159,7 +155,7 @@ footer a{color:var(--gold);text-decoration:none}
   <div class="liqnote" id="liqNote" style="display:none">재산 기준으로 변제금이 상향됐어요</div>
   <div class="res-row"><span>적용 생계비 (월)</span><span id="rLiving">-</span></div>
   <p id="contactLine" style="text-align:center;margin:18px 0 4px;color:var(--goldl);font-family:var(--serif);font-size:15px">회생전문 변호사가 확인 후 연락드립니다.</p>
-  <div class="note">※ 예상치이며 실제 변제금과 감면 여부는 재산·소득 및 법원 결정에 따라 달라집니다. 2026년 기준 중위소득 60%(보건복지부 고시)를 기본 생계비로 적용하고 변제기간 36개월로 단순 계산한 결과로, 재산(청산가치), 추가 생계비 인정 여부 등에 따라 달라질 수 있습니다. 청산가치는 담보대출 공제, 임차보증금 1,000만원 공제(소액임차인 최우선변제, 지역별 상이), 압류금지 예금 185만원 공제, 퇴직금 50%만 반영한 단순 계산이며, 실제 금액은 법원의 재산 평가에 따라 달라집니다.</div>
+  <div class="note">※ 예상치이며 실제 변제금과 감면 여부는 재산·소득 및 법원 결정에 따라 달라집니다. 2026년 기준 중위소득 60%(보건복지부 고시)를 기본 생계비로 적용하고 변제기간 36개월로 단순 계산한 결과로, 재산(청산가치), 추가 생계비 인정 여부 등에 따라 달라질 수 있습니다. 청산가치는 담보대출 공제, 임차보증금 1,000만원 공제(소액임차인 최우선변제, 지역별 상이), 압류금지 예금 185만원 공제를 반영한 단순 계산이며, 실제 금액은 법원의 재산 평가에 따라 달라집니다.</div>
 </section>
 
 
@@ -213,11 +209,11 @@ const MONTHS = 36;
 
 /* 청산가치(단순 계산, 만원 단위 입력 → 원)
  * 부동산(시세-담보대출, 최소 0) + 임차보증금(-1,000만원 소액임차인 공제, 지역별 상이, 최소 0)
- * + 차량 + 예금·보험(-185만원 압류금지, 최소 0) + 퇴직금×50% + 기타 */
+ * + 차량 + 예금·적금(-185만원 압류금지, 최소 0) */
 function liquidation(a){
   a = a||{}; const n = k => Math.max(0, +a[k]||0);
   const man = Math.max(0, n('re') - n('mort')) + Math.max(0, n('dep') - 1000) + n('car')
-    + Math.max(0, n('sav') - 185) + n('ret')*0.5 + n('oth');
+    + Math.max(0, n('sav') - 185);
   return man*10000;
 }
 function estimate(debtMan, incomeMan, hh, extraMan, assets){
@@ -244,7 +240,7 @@ if (typeof document !== 'undefined') {
     const d = parseFloat(v('debt')), i = parseFloat(v('income'));
     if (!(d>0) || !(i>=0) || isNaN(i)) { $('err').style.display='block'; return; }
     $('err').style.display='none';
-    const assets = {re:v('a_re'), mort:v('a_mort'), dep:v('a_dep'), car:v('a_car'), sav:v('a_sav'), ret:v('a_ret'), oth:v('a_oth')};
+    const assets = {re:v('a_re'), mort:v('a_mort'), dep:v('a_dep'), car:v('a_car'), sav:v('a_sav')};
     const r = estimate(d, i, +$('hh').value, parseFloat(v('extra'))||0, assets);
     window._liq = r.liq;
     const low = r.low, heavy = r.assetHeavy;
@@ -277,7 +273,8 @@ if (typeof document !== 'undefined') {
     const data={name,phone,debt_man:v('debt'),income_man:v('income'),household:$('hh').value,
       extra_man:v('extra')||'0',result_monthly:$('rMonthly').textContent,result_pct:$('rPct').textContent,
       asset_realestate:v('a_re')||'0',asset_mortgage:v('a_mort')||'0',asset_deposit:v('a_dep')||'0',
-      asset_car:v('a_car')||'0',asset_savings:v('a_sav')||'0',asset_retire:v('a_ret')||'0',asset_other:v('a_oth')||'0',
+      asset_car:v('a_car')||'0',asset_savings:v('a_sav')||'0',
+      asset_retire:'0',asset_other:'0',
       liquidation_value:Math.round(window._liq||0),
       agreed:true,source:getSource(),ts:new Date().toISOString()};
     const body=JSON.stringify(data);
