@@ -216,7 +216,8 @@ footer strong{color:var(--ink);font-size:15px}
 #faq.sit .sit-name h3 small{font-size:18px;font-weight:600;margin-left:6px;opacity:.85}
 #faq.sit .sit-quote{margin:0;font-size:17px;line-height:1.55;font-weight:600}
 #faq.sit .sit-quote b{color:var(--sit-gold)}
-#faq.sit .sit-chips{display:flex;flex-wrap:wrap;gap:6px}
+#faq.sit .sit-chips{display:flex;flex-direction:column;align-items:flex-start;gap:8px}
+#faq.sit .sit-chip-line{display:flex;flex-wrap:wrap;gap:6px;max-width:100%}
 #faq.sit .sit-chip{font-size:12.5px;font-weight:600;padding:5px 11px;border-radius:999px;border:1px solid rgba(255,255,255,.28);white-space:nowrap}
 #faq.sit .sit-chip.hl{background:var(--sit-gold);border-color:var(--sit-gold);color:#1d1f1c}
 #faq.sit .sit-pros{padding:30px 6px 30px 10px;display:flex;flex-direction:column;justify-content:center;gap:10px;position:relative;z-index:2}
@@ -246,6 +247,15 @@ footer strong{color:var(--ink);font-size:15px}
   #faq.sit .sit-item{border-left:1px solid var(--sit-line);border-bottom:1px solid var(--sit-line)}
   #faq.sit .sit-item:nth-child(odd){border-left:0}
 }
+.offer{width:100vw;margin-left:calc(50% - 50vw);background:#f6f3ec}
+.offer-docs{width:min(980px,calc(100% - 48px));margin:0 auto;padding:40px 8px 28px;text-align:center}
+.offer-mark{margin:0;color:#c99a3e;font-size:54px;line-height:1;font-weight:800}
+.offer-docs h2{margin:0 0 12px;font-size:clamp(32px,4vw,48px);font-weight:800;letter-spacing:-.045em;line-height:1.2;color:#173f32}
+.offer-docs p{margin:0;font-size:clamp(20px,2.4vw,28px);font-weight:700;color:#3a403c;line-height:1.45}
+.offer-docs b{color:#c99a3e;font-weight:800}
+.offer-time{background:#173f32;color:#f6f3ec;width:100vw;margin-left:calc(50% - 50vw);padding:42px max(24px,calc((100vw - 980px)/2));text-align:center}
+.offer-time h2{margin:0 0 12px;font-size:clamp(28px,3.6vw,44px);font-weight:800;letter-spacing:-.045em;line-height:1.2;color:#fff}
+.offer-time p{margin:0 auto;max-width:18em;font-size:clamp(18px,2.2vw,24px);font-weight:700;line-height:1.5;color:#f4efe6}
 .dock{display:none}
 @media(max-width:800px){
   body{padding-bottom:84px}
@@ -283,6 +293,8 @@ footer strong{color:var(--ink);font-size:15px}
   .thanks .board{grid-template-columns:1fr;row-gap:18px}
   .thanks .msg,.thanks .msg:nth-child(4n+2),.thanks .msg:nth-child(4n+3),.thanks .msg:nth-child(4n){margin-top:0;width:auto}
   .thanks .bubble{font-size:15.5px}
+  .offer-docs{width:min(980px,calc(100% - 28px));padding:32px 0 22px}
+  .offer-time{padding:32px 18px}
   #faq.sit{padding:44px 18px}
   #faq.sit .sit-banner{grid-template-columns:1fr}
   #faq.sit .sit-photo{display:none}
@@ -293,6 +305,7 @@ footer strong{color:var(--ink);font-size:15px}
   #faq.sit .sit-item{border-left:0;border-bottom:1px solid var(--sit-line)}
   #faq.sit .sit-item:last-child{border-bottom:0}
   #faq.sit .sit-name h3{font-size:28px}
+  #faq.sit .sit-chip{font-size:12px;padding:4px 8px}
 }
 </style>
 </head>
@@ -321,25 +334,21 @@ footer strong{color:var(--ink);font-size:15px}
           <a class="btn pine js-calc" href="calculator.html">30초 확인</a>
           <button type="button" class="btn line js-consult">바로 상담하기</button>
         </div>
-        <p class="hero-note">AI로 제작한 연출 이미지</p>
       </div>
     </div>
   </section>
 
   <div class="wrap">
-    <section aria-labelledby="when">
-      <h2 id="when">이자가 늘기 전에 절차부터 나누세요</h2>
-      <p class="sub">회생과 파산은 미루기보다 채무와 소득을 적어 보는 쪽이 순서가 분명합니다. 빚이 없어진다는 약속은 하지 않습니다.</p>
-      <div class="split">
-        <article class="dark">
-          <h3>개인회생</h3>
-          <p>앞으로 소득이 이어질 때, 생계비를 빼고 일정 기간 갚는 계획을 법원에 내는 절차입니다. 변제금은 소득, 생계비, 재산마다 다릅니다.</p>
-        </article>
-        <article class="light">
-          <h3>개인파산·면책</h3>
-          <p>재산과 소득으로 빚을 갚기 어려운 지급불능이면 파산과 면책을 살펴봅니다. 면책이 되어도 세금, 벌금처럼 빠지지 않는 채무가 있습니다.</p>
-        </article>
-      </div>
+    <section class="offer" aria-labelledby="when">
+      <article class="offer-docs">
+        <p class="offer-mark" aria-hidden="true">“</p>
+        <h2 id="when">서류발급 무료 대행</h2>
+        <p>개인회생에 필요한 <b>서류발급</b><br><b>무료로 대행해</b> 드리고 있습니다.</p>
+      </article>
+      <article class="offer-time">
+        <h2>골든타임은 언제일까요?</h2>
+        <p>지금이 바로 골든타임 입니다. 상황이 더 나빠지기 전에 회생/파산을 준비해야 합니다.</p>
+      </article>
     </section>
 
     <section aria-labelledby="exh">
@@ -385,7 +394,6 @@ footer strong{color:var(--ink);font-size:15px}
         <div class="flow-stage" id="flowStage"></div>
         <button type="button" class="flow-btn next" id="flowNext" aria-label="다음 사례">›</button>
       </div>
-      <button type="button" class="flow-pause" id="flowPause" aria-pressed="false">일시정지</button>
       <div id="storySource" hidden>
         <article data-img="story-office.jpg" data-title="김** · 41세 영업직" data-summary="도박 채무 약 1억 1천만 원">
           <p data-part="issue">이 사례에서는 영업직으로 일하며 빚이 약 1억 1천만 원이었습니다. 스포츠토토와 온라인 도박이 있었고, 신청 6개월 전까지 베팅이 있었습니다.</p>
@@ -503,7 +511,6 @@ footer strong{color:var(--ink);font-size:15px}
     <section class="thanks" id="thanks" aria-labelledby="thanksh">
       <p class="sec-k">인사</p>
       <h2 id="thanksh">고객님이 보내주신 감사 인사</h2>
-      <p class="sub">보내주신 글을 말풍선으로 다시 적었습니다. 적힌 시각은 받은 시각입니다.</p>
       <div class="board" id="thanksBoard">
       <article class="msg"><div class="who"><span class="ava" style="background:linear-gradient(160deg,#8fb7a4,#d7e4c8)"><i></i><b></b></span><span class="id"><strong>김**</strong><small>34세 · 직장인</small></span><time>오전 10:42</time></div><p class="bubble">변호사님 안녕하세요 김**입니다. 인가 결정 났다는 연락 받고 회사 화장실에서 한참 앉아 있었어요ㅎㅎ 코인 빚이라 솔직히 안 될 줄 알았거든요. 거래 내역 그 많은 걸 하나하나 맞춰주셔서 감사합니다. 3년 성실하게 갚겠습니다!</p></article>
       <article class="msg"><div class="who"><span class="ava" style="background:linear-gradient(160deg,#c4a27a,#efe2cf)"><i></i><b></b></span><span class="id"><strong>박**</strong><small>47세 · 고깃집 사장</small></span><time>오후 3:08</time></div><p class="bubble">사무장님 박**입니다. 금지명령 나오고 나서 그 사람들 한 번도 안 왔어요. 직원들 앞에서 고개 숙일 일 없어진게 제일 좋네요. 언제 가게 한번 들르세요 고기는 제가 굽겠습니다.</p></article>
@@ -541,11 +548,8 @@ footer strong{color:var(--ink);font-size:15px}
             </div>
             <p class="sit-quote">빚과 세금, 장부를<br><b>한 사람이 함께</b> 봅니다.</p>
             <div class="sit-chips">
-              <span class="sit-chip hl">대한변협 등록 도산전문변호사</span>
-              <span class="sit-chip">변호사</span>
-              <span class="sit-chip">세무사</span>
-              <span class="sit-chip">변리사</span>
-              <span class="sit-chip">공인중개사</span>
+              <div class="sit-chip-line"><span class="sit-chip hl">대한변협 등록 도산전문변호사</span></div>
+              <div class="sit-chip-line"><span class="sit-chip">변호사</span><span class="sit-chip">세무사</span><span class="sit-chip">변리사</span><span class="sit-chip">공인중개사</span></div>
             </div>
           </div>
           <div class="sit-pros">
@@ -621,7 +625,7 @@ footer strong{color:var(--ink);font-size:15px}
       <div class="wrap">
       <p class="sec-k">사무소</p>
       <h2 id="who">법무법인 재유</h2>
-      <p>광고책임변호사 유성우. 대표변호사 강명구. 서울 서초구 서초대로46길 106, 4층. 수임료는 사건마다 달라 여기 적지 않습니다.</p>
+      <p>광고책임변호사 유성우. 대표변호사 강명구. 서울 서초구 서초대로46길 106, 4층.</p>
       <div class="cta-row">
         <a class="btn pine js-calc" href="calculator.html">30초 확인</a>
         <button type="button" class="btn line js-consult">바로 상담하기</button>
@@ -666,8 +670,6 @@ footer strong{color:var(--ink);font-size:15px}
       서울 서초구 서초대로46길 106, 4층<br>
       <a href="http://jlawfirm.co.kr/" target="_blank" rel="noopener">jlawfirm.co.kr</a><br>
       광고책임변호사: 유성우 변호사<br>
-      첫 화면 사진: AI로 제작한 연출 이미지이며, 법무법인 재유 사무실이나 소속 변호사를 찍은 사진이 아닙니다.<br>
-      이야기 카드 사진: Luca Bravo, Stephen Caserta, Joanna Kosinska, Daniel von Appen, Alex Robert. 모두 CC0, Wikimedia Commons. 실제 고객이 아닙니다.
       <p>본 페이지의 절차 안내는 일반 정보입니다. 개별 사건의 결과는 법원 결정에 따릅니다. 계산 페이지의 숫자는 참고용 예상치이며 법률 자문이 아닙니다. 상담 예시 목록은 실제 접수 기록이 아닙니다.</p>
     </footer>
   </div>
@@ -936,22 +938,16 @@ form.addEventListener('submit', function(ev){
     storyModal.hidden = false;
     document.getElementById('storyClose').focus();
     paused = true;
-    document.getElementById('flowPause').textContent = '다시 재생';
-    document.getElementById('flowPause').setAttribute('aria-pressed','true');
     stop();
   }
   function closeStory(){
     storyModal.hidden = true;
+    paused = false;
     flow.focus();
+    start();
   }
   document.getElementById('flowPrev').addEventListener('click', function(){ go(-1); });
   document.getElementById('flowNext').addEventListener('click', function(){ go(1); });
-  document.getElementById('flowPause').addEventListener('click', function(){
-    paused = !paused;
-    this.textContent = paused ? '다시 재생' : '일시정지';
-    this.setAttribute('aria-pressed', paused ? 'true' : 'false');
-    if (paused) stop(); else start();
-  });
   flow.addEventListener('keydown', function(e){
     if (e.key === 'ArrowLeft'){ e.preventDefault(); go(-1); }
     if (e.key === 'ArrowRight'){ e.preventDefault(); go(1); }
