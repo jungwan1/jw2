@@ -250,7 +250,6 @@ footer strong{color:var(--ink)}
       <strong>법무법인 재유</strong><br>
       대표변호사 강명구 · 사업자등록번호 120-87-34450<br>
       서울 서초구 서초대로46길 106, 4층<br>
-      전화 010-9592-1038<br>
       <a href="http://jlawfirm.co.kr/" target="_blank" rel="noopener">jlawfirm.co.kr</a><br>
       광고책임변호사: 유성우 변호사
       <p>본 페이지의 절차 안내는 일반 정보입니다. 개별 사건의 결과는 법원 결정에 따릅니다. 계산 페이지의 숫자는 참고용 예상치이며 법률 자문이 아닙니다.</p>
@@ -279,14 +278,15 @@ footer strong{color:var(--ink)}
       </div>
       <details>
         <summary>자세히 보기</summary>
-        <p>수집 항목: 이름, 연락처. 이용 목적: 개인회생·파산 상담 연락. 보유 기간: 상담 종료 후 1년, 또는 동의 철회 시 파기. 동의를 거부할 수 있으나, 거부하면 이 화면의 상담 접수와 연락이 제한됩니다. 채무·소득·재산은 이 창에서 수집하지 않습니다.</p>
+        <p>수집 항목: 이름, 연락처, 유입경로, 접수시각. 이용 목적: 개인회생·파산 상담 연락. 보유 기간: 상담 종료 후 1년 (또는 동의 철회 시 즉시 파기). 동의를 거부할 수 있으나, 거부하면 상담 연락이 제한됩니다. 채무·소득·재산은 이 창에서 수집하지 않습니다.</p>
       </details>
       <p class="err" id="consultErr" role="alert" aria-live="assertive"></p>
       <button type="submit" class="btn pine" id="consultSend">상담 요청 보내기</button>
     </form>
     <div class="ok" id="consultOk" hidden tabindex="-1">
-      <strong>상담 요청을 보냈습니다.</strong>
-      <p>남겨 주신 번호로 연락드립니다. 이 안내만으로 저장이 끝났는지는 확인되지 않습니다. 연락이 없으면 다시 남겨 주세요.</p>
+      <strong>전송을 요청했습니다.</strong>
+      <p>접수 완료 여부는 아직 확인되지 않았습니다.</p>
+      <button type="button" class="btn line" id="consultRetry">다시 전송 요청</button>
     </div>
   </div>
 </div>
@@ -323,9 +323,11 @@ function getSource(){
 }
 getSource();
 
-/* 바로 상담은 계산기 페이지와 같은 Apps Script로 보냅니다.
-   키는 기존 접수와 같고, 묻지 않은 채무·재산·결과 칸은 빈 문자열입니다.
-   변제금이나 감면 비율을 만들어 넣지 않습니다. */
+/* 바로 상담은 계산기 페이지와 같은 Apps Script 주소로 보냅니다.
+   키 이름은 기존 접수와 같고, 묻지 않은 채무·재산·결과 칸은 빈 문자열입니다.
+   변제금이나 감면 비율을 만들어 넣지 않습니다.
+   서버 소스가 저장소에 없어, 빈 값 접수가 시트에 남는지 확인하지 않았습니다.
+   sendBeacon true 와 no-cors 응답은 브라우저가 전송을 넘겼다는 뜻일 뿐 저장 확인이 아닙니다. */
 var FORM_ENDPOINT = "https://script.google.com/macros/s/AKfycbwgSmFGlhFv6b-IS35KkaPaaL9dM7evxYj1h8A-EajrN6tUiyaq1-Zmmjty6qY1PcAB/exec";
 var sending = false;
 var modal = document.getElementById('consultModal');
@@ -360,6 +362,15 @@ function closeConsult(){
 }
 document.querySelectorAll('.js-consult').forEach(function(b){ b.addEventListener('click', openConsult); });
 document.getElementById('consultClose').addEventListener('click', closeConsult);
+document.getElementById('consultRetry').addEventListener('click', function(){
+  ok.hidden = true;
+  form.hidden = false;
+  sending = false;
+  sendBtn.disabled = false;
+  sendBtn.textContent = '다시 전송 요청';
+  err.textContent = '';
+  document.getElementById('qName').focus();
+});
 modal.addEventListener('click', function(e){ if (e.target === modal) closeConsult(); });
 document.addEventListener('keydown', function(e){
   if (modal.hidden) return;
@@ -404,7 +415,7 @@ form.addEventListener('submit', function(ev){
   if (!name){ err.textContent = '이름을 입력해 주세요.'; document.getElementById('qName').focus(); return; }
   if (!/^01[016789]-?\d{3,4}-?\d{4}$/.test(phone.replace(/\s/g,''))){ err.textContent = '휴대폰 번호를 정확히 입력해 주세요. (예: 010-1234-5678)'; document.getElementById('qPhone').focus(); return; }
   if (!document.getElementById('qAgree').checked){ err.textContent = '개인정보 수집·이용 동의가 필요합니다.'; document.getElementById('qAgree').focus(); return; }
-  if (!FORM_ENDPOINT){ err.textContent = '지금은 접수를 받을 수 없습니다.'; return; }
+  if (!FORM_ENDPOINT){ err.textContent = '전송하지 못했습니다. 잠시 후 다시 눌러 주세요.'; return; }
   sending = true;
   sendBtn.disabled = true;
   sendBtn.textContent = '보내는 중';
@@ -417,8 +428,8 @@ form.addEventListener('submit', function(ev){
     if (!okSend){
       sending = false;
       sendBtn.disabled = false;
-      sendBtn.textContent = '상담 요청 보내기';
-      err.textContent = '보내지 못했습니다. 잠시 후 다시 눌러 주세요.';
+      sendBtn.textContent = '다시 전송 요청';
+      err.textContent = '전송하지 못했습니다. 잠시 후 다시 눌러 주세요.';
       return;
     }
     form.hidden = true;
