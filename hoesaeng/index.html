@@ -295,9 +295,7 @@ footer strong{color:var(--ink);font-size:15px}
       <button type="submit" class="btn pine" id="consultSend">상담 요청 보내기</button>
     </form>
     <div class="ok" id="consultOk" hidden tabindex="-1">
-      <strong>전송을 요청했습니다.</strong>
-      <p>접수 완료 여부는 아직 확인되지 않았습니다.</p>
-      <button type="button" class="btn line" id="consultRetry">다시 전송 요청</button>
+      <p>빠른 시간 내에 담당자가 연락드리겠습니다.</p>
     </div>
   </div>
 </div>
@@ -338,7 +336,10 @@ getSource();
    키 이름은 기존 접수와 같고, 묻지 않은 채무·재산·결과 칸은 빈 문자열입니다.
    변제금이나 감면 비율을 만들어 넣지 않습니다.
    서버 소스가 저장소에 없어, 빈 값 접수가 시트에 남는지 확인하지 않았습니다.
-   sendBeacon true 와 no-cors 응답은 브라우저가 전송을 넘겼다는 뜻일 뿐 저장 확인이 아닙니다. */
+   Apps Script 응답에는 Access-Control-Allow-Origin이 없어 브라우저가 저장 성공 본문을 읽을 수 없다.
+   스크립트 수정 권한이 없으므로 확정 ack는 불가능하다.
+   sendBeacon이 true이거나 no-cors fetch가 거부되지 않을 때만 완료 문구를 연다.
+   네트워크가 명시적으로 실패하면 완료 문구를 열지 않는다. */
 var FORM_ENDPOINT = "https://script.google.com/macros/s/AKfycbwgSmFGlhFv6b-IS35KkaPaaL9dM7evxYj1h8A-EajrN6tUiyaq1-Zmmjty6qY1PcAB/exec";
 var sending = false;
 var modal = document.getElementById('consultModal');
@@ -359,6 +360,8 @@ function openConsult(){
   err.textContent = '';
   ok.hidden = true;
   form.hidden = false;
+  document.getElementById('consultIntro').hidden = false;
+  document.getElementById('consultTitle').textContent = '바로 상담하기';
   sending = false;
   sendBtn.disabled = false;
   sendBtn.textContent = '상담 요청 보내기';
@@ -373,15 +376,6 @@ function closeConsult(){
 }
 document.querySelectorAll('.js-consult').forEach(function(b){ b.addEventListener('click', openConsult); });
 document.getElementById('consultClose').addEventListener('click', closeConsult);
-document.getElementById('consultRetry').addEventListener('click', function(){
-  ok.hidden = true;
-  form.hidden = false;
-  sending = false;
-  sendBtn.disabled = false;
-  sendBtn.textContent = '다시 전송 요청';
-  err.textContent = '';
-  document.getElementById('qName').focus();
-});
 modal.addEventListener('click', function(e){ if (e.target === modal) closeConsult(); });
 document.addEventListener('keydown', function(e){
   if (modal.hidden) return;
@@ -443,6 +437,8 @@ form.addEventListener('submit', function(ev){
       err.textContent = '전송하지 못했습니다. 잠시 후 다시 눌러 주세요.';
       return;
     }
+    document.getElementById('consultTitle').textContent = '접수가 완료되었습니다.';
+    document.getElementById('consultIntro').hidden = true;
     form.hidden = true;
     ok.hidden = false;
     ok.focus();
