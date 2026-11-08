@@ -101,8 +101,8 @@ footer strong{color:var(--ink);font-size:15px}
 .avg b{font-size:clamp(84px,10vw,128px);line-height:.85;letter-spacing:-.06em;font-weight:800}
 .avg span{font-size:28px;font-weight:800;padding-bottom:10px}
 .example-grid{display:grid;grid-template-columns:minmax(0,.85fr) minmax(0,1.15fr);gap:56px;align-items:center}
-.example-note{margin:0 0 18px;color:var(--muted)}
-.ticker-label{margin:0 0 10px;font-size:13px;font-weight:800;letter-spacing:.08em;color:var(--pine)}
+.example-note,.fine{margin:0 0 14px;color:#3e4744;font-size:13px;line-height:1.55;font-weight:500}
+.ticker-label{margin:0 0 6px;font-size:13px;font-weight:600;letter-spacing:0;color:#3e4744}
 .ticker-window{height:292px;overflow:hidden;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
 .ticker-track{margin:0;padding:0;list-style:none;animation:ticker-up 36s linear infinite}
 .ticker-window:hover .ticker-track,.ticker-window:focus-within .ticker-track{animation-play-state:paused}
@@ -114,9 +114,34 @@ footer strong{color:var(--ink);font-size:15px}
   .ticker-track{animation:none}
   .ticker-window{height:auto}
   .ticker-track .dup{display:none}
+  .flow-card{transition:none}
 }
+.flow{position:relative;height:460px;margin-top:8px}
+.flow-stage{position:relative;height:100%;overflow:hidden;touch-action:pan-y}
+.flow-card{position:absolute;top:18px;left:50%;width:250px;height:390px;margin-left:-125px;border:0;padding:0;border-radius:18px;overflow:hidden;background:#1c2421 center/cover no-repeat;cursor:pointer;color:#fff;text-align:left;transition:transform .6s ease,filter .6s ease}
+.flow-card .shade{position:absolute;left:0;right:0;bottom:0;padding:28px 16px 16px;background:linear-gradient(transparent,rgba(0,0,0,.78))}
+.flow-card .ex{display:block;font-size:13px;line-height:1.4;font-weight:500;color:#f3efe6}
+.flow-card strong{display:block;margin-top:2px;font-size:20px;letter-spacing:-.03em}
+.flow-btn{position:absolute;top:50%;z-index:6;width:44px;height:44px;margin-top:-22px;border-radius:50%;border:1px solid var(--line);background:#fff;font-size:22px;cursor:pointer}
+.flow-btn.prev{left:8px}
+.flow-btn.next{right:8px}
+.flow-pause{margin-top:8px;border:0;background:transparent;color:#3e4744;font:inherit;font-size:13px;cursor:pointer;padding:6px 0}
+.yt-head{display:grid;grid-template-columns:72px minmax(0,1fr) auto;gap:16px;align-items:center;margin-bottom:22px}
+.yt-avatar{width:72px;height:72px;border-radius:50%;object-fit:cover;background:#fff}
+.yt-head h2{margin:0}
+.yt-handle{margin:2px 0 4px;font-size:15px}
+.yt-handle a{color:var(--pine);font-weight:700;text-decoration:none}
+.yt-note{margin:0;color:#3e4744;font-size:15px}
+.yt-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px}
+.yt-card{display:flex;flex-direction:column;gap:10px;color:inherit;text-decoration:none}
+.yt-thumb{position:relative;display:block;border-radius:12px;overflow:hidden;background:#111;aspect-ratio:16/9}
+.yt-thumb img{width:100%;height:100%;object-fit:cover;display:block}
+.yt-play{position:absolute;left:50%;top:50%;width:48px;height:48px;border-radius:50%;background:rgba(0,0,0,.78);display:grid;place-items:center;transform:translate(-50%,-50%)}
+.yt-play::before{content:"";border-style:solid;border-width:6px 0 6px 11px;border-color:transparent transparent transparent #fff;margin-left:2px}
+.yt-card strong{font-size:15px;line-height:1.4;letter-spacing:-.03em}
 .dock{display:none}
 @media(max-width:800px){
+  body{padding-bottom:84px}
   .wrap,.hero-in{width:min(1180px,calc(100% - 28px))}
   h1{font-size:28px;letter-spacing:-.045em;max-width:none;white-space:normal}
   h1 span{display:block}
@@ -133,6 +158,11 @@ footer strong{color:var(--ink);font-size:15px}
   .nav .link,.nav .btn{display:none}
   .dock{display:grid;grid-template-columns:1fr 1fr;gap:8px;position:fixed;left:0;right:0;bottom:0;z-index:30;background:#fff;border-top:1px solid var(--line);padding:10px 12px calc(10px + env(safe-area-inset-bottom))}
   .dock .btn{width:100%;padding:0 8px;font-size:15px;min-height:48px}
+  .flow{height:400px}
+  .flow-card{width:200px;height:320px;margin-left:-100px;top:24px}
+  .yt-head{grid-template-columns:64px minmax(0,1fr)}
+  .yt-head .btn{grid-column:1 / -1;width:100%}
+  .yt-grid{grid-template-columns:1fr}
 }
 </style>
 </head>
@@ -217,6 +247,25 @@ footer strong{color:var(--ink);font-size:15px}
             </ul>
           </div>
         </div>
+      </div>
+    </section>
+
+    <section aria-labelledby="storyh">
+      <p class="sec-k">살펴보기</p>
+      <h2 id="storyh">상담 전 살펴볼 이야기</h2>
+      <p class="fine">예시입니다. 실제 고객 후기나 영상이 아닙니다.</p>
+      <div class="flow" id="flow" tabindex="0" aria-roledescription="carousel" aria-label="상담 전 살펴볼 이야기. 예시입니다.">
+        <button type="button" class="flow-btn prev" id="flowPrev" aria-label="이전 이야기">‹</button>
+        <div class="flow-stage" id="flowStage"></div>
+        <button type="button" class="flow-btn next" id="flowNext" aria-label="다음 이야기">›</button>
+      </div>
+      <button type="button" class="flow-pause" id="flowPause" aria-pressed="false">일시정지</button>
+      <div id="storySource" hidden>
+        <article data-img="story-office.jpg" data-title="여러 곳의 채무"><p>카드와 대출이 나뉘어 있으면 채권자 목록부터 적습니다. 금액은 자료를 보고 확인합니다.</p></article>
+        <article data-img="story-desk.jpg" data-title="소득이 줄었을 때"><p>급여가 줄거나 일을 접으면 회생으로 볼지 파산으로 볼지가 달라집니다. 한 달 소득만으로 자격을 정하지 않습니다.</p></article>
+        <article data-img="story-envelopes.jpg" data-title="압류가 걱정될 때"><p>신청했다고 압류가 바로 풀리지는 않습니다. 중지·금지 효력은 법원 결정 뒤에 생깁니다.</p></article>
+        <article data-img="story-room.jpg" data-title="회생과 파산"><p>소득이 이어지면 회생, 갚기 어려우면 파산을 함께 봅니다. 어느 쪽인지는 이 화면에서 단정하지 않습니다.</p></article>
+        <article data-img="story-papers.jpg" data-title="준비할 서류"><p>등본, 소득·채무·재산 자료가 자주 필요합니다. 여기서 서류를 대신 발급하지는 않습니다.</p></article>
       </div>
     </section>
 
@@ -317,13 +366,45 @@ footer strong{color:var(--ink);font-size:15px}
       </div>
     </section>
 
+    <section aria-labelledby="yth">
+      <p class="sec-k">유튜브</p>
+      <div class="yt-head">
+        <img class="yt-avatar" src="yt-avatar.jpg" width="72" height="72" alt="">
+        <div>
+          <h2 id="yth">머니로 지킴이</h2>
+          <p class="yt-handle"><a href="https://www.youtube.com/@%EB%A8%B8%EB%8B%88%EB%A1%9C%EC%A7%80%ED%82%B4%EC%9D%B4" target="_blank" rel="noopener">@머니로지킴이</a></p>
+          <p class="yt-note">유성우 변호사의 채널입니다. 카드는 유튜브로 열리고, 이 페이지 안에서 재생되지 않습니다.</p>
+        </div>
+        <a class="btn line" href="https://www.youtube.com/@%EB%A8%B8%EB%8B%88%EB%A1%9C%EC%A7%80%ED%82%B4%EC%9D%B4" target="_blank" rel="noopener">채널 보기</a>
+      </div>
+      <div class="yt-grid">
+        <a class="yt-card" href="https://www.youtube.com/watch?v=WYweJAc9Kcc" target="_blank" rel="noopener">
+          <span class="yt-thumb"><img src="yt-rehab.jpg" alt=""><span class="yt-play" aria-hidden="true"></span></span>
+          <strong>회생을 해야 하는 이유</strong>
+        </a>
+        <a class="yt-card" href="https://www.youtube.com/watch?v=JkiaTPMW1bg" target="_blank" rel="noopener">
+          <span class="yt-thumb"><img src="yt-parking.jpg" alt=""><span class="yt-play" aria-hidden="true"></span></span>
+          <strong>평행주차 했더니 혹시 내가 재물손괴?</strong>
+        </a>
+        <a class="yt-card" href="https://www.youtube.com/watch?v=PXsOKVMmyxM" target="_blank" rel="noopener">
+          <span class="yt-thumb"><img src="yt-contract.jpg" alt=""><span class="yt-play" aria-hidden="true"></span></span>
+          <strong>변호사 없이 계약서 잘 쓰는 법</strong>
+        </a>
+        <a class="yt-card" href="https://www.youtube.com/watch?v=wO_3CdGR40M" target="_blank" rel="noopener">
+          <span class="yt-thumb"><img src="yt-consult.jpg" alt=""><span class="yt-play" aria-hidden="true"></span></span>
+          <strong>무료 법률상담을 비추천 하는 이유</strong>
+        </a>
+      </div>
+    </section>
+
     <footer>
       <strong>법무법인 재유</strong><br>
       대표변호사 강명구 · 사업자등록번호 120-87-34450<br>
       서울 서초구 서초대로46길 106, 4층<br>
       <a href="http://jlawfirm.co.kr/" target="_blank" rel="noopener">jlawfirm.co.kr</a><br>
       광고책임변호사: 유성우 변호사<br>
-      배경 사진: Jonathan Simcoe, CC0, <a href="https://commons.wikimedia.org/wiki/File:Glass_building_corner_(Unsplash).jpg" target="_blank" rel="noopener">Wikimedia Commons</a>. 법무법인 재유 사무실 사진이 아닙니다.
+      배경 사진: Jonathan Simcoe, CC0, <a href="https://commons.wikimedia.org/wiki/File:Glass_building_corner_(Unsplash).jpg" target="_blank" rel="noopener">Wikimedia Commons</a>. 법무법인 재유 사무실 사진이 아닙니다.<br>
+      이야기 카드 사진: Luca Bravo, Stephen Caserta, Joanna Kosinska, Daniel von Appen, Alex Robert. 모두 CC0, Wikimedia Commons. 실제 고객이 아닙니다.
       <p>본 페이지의 절차 안내는 일반 정보입니다. 개별 사건의 결과는 법원 결정에 따릅니다. 계산 페이지의 숫자는 참고용 예상치이며 법률 자문이 아닙니다. 상담 예시 목록은 실제 접수 기록이 아닙니다.</p>
     </footer>
   </div>
@@ -332,6 +413,15 @@ footer strong{color:var(--ink);font-size:15px}
 <div class="dock" aria-label="빠른 이동">
   <button type="button" class="btn line js-consult">바로 상담하기</button>
   <a class="btn pine js-calc" href="calculator.html">30초 확인</a>
+</div>
+
+<div class="modal" id="storyModal" hidden>
+  <div class="dialog" role="dialog" aria-modal="true" aria-labelledby="storyTitle" tabindex="-1">
+    <button type="button" class="close" id="storyClose" aria-label="닫기">×</button>
+    <p class="fine">상담 전 살펴볼 이야기. 예시이며 실제 고객 후기가 아닙니다.</p>
+    <h2 id="storyTitle"></h2>
+    <p id="storyBody"></p>
+  </div>
 </div>
 
 <div class="modal" id="consultModal" hidden>
@@ -507,6 +597,102 @@ form.addEventListener('submit', function(ev){
   if (queued){ done(true); return; }
   fetch(FORM_ENDPOINT, {method:'POST', mode:'no-cors', keepalive:true, headers:{'Content-Type':'text/plain;charset=utf-8'}, body:body}).then(function(){ done(true); }).catch(function(){ done(false); });
 });
+
+(function(){
+  var source = document.getElementById('storySource');
+  var stage = document.getElementById('flowStage');
+  var flow = document.getElementById('flow');
+  if (!source || !stage) return;
+  var items = Array.prototype.slice.call(source.querySelectorAll('article')).map(function(el){
+    return {img: el.getAttribute('data-img'), title: el.getAttribute('data-title'), body: el.querySelector('p').textContent};
+  });
+  var index = 0, paused = false, timer = null, reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var storyModal = document.getElementById('storyModal');
+  var cards = items.map(function(item){
+    var btn = document.createElement('button');
+    btn.type = 'button';
+    btn.className = 'flow-card';
+    btn.style.backgroundImage = 'url(' + item.img + ')';
+    btn.setAttribute('aria-label', item.title + '. 예시');
+    btn.innerHTML = '<span class="shade"><span class="ex">예시</span><strong>' + item.title + '</strong></span>';
+    btn.addEventListener('click', function(){
+      var d = Number(btn.getAttribute('data-d'));
+      if (d !== 0) { go(d); return; }
+      openStory(item);
+    });
+    stage.appendChild(btn);
+    return btn;
+  });
+  function mod(n){ return (n + items.length) % items.length; }
+  function render(){
+    var step = window.innerWidth < 800 ? 128 : 176;
+    items.forEach(function(item, i){
+      var btn = cards[i];
+      var d = i - index;
+      if (d > items.length/2) d -= items.length;
+      if (d < -items.length/2) d += items.length;
+      btn.setAttribute('data-d', String(d));
+      if (Math.abs(d) > 2){ btn.hidden = true; return; }
+      btn.hidden = false;
+      var scale = d === 0 ? 1 : Math.abs(d) === 1 ? 0.78 : 0.64;
+      btn.style.transform = 'translateX(' + (d * step) + 'px) scale(' + scale + ')';
+      btn.style.zIndex = String(5 - Math.abs(d));
+      btn.style.filter = d === 0 ? 'none' : 'brightness(' + (Math.abs(d)===1 ? 0.62 : 0.42) + ')';
+    });
+  }
+  function go(step){ index = mod(index + step); render(); }
+  function start(){
+    stop();
+    if (reduced || paused) return;
+    timer = setInterval(function(){ go(1); }, 4200);
+  }
+  function stop(){ if (timer) clearInterval(timer); timer = null; }
+  function openStory(item){
+    document.getElementById('storyTitle').textContent = item.title;
+    document.getElementById('storyBody').textContent = item.body;
+    storyModal.hidden = false;
+    document.getElementById('storyClose').focus();
+    paused = true;
+    document.getElementById('flowPause').textContent = '다시 재생';
+    document.getElementById('flowPause').setAttribute('aria-pressed','true');
+    stop();
+  }
+  function closeStory(){
+    storyModal.hidden = true;
+    flow.focus();
+  }
+  document.getElementById('flowPrev').addEventListener('click', function(){ go(-1); });
+  document.getElementById('flowNext').addEventListener('click', function(){ go(1); });
+  document.getElementById('flowPause').addEventListener('click', function(){
+    paused = !paused;
+    this.textContent = paused ? '다시 재생' : '일시정지';
+    this.setAttribute('aria-pressed', paused ? 'true' : 'false');
+    if (paused) stop(); else start();
+  });
+  flow.addEventListener('keydown', function(e){
+    if (e.key === 'ArrowLeft'){ e.preventDefault(); go(-1); }
+    if (e.key === 'ArrowRight'){ e.preventDefault(); go(1); }
+  });
+  flow.addEventListener('mouseenter', stop);
+  flow.addEventListener('mouseleave', start);
+  var touchX = null;
+  stage.addEventListener('touchstart', function(e){ touchX = e.changedTouches[0].clientX; }, {passive:true});
+  stage.addEventListener('touchend', function(e){
+    if (touchX == null) return;
+    var dx = e.changedTouches[0].clientX - touchX;
+    if (dx > 40) go(-1);
+    else if (dx < -40) go(1);
+    touchX = null;
+  });
+  document.getElementById('storyClose').addEventListener('click', closeStory);
+  storyModal.addEventListener('click', function(e){ if (e.target === storyModal) closeStory(); });
+  document.addEventListener('keydown', function(e){
+    if (e.key === 'Escape' && storyModal && !storyModal.hidden) closeStory();
+  });
+  window.addEventListener('resize', render);
+  render();
+  start();
+})();
 
 document.querySelectorAll('.tabs button').forEach(function(btn){
   btn.addEventListener('click', function(){
