@@ -32,13 +32,18 @@ header{position:sticky;top:0;z-index:20;background:#fff;border-bottom:1px solid 
 .hero .btn.line{color:#fff;border-color:rgba(255,255,255,.72)}
 .btn:focus-visible,a:focus-visible,button:focus-visible,input:focus-visible,summary:focus-visible{outline:3px solid var(--gold);outline-offset:3px}
 .hero{background:
-  radial-gradient(900px 420px at 80% 20%, rgba(198,176,138,.18), transparent 60%),
-  linear-gradient(165deg,#0d1411 0%,#16382c 48%,#0c1210 100%);
+  radial-gradient(900px 520px at 78% 45%, rgba(255,255,255,.07), transparent 55%),
+  radial-gradient(700px 480px at 8% 90%, rgba(198,176,138,.16), transparent 60%),
+  linear-gradient(180deg,#090e0c 0%,#1c4636 46%,#0c1613 100%);
   color:#f7f4ee}
-.hero-in{width:min(1120px,calc(100% - 64px));margin:0 auto;min-height:680px;display:grid;grid-template-columns:minmax(0,1fr) 240px;gap:48px;align-items:center;padding:64px 0 72px}
+.hero-in{width:min(1180px,calc(100% - 48px));margin:0 auto;min-height:calc(100vh - 74px);display:grid;grid-template-columns:minmax(0,1fr) 300px;align-items:stretch}
+.hero-copy{display:flex;flex-direction:column;justify-content:center;padding:72px 48px 72px 8px}
+.hero-side{display:flex;align-items:center;justify-content:center;border-left:1px solid rgba(198,176,138,.35);background:linear-gradient(180deg,rgba(255,255,255,.05),rgba(0,0,0,.25))}
 .kicker{margin:0 0 18px;color:var(--gold);font-weight:700;font-size:13px;letter-spacing:.18em}
-h1{font-size:clamp(36px,4.4vw,62px);line-height:1.18;letter-spacing:-.045em;margin:0 0 28px;font-weight:800;max-width:15em}
+h1{font-size:clamp(40px,4.8vw,68px);line-height:1.16;letter-spacing:-.05em;margin:0 0 32px;font-weight:800;max-width:12em}
 .cta-row{display:flex;flex-wrap:wrap;gap:12px}
+.hero .cta-row{flex-direction:column;align-items:stretch;max-width:460px;gap:14px}
+.hero .btn{min-height:60px;font-size:18px;justify-content:center}
 .portrait{width:220px;max-width:100%;height:auto;display:block}
 .figure{width:220px;margin:0}
 .cap{margin:10px 0 0;font-size:13px;color:rgba(247,244,238,.72)}
@@ -92,14 +97,17 @@ footer strong{color:var(--ink);font-size:15px}
 .err{color:var(--warn);font-size:14px;min-height:1.4em;margin:8px 0 0}
 .dialog .btn{width:100%;margin-top:12px}
 .close{float:right;border:0;background:transparent;font:inherit;font-size:22px;line-height:1;cursor:pointer;padding:4px 6px}
-.ok{background:var(--moss);border-radius:12px;padding:14px}
+.ok p{margin:4px 0 0;font-size:17px;line-height:1.6}
 .dock{display:none}
 @media(max-width:800px){
-  .wrap,.hero-in{width:min(1120px,calc(100% - 32px))}
-  h1{font-size:22px;letter-spacing:-.04em;max-width:none;white-space:nowrap}
+  .wrap,.hero-in{width:min(1180px,calc(100% - 28px))}
+  h1{font-size:28px;letter-spacing:-.045em;max-width:none;white-space:normal}
   h1 span{display:block}
-  .hero-in{min-height:0;grid-template-columns:1fr;gap:28px;padding:36px 0 48px}
-  .figure,.portrait,.lawyers figure{width:200px}
+  .hero-in{min-height:0;grid-template-columns:1fr;padding:28px 0 36px}
+  .hero-copy{padding:8px 0 0}
+  .hero-side{border-left:0;border-top:1px solid rgba(198,176,138,.35);justify-content:flex-start;padding:22px 0 8px;background:transparent}
+  .hero .cta-row{max-width:none}
+  .figure,.portrait,.lawyers figure{width:210px}
   .split,.cols,.pair,.lawyers,ol.steps{grid-template-columns:1fr}
   ol.steps li,.cols article,.cols article+article{border:0;padding:18px 0;border-bottom:1px solid var(--line)}
   .split article{padding:28px 22px}
@@ -129,7 +137,7 @@ footer strong{color:var(--ink);font-size:15px}
 <main id="main">
   <section class="hero">
     <div class="hero-in">
-      <div>
+      <div class="hero-copy">
         <p class="kicker">법무법인 재유 · 개인회생 · 파산</p>
         <h1>매달 갚아도 줄지 않는 빚,<br><span>이제 정리할 방법을 확인하세요.</span></h1>
         <div class="cta-row">
@@ -137,10 +145,10 @@ footer strong{color:var(--ink);font-size:15px}
           <button type="button" class="btn line js-consult">바로 상담하기</button>
         </div>
       </div>
-      <figure class="figure">
+      <div class="hero-side"><figure class="figure">
         <img class="portrait" src="lawyer-hero.jpg" width="275" height="480" alt="유성우 변호사. 창가 앞에서 팔짱을 낀 상반신">
         <figcaption class="cap">광고책임변호사 유성우</figcaption>
-      </figure>
+      </figure></div>
     </div>
   </section>
 
