@@ -5,68 +5,82 @@
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>개인회생·파산 안내 | 법무법인 재유</title>
 <meta name="description" content="법무법인 재유. 매달 갚아도 줄지 않는 빚, 이제 정리할 방법을 확인하세요. 개인회생·파산.">
-<meta name="theme-color" content="#f3efe6">
+<meta name="theme-color" content="#101816">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css">
 <style>
 :root{
-  --bg:#f3efe6; --paper:#fffdf8; --ink:#1c2421; --muted:#3f4a45;
-  --line:#ddd4c4; --pine:#1e5c45; --pine-d:#14382b; --moss:#e7f0ea;
-  --clay:#f7eee4; --warn:#8d2f2a;
+  --ink:#121816; --paper:#f6f3ec; --white:#fff; --muted:#5a635e;
+  --line:#e3dcd0; --pine:#173f32; --gold:#c6b08a; --warn:#8d2f2a;
 }
 *{box-sizing:border-box}
 html{scroll-behavior:smooth}
-body{margin:0;font-family:Pretendard,"Noto Sans KR","Apple SD Gothic Neo",sans-serif;background:var(--bg);color:var(--ink);font-size:17px;line-height:1.7;letter-spacing:-.01em}
-a{color:var(--pine-d)}
+body{margin:0;font-family:Pretendard,"Noto Sans KR","Apple SD Gothic Neo",sans-serif;background:var(--paper);color:var(--ink);font-size:17px;line-height:1.65;letter-spacing:-.02em}
 img{max-width:100%;height:auto}
 .skip{position:absolute;left:12px;top:-40px;background:#fff;padding:8px 12px;z-index:80}
 .skip:focus{top:12px}
-.wrap{width:min(1080px,calc(100% - 40px));margin:0 auto}
-header{position:sticky;top:0;z-index:20;background:rgba(243,239,230,.94);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
-.head{display:flex;align-items:center;justify-content:space-between;gap:16px;min-height:72px}
-.brand{font-weight:700;letter-spacing:-.02em;text-decoration:none;color:var(--ink)}
-.brand small{display:block;font-weight:500;color:var(--muted);font-size:12px;letter-spacing:.08em}
-.nav{display:flex;gap:8px;align-items:center;flex-wrap:wrap;justify-content:flex-end}
-.nav a.link{color:var(--ink);text-decoration:none;font-size:15px;padding:8px 6px}
-.btn{display:inline-flex;align-items:center;justify-content:center;min-height:48px;padding:0 18px;border-radius:999px;border:1px solid transparent;font:inherit;font-weight:700;text-decoration:none;cursor:pointer}
-.btn.pine{background:var(--pine);color:#fff}
-.btn.pine:hover{background:var(--pine-d)}
-.btn.line{background:transparent;color:var(--pine-d);border-color:var(--pine)}
-.btn:focus-visible,a:focus-visible,button:focus-visible,input:focus-visible,summary:focus-visible{outline:3px solid #1e5c45;outline-offset:2px}
-.hero{display:grid;grid-template-columns:1.3fr .7fr;gap:36px;align-items:center;padding:56px 0 28px}
-.kicker{margin:0 0 10px;color:var(--pine);font-weight:700;font-size:14px;letter-spacing:.08em}
-h1{font-size:clamp(32px,4vw,48px);line-height:1.28;letter-spacing:-.03em;margin:0 0 16px;font-weight:750}
-.lead{margin:0 0 22px;color:var(--muted);font-size:18px}
-.cta-row{display:flex;flex-wrap:wrap;gap:10px}
-.portrait{width:220px;max-width:100%;height:auto;border-radius:18px;display:block;background:#ddd}
-.cap{margin:8px 0 0;font-size:13px;color:var(--muted)}
-.figure{justify-self:end}
-section{padding:28px 0}
-h2{font-size:clamp(26px,3vw,34px);line-height:1.35;margin:0 0 10px;letter-spacing:-.03em}
-.sub{margin:0 0 18px;color:var(--muted)}
-.grid2{display:grid;grid-template-columns:1fr 1fr;gap:14px}
-.grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
-.card{background:var(--paper);border:1px solid var(--line);border-radius:16px;padding:22px}
-.card h3{margin:0 0 8px;font-size:20px}
-.card p{margin:0;color:var(--muted)}
-.card.moss{background:var(--moss)}
-.card.clay{background:var(--clay)}
-ol.steps{margin:0;padding:0;list-style:none;display:grid;gap:12px}
-ol.steps li{display:grid;grid-template-columns:52px 1fr;gap:12px;background:var(--paper);border:1px solid var(--line);border-radius:14px;padding:14px 16px}
-ol.steps b{font-size:13px;color:var(--pine)}
-.tabs{display:flex;flex-wrap:wrap;gap:8px;margin:0 0 14px}
-.tabs button{font:inherit;border:1px solid var(--line);background:#fff;border-radius:999px;min-height:40px;padding:0 14px;cursor:pointer}
-.tabs button[aria-pressed="true"]{background:var(--ink);color:#fff;border-color:var(--ink)}
-.faq{display:grid;gap:8px}
-.faq details{background:#fff;border:1px solid var(--line);border-radius:12px;padding:12px 16px}
-.faq summary{cursor:pointer;font-weight:700}
-.faq p{margin:8px 0 0;color:var(--muted)}
-.lawyers{display:grid;grid-template-columns:220px 220px 1fr;gap:22px;align-items:start}
-.lawyers figure{width:220px;margin:0}
-.band{background:var(--pine);color:#f4fff8;border-radius:20px;padding:28px;display:flex;justify-content:space-between;gap:18px;align-items:center}
-.band h2,.band p{color:#f4fff8}
-.band .btn.line{color:#fff;border-color:#fff}
-footer{padding:28px 0 96px;color:var(--muted);font-size:14px;line-height:1.8}
-footer strong{color:var(--ink)}
+.wrap{width:min(1120px,calc(100% - 64px));margin:0 auto}
+header{position:sticky;top:0;z-index:20;background:#fff;border-bottom:1px solid #ece7de}
+.head{display:flex;align-items:center;justify-content:space-between;gap:18px;min-height:74px}
+.brand{font-weight:800;font-size:20px;letter-spacing:-.04em;text-decoration:none;color:var(--ink);line-height:1.15}
+.brand small{display:block;margin-top:3px;font-weight:600;color:var(--pine);font-size:11px;letter-spacing:.16em}
+.nav{display:flex;gap:6px;align-items:center}
+.nav a.link{color:var(--ink);text-decoration:none;font-size:14px;font-weight:600;padding:8px 10px}
+.btn{display:inline-flex;align-items:center;justify-content:center;min-height:54px;padding:0 26px;border-radius:999px;border:1.5px solid transparent;font:inherit;font-weight:800;font-size:16px;letter-spacing:-.03em;text-decoration:none;cursor:pointer}
+.btn.pine{background:var(--ink);color:#fff}
+.btn.line{background:transparent;color:var(--ink);border-color:#cfc6b8}
+.hero .btn.pine{background:#f4f1ea;color:#121816}
+.hero .btn.line{color:#fff;border-color:rgba(255,255,255,.72)}
+.btn:focus-visible,a:focus-visible,button:focus-visible,input:focus-visible,summary:focus-visible{outline:3px solid var(--gold);outline-offset:3px}
+.hero{background:
+  radial-gradient(900px 420px at 80% 20%, rgba(198,176,138,.18), transparent 60%),
+  linear-gradient(165deg,#0d1411 0%,#16382c 48%,#0c1210 100%);
+  color:#f7f4ee}
+.hero-in{width:min(1120px,calc(100% - 64px));margin:0 auto;min-height:680px;display:grid;grid-template-columns:minmax(0,1fr) 240px;gap:48px;align-items:center;padding:64px 0 72px}
+.kicker{margin:0 0 18px;color:var(--gold);font-weight:700;font-size:13px;letter-spacing:.18em}
+h1{font-size:clamp(36px,4.4vw,62px);line-height:1.18;letter-spacing:-.045em;margin:0 0 28px;font-weight:800;max-width:15em}
+.cta-row{display:flex;flex-wrap:wrap;gap:12px}
+.portrait{width:220px;max-width:100%;height:auto;display:block}
+.figure{width:220px;margin:0}
+.cap{margin:10px 0 0;font-size:13px;color:rgba(247,244,238,.72)}
+.hero .figure{padding:8px;border:1px solid rgba(198,176,138,.55);background:rgba(0,0,0,.18)}
+section{padding:84px 0}
+.sec-k{margin:0 0 8px;color:var(--pine);font-size:12px;font-weight:800;letter-spacing:.2em}
+h2{font-size:clamp(32px,3.6vw,46px);line-height:1.22;margin:0 0 14px;letter-spacing:-.045em;font-weight:800}
+.sub{margin:0 0 28px;color:var(--muted);max-width:40em}
+.split{display:grid;grid-template-columns:1fr 1fr;width:100vw;margin-left:calc(50% - 50vw)}
+.split article{padding:48px 40px}
+.split h3{margin:0 0 12px;font-size:28px;letter-spacing:-.04em}
+.split p{margin:0;font-size:16px;line-height:1.7}
+.split .dark{background:var(--pine);color:#f6f3ec}
+.split .light{background:#fff}
+ol.steps{margin:8px 0 0;padding:0;list-style:none;display:grid;grid-template-columns:repeat(4,1fr);border-top:1px solid var(--ink)}
+ol.steps li{padding:26px 22px 8px 0;border-right:1px solid var(--line)}
+ol.steps li:last-child{border-right:0}
+ol.steps b{display:block;font-size:40px;line-height:1;letter-spacing:-.04em;color:var(--pine);margin-bottom:14px}
+ol.steps strong{display:block;font-size:18px;margin-bottom:8px}
+.cols{display:grid;grid-template-columns:repeat(3,1fr);gap:0;border-top:1px solid var(--ink)}
+.cols article{padding:28px 28px 8px 0}
+.cols article+article{border-left:1px solid var(--line);padding-left:28px}
+.cols h3{margin:0 0 10px;font-size:22px;letter-spacing:-.04em}
+.cols p,.pair p{margin:0;color:var(--muted)}
+.pair{display:grid;grid-template-columns:1fr 1fr;gap:40px}
+.pair article{padding-top:8px;border-top:3px solid var(--ink)}
+.pair h3{margin:18px 0 10px;font-size:26px;letter-spacing:-.04em}
+.tabs{display:flex;flex-wrap:wrap;gap:18px;margin:8px 0 6px;border-bottom:1px solid var(--line)}
+.tabs button{font:inherit;font-weight:700;border:0;background:transparent;min-height:44px;padding:0 0 10px;cursor:pointer;color:var(--muted)}
+.tabs button[aria-pressed="true"]{color:var(--ink);box-shadow:inset 0 -2px 0 var(--ink)}
+.faq details{border-bottom:1px solid var(--line);padding:18px 0}
+.faq summary{cursor:pointer;font-weight:750;font-size:18px;letter-spacing:-.03em}
+.faq p{margin:10px 0 0;color:var(--muted);max-width:46em}
+.trust{background:#101816;color:#f6f3ec;padding:80px 0;width:100vw;margin-left:calc(50% - 50vw)}
+.trust h2,.trust p{color:#f6f3ec}
+.lawyers{display:grid;grid-template-columns:210px 210px 1fr;gap:28px;align-items:end}
+.lawyers figure{width:210px;margin:0}
+.lawyers .cap{color:rgba(246,243,236,.7)}
+.trust .btn.pine{background:#f4f1ea;color:#121816}
+.trust .btn.line{color:#fff;border-color:rgba(255,255,255,.7)}
+footer{padding:36px max(32px,calc((100vw - 1120px)/2)) 110px;color:var(--muted);font-size:13px;line-height:1.8;background:#fff;width:100vw;margin-left:calc(50% - 50vw)}
+footer strong{color:var(--ink);font-size:15px}
 .modal[hidden]{display:none}
 .modal{position:fixed;inset:0;z-index:40;background:rgba(20,28,24,.55);display:grid;place-items:center;padding:18px}
 .dialog{width:min(460px,100%);max-height:min(92vh,720px);overflow:auto;background:#fff;border-radius:18px;padding:22px;box-shadow:0 20px 50px rgba(0,0,0,.18)}
@@ -81,16 +95,19 @@ footer strong{color:var(--ink)}
 .ok{background:var(--moss);border-radius:12px;padding:14px}
 .dock{display:none}
 @media(max-width:800px){
-  .wrap{width:min(1080px,calc(100% - 24px))}
-  h1{font-size:22px;letter-spacing:-.045em}
-  h1 br+span{white-space:nowrap}
-  .hero,.grid2,.grid3,.lawyers,.band{grid-template-columns:1fr;display:grid}
-  .figure{justify-self:start}
-  .band{align-items:stretch}
+  .wrap,.hero-in{width:min(1120px,calc(100% - 32px))}
+  h1{font-size:22px;letter-spacing:-.04em;max-width:none;white-space:nowrap}
+  h1 span{display:block}
+  .hero-in{min-height:0;grid-template-columns:1fr;gap:28px;padding:36px 0 48px}
+  .figure,.portrait,.lawyers figure{width:200px}
+  .split,.cols,.pair,.lawyers,ol.steps{grid-template-columns:1fr}
+  ol.steps li,.cols article,.cols article+article{border:0;padding:18px 0;border-bottom:1px solid var(--line)}
+  .split article{padding:28px 22px}
+  section{padding:56px 0}
   .head{min-height:64px}
   .nav .link,.nav .btn{display:none}
   .dock{display:grid;grid-template-columns:1fr 1fr;gap:8px;position:fixed;left:0;right:0;bottom:0;z-index:30;background:#fff;border-top:1px solid var(--line);padding:10px 12px calc(10px + env(safe-area-inset-bottom))}
-  .dock .btn{width:100%;padding:0 8px;font-size:15px}
+  .dock .btn{width:100%;padding:0 8px;font-size:15px;min-height:48px}
 }
 </style>
 </head>
@@ -110,31 +127,33 @@ footer strong{color:var(--ink)}
 </header>
 
 <main id="main">
-  <div class="wrap hero">
-    <div>
-      <p class="kicker">법무법인 재유 · 개인회생 · 파산</p>
-      <h1>매달 갚아도 줄지 않는 빚,<br><span>이제 정리할 방법을 확인하세요.</span></h1>
-      <div class="cta-row">
-        <a class="btn pine js-calc" href="calculator.html">30초 확인</a>
-        <button type="button" class="btn line js-consult">바로 상담하기</button>
+  <section class="hero">
+    <div class="hero-in">
+      <div>
+        <p class="kicker">법무법인 재유 · 개인회생 · 파산</p>
+        <h1>매달 갚아도 줄지 않는 빚,<br><span>이제 정리할 방법을 확인하세요.</span></h1>
+        <div class="cta-row">
+          <a class="btn pine js-calc" href="calculator.html">30초 확인</a>
+          <button type="button" class="btn line js-consult">바로 상담하기</button>
+        </div>
       </div>
+      <figure class="figure">
+        <img class="portrait" src="lawyer-hero.jpg" width="275" height="480" alt="유성우 변호사. 창가 앞에서 팔짱을 낀 상반신">
+        <figcaption class="cap">광고책임변호사 유성우</figcaption>
+      </figure>
     </div>
-    <figure class="figure">
-      <img class="portrait" src="lawyer-hero.jpg" width="275" height="480" alt="유성우 변호사. 창가 앞에서 팔짱을 낀 상반신">
-      <figcaption class="cap">광고책임변호사 유성우</figcaption>
-    </figure>
-  </div>
+  </section>
 
   <div class="wrap">
     <section aria-labelledby="when">
       <h2 id="when">이자가 늘기 전에 절차부터 나누세요</h2>
       <p class="sub">회생과 파산은 미루기보다 채무와 소득을 적어 보는 쪽이 순서가 분명합니다. 빚이 없어진다는 약속은 하지 않습니다.</p>
-      <div class="grid2">
-        <article class="card">
+      <div class="split">
+        <article class="dark">
           <h3>개인회생</h3>
           <p>앞으로 소득이 이어질 때, 생계비를 빼고 일정 기간 갚는 계획을 법원에 내는 절차입니다. 변제금은 소득, 생계비, 재산마다 다릅니다.</p>
         </article>
-        <article class="card">
+        <article class="light">
           <h3>개인파산·면책</h3>
           <p>재산과 소득으로 빚을 갚기 어려운 지급불능이면 파산과 면책을 살펴봅니다. 면책이 되어도 세금, 벌금처럼 빠지지 않는 채무가 있습니다.</p>
         </article>
@@ -143,12 +162,12 @@ footer strong{color:var(--ink)}
 
     <section id="qualify" aria-labelledby="qualh">
       <h2 id="qualh">신청을 볼 때의 일반 기준</h2>
-      <div class="grid2">
-        <article class="card moss">
+      <div class="pair">
+        <article>
           <h3>개인회생</h3>
           <p>법은 계속 수입을 얻을 가능성이 있는 개인을 대상으로 하고, 무담보 채무 10억 원, 담보부 채무 15억 원 이하를 일반 한도로 둡니다. 한도 안이라고 접수가 되는 것은 아닙니다. 최근 대출, 예전 면책, 재산에 따라 달라집니다.</p>
         </article>
-        <article class="card clay">
+        <article>
           <h3>개인파산</h3>
           <p>수입이 매우 적거나 거의 없어 갚을 돈이 남지 않을 때 함께 봅니다. 재산이 남아 있으면 그 재산의 처리가 먼저 문제가 됩니다. 급여를 받는다는 사실만으로 대상이 되거나 빠지지 않습니다.</p>
         </article>
@@ -168,23 +187,25 @@ footer strong{color:var(--ink)}
 
     <section aria-labelledby="askh">
       <h2 id="askh">이런 상황에서 많이 묻습니다</h2>
-      <div class="grid3">
-        <article class="card"><h3>주택담보와 신용대출</h3><p>담보 빚과 카드·신용대출은 절차에서 다르게 봅니다. 30초 확인은 무담보 채무와 부동산·보증금·차량만 넣습니다.</p></article>
-        <article class="card"><h3>소득이 줄었을 때</h3><p>급여가 줄거나 일을 접으면 회생으로 볼지 파산으로 볼지가 달라집니다. 한 달 소득만으로 자격을 정하지 않습니다.</p></article>
-        <article class="card"><h3>빚이 여러 곳에 있을 때</h3><p>카드와 대출이 나뉘어 있으면 채권자 목록부터 정리합니다. 어디가 얼마인지는 상담에서 자료를 보고 확인합니다.</p></article>
+      <div class="cols">
+        <article><h3>주택담보와 신용대출</h3><p>담보 빚과 카드·신용대출은 절차에서 다르게 봅니다. 30초 확인은 무담보 채무와 부동산·보증금·차량·예금·적금을 넣습니다.</p></article>
+        <article><h3>소득이 줄었을 때</h3><p>급여가 줄거나 일을 접으면 회생으로 볼지 파산으로 볼지가 달라집니다. 한 달 소득만으로 자격을 정하지 않습니다.</p></article>
+        <article><h3>빚이 여러 곳에 있을 때</h3><p>카드와 대출이 나뉘어 있으면 채권자 목록부터 정리합니다. 어디가 얼마인지는 상담에서 자료를 보고 확인합니다.</p></article>
       </div>
     </section>
 
     <section aria-labelledby="calch">
       <h2 id="calch">확인은 이렇게 합니다</h2>
-      <div class="grid2">
-        <article class="card">
+      <div class="pair">
+        <article>
           <h3>30초 확인</h3>
           <p>계산 페이지로 이동합니다. 채무·소득과 이름·연락처·동의 뒤에 예상 변제금이 나옵니다. 참고 숫자이며 감면이나 자격을 정하지 않습니다.</p>
+          <div class="cta-row" style="margin-top:18px"><a class="btn pine js-calc" href="calculator.html">30초 확인</a></div>
         </article>
-        <article class="card">
+        <article>
           <h3>바로 상담하기</h3>
           <p>이름과 전화번호만 받습니다. 전송을 요청해도 접수 완료는 이 화면에서 확인되지 않습니다.</p>
+          <div class="cta-row" style="margin-top:18px"><button type="button" class="btn line js-consult">바로 상담하기</button></div>
         </article>
       </div>
     </section>
@@ -208,11 +229,13 @@ footer strong{color:var(--ink)}
         <details data-cat="docs"><summary>어떤 서류가 자주 필요하나요?</summary><p>주민등록등본, 소득 자료, 채무 자료, 재산 자료가 자주 나옵니다. 목록은 사건마다 다르고, 이 페이지에서 발급을 대신하지 않습니다.</p></details>
         <details data-cat="docs"><summary>사는 지역이 달라도 상담 접수가 되나요?</summary><p>신청 법원은 주소지 관할입니다. 상담 접수 자체는 이 페이지에서 지역과 관계없이 남길 수 있습니다. 사무소는 서울 서초 한 곳입니다.</p></details>
         <details data-cat="cost"><summary>비용은 얼마인가요?</summary><p>변호사 수임료는 사건마다 달라 금액을 적지 않습니다. 법원 인지대와 송달료는 절차와 채권자 수에 따라 따로 냅니다. 분납이나 환불을 여기서 약속하지 않습니다.</p></details>
-        <details data-cat="recovery"><summary>계산 숫자는 확정인가요?</summary><p>아닙니다. 36개월과 2026년 중위소득 60% 생계비로 나눈 예상입니다. 예금·적금, 보험 해약환급금, 퇴직금, 기타 재산은 넣지 않았습니다. 없다고 본 것이 아닙니다.</p></details>
+        <details data-cat="recovery"><summary>계산 숫자는 확정인가요?</summary><p>아닙니다. 36개월과 2026년 중위소득 60% 생계비로 나눈 예상입니다. 예금·적금은 185만 원을 빼고 반영합니다. 보험 해약환급금, 퇴직금, 기타 재산은 넣지 않았고, 없다고 본 것도 아닙니다.</p></details>
       </div>
     </section>
 
-    <section aria-labelledby="who">
+    <section class="trust" aria-labelledby="who">
+      <div class="wrap">
+      <p class="sec-k">사무소</p>
       <h2 id="who">법무법인 재유</h2>
       <div class="lawyers">
         <figure>
@@ -231,16 +254,6 @@ footer strong{color:var(--ink)}
           </div>
         </div>
       </div>
-    </section>
-
-    <section class="band" aria-labelledby="closer">
-      <div>
-        <h2 id="closer">방법을 확인하세요</h2>
-        <p>예상 변제금은 30초 확인, 이름과 번호만 남기려면 바로 상담하기.</p>
-      </div>
-      <div class="cta-row">
-        <button type="button" class="btn line js-consult">바로 상담하기</button>
-        <a class="btn pine js-calc" href="calculator.html" style="background:#fff;color:#14382b">30초 확인</a>
       </div>
     </section>
 
