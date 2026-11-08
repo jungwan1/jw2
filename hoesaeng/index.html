@@ -118,6 +118,7 @@ footer strong{color:var(--ink);font-size:15px}
   .ticker-window{height:auto}
   .ticker-track .dup{display:none}
   .flow-card{transition:none}
+  #steps.proc .proc-step:hover .proc-card,#steps.proc .proc-step:hover .proc-node{transform:none;box-shadow:none}
 }
 .flow{position:relative;height:460px;margin-top:8px}
 .flow-stage{position:relative;height:100%;overflow:hidden;touch-action:pan-y}
@@ -142,6 +143,63 @@ footer strong{color:var(--ink);font-size:15px}
 .yt-play{position:absolute;left:50%;top:50%;width:48px;height:48px;border-radius:50%;background:rgba(0,0,0,.78);display:grid;place-items:center;transform:translate(-50%,-50%)}
 .yt-play::before{content:"";border-style:solid;border-width:6px 0 6px 11px;border-color:transparent transparent transparent #fff;margin-left:2px}
 .yt-card strong{font-size:15px;line-height:1.4;letter-spacing:-.03em}
+#steps.proc{--proc-ink:#1d1f1c;--proc-green:#243d33;--proc-green2:#2f5244;--proc-gold:#c99a3e;--proc-muted:#6b6d68;--proc-line:#d9d6ce;--proc-card:#fbfaf7;width:100vw;margin-left:calc(50% - 50vw);background:#f4f2ed;color:var(--proc-ink);padding:60px 32px}
+#steps.proc,#steps.proc *{box-sizing:border-box}
+#steps.proc .proc-in{max-width:1200px;margin:0 auto}
+#steps.proc .proc-head{display:flex;justify-content:space-between;align-items:flex-end;gap:24px;flex-wrap:wrap}
+#steps.proc .proc-eyebrow{margin:0 0 10px;font-size:13px;font-weight:700;letter-spacing:.14em;color:var(--proc-gold)}
+#steps.proc h2{margin:0;font-size:clamp(30px,4vw,44px);font-weight:800;letter-spacing:-.03em;color:var(--proc-green);line-height:1.1}
+#steps.proc h2 em{font-style:normal;color:var(--proc-gold)}
+#steps.proc .proc-promise{display:flex;align-items:center;gap:10px;margin:0;font-size:15px;color:var(--proc-muted)}
+#steps.proc .proc-promise b{color:var(--proc-green);font-weight:700}
+#steps.proc .proc-promise svg{flex:none}
+#steps.proc .proc-flow{margin-top:40px;position:relative;display:grid;grid-template-columns:1fr 1fr 1fr 1.55fr;gap:16px}
+#steps.proc .proc-flow::before{content:"";position:absolute;left:28px;right:28px;top:27px;height:2px;background:repeating-linear-gradient(90deg,var(--proc-green) 0 8px,transparent 8px 14px);opacity:.35}
+#steps.proc .proc-step{position:relative;display:flex;flex-direction:column}
+#steps.proc .proc-node{position:relative;z-index:1;width:56px;height:56px;border-radius:50%;background:var(--proc-card);border:2px solid var(--proc-green);display:grid;place-items:center;color:var(--proc-green)}
+#steps.proc .proc-node small{position:absolute;top:-8px;right:-10px;background:var(--proc-green);color:#fff;font-size:11px;font-weight:700;padding:3px 7px;border-radius:999px;letter-spacing:.02em}
+#steps.proc .proc-card{margin-top:16px;flex:1;background:var(--proc-card);border:1px solid var(--proc-line);border-radius:16px;padding:20px 20px 22px}
+#steps.proc .proc-step:hover .proc-card{transform:translateY(-4px);box-shadow:0 14px 28px -18px rgba(36,61,51,.45)}
+#steps.proc .proc-step:hover .proc-node{background:var(--proc-green);color:#fff}
+#steps.proc .proc-card h3{margin:0;font-size:17px;font-weight:700;letter-spacing:-.02em;line-height:1.4}
+#steps.proc .proc-card p{margin:8px 0 0;font-size:14.5px;line-height:1.65;color:#4a4c48}
+#steps.proc .proc-step.proc-last .proc-node{background:var(--proc-green);color:#fff;border-color:var(--proc-green)}
+#steps.proc .proc-step.proc-last .proc-node small{background:var(--proc-gold)}
+#steps.proc .proc-step.proc-last .proc-card{background:linear-gradient(145deg,var(--proc-green) 0%,var(--proc-green2) 100%);border:0;color:#fff;position:relative;overflow:hidden}
+#steps.proc .proc-step.proc-last .proc-card::after{content:"";position:absolute;right:-40px;bottom:-40px;width:150px;height:150px;border-radius:50%;border:1px solid rgba(255,255,255,.12)}
+#steps.proc .proc-step.proc-last h3{color:#fff}
+#steps.proc .proc-track{position:relative;z-index:1;margin-top:14px;display:flex;align-items:center;flex-wrap:wrap;gap:6px 4px;font-size:13.5px}
+#steps.proc .proc-tag{font-weight:700;font-size:12.5px;padding:4px 10px;border-radius:999px;margin-right:6px}
+#steps.proc .proc-rehab .proc-tag{background:#fff;color:var(--proc-green)}
+#steps.proc .proc-bank .proc-tag{background:var(--proc-gold);color:#1d1f1c}
+#steps.proc .proc-track span:not(.proc-tag){color:rgba(255,255,255,.88);white-space:nowrap}
+#steps.proc .proc-track i{font-style:normal;color:rgba(255,255,255,.4);font-size:11px;margin:0 2px}
+#steps.proc .proc-end{font-weight:700;color:#fff;border-bottom:2px solid var(--proc-gold);padding-bottom:1px}
+#steps.proc .proc-rehab{padding-bottom:14px;border-bottom:1px dashed rgba(255,255,255,.18)}
+@media (max-width:960px){
+  #steps.proc .proc-flow{grid-template-columns:1fr 1fr}
+  #steps.proc .proc-flow::before{display:none}
+}
+.thanks{background:#e4edf2;width:100vw;margin-left:calc(50% - 50vw);padding:88px max(32px,calc((100vw - 1120px)/2)) 108px}
+.thanks .board{display:grid;grid-template-columns:1fr 1fr;column-gap:42px;row-gap:8px;align-items:start}
+.thanks .msg{min-width:0}
+.thanks .msg:nth-child(4n+2){margin-top:72px}
+.thanks .msg:nth-child(4n+3){margin-top:26px}
+.thanks .msg:nth-child(4n){margin-top:92px}
+.thanks .who{display:flex;align-items:center;gap:10px;margin:0 8px 8px}
+.thanks .ava{width:46px;height:46px;border-radius:50%;position:relative;overflow:hidden;flex:none}
+.thanks .ava i{position:absolute;left:7px;right:7px;bottom:7px;height:16px;border-radius:20px 20px 8px 8px;background:rgba(255,255,255,.62)}
+.thanks .ava b{position:absolute;width:11px;height:11px;border-radius:50%;top:8px;right:9px;background:rgba(255,255,255,.88)}
+.thanks .id{display:flex;flex-direction:column;min-width:0}
+.thanks .who strong{font-size:15px;letter-spacing:-.03em}
+.thanks .who small{color:var(--muted);font-size:12px;line-height:1.3}
+.thanks .who time{margin-left:auto;color:#6d7874;font-size:13px;font-weight:600;white-space:nowrap}
+.thanks .bubble{margin:0 28px 0 8px;padding:16px 18px;background:#fff;color:#1c2420;border-radius:6px 18px 18px 18px;box-shadow:0 8px 22px rgba(23,42,36,.06);font-size:16px;line-height:1.7;word-break:keep-all}
+.thanks .msg:nth-child(even) .who{flex-direction:row-reverse}
+.thanks .msg:nth-child(even) .who time{margin-left:0;margin-right:auto}
+.thanks .msg:nth-child(even) .id{align-items:flex-end;text-align:right}
+.thanks .msg:nth-child(even) .bubble{margin:0 8px 0 28px;border-radius:18px 6px 18px 18px}
+.thanks-more{display:flex;margin:36px auto 0;min-height:48px;padding:0 22px;border-radius:999px;border:1px solid #173f32;background:#fff;color:#173f32;font:inherit;font-weight:800;cursor:pointer}
 .dock{display:none}
 @media(max-width:800px){
   body{padding-bottom:84px}
@@ -169,6 +227,16 @@ footer strong{color:var(--ink);font-size:15px}
   .yt-head{grid-template-columns:64px minmax(0,1fr)}
   .yt-head .btn{grid-column:1 / -1;width:100%}
   .yt-grid{grid-template-columns:1fr}
+  #steps.proc{padding:44px 20px}
+  #steps.proc .proc-flow{grid-template-columns:1fr}
+  #steps.proc .proc-flow::before{display:none}
+  #steps.proc .proc-step{flex-direction:row;gap:14px;align-items:flex-start}
+  #steps.proc .proc-node{width:46px;height:46px}
+  #steps.proc .proc-card{margin-top:0}
+  .thanks{padding:56px 16px 72px}
+  .thanks .board{grid-template-columns:1fr;row-gap:18px}
+  .thanks .msg,.thanks .msg:nth-child(4n+2),.thanks .msg:nth-child(4n+3),.thanks .msg:nth-child(4n){margin-top:0;width:auto}
+  .thanks .bubble{font-size:15.5px}
 }
 </style>
 </head>
@@ -178,8 +246,8 @@ footer strong{color:var(--ink);font-size:15px}
   <div class="wrap head">
     <a class="brand" href="index.html">법무법인 재유<small>개인회생 · 파산</small></a>
     <nav class="nav" aria-label="주요">
-      <a class="link" href="#qualify">신청 기준</a>
       <a class="link" href="#steps">절차</a>
+      <a class="link" href="#thanks">감사 인사</a>
       <a class="link" href="#faq">질문</a>
       <button type="button" class="btn line js-consult">바로 상담하기</button>
       <a class="btn pine js-calc" href="calculator.html">30초 확인</a>
@@ -316,29 +384,93 @@ footer strong{color:var(--ink);font-size:15px}
       </div>
     </section>
 
-    <section id="qualify" aria-labelledby="qualh">
-      <h2 id="qualh">신청을 볼 때의 일반 기준</h2>
-      <div class="pair">
-        <article>
-          <h3>개인회생</h3>
-          <p>법은 계속 수입을 얻을 가능성이 있는 개인을 대상으로 하고, 무담보 채무 10억 원, 담보부 채무 15억 원 이하를 일반 한도로 둡니다. 한도 안이라고 접수가 되는 것은 아닙니다. 최근 대출, 예전 면책, 재산에 따라 달라집니다.</p>
-        </article>
-        <article>
-          <h3>개인파산</h3>
-          <p>수입이 매우 적거나 거의 없어 갚을 돈이 남지 않을 때 함께 봅니다. 재산이 남아 있으면 그 재산의 처리가 먼저 문제가 됩니다. 급여를 받는다는 사실만으로 대상이 되거나 빠지지 않습니다.</p>
-        </article>
+    <section id="steps" class="proc" aria-labelledby="process-title">
+      <div class="proc-in">
+        <div class="proc-head">
+          <div>
+            <p class="proc-eyebrow">PROCESS</p>
+            <h2 id="process-title">회생·파산 <em>진행 순서</em></h2>
+          </div>
+          <p class="proc-promise">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#c99a3e" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 21s-7-4.4-9.3-9A5.3 5.3 0 0 1 12 6.5 5.3 5.3 0 0 1 21.3 12C19 16.6 12 21 12 21z"/></svg>
+            <span>사건마다 길어지거나 빠질 수 있습니다. <b>끝까지 최선을 다합니다.</b></span>
+          </p>
+        </div>
+        <div class="proc-flow">
+          <div class="proc-step">
+            <div class="proc-node"><small>01</small>
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v18"/><path d="M5 7h11l3 2.5L16 12H5z"/><path d="M19 14H8l-3 2.5L8 19h11z" opacity=".5"/></svg>
+            </div>
+            <div class="proc-card">
+              <h3>회생인지 파산인지 나눕니다</h3>
+              <p>소득이 이어지면 회생, 갚기 어려우면 파산을 같이 봅니다.</p>
+            </div>
+          </div>
+          <div class="proc-step">
+            <div class="proc-node"><small>02</small>
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z"/><path d="M14 3v5h5"/><path d="M9 13h6M9 17h4"/></svg>
+            </div>
+            <div class="proc-card">
+              <h3>서류를 챙깁니다</h3>
+              <p>등본, 소득·채무·재산 자료가 필요합니다. 발급은 본인이 직접 합니다.</p>
+            </div>
+          </div>
+          <div class="proc-step">
+            <div class="proc-node"><small>03</small>
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 10l9-6 9 6"/><path d="M5 10v8M9.5 10v8M14.5 10v8M19 10v8"/><path d="M3 21h18"/></svg>
+            </div>
+            <div class="proc-card">
+              <h3>관할 법원에 신청합니다</h3>
+              <p>보정이 나오면 채웁니다. 사는 곳이 달라도 여기서 상담 접수가 됩니다.</p>
+            </div>
+          </div>
+          <div class="proc-step proc-last">
+            <div class="proc-node"><small>04</small>
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 21v-7"/><path d="M12 14L6 8V3"/><path d="M12 14l6-6V3"/></svg>
+            </div>
+            <div class="proc-card">
+              <h3>여기서 길이 나뉩니다</h3>
+              <div class="proc-track proc-rehab">
+                <span class="proc-tag">회생</span>
+                <span>개시결정</span><i>›</i><span>변제계획 인가</span><i>›</i><span>3~5년 변제</span><i>›</i><span class="proc-end">면책</span>
+              </div>
+              <div class="proc-track proc-bank">
+                <span class="proc-tag">파산</span>
+                <span>파산선고</span><i>›</i><span>면책 심사</span><i>›</i><span class="proc-end">면책결정</span>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </section>
 
-    <section id="steps" aria-labelledby="steph">
-      <h2 id="steph">보통의 순서</h2>
-      <p class="sub">사건마다 길어지거나 빠집니다. 며칠 안에 끝난다는 말은 하지 않습니다.</p>
-      <ol class="steps">
-        <li><b>01</b><div><strong>회생인지 파산인지 나눕니다.</strong><br>소득이 이어지면 회생, 갚기 어려우면 파산을 같이 봅니다.</div></li>
-        <li><b>02</b><div><strong>서류를 챙깁니다.</strong><br>등본, 소득·채무·재산 자료가 자주 필요합니다. 여기서 서류를 대신 발급하지는 않습니다.</div></li>
-        <li><b>03</b><div><strong>주소지 관할 법원에 신청합니다.</strong><br>보정이 있으면 내용을 채웁니다. 사는 곳이 달라도 이 페이지에서 상담 접수는 남길 수 있습니다.</div></li>
-        <li><b>04</b><div><strong>개시와 변제, 또는 파산과 면책</strong><br>회생은 변제계획 이후 변제 기간이 있고, 파산은 선고와 면책 심사가 따로입니다.</div></li>
-      </ol>
+    <section class="thanks" id="thanks" aria-labelledby="thanksh">
+      <p class="sec-k">인사</p>
+      <h2 id="thanksh">고객님이 보내주신 감사 인사</h2>
+      <p class="sub">보내주신 글을 말풍선으로 다시 적었습니다. 적힌 시각은 받은 시각입니다.</p>
+      <div class="board" id="thanksBoard">
+      <article class="msg"><div class="who"><span class="ava" style="background:linear-gradient(160deg,#8fb7a4,#d7e4c8)"><i></i><b></b></span><span class="id"><strong>김**</strong><small>34세 · 직장인</small></span><time>오전 10:42</time></div><p class="bubble">변호사님 안녕하세요 김**입니다. 인가 결정 났다는 연락 받고 회사 화장실에서 한참 앉아 있었어요ㅎㅎ 코인 빚이라 솔직히 안 될 줄 알았거든요. 거래 내역 그 많은 걸 하나하나 맞춰주셔서 감사합니다. 3년 성실하게 갚겠습니다!</p></article>
+      <article class="msg"><div class="who"><span class="ava" style="background:linear-gradient(160deg,#c4a27a,#efe2cf)"><i></i><b></b></span><span class="id"><strong>박**</strong><small>47세 · 고깃집 사장</small></span><time>오후 3:08</time></div><p class="bubble">사무장님 박**입니다. 금지명령 나오고 나서 그 사람들 한 번도 안 왔어요. 직원들 앞에서 고개 숙일 일 없어진게 제일 좋네요. 언제 가게 한번 들르세요 고기는 제가 굽겠습니다.</p></article>
+      <article class="msg"><div class="who"><span class="ava" style="background:linear-gradient(160deg,#7f97ad,#d5e0ea)"><i></i><b></b></span><span class="id"><strong>이**</strong><small>53세 · 차장</small></span><time>오후 12:27</time></div><p class="bubble">안녕하십니까. 이**입니다. 오늘 인가 결정문 받았습니다. 처음엔 집을 팔아야 한다는 얘기만 듣다가, 집을 지킬 방법이 있다고 하셨을 때 반신반의했었는데 정말 그렇게 됐네요. 아이들 학교 안 옮겨도 된다는게 가장 감사합니다. 진심으로 고맙습니다.</p></article>
+      <article class="msg"><div class="who"><span class="ava" style="background:linear-gradient(160deg,#d7a3b0,#f6e4e0)"><i></i><b></b></span><span class="id"><strong>최**</strong><small>38세 · 학원강사</small></span><time>오후 8:53</time></div><p class="bubble">실장님~ 최**이에요. 인가 났다는 문자 받고 애들 재우고 혼자 울었어요ㅠㅠ 이혼 서류까지 문제 될 줄은 생각도 못했는데 미리 다 챙겨주셔서 너무 감사해요. 이제 카드값 계산 안 하고 애들 학원 보낼 수 있을 것 같아요!</p></article>
+      <article class="msg"><div class="who"><span class="ava" style="background:linear-gradient(160deg,#6f9e8a,#e7f0df)"><i></i><b></b></span><span class="id"><strong>정**</strong><small>29세 · 물류센터</small></span><time>오후 6:14</time></div><p class="bubble">안녕하세요 정**입니다! 인가 났어요!! 혼자 했다가 기각됐을 때 진짜 인생 끝난 줄 알았는데 ㅠ 뭐가 빠졌는지 하나하나 다 찾아주셔서 감사합니다. 전세사기 당하고 처음으로 좋은 소식이에요.</p></article>
+      <article class="msg"><div class="who"><span class="ava" style="background:linear-gradient(160deg,#8a7e6a,#e7dfd2)"><i></i><b></b></span><span class="id"><strong>한**</strong><small>41세 · 영업직</small></span><time>오후 7:36</time></div><p class="bubble">변호사님 한**입니다. 제가 한 짓이 있어서 감사하다는 말씀 드리기도 민망하네요. 그래도 끝까지 포기 안 하고 도와주셔서 고맙습니다. 모임은 계속 나가고 있습니다. 5년 동안 한 번도 안 밀리고 갚겠습니다.</p></article>
+      <article class="msg more" hidden><div class="who"><span class="ava" style="background:linear-gradient(160deg,#9eb7c9,#e7f1f4)"><i></i><b></b></span><span class="id"><strong>오**</strong><small>36세 · 간호사</small></span><time>오전 11:19</time></div><p class="bubble">안녕하세요 오**입니다. 인가 소식 들었어요. 처음 상담 때 엄마한테 먼저 갚은 얘기 할까 말까 엄청 고민했는데, 말하길 정말 잘했던 것 같아요. 엄마한테 돈 돌려달란 말 안 하게 해주셔서 감사합니다 🙏</p></article>
+      <article class="msg more" hidden><div class="who"><span class="ava" style="background:linear-gradient(160deg,#6e8f78,#dce8d4)"><i></i><b></b></span><span class="id"><strong>윤**</strong><small>45세 · 버스기사</small></span><time>오후 1:47</time></div><p class="bubble">변호사님 윤**입니다. 면책 결정 받았습니다. 아버지 돌아가시고 상속 얘기 꺼낼 때 솔직히 숨길까 생각도 했었습니다. 그때 바로 신고하자고 하셔서 오히려 일찍 끝났네요. 아버지 산소 갈 때 좋은 소식 전하겠습니다. 감사합니다.</p></article>
+      <article class="msg more" hidden><div class="who"><span class="ava" style="background:linear-gradient(160deg,#b7a48b,#f3eadf)"><i></i><b></b></span><span class="id"><strong>강**</strong><small>39세 · 디자이너</small></span><time>오후 4:22</time></div><p class="bubble">변호사님, 강**입니다. 불기소 결정서 받았습니다. 고소당했을 때 밤에 잠을 한숨도 못 잤는데, 이메일 하나 메시지 하나 다 시간순으로 정리해 주셔서 버틸 수 있었습니다. 1년 동안 정말 감사했습니다.</p></article>
+      <article class="msg more" hidden><div class="who"><span class="ava" style="background:linear-gradient(160deg,#7d8c86,#e3ebe7)"><i></i><b></b></span><span class="id"><strong>서**</strong><small>50세 · 제조업체 대표</small></span><time>오전 10:05</time></div><p class="bubble">변호사님 서**입니다. 인가 결정 확인했습니다. 대표가 개인회생 한다는 게 창피해서 한참을 미뤘는데, 회사도 살리고 저도 정리할 수 있게 해주셔서 감사합니다. 직원들 월급 밀리지 않게 열심히 하겠습니다.</p></article>
+      <article class="msg more" hidden><div class="who"><span class="ava" style="background:linear-gradient(160deg,#d2b48c,#f7efe4)"><i></i><b></b></span><span class="id"><strong>신**</strong><small>31세 · 상담원</small></span><time>오후 12:58</time></div><p class="bubble">실장님 저 신**이에요! 인가 났대요ㅠㅠ 친구 때문에 생긴 빚이라 너무 억울했는데 제 얘기 끝까지 들어주셔서 감사해요. 다시는 명의 안 빌려줄 거예요 진짜로ㅋㅋ</p></article>
+      <article class="msg more" hidden><div class="who"><span class="ava" style="background:linear-gradient(160deg,#5f7f90,#d7e3ea)"><i></i><b></b></span><span class="id"><strong>조**</strong><small>42세 · 물류관리직</small></span><time>오후 5:31</time></div><p class="bubble">변호사님 조**입니다. 변경 결정 났다고 연락 받았습니다. 회사 문 닫았을 때 이제 다 끝났구나 했는데, 미납 세 번 되기 전에 바로 움직여 주셔서 살았습니다. 다음 달부터 새 직장 출근합니다. 감사합니다.</p></article>
+      <article class="msg more" hidden><div class="who"><span class="ava" style="background:linear-gradient(160deg,#c98b7b,#f6e3d8)"><i></i><b></b></span><span class="id"><strong>장**</strong><small>58세 · 보험설계사</small></span><time>오후 7:09</time></div><p class="bubble">변호사님 장**이에요. 인가 소식 듣고 남편이랑 같이 울었어요. 다른 데서는 파산하라고만 해서 일 그만둬야 하나 걱정했는데, 제 일까지 생각해서 방법 찾아주셔서 정말 고마워요. 건강하세요.</p></article>
+      <article class="msg more" hidden><div class="who"><span class="ava" style="background:linear-gradient(160deg,#8aa37a,#e5efd8)"><i></i><b></b></span><span class="id"><strong>백**</strong><small>39세 · 생산직</small></span><time>오후 6:44</time></div><p class="bubble">안녕하세요 백**입니다. 오늘 밀린 양육비 마지막 금액 보냈습니다. 처음에 양육비는 없어지는 거 아니라고 딱 잘라 말씀해주셨을 때 좀 서운했는데 지금은 그게 제일 고맙습니다. 이번 주말에 애 보러 갑니다.</p></article>
+      <article class="msg more" hidden><div class="who"><span class="ava" style="background:linear-gradient(160deg,#6a8fbf,#d9e6f2)"><i></i><b></b></span><span class="id"><strong>류**</strong><small>35세 · 택배기사</small></span><time>오후 2:16</time></div><p class="bubble">사무장님 류**입니다 배송 중이라 짧게 보내요. 인가 났다고 들었습니다!! 차 안 팔아도 된다는게 제일 다행이에요. 이거 없으면 저 일 못하거든요. 진짜 감사합니다. 배송 끝나면 세차하러 갑니다ㅎㅎ</p></article>
+      <article class="msg more" hidden><div class="who"><span class="ava" style="background:linear-gradient(160deg,#b9a48a,#f4ece3)"><i></i><b></b></span><span class="id"><strong>이**</strong><small>67세 · 경비원 아내</small></span><time>오전 10:28</time></div><p class="bubble">변호사님 고맙습니다. 남편 병원비 때문에 생긴 빚이라 자식들한테도 말 못하고 혼자 끙끙 앓았는데. 어려운 말 쉽게 몇 번씩 설명해 주셔서 이 늙은이도 알아들었어요. 복 많이 받으세요.</p></article>
+      <article class="msg more" hidden><div class="who"><span class="ava" style="background:linear-gradient(160deg,#7ea0b8,#e4eef4)"><i></i><b></b></span><span class="id"><strong>김**</strong><small>27세 · 배달 라이더</small></span><time>오후 3:51</time></div><p class="bubble">안녕하세요 김**입니다 인가 났다고 들었어요 감사합니다!! 대부업체 전화 하루에 스무 통씩 와서 폰 꺼놓고 살았는데 이제 폰 켜놔도 되네요ㅋㅋ 친구들한테도 추천할게요</p></article>
+      <article class="msg more" hidden><div class="who"><span class="ava" style="background:linear-gradient(160deg,#d0a3b4,#f8e8ea)"><i></i><b></b></span><span class="id"><strong>정**</strong><small>45세 · 미용실 원장</small></span><time>오후 8:12</time></div><p class="bubble">원장님 아니 변호사님~ 정**입니다^^ 인가 결정 축하 문자 받았어요. 매장 문 닫을까 고민하던 게 엊그제 같은데. 세금 문제까지 같이 정리해 주셔서 너무 감사드려요. 언제 오시면 커트는 서비스예요!</p></article>
+      <article class="msg more" hidden><div class="who"><span class="ava" style="background:linear-gradient(160deg,#8d9a86,#e6eee4)"><i></i><b></b></span><span class="id"><strong>박**</strong><small>33세 · 회사원</small></span><time>오후 9:00</time></div><p class="bubble">변호사님 박**입니다. 수험 기간 동안 생긴 빚이라 제 잘못이라고만 생각했는데, 처음 상담 때 "누구나 그럴 수 있다"고 해주신 말이 계속 기억에 남습니다. 면책 받는 날까지 잘 지키겠습니다. 감사합니다.</p></article>
+      <article class="msg more" hidden><div class="who"><span class="ava" style="background:linear-gradient(160deg,#c6b08a,#f6f0e4)"><i></i><b></b></span><span class="id"><strong>오**</strong><small>52세 · 식당 주방직원</small></span><time>오후 4:03</time></div><p class="bubble">실장님 오**이에요. 서류 떼는 것도 몰라서 매번 전화로 물어봤는데 귀찮아하지 않고 다 알려주셔서 고마웠어요. 인가 났다니까 이제 좀 잠이 올 것 같아요. 감사합니다.</p></article>
+    
+      <button type="button" class="thanks-more" id="thanksMore" aria-expanded="false" aria-controls="thanksBoard">감사 인사 더 보기</button>
     </section>
 
     <section aria-labelledby="askh">
@@ -351,7 +483,7 @@ footer strong{color:var(--ink);font-size:15px}
     </section>
 
     <section aria-labelledby="calch">
-      <h2 id="calch">확인은 이렇게 합니다</h2>
+      <h2 id="calch">바로 확인하세요</h2>
       <div class="pair">
         <article>
           <h3>30초 확인</h3>
@@ -747,6 +879,20 @@ form.addEventListener('submit', function(ev){
   window.addEventListener('resize', render);
   render();
   start();
+})();
+
+
+(function(){
+  var btn = document.getElementById('thanksMore');
+  var more = document.querySelectorAll('#thanksBoard .more');
+  if (!btn || !more.length) return;
+  btn.addEventListener('click', function(){
+    var open = btn.getAttribute('aria-expanded') === 'true';
+    more.forEach(function(el){ el.hidden = open; });
+    btn.setAttribute('aria-expanded', open ? 'false' : 'true');
+    btn.textContent = open ? '감사 인사 더 보기' : '접기';
+    if (open) btn.focus();
+  });
 })();
 
 document.querySelectorAll('.tabs button').forEach(function(btn){
