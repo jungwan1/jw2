@@ -28,15 +28,17 @@ header{position:sticky;top:0;z-index:20;background:#fff;border-bottom:1px solid 
 .btn{display:inline-flex;align-items:center;justify-content:center;min-height:54px;padding:0 26px;border-radius:999px;border:1.5px solid transparent;font:inherit;font-weight:800;font-size:16px;letter-spacing:-.03em;text-decoration:none;cursor:pointer}
 .btn.pine{background:var(--ink);color:#fff}
 .btn.line{background:transparent;color:var(--ink);border-color:#cfc6b8}
-.hero .btn.pine{background:#f4f1ea;color:#121816}
-.hero .btn.line{color:#fff;border-color:rgba(255,255,255,.72)}
+.hero .btn.pine{background:#173f32;color:#fff}
+.hero .btn.line{background:#fff;color:#173f32;border-color:#173f32}
 .btn:focus-visible,a:focus-visible,button:focus-visible,input:focus-visible,summary:focus-visible{outline:3px solid var(--gold);outline-offset:3px}
-.hero{position:relative;color:#f7f4ee;background:#0c1210 url(hero-architecture.jpg) center 40%/cover no-repeat}
-.hero::before{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(8,12,11,.84) 0%,rgba(8,12,11,.72) 48%,rgba(8,12,11,.55) 100%)}
+.hero{position:relative;color:#121816;background:#f4efe6 url(hero-office.jpg) right center/cover no-repeat}
+.hero::before{content:none}
 .hero-in{position:relative;z-index:1}
-.hero-in{width:min(1180px,calc(100% - 48px));margin:0 auto;min-height:calc(100vh - 74px);display:grid;grid-template-columns:minmax(0,1fr) 300px;align-items:stretch}
-.hero-copy{display:flex;flex-direction:column;justify-content:center;padding:72px 48px 72px 8px}
-.hero-side{display:flex;align-items:center;justify-content:center;border-left:1px solid rgba(255,255,255,.18)}
+.hero-in{width:min(1180px,calc(100% - 48px));margin:0 auto;min-height:calc(100vh - 74px);display:flex;align-items:center}
+.hero-copy{display:flex;flex-direction:column;justify-content:center;max-width:460px;padding:72px 0}
+.hero .kicker{color:#173f32}
+.hero h1{color:#1a2420}
+.hero-note{margin:18px 0 0;font-size:13px;line-height:1.5;font-weight:500;color:#3e4744}
 .kicker{margin:0 0 18px;color:var(--gold);font-weight:700;font-size:13px;letter-spacing:.18em}
 h1{font-size:clamp(40px,4.8vw,68px);line-height:1.16;letter-spacing:-.05em;margin:0 0 32px;font-weight:800;max-width:12em}
 .cta-row{display:flex;flex-wrap:wrap;gap:12px}
@@ -120,8 +122,8 @@ footer strong{color:var(--ink);font-size:15px}
 .flow-stage{position:relative;height:100%;overflow:hidden;touch-action:pan-y}
 .flow-card{position:absolute;top:18px;left:50%;width:250px;height:390px;margin-left:-125px;border:0;padding:0;border-radius:18px;overflow:hidden;background:#1c2421 center/cover no-repeat;cursor:pointer;color:#fff;text-align:left;transition:transform .6s ease,filter .6s ease}
 .flow-card .shade{position:absolute;left:0;right:0;bottom:0;padding:28px 16px 16px;background:linear-gradient(transparent,rgba(0,0,0,.78))}
-.flow-card .ex{display:block;font-size:13px;line-height:1.4;font-weight:500;color:#f3efe6}
-.flow-card strong{display:block;margin-top:2px;font-size:20px;letter-spacing:-.03em}
+.flow-card .ex{display:block;margin-top:4px;font-size:13px;line-height:1.4;font-weight:500;color:#f3efe6}
+.flow-card strong{display:block;font-size:20px;letter-spacing:-.03em}
 .flow-btn{position:absolute;top:50%;z-index:6;width:44px;height:44px;margin-top:-22px;border-radius:50%;border:1px solid var(--line);background:#fff;font-size:22px;cursor:pointer}
 .flow-btn.prev{left:8px}
 .flow-btn.next{right:8px}
@@ -145,15 +147,17 @@ footer strong{color:var(--ink);font-size:15px}
   .wrap,.hero-in{width:min(1180px,calc(100% - 28px))}
   h1{font-size:28px;letter-spacing:-.045em;max-width:none;white-space:normal}
   h1 span{display:block}
-  .hero-in{min-height:0;grid-template-columns:1fr;padding:28px 0 36px}
-  .hero-copy{padding:8px 0 0}
+  .hero{min-height:0;padding:0;background-position:center top;background-size:100% auto}
+  .hero::before{content:none}
+  .hero-in{display:block;min-height:0;padding:56.25% 0 8px}
+  .hero-copy{width:auto;max-width:none;padding:12px 0 0}
   .hero .cta-row{max-width:none}
   .figure,.portrait,.lawyers figure{width:210px}
   .split,.cols,.pair,.lawyers,ol.steps,.example-grid{grid-template-columns:1fr}
-  .hero-side{border-left:0;border-top:1px solid rgba(255,255,255,.18);justify-content:flex-start;padding:22px 0 8px}
   ol.steps li,.cols article,.cols article+article{border:0;padding:18px 0;border-bottom:1px solid var(--line)}
   .split article{padding:28px 22px}
   section{padding:56px 0}
+  .hero{padding:0}
   .head{min-height:64px}
   .nav .link,.nav .btn{display:none}
   .dock{display:grid;grid-template-columns:1fr 1fr;gap:8px;position:fixed;left:0;right:0;bottom:0;z-index:30;background:#fff;border-top:1px solid var(--line);padding:10px 12px calc(10px + env(safe-area-inset-bottom))}
@@ -191,11 +195,8 @@ footer strong{color:var(--ink);font-size:15px}
           <a class="btn pine js-calc" href="calculator.html">30초 확인</a>
           <button type="button" class="btn line js-consult">바로 상담하기</button>
         </div>
+        <p class="hero-note">AI로 제작한 연출 이미지</p>
       </div>
-      <div class="hero-side"><figure class="figure">
-        <img class="portrait" src="lawyer-hero.jpg" width="275" height="480" alt="유성우 변호사. 창가 앞에서 팔짱을 낀 상반신">
-        <figcaption class="cap">광고책임변호사 유성우</figcaption>
-      </figure></div>
     </div>
   </section>
 
@@ -250,21 +251,42 @@ footer strong{color:var(--ink);font-size:15px}
     </section>
 
     <section aria-labelledby="storyh">
-      <p class="sec-k">살펴보기</p>
-      <h2 id="storyh">상담 전 살펴볼 이야기</h2>
-      <p class="fine">예시입니다. 실제 고객 후기나 영상이 아닙니다.</p>
-      <div class="flow" id="flow" tabindex="0" aria-roledescription="carousel" aria-label="상담 전 살펴볼 이야기. 예시입니다.">
-        <button type="button" class="flow-btn prev" id="flowPrev" aria-label="이전 이야기">‹</button>
+      <p class="sec-k">사례</p>
+      <h2 id="storyh">실제 상담 고객 사례</h2>
+      <p class="fine">고객 개인정보 보호를 위해 이름을 익명 처리했습니다. 개별 결과는 소득·재산·채무 경위와 법원 판단에 따라 달라질 수 있습니다.</p>
+      <p class="fine">사진은 이해를 돕기 위한 이미지입니다.</p>
+      <div class="flow" id="flow" tabindex="0" aria-roledescription="carousel" aria-label="실제 상담 고객 사례">
+        <button type="button" class="flow-btn prev" id="flowPrev" aria-label="이전 사례">‹</button>
         <div class="flow-stage" id="flowStage"></div>
-        <button type="button" class="flow-btn next" id="flowNext" aria-label="다음 이야기">›</button>
+        <button type="button" class="flow-btn next" id="flowNext" aria-label="다음 사례">›</button>
       </div>
       <button type="button" class="flow-pause" id="flowPause" aria-pressed="false">일시정지</button>
       <div id="storySource" hidden>
-        <article data-img="story-office.jpg" data-title="여러 곳의 채무"><p>카드와 대출이 나뉘어 있으면 채권자 목록부터 적습니다. 금액은 자료를 보고 확인합니다.</p></article>
-        <article data-img="story-desk.jpg" data-title="소득이 줄었을 때"><p>급여가 줄거나 일을 접으면 회생으로 볼지 파산으로 볼지가 달라집니다. 한 달 소득만으로 자격을 정하지 않습니다.</p></article>
-        <article data-img="story-envelopes.jpg" data-title="압류가 걱정될 때"><p>신청했다고 압류가 바로 풀리지는 않습니다. 중지·금지 효력은 법원 결정 뒤에 생깁니다.</p></article>
-        <article data-img="story-room.jpg" data-title="회생과 파산"><p>소득이 이어지면 회생, 갚기 어려우면 파산을 함께 봅니다. 어느 쪽인지는 이 화면에서 단정하지 않습니다.</p></article>
-        <article data-img="story-papers.jpg" data-title="준비할 서류"><p>등본, 소득·채무·재산 자료가 자주 필요합니다. 여기서 서류를 대신 발급하지는 않습니다.</p></article>
+        <article data-img="story-office.jpg" data-title="김** · 41세 영업직" data-summary="도박 채무 약 1억 1천만 원">
+          <p data-part="issue">이 사례에서는 영업직으로 일하며 빚이 약 1억 1천만 원이었습니다. 스포츠토토와 온라인 도박이 있었고, 신청 6개월 전까지 베팅이 있었습니다.</p>
+          <p data-part="act">치료 상담, 단도박 모임, 접속 차단 자료를 냈습니다. 순손실 일부만 청산가치에 반영해 달라고 주장했고, 그 주장이 일부 받아들여졌습니다.</p>
+          <p data-part="result">인가됐지만 변제율이 높고 계획은 5년이었습니다. 도박 손실을 반드시 재산에 더하는 기준으로 적은 것이 아니라, 이 사건은 법원이 자료를 보고 판단했습니다.</p>
+        </article>
+        <article data-img="story-desk.jpg" data-title="김** · 36세 간호사" data-summary="신청 전 어머니께 3천만 원 변제">
+          <p data-part="issue">이 사례에서는 카드·캐피탈 빚 약 7천만 원과 어머니 차용 약 3천만 원이 있었습니다. 신청 2개월 전 적금을 깨 어머니께 3천만 원을 먼저 갚아 편파변제가 문제가 됐습니다.</p>
+          <p data-part="act">어머니의 노후 자금을 썼고 돌려주기 어려운 사정을 소명했습니다. 그 3천만 원은 청산가치에 반영하는 방향이 됐습니다.</p>
+          <p data-part="result">인가됐지만 다른 채권자에게 돌아갈 변제 부담은 커졌습니다. 누구에게도 갚지 말라는 뜻이 아니라, 신청 전에 특정 채권을 갚을 때는 상담이 필요했던 사례입니다.</p>
+        </article>
+        <article data-img="story-room.jpg" data-title="김** · 45세 버스기사" data-summary="변제 중 상속 약 4천만 원">
+          <p data-part="issue">이 사례에서는 빚이 약 9천만 원이고, 5년 변제 계획의 3년 차에 아버지가 돌아가셨습니다. 땅과 예금 약 4천만 원을 상속받았습니다.</p>
+          <p data-part="act">법원에 신고하고, 예금 일부로 남은 변제를 앞당기는 쪽으로 계획을 바꿨습니다. 공동상속 땅 지분이 작고 현금화하기 어렵다는 점을 소명했습니다.</p>
+          <p data-part="result">예정보다 1년 반 일찍 변제를 마치고 면책됐고, 땅 지분은 유지됐습니다. 상속을 숨기면 면책이 반드시 취소된다고 적은 것이 아니라, 이 사건에서는 신고와 소명 뒤에 이렇게 정리됐습니다.</p>
+        </article>
+        <article data-img="story-envelopes.jpg" data-title="김** · 39세 프리랜서 디자이너" data-summary="지인 차용과 사기 고소">
+          <p data-part="issue">이 사례에서는 빚이 약 1억 3천만 원이고, 그중 지인 차용 약 5천만 원이 있었습니다. 회생 신청 뒤 지인이 사기 고소를 하고 비면책을 주장했습니다.</p>
+          <p data-part="act">차용 당시 계약, 2년간의 이자 지급, 거래가 끊긴 이메일로 당시 갚을 의사와 능력을 소명했습니다. 민사와 형사를 같은 내용으로 대응했습니다.</p>
+          <p data-part="result">형사는 무혐의였고, 지인 채권은 일반 대여금으로 면책 대상이 됐습니다. 결론까지 약 1년이 걸렸습니다. 사기 고소만으로 면책이 안 된다고 일반화한 결과는 아닙니다.</p>
+        </article>
+        <article data-img="story-papers.jpg" data-title="김** · 50세 제조업 대표" data-summary="연대보증 약 3억 원, 급여 감소">
+          <p data-part="issue">이 사례에서는 법인 대출 연대보증 약 3억 원과 개인 신용대출이 있었습니다. 신청 직전 급여가 600만 원에서 250만 원으로 줄어 자의 감액 의심이 있었고, 적자 법인의 지분 평가도 쟁점이었습니다.</p>
+          <p data-part="act">3년 재무제표, 매출 감소, 직원 급여 동결, 순자산 마이너스라는 회계사 의견을 냈습니다.</p>
+          <p data-part="result">법원은 급여 일부를 정상 수준으로 보정했습니다. 실제 급여보다 조금 높은 기준의 변제금으로 인가됐고, 회사는 계속 운영했습니다.</p>
+        </article>
       </div>
     </section>
 
@@ -345,22 +367,10 @@ footer strong{color:var(--ink);font-size:15px}
       <div class="wrap">
       <p class="sec-k">사무소</p>
       <h2 id="who">법무법인 재유</h2>
-      <div class="lawyers">
-        <figure>
-          <img class="portrait" src="lawyer-desk.jpg" width="275" height="480" alt="유성우 변호사. 책상에서 노트에 펜을 들고 있는 모습">
-          <figcaption class="cap">광고책임변호사 유성우</figcaption>
-        </figure>
-        <figure>
-          <img class="portrait" src="lawyer-profile.jpg" width="275" height="480" alt="유성우 변호사 정면 프로필">
-          <figcaption class="cap">광고책임변호사 유성우</figcaption>
-        </figure>
-        <div>
-          <p>대표변호사 강명구. 서울 서초구 서초대로46길 106, 4층. 수임료는 사건마다 달라 여기 적지 않습니다.</p>
-          <div class="cta-row">
-            <a class="btn pine js-calc" href="calculator.html">30초 확인</a>
-            <button type="button" class="btn line js-consult">바로 상담하기</button>
-          </div>
-        </div>
+      <p>광고책임변호사 유성우. 대표변호사 강명구. 서울 서초구 서초대로46길 106, 4층. 수임료는 사건마다 달라 여기 적지 않습니다.</p>
+      <div class="cta-row">
+        <a class="btn pine js-calc" href="calculator.html">30초 확인</a>
+        <button type="button" class="btn line js-consult">바로 상담하기</button>
       </div>
       </div>
     </section>
@@ -402,7 +412,7 @@ footer strong{color:var(--ink);font-size:15px}
       서울 서초구 서초대로46길 106, 4층<br>
       <a href="http://jlawfirm.co.kr/" target="_blank" rel="noopener">jlawfirm.co.kr</a><br>
       광고책임변호사: 유성우 변호사<br>
-      배경 사진: Jonathan Simcoe, CC0, <a href="https://commons.wikimedia.org/wiki/File:Glass_building_corner_(Unsplash).jpg" target="_blank" rel="noopener">Wikimedia Commons</a>. 법무법인 재유 사무실 사진이 아닙니다.<br>
+      첫 화면 사진: AI로 제작한 연출 이미지이며, 법무법인 재유 사무실이나 소속 변호사를 찍은 사진이 아닙니다.<br>
       이야기 카드 사진: Luca Bravo, Stephen Caserta, Joanna Kosinska, Daniel von Appen, Alex Robert. 모두 CC0, Wikimedia Commons. 실제 고객이 아닙니다.
       <p>본 페이지의 절차 안내는 일반 정보입니다. 개별 사건의 결과는 법원 결정에 따릅니다. 계산 페이지의 숫자는 참고용 예상치이며 법률 자문이 아닙니다. 상담 예시 목록은 실제 접수 기록이 아닙니다.</p>
     </footer>
@@ -417,9 +427,11 @@ footer strong{color:var(--ink);font-size:15px}
 <div class="modal" id="storyModal" hidden>
   <div class="dialog" role="dialog" aria-modal="true" aria-labelledby="storyTitle" tabindex="-1">
     <button type="button" class="close" id="storyClose" aria-label="닫기">×</button>
-    <p class="fine">상담 전 살펴볼 이야기. 예시이며 실제 고객 후기가 아닙니다.</p>
+    <p class="fine">고객 개인정보 보호를 위해 이름을 익명 처리했습니다. 개별 결과는 소득·재산·채무 경위와 법원 판단에 따라 달라질 수 있습니다.</p>
     <h2 id="storyTitle"></h2>
-    <p id="storyBody"></p>
+    <p><b>쟁점</b> <span id="storyIssue"></span></p>
+    <p><b>대응</b> <span id="storyAct"></span></p>
+    <p><b>결과</b> <span id="storyResult"></span></p>
   </div>
 </div>
 
@@ -603,7 +615,14 @@ form.addEventListener('submit', function(ev){
   var flow = document.getElementById('flow');
   if (!source || !stage) return;
   var items = Array.prototype.slice.call(source.querySelectorAll('article')).map(function(el){
-    return {img: el.getAttribute('data-img'), title: el.getAttribute('data-title'), body: el.querySelector('p').textContent};
+    return {
+      img: el.getAttribute('data-img'),
+      title: el.getAttribute('data-title'),
+      summary: el.getAttribute('data-summary'),
+      issue: el.querySelector('[data-part="issue"]').textContent,
+      act: el.querySelector('[data-part="act"]').textContent,
+      result: el.querySelector('[data-part="result"]').textContent
+    };
   });
   var index = 0, paused = false, timer = null, reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   var storyModal = document.getElementById('storyModal');
@@ -612,8 +631,17 @@ form.addEventListener('submit', function(ev){
     btn.type = 'button';
     btn.className = 'flow-card';
     btn.style.backgroundImage = 'url(' + item.img + ')';
-    btn.setAttribute('aria-label', item.title + '. 예시');
-    btn.innerHTML = '<span class="shade"><span class="ex">예시</span><strong>' + item.title + '</strong></span>';
+    btn.setAttribute('aria-label', item.title);
+    var shade = document.createElement('span');
+    shade.className = 'shade';
+    var name = document.createElement('strong');
+    name.textContent = item.title;
+    var sum = document.createElement('span');
+    sum.className = 'ex';
+    sum.textContent = item.summary;
+    shade.appendChild(name);
+    shade.appendChild(sum);
+    btn.appendChild(shade);
     btn.addEventListener('click', function(){
       var d = Number(btn.getAttribute('data-d'));
       if (d !== 0) { go(d); return; }
@@ -648,7 +676,9 @@ form.addEventListener('submit', function(ev){
   function stop(){ if (timer) clearInterval(timer); timer = null; }
   function openStory(item){
     document.getElementById('storyTitle').textContent = item.title;
-    document.getElementById('storyBody').textContent = item.body;
+    document.getElementById('storyIssue').textContent = item.issue;
+    document.getElementById('storyAct').textContent = item.act;
+    document.getElementById('storyResult').textContent = item.result;
     storyModal.hidden = false;
     document.getElementById('storyClose').focus();
     paused = true;
