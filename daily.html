@@ -27,3 +27,4 @@ document.querySelectorAll('.ru.playing').forEach(e=>e.classList.remove('playing'
 const g=document.getElementById('g'+i);g.style.display=g.style.display==='none'?'block':'none';}
 document.getElementById('body').innerHTML=DAILY_RU.map((s,i)=>`<div class="sent"><span class="ru" onclick="sp(${i},this)">${s}</span><div class="gSec" id="g${i}" style="display:none"><ul><li><b>한국어:</b> ${DAILY_KO[i]||''}</li>${DAILY_GRAMMAR[i].map(b=>`<li>${b}</li>`).join('')}</ul></div></div>`).join('');
 </script></body></html>
+<!-- daily 2026-11-12 redeploy -->
