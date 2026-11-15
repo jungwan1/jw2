@@ -202,6 +202,9 @@ footer strong{color:var(--ink);font-size:15px}
 .thanks .msg:nth-child(even) .id{align-items:flex-end;text-align:right}
 .thanks .msg:nth-child(even) .bubble{margin:0 8px 0 28px;border-radius:18px 6px 18px 18px}
 .thanks-more{display:flex;margin:36px auto 0;min-height:48px;padding:0 22px;border-radius:999px;border:1px solid #173f32;background:#fff;color:#173f32;font:inherit;font-weight:800;cursor:pointer}
+@media (max-width:768px){
+  #thanks:not(.show-all) .msg.m4{display:none}
+}
 #faq.sit{--sit-ink:#1d1f1c;--sit-green:#243d33;--sit-gold:#c99a3e;--sit-line:#dcd9d1;--sit-card:#fbfaf7;width:100vw;margin-left:calc(50% - 50vw);background:#f4f2ed;color:var(--sit-ink);padding:56px 32px;word-break:keep-all}
 #faq.sit,#faq.sit *{box-sizing:border-box}
 #faq.sit .sit-in{max-width:1200px;margin:0 auto}
@@ -568,8 +571,8 @@ footer strong{color:var(--ink);font-size:15px}
       <article class="msg"><div class="who"><span class="ava" style="background:linear-gradient(160deg,#c4a27a,#efe2cf)"><i></i><b></b></span><span class="id"><strong>박**</strong><small>47세 · 고깃집 사장</small></span><time>오후 3:08</time></div><p class="bubble">사무장님 박**입니다. 금지명령 나오고 나서 그 사람들 한 번도 안 왔어요. 직원들 앞에서 고개 숙일 일 없어진게 제일 좋네요. 언제 가게 한번 들르세요 고기는 제가 굽겠습니다.</p></article>
       <article class="msg"><div class="who"><span class="ava" style="background:linear-gradient(160deg,#7f97ad,#d5e0ea)"><i></i><b></b></span><span class="id"><strong>이**</strong><small>53세 · 차장</small></span><time>오후 12:27</time></div><p class="bubble">안녕하십니까. 이**입니다. 오늘 인가 결정문 받았습니다. 처음엔 집을 팔아야 한다는 얘기만 듣다가, 집을 지킬 방법이 있다고 하셨을 때 반신반의했었는데 정말 그렇게 됐네요. 아이들 학교 안 옮겨도 된다는게 가장 감사합니다. 진심으로 고맙습니다.</p></article>
       <article class="msg"><div class="who"><span class="ava" style="background:linear-gradient(160deg,#d7a3b0,#f6e4e0)"><i></i><b></b></span><span class="id"><strong>최**</strong><small>38세 · 학원강사</small></span><time>오후 8:53</time></div><p class="bubble">실장님~ 최**이에요. 인가 났다는 문자 받고 애들 재우고 혼자 울었어요ㅠㅠ 이혼 서류까지 문제 될 줄은 생각도 못했는데 미리 다 챙겨주셔서 너무 감사해요. 이제 카드값 계산 안 하고 애들 학원 보낼 수 있을 것 같아요!</p></article>
-      <article class="msg"><div class="who"><span class="ava" style="background:linear-gradient(160deg,#6f9e8a,#e7f0df)"><i></i><b></b></span><span class="id"><strong>정**</strong><small>29세 · 물류센터</small></span><time>오후 6:14</time></div><p class="bubble">안녕하세요 정**입니다! 인가 났어요!! 혼자 했다가 기각됐을 때 진짜 인생 끝난 줄 알았는데 ㅠ 뭐가 빠졌는지 하나하나 다 찾아주셔서 감사합니다. 전세사기 당하고 처음으로 좋은 소식이에요.</p></article>
-      <article class="msg"><div class="who"><span class="ava" style="background:linear-gradient(160deg,#8a7e6a,#e7dfd2)"><i></i><b></b></span><span class="id"><strong>한**</strong><small>41세 · 영업직</small></span><time>오후 7:36</time></div><p class="bubble">변호사님 한**입니다. 제가 한 짓이 있어서 감사하다는 말씀 드리기도 민망하네요. 그래도 끝까지 포기 안 하고 도와주셔서 고맙습니다. 모임은 계속 나가고 있습니다. 5년 동안 한 번도 안 밀리고 갚겠습니다.</p></article>
+      <article class="msg m4"><div class="who"><span class="ava" style="background:linear-gradient(160deg,#6f9e8a,#e7f0df)"><i></i><b></b></span><span class="id"><strong>정**</strong><small>29세 · 물류센터</small></span><time>오후 6:14</time></div><p class="bubble">안녕하세요 정**입니다! 인가 났어요!! 혼자 했다가 기각됐을 때 진짜 인생 끝난 줄 알았는데 ㅠ 뭐가 빠졌는지 하나하나 다 찾아주셔서 감사합니다. 전세사기 당하고 처음으로 좋은 소식이에요.</p></article>
+      <article class="msg m4"><div class="who"><span class="ava" style="background:linear-gradient(160deg,#8a7e6a,#e7dfd2)"><i></i><b></b></span><span class="id"><strong>한**</strong><small>41세 · 영업직</small></span><time>오후 7:36</time></div><p class="bubble">변호사님 한**입니다. 제가 한 짓이 있어서 감사하다는 말씀 드리기도 민망하네요. 그래도 끝까지 포기 안 하고 도와주셔서 고맙습니다. 모임은 계속 나가고 있습니다. 5년 동안 한 번도 안 밀리고 갚겠습니다.</p></article>
       <article class="msg more" hidden><div class="who"><span class="ava" style="background:linear-gradient(160deg,#9eb7c9,#e7f1f4)"><i></i><b></b></span><span class="id"><strong>오**</strong><small>36세 · 간호사</small></span><time>오전 11:19</time></div><p class="bubble">안녕하세요 오**입니다. 인가 소식 들었어요. 처음 상담 때 엄마한테 먼저 갚은 얘기 할까 말까 엄청 고민했는데, 말하길 정말 잘했던 것 같아요. 엄마한테 돈 돌려달란 말 안 하게 해주셔서 감사합니다 🙏</p></article>
       <article class="msg more" hidden><div class="who"><span class="ava" style="background:linear-gradient(160deg,#6e8f78,#dce8d4)"><i></i><b></b></span><span class="id"><strong>윤**</strong><small>45세 · 버스기사</small></span><time>오후 1:47</time></div><p class="bubble">변호사님 윤**입니다. 면책 결정 받았습니다. 아버지 돌아가시고 상속 얘기 꺼낼 때 솔직히 숨길까 생각도 했었습니다. 그때 바로 신고하자고 하셔서 오히려 일찍 끝났네요. 아버지 산소 갈 때 좋은 소식 전하겠습니다. 감사합니다.</p></article>
       <article class="msg more" hidden><div class="who"><span class="ava" style="background:linear-gradient(160deg,#b7a48b,#f3eadf)"><i></i><b></b></span><span class="id"><strong>강**</strong><small>39세 · 디자이너</small></span><time>오후 4:22</time></div><p class="bubble">변호사님, 강**입니다. 불기소 결정서 받았습니다. 고소당했을 때 밤에 잠을 한숨도 못 잤는데, 이메일 하나 메시지 하나 다 시간순으로 정리해 주셔서 버틸 수 있었습니다. 1년 동안 정말 감사했습니다.</p></article>
@@ -1127,15 +1130,29 @@ document.querySelectorAll('.quick-form').forEach(function(form){
 
 (function(){
   var btn = document.getElementById('thanksMore');
+  var section = document.getElementById('thanks');
   var more = document.querySelectorAll('#thanksBoard .more');
-  if (!btn || !more.length) return;
+  if (!btn || !section || !more.length) return;
+  var narrow = window.matchMedia('(max-width: 768px)');
+  function label(open){
+    if (open) return '접기';
+    return narrow.matches ? '더보기' : '감사 인사 더 보기';
+  }
+  function paint(){
+    var open = btn.getAttribute('aria-expanded') === 'true';
+    section.classList.toggle('show-all', open && narrow.matches);
+    btn.textContent = label(open);
+  }
   btn.addEventListener('click', function(){
     var open = btn.getAttribute('aria-expanded') === 'true';
     more.forEach(function(el){ el.hidden = open; });
     btn.setAttribute('aria-expanded', open ? 'false' : 'true');
-    btn.textContent = open ? '감사 인사 더 보기' : '접기';
+    paint();
     if (open) btn.focus();
   });
+  if (narrow.addEventListener) narrow.addEventListener('change', paint);
+  else if (narrow.addListener) narrow.addListener(paint);
+  paint();
 })();
 
 document.querySelectorAll('.tabs button').forEach(function(btn){
