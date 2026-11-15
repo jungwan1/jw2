@@ -267,13 +267,13 @@ footer strong{color:var(--ink);font-size:15px}
   .hero{min-height:0;padding:12px 0 0;background:#f6f3ec}
   .hero::before{content:none}
   .hero-in{display:block;min-height:0;padding:0}
-  .hero-copy{position:relative;isolation:isolate;overflow:hidden;width:auto;max-width:none;background:#ebe1d8;padding:16px 12px 14px}
-  .hero .kicker,.hero h1,.hero .cta-row{position:relative;z-index:1}
+  .hero-copy{position:relative;overflow:hidden;width:auto;max-width:none;background:#ebe1d8;padding:16px 12px 14px}
   .hero .kicker{margin-bottom:12px}
-  .hero-lead{display:block;margin:0 0 16px}
-  .hero h1{margin:0;font-size:clamp(22px,7.2vw,32px);line-height:1.28;letter-spacing:-.05em}
-  .hero-shot{display:block;position:absolute;z-index:0;top:0;right:0;bottom:0;width:72%;overflow:hidden;border-radius:0;pointer-events:none;-webkit-mask-image:linear-gradient(90deg,transparent 0%,transparent 26%,rgba(0,0,0,.4) 46%,#000 66%);mask-image:linear-gradient(90deg,transparent 0%,transparent 26%,rgba(0,0,0,.4) 46%,#000 66%)}
-  .hero-shot img{position:absolute;top:-3%;left:-178%;width:auto;height:158%;max-width:none}
+  .hero-lead{display:flex;flex-direction:column;margin:0 0 16px}
+  .hero h1{margin:0 0 12px;font-size:clamp(22px,7.2vw,32px);line-height:1.28;letter-spacing:-.05em}
+  .hero-shot{display:block;position:relative;width:100%;aspect-ratio:860/720;overflow:hidden}
+  .hero-shot::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,#ebe1d8 0%,rgba(235,225,216,0) 14%);pointer-events:none}
+  .hero-shot img{position:absolute;top:0;left:-48.837%;width:148.837%;height:100%;max-width:none;object-fit:fill}
   .hero .cta-row{max-width:none}
   .figure,.portrait,.lawyers figure{width:210px}
   .split,.cols,.pair,.lawyers,ol.steps,.example-grid{grid-template-columns:1fr}
