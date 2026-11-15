@@ -6,7 +6,7 @@
  * 연락처는 맨 앞 0이 빠지지 않도록 시트의 텍스트로 기록합니다.
  * 페이지는 text/plain JSON을 POST 합니다. 회생 페이지와 같은 방식입니다.
  */
-var SHEET_ID = '';
+var SHEET_ID = '1oBKj_H910dfd2uWgVRiJEKCDOxgyA7aSJg3gU_W1vYY';
 
 function doPost(e) {
   var lock = LockService.getScriptLock();
