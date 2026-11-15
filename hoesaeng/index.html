@@ -202,6 +202,9 @@ footer strong{color:var(--ink);font-size:15px}
 .thanks .msg:nth-child(even) .id{align-items:flex-end;text-align:right}
 .thanks .msg:nth-child(even) .bubble{margin:0 8px 0 28px;border-radius:18px 6px 18px 18px}
 .thanks-more{display:flex;margin:36px auto 0;min-height:48px;padding:0 22px;border-radius:999px;border:1px solid #173f32;background:#fff;color:#173f32;font:inherit;font-weight:800;cursor:pointer}
+@media (max-width:768px){
+  #thanks:not(.show-all) .msg.m4{display:none}
+}
 #faq.sit{--sit-ink:#1d1f1c;--sit-green:#243d33;--sit-gold:#c99a3e;--sit-line:#dcd9d1;--sit-card:#fbfaf7;width:100vw;margin-left:calc(50% - 50vw);background:#f4f2ed;color:var(--sit-ink);padding:56px 32px;word-break:keep-all}
 #faq.sit,#faq.sit *{box-sizing:border-box}
 #faq.sit .sit-in{max-width:1200px;margin:0 auto}
@@ -258,6 +261,14 @@ footer strong{color:var(--ink);font-size:15px}
 .offer-time{background:#173f32;color:#f6f3ec;width:100vw;margin-left:calc(50% - 50vw);padding:42px max(24px,calc((100vw - 980px)/2));text-align:center}
 .offer-time h2{margin:0 0 12px;font-size:clamp(28px,3.6vw,44px);font-weight:800;letter-spacing:-.045em;line-height:1.2;color:#fff}
 .offer-time p{margin:0 auto;max-width:18em;font-size:clamp(18px,2.2vw,24px);font-weight:700;line-height:1.5;color:#f4efe6}
+.js-talktalk[hidden]{display:none !important}
+.quick{padding:8px 0 28px}
+.quick h2{font-size:clamp(26px,3.2vw,36px)}
+.qcard{width:min(560px,100%);background:#fff;border:1px solid var(--line);border-radius:18px;padding:22px}
+.qcard label{display:block;font-weight:700;font-size:15px;margin:12px 0 6px}
+.qcard input{width:100%;font:inherit;font-size:16px;padding:12px;border:1px solid #c9c1b2;border-radius:10px}
+.qcard .btn{width:100%;margin-top:12px}
+.qcard .ready{margin:8px 0 0;color:var(--pine);font-weight:700;min-height:1.4em}
 .dock{display:none}
 @media(max-width:800px){
   body{padding-bottom:84px}
@@ -284,7 +295,7 @@ footer strong{color:var(--ink);font-size:15px}
   .head{min-height:64px}
   .nav .link,.nav .btn{display:none}
   .dock{display:grid;grid-template-columns:1fr 1fr;gap:8px;position:fixed;left:0;right:0;bottom:0;z-index:30;background:#fff;border-top:1px solid var(--line);padding:10px 12px calc(10px + env(safe-area-inset-bottom))}
-  .dock .btn{width:100%;padding:0 8px;font-size:15px;min-height:48px}
+  .dock .btn{width:100%;padding:0 8px;font-size:14px;min-height:48px;white-space:nowrap}
   .flow{height:400px}
   .flow-card{width:200px;height:320px;margin-left:-100px;top:24px}
   .yt-head{grid-template-columns:64px minmax(0,1fr)}
@@ -341,10 +352,29 @@ footer strong{color:var(--ink);font-size:15px}
           <div class="hero-shot"><img src="hero-office.jpg" alt="유성우 변호사"></div>
         </div>
         <div class="cta-row">
-          <a class="btn pine js-calc" href="calculator.html">30초 확인</a>
+          <a class="btn pine js-phone" href="tel:01095921038">전화 010-9592-1038</a>
+          <a class="btn line js-calc" href="calculator.html">30초 확인</a>
           <button type="button" class="btn line js-consult">바로 상담하기</button>
+          <a class="btn line js-talktalk" href="" hidden>네이버 톡톡</a>
         </div>
       </div>
+    </div>
+  </section>
+
+  <section class="quick" id="quick-top" aria-labelledby="qtop">
+    <div class="wrap">
+      <p class="sec-k">빠른 상담</p>
+      <h2 id="qtop">이름과 번호만 남겨 주세요</h2>
+      <form class="quick-form qcard" data-place="첫 화면 아래" novalidate>
+        <label for="qt-name">이름</label>
+        <input id="qt-name" name="name" type="text" autocomplete="name" maxlength="40">
+        <label for="qt-phone">연락처</label>
+        <input id="qt-phone" name="phone" type="tel" inputmode="tel" autocomplete="tel" placeholder="010-0000-0000" maxlength="20">
+        <div class="chk"><input id="qt-agree" type="checkbox"><label for="qt-agree" style="margin:0;font-weight:500">[필수] 개인정보 수집·이용에 동의합니다.</label></div>
+        <p class="err" role="alert"></p>
+        <p class="ready" role="status"></p>
+        <button type="submit" class="btn pine">상담 요청 보내기</button>
+      </form>
     </div>
   </section>
 
@@ -518,6 +548,21 @@ footer strong{color:var(--ink);font-size:15px}
       </div>
     </section>
 
+    <section class="quick" id="quick-mid" aria-labelledby="qmid">
+      <p class="sec-k">빠른 상담</p>
+      <h2 id="qmid">중간에 번호만 남기기</h2>
+      <form class="quick-form qcard" data-place="본문 중간" novalidate>
+        <label for="qm-name">이름</label>
+        <input id="qm-name" name="name" type="text" autocomplete="name" maxlength="40">
+        <label for="qm-phone">연락처</label>
+        <input id="qm-phone" name="phone" type="tel" inputmode="tel" autocomplete="tel" placeholder="010-0000-0000" maxlength="20">
+        <div class="chk"><input id="qm-agree" type="checkbox"><label for="qm-agree" style="margin:0;font-weight:500">[필수] 개인정보 수집·이용에 동의합니다.</label></div>
+        <p class="err" role="alert"></p>
+        <p class="ready" role="status"></p>
+        <button type="submit" class="btn pine">상담 요청 보내기</button>
+      </form>
+    </section>
+
     <section class="thanks" id="thanks" aria-labelledby="thanksh">
       <p class="sec-k">인사</p>
       <h2 id="thanksh">고객님이 보내주신 감사 인사</h2>
@@ -526,8 +571,8 @@ footer strong{color:var(--ink);font-size:15px}
       <article class="msg"><div class="who"><span class="ava" style="background:linear-gradient(160deg,#c4a27a,#efe2cf)"><i></i><b></b></span><span class="id"><strong>박**</strong><small>47세 · 고깃집 사장</small></span><time>오후 3:08</time></div><p class="bubble">사무장님 박**입니다. 금지명령 나오고 나서 그 사람들 한 번도 안 왔어요. 직원들 앞에서 고개 숙일 일 없어진게 제일 좋네요. 언제 가게 한번 들르세요 고기는 제가 굽겠습니다.</p></article>
       <article class="msg"><div class="who"><span class="ava" style="background:linear-gradient(160deg,#7f97ad,#d5e0ea)"><i></i><b></b></span><span class="id"><strong>이**</strong><small>53세 · 차장</small></span><time>오후 12:27</time></div><p class="bubble">안녕하십니까. 이**입니다. 오늘 인가 결정문 받았습니다. 처음엔 집을 팔아야 한다는 얘기만 듣다가, 집을 지킬 방법이 있다고 하셨을 때 반신반의했었는데 정말 그렇게 됐네요. 아이들 학교 안 옮겨도 된다는게 가장 감사합니다. 진심으로 고맙습니다.</p></article>
       <article class="msg"><div class="who"><span class="ava" style="background:linear-gradient(160deg,#d7a3b0,#f6e4e0)"><i></i><b></b></span><span class="id"><strong>최**</strong><small>38세 · 학원강사</small></span><time>오후 8:53</time></div><p class="bubble">실장님~ 최**이에요. 인가 났다는 문자 받고 애들 재우고 혼자 울었어요ㅠㅠ 이혼 서류까지 문제 될 줄은 생각도 못했는데 미리 다 챙겨주셔서 너무 감사해요. 이제 카드값 계산 안 하고 애들 학원 보낼 수 있을 것 같아요!</p></article>
-      <article class="msg"><div class="who"><span class="ava" style="background:linear-gradient(160deg,#6f9e8a,#e7f0df)"><i></i><b></b></span><span class="id"><strong>정**</strong><small>29세 · 물류센터</small></span><time>오후 6:14</time></div><p class="bubble">안녕하세요 정**입니다! 인가 났어요!! 혼자 했다가 기각됐을 때 진짜 인생 끝난 줄 알았는데 ㅠ 뭐가 빠졌는지 하나하나 다 찾아주셔서 감사합니다. 전세사기 당하고 처음으로 좋은 소식이에요.</p></article>
-      <article class="msg"><div class="who"><span class="ava" style="background:linear-gradient(160deg,#8a7e6a,#e7dfd2)"><i></i><b></b></span><span class="id"><strong>한**</strong><small>41세 · 영업직</small></span><time>오후 7:36</time></div><p class="bubble">변호사님 한**입니다. 제가 한 짓이 있어서 감사하다는 말씀 드리기도 민망하네요. 그래도 끝까지 포기 안 하고 도와주셔서 고맙습니다. 모임은 계속 나가고 있습니다. 5년 동안 한 번도 안 밀리고 갚겠습니다.</p></article>
+      <article class="msg m4"><div class="who"><span class="ava" style="background:linear-gradient(160deg,#6f9e8a,#e7f0df)"><i></i><b></b></span><span class="id"><strong>정**</strong><small>29세 · 물류센터</small></span><time>오후 6:14</time></div><p class="bubble">안녕하세요 정**입니다! 인가 났어요!! 혼자 했다가 기각됐을 때 진짜 인생 끝난 줄 알았는데 ㅠ 뭐가 빠졌는지 하나하나 다 찾아주셔서 감사합니다. 전세사기 당하고 처음으로 좋은 소식이에요.</p></article>
+      <article class="msg m4"><div class="who"><span class="ava" style="background:linear-gradient(160deg,#8a7e6a,#e7dfd2)"><i></i><b></b></span><span class="id"><strong>한**</strong><small>41세 · 영업직</small></span><time>오후 7:36</time></div><p class="bubble">변호사님 한**입니다. 제가 한 짓이 있어서 감사하다는 말씀 드리기도 민망하네요. 그래도 끝까지 포기 안 하고 도와주셔서 고맙습니다. 모임은 계속 나가고 있습니다. 5년 동안 한 번도 안 밀리고 갚겠습니다.</p></article>
       <article class="msg more" hidden><div class="who"><span class="ava" style="background:linear-gradient(160deg,#9eb7c9,#e7f1f4)"><i></i><b></b></span><span class="id"><strong>오**</strong><small>36세 · 간호사</small></span><time>오전 11:19</time></div><p class="bubble">안녕하세요 오**입니다. 인가 소식 들었어요. 처음 상담 때 엄마한테 먼저 갚은 얘기 할까 말까 엄청 고민했는데, 말하길 정말 잘했던 것 같아요. 엄마한테 돈 돌려달란 말 안 하게 해주셔서 감사합니다 🙏</p></article>
       <article class="msg more" hidden><div class="who"><span class="ava" style="background:linear-gradient(160deg,#6e8f78,#dce8d4)"><i></i><b></b></span><span class="id"><strong>윤**</strong><small>45세 · 버스기사</small></span><time>오후 1:47</time></div><p class="bubble">변호사님 윤**입니다. 면책 결정 받았습니다. 아버지 돌아가시고 상속 얘기 꺼낼 때 솔직히 숨길까 생각도 했었습니다. 그때 바로 신고하자고 하셔서 오히려 일찍 끝났네요. 아버지 산소 갈 때 좋은 소식 전하겠습니다. 감사합니다.</p></article>
       <article class="msg more" hidden><div class="who"><span class="ava" style="background:linear-gradient(160deg,#b7a48b,#f3eadf)"><i></i><b></b></span><span class="id"><strong>강**</strong><small>39세 · 디자이너</small></span><time>오후 4:22</time></div><p class="bubble">변호사님, 강**입니다. 불기소 결정서 받았습니다. 고소당했을 때 밤에 잠을 한숨도 못 잤는데, 이메일 하나 메시지 하나 다 시간순으로 정리해 주셔서 버틸 수 있었습니다. 1년 동안 정말 감사했습니다.</p></article>
@@ -674,6 +719,21 @@ footer strong{color:var(--ink);font-size:15px}
       </div>
     </section>
 
+    <section class="quick" id="quick-bottom" aria-labelledby="qbot">
+      <p class="sec-k">빠른 상담</p>
+      <h2 id="qbot">아래에 번호만 남겨도 됩니다</h2>
+      <form class="quick-form qcard" data-place="하단" novalidate>
+        <label for="qb-name">이름</label>
+        <input id="qb-name" name="name" type="text" autocomplete="name" maxlength="40">
+        <label for="qb-phone">연락처</label>
+        <input id="qb-phone" name="phone" type="tel" inputmode="tel" autocomplete="tel" placeholder="010-0000-0000" maxlength="20">
+        <div class="chk"><input id="qb-agree" type="checkbox"><label for="qb-agree" style="margin:0;font-weight:500">[필수] 개인정보 수집·이용에 동의합니다.</label></div>
+        <p class="err" role="alert"></p>
+        <p class="ready" role="status"></p>
+        <button type="submit" class="btn pine">상담 요청 보내기</button>
+      </form>
+    </section>
+
     <footer>
       <strong>법무법인 재유</strong><br>
       대표변호사 강명구 · 사업자등록번호 120-87-34450<br>
@@ -686,8 +746,8 @@ footer strong{color:var(--ink);font-size:15px}
 </main>
 
 <div class="dock" aria-label="빠른 이동">
-  <button type="button" class="btn line js-consult">바로 상담하기</button>
-  <a class="btn pine js-calc" href="calculator.html">30초 확인</a>
+  <a class="btn line js-phone" href="tel:01095921038">전화 010-9592-1038</a>
+  <button type="button" class="btn pine js-consult" id="dockSecond">상담 신청</button>
 </div>
 
 <div class="modal" id="storyModal" hidden>
@@ -769,6 +829,50 @@ getSource();
    sendBeacon이 true이거나 no-cors fetch가 거부되지 않을 때만 완료 문구를 연다.
    네트워크가 명시적으로 실패하면 완료 문구를 열지 않는다. */
 var FORM_ENDPOINT = "https://script.google.com/macros/s/AKfycbwgSmFGlhFv6b-IS35KkaPaaL9dM7evxYj1h8A-EajrN6tUiyaq1-Zmmjty6qY1PcAB/exec";
+var TALKTALK_URL = "";
+var NAVER_WCS_KEY = "";
+function trackNaver(action){
+  if (!NAVER_WCS_KEY || !window.wcs || typeof wcs.cnv !== 'function' || typeof wcs_do !== 'function') return;
+  var _nasa = {};
+  _nasa.cnv = wcs.cnv(action === 'submit' ? '4' : '5', '0');
+  wcs_do(_nasa);
+}
+if (NAVER_WCS_KEY) {
+  var wcsScript = document.createElement('script');
+  wcsScript.src = 'https://wcs.naver.net/wcslog.js';
+  wcsScript.onload = function(){
+    window.wcs_add = window.wcs_add || {};
+    wcs_add.wa = NAVER_WCS_KEY;
+    if (window.wcs) { wcs.inflow(); wcs_do({}); }
+  };
+  document.head.appendChild(wcsScript);
+}
+function phoneString(raw){
+  var d = String(raw == null ? '' : raw).replace(/\D/g, '');
+  if (d.length === 11) return d.slice(0, 3) + '-' + d.slice(3, 7) + '-' + d.slice(7);
+  if (d.length === 10) return d.slice(0, 3) + '-' + d.slice(3, 6) + '-' + d.slice(6);
+  return String(raw == null ? '' : raw).trim();
+}
+document.querySelectorAll('.js-phone').forEach(function(el){
+  el.addEventListener('click', function(){ trackNaver('phone'); });
+});
+document.querySelectorAll('.js-talktalk').forEach(function(el){
+  if (!TALKTALK_URL) { el.hidden = true; return; }
+  el.hidden = false;
+  el.href = TALKTALK_URL;
+  el.addEventListener('click', function(){ trackNaver('talktalk'); });
+});
+if (TALKTALK_URL) {
+  var dockSecond = document.getElementById('dockSecond');
+  if (dockSecond) {
+    var talk = document.createElement('a');
+    talk.className = 'btn pine js-talktalk';
+    talk.href = TALKTALK_URL;
+    talk.textContent = '네이버 톡톡';
+    talk.addEventListener('click', function(){ trackNaver('talktalk'); });
+    dockSecond.replaceWith(talk);
+  }
+}
 var sending = false;
 var modal = document.getElementById('consultModal');
 var dialog = modal.querySelector('.dialog');
@@ -843,11 +947,12 @@ form.addEventListener('submit', function(ev){
   ev.preventDefault();
   if (sending) return;
   var name = document.getElementById('qName').value.trim();
-  var phone = document.getElementById('qPhone').value.trim();
+  var phone = phoneString(document.getElementById('qPhone').value);
   err.textContent = '';
   if (!name){ err.textContent = '이름을 입력해 주세요.'; document.getElementById('qName').focus(); return; }
   if (!/^01[016789]-?\d{3,4}-?\d{4}$/.test(phone.replace(/\s/g,''))){ err.textContent = '휴대폰 번호를 정확히 입력해 주세요. (예: 010-1234-5678)'; document.getElementById('qPhone').focus(); return; }
   if (!document.getElementById('qAgree').checked){ err.textContent = '개인정보 수집·이용 동의가 필요합니다.'; document.getElementById('qAgree').focus(); return; }
+  trackNaver('submit');
   if (!FORM_ENDPOINT){ err.textContent = '전송하지 못했습니다. 잠시 후 다시 눌러 주세요.'; return; }
   sending = true;
   sendBtn.disabled = true;
@@ -873,6 +978,45 @@ form.addEventListener('submit', function(ev){
   };
   if (queued){ done(true); return; }
   fetch(FORM_ENDPOINT, {method:'POST', mode:'no-cors', keepalive:true, headers:{'Content-Type':'text/plain;charset=utf-8'}, body:body}).then(function(){ done(true); }).catch(function(){ done(false); });
+});
+
+document.querySelectorAll('.quick-form').forEach(function(form){
+  form.addEventListener('submit', function(ev){
+    ev.preventDefault();
+    var nameEl = form.querySelector('input[name="name"]');
+    var phoneEl = form.querySelector('input[name="phone"]');
+    var agreeEl = form.querySelector('input[type="checkbox"]');
+    var err = form.querySelector('.err');
+    var ready = form.querySelector('.ready');
+    var name = nameEl.value.trim();
+    var phone = phoneString(phoneEl.value);
+    err.textContent = '';
+    ready.textContent = '';
+    if (!name){ err.textContent = '이름을 입력해 주세요.'; nameEl.focus(); return; }
+    if (!/^01[016789]-?\d{3,4}-?\d{4}$/.test(String(phoneEl.value).replace(/\s/g,''))){ err.textContent = '휴대폰 번호를 정확히 입력해 주세요. (예: 010-1234-5678)'; phoneEl.focus(); return; }
+    if (!agreeEl.checked){ err.textContent = '개인정보 수집·이용 동의가 필요합니다.'; agreeEl.focus(); return; }
+    trackNaver('submit');
+    var place = form.getAttribute('data-place') || '빠른상담';
+    var payload = quickPayload(name, phone);
+    payload.source = [place, getSource()].filter(Boolean).join(' / ');
+    var sendBtn = form.querySelector('button[type="submit"]');
+    if (!FORM_ENDPOINT){ err.textContent = '전송하지 못했습니다. 잠시 후 다시 눌러 주세요.'; return; }
+    sendBtn.disabled = true;
+    sendBtn.textContent = '보내는 중';
+    var body = JSON.stringify(payload);
+    var queued = false;
+    try {
+      queued = !!(navigator.sendBeacon && navigator.sendBeacon(FORM_ENDPOINT, new Blob([body], {type:'text/plain;charset=utf-8'})));
+    } catch (e) { queued = false; }
+    var finish = function(okSend){
+      sendBtn.disabled = false;
+      sendBtn.textContent = '상담 요청 보내기';
+      if (!okSend){ err.textContent = '전송하지 못했습니다. 잠시 후 다시 눌러 주세요.'; return; }
+      ready.textContent = '요청을 전달했습니다. 확인 후 연락드립니다.';
+    };
+    if (queued){ finish(true); return; }
+    fetch(FORM_ENDPOINT, {method:'POST', mode:'no-cors', keepalive:true, headers:{'Content-Type':'text/plain;charset=utf-8'}, body:body}).then(function(){ finish(true); }).catch(function(){ finish(false); });
+  });
 });
 
 (function(){
@@ -986,15 +1130,29 @@ form.addEventListener('submit', function(ev){
 
 (function(){
   var btn = document.getElementById('thanksMore');
+  var section = document.getElementById('thanks');
   var more = document.querySelectorAll('#thanksBoard .more');
-  if (!btn || !more.length) return;
+  if (!btn || !section || !more.length) return;
+  var narrow = window.matchMedia('(max-width: 768px)');
+  function label(open){
+    if (open) return '접기';
+    return narrow.matches ? '더보기' : '감사 인사 더 보기';
+  }
+  function paint(){
+    var open = btn.getAttribute('aria-expanded') === 'true';
+    section.classList.toggle('show-all', open && narrow.matches);
+    btn.textContent = label(open);
+  }
   btn.addEventListener('click', function(){
     var open = btn.getAttribute('aria-expanded') === 'true';
     more.forEach(function(el){ el.hidden = open; });
     btn.setAttribute('aria-expanded', open ? 'false' : 'true');
-    btn.textContent = open ? '감사 인사 더 보기' : '접기';
+    paint();
     if (open) btn.focus();
   });
+  if (narrow.addEventListener) narrow.addEventListener('change', paint);
+  else if (narrow.addListener) narrow.addListener(paint);
+  paint();
 })();
 
 document.querySelectorAll('.tabs button').forEach(function(btn){
