@@ -34,12 +34,11 @@ header{position:sticky;top:0;z-index:20;background:#fff;border-bottom:1px solid 
 .hero .btn.line{background:#fff;color:#173f32;border-color:#173f32}
 .btn:focus-visible,a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-visible,summary:focus-visible{outline:3px solid var(--gold);outline-offset:3px}
 #areas,#thanks,#steps,#faq,#consult{scroll-margin-top:88px}
-.hero{position:relative;color:#121816;background:#f4efe6;overflow:hidden}
-.hero-photo{position:absolute;top:28px;right:36px;bottom:76px;width:min(440px,38vw);display:flex;align-items:flex-end;justify-content:flex-end;pointer-events:none}
-.hero-photo img{height:100%;width:auto;max-width:100%;object-fit:contain;object-position:right bottom;display:block}
-.hero-photo::after{content:none}
-.hero-in{position:relative;z-index:1;width:min(1180px,calc(100% - 48px));margin:0 auto;min-height:calc(100vh - 74px);display:flex;align-items:center}
-.hero-copy{display:flex;flex-direction:column;justify-content:center;width:max-content;max-width:min(540px,46vw);box-sizing:border-box;background:#ebe1d8;padding:40px 36px 32px;border:1px solid #173f32;border-radius:6px}
+.hero{position:relative;color:#121816;background:#1c1916;overflow:hidden;min-height:calc(100vh - 74px)}
+.hero-shot{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center center;z-index:0;display:block}
+.hero::after{content:"";position:absolute;inset:0;z-index:1;pointer-events:none;background:linear-gradient(90deg,rgba(244,239,230,.78) 0%,rgba(244,239,230,.55) 16%,rgba(244,239,230,.22) 32%,rgba(244,239,230,0) 50%)}
+.hero-in{position:relative;z-index:2;width:min(1180px,calc(100% - 48px));margin:0 auto;min-height:calc(100vh - 74px);display:flex;align-items:center}
+.hero-copy{display:flex;flex-direction:column;justify-content:center;width:max-content;max-width:min(480px,40vw);box-sizing:border-box;background:transparent;padding:8px 0;border:0}
 .hero .kicker{color:#173f32}
 .hero h1{color:#1a2420;max-width:none;margin:0;font-size:clamp(28px,2.8vw,36px);line-height:1.32;letter-spacing:-.04em;font-weight:800}
 .hero h1 span{display:block}
@@ -49,8 +48,8 @@ h1{font-size:clamp(40px,4.8vw,68px);line-height:1.16;letter-spacing:-.05em;margi
 .cta-row{display:flex;flex-wrap:wrap;gap:12px}
 .hero .cta-row{flex-direction:column;align-items:stretch;width:100%;max-width:none;gap:14px;margin-top:26px}
 .hero .btn{min-height:60px;font-size:18px;justify-content:center}
-.hero-cap{position:absolute;right:36px;bottom:16px;z-index:2;margin:0;padding:8px 12px;border-radius:12px;background:rgba(16,24,22,.72);color:#fff;font-size:13px;font-weight:800;line-height:1.35;letter-spacing:-.03em}
-.hero-cap span{display:block;font-size:10px;letter-spacing:.12em;color:#e4d2ad;font-weight:700}
+.hero-cap{position:static;margin:18px 0 0;padding:0;background:transparent;color:#3a403c;font-size:13px;font-weight:700;line-height:1.4;letter-spacing:-.02em}
+.hero-cap span{display:block;font-size:11px;letter-spacing:.08em;color:#173f32;font-weight:800}
 section{padding:84px 0}
 .hero{padding:0}
 .sec-k{margin:0 0 8px;color:var(--pine);font-size:12px;font-weight:800;letter-spacing:.2em}
@@ -155,14 +154,12 @@ footer p{margin:10px 0 0}
   .wrap,.hero-in{width:min(1180px,calc(100% - 28px))}
   .head{min-height:64px}
   .nav .link,.nav .btn{display:none}
-  .hero{min-height:0}
-  .hero-photo{position:relative;top:auto;right:auto;bottom:auto;width:min(300px,78%);height:auto;margin:10px auto 0;display:block}
-  .hero-photo img{width:100%;height:auto;max-width:100%;object-fit:contain;object-position:center top}
-  .hero-photo::after{content:none}
-  .hero-in{display:block;min-height:0;padding:0 0 8px;margin-top:16px}
-  .hero-copy{width:auto;max-width:none;padding:22px 18px 20px}
+  .hero{height:calc(100svh - 64px - 84px);min-height:0;background:#f4efe6;display:flex;flex-direction:column}
+  .hero::after{content:none}
+  .hero-in{display:block;flex:none;min-height:0;padding:4px 0 0;margin-top:0}
+  .hero-shot{position:relative;inset:auto;flex:1 1 auto;width:100%;min-height:0;height:auto;margin-top:10px;object-fit:cover;object-position:right center}
+  .hero-copy{width:auto;max-width:none;padding:8px 2px 0}
   .hero h1{font-size:clamp(28px,7.4vw,34px)}
-  .hero-cap{top:16px;right:12px;bottom:auto}
   section{padding:56px 0}
   .thanks .board{grid-template-columns:1fr;row-gap:18px}
   .thanks .msg,.thanks .msg:nth-child(4n+2),.thanks .msg:nth-child(4n+3),.thanks .msg:nth-child(4n){margin-top:0}
@@ -199,9 +196,6 @@ footer p{margin:10px 0 0}
 
 <main id="main">
   <section class="hero">
-    <div class="hero-photo">
-      <img src="../hoesaeng/sit-lawyer.jpg" alt="유성우 변호사" width="320" height="545">
-    </div>
     <div class="hero-in">
       <div class="hero-copy">
         <p class="kicker">법무법인 재유 · 형사 · 민사</p>
@@ -215,9 +209,10 @@ footer p{margin:10px 0 0}
           <a class="btn pine" href="#consult">바로 상담하기</a>
           <a class="btn line" href="#areas">다루는 사건</a>
         </div>
+        <p class="hero-cap"><span>광고책임변호사</span>유성우 변호사</p>
       </div>
     </div>
-    <p class="hero-cap"><span>광고책임변호사</span>유성우 변호사</p>
+    <img class="hero-shot" src="hero-desk.jpg" alt="유성우 변호사" width="2752" height="1536">
   </section>
 
   <section class="areas" id="areas" aria-labelledby="areah">
