@@ -56,17 +56,25 @@ section{padding:84px 0}
 h2{font-size:clamp(32px,3.6vw,46px);line-height:1.22;margin:0 0 14px;letter-spacing:-.045em;font-weight:800}
 .sub{margin:0 0 28px;color:var(--muted);max-width:40em}
 .areas{background:#f4f2ed}
-.area-grid{display:grid;grid-template-columns:repeat(3,1fr);background:#fbfaf7;border:1px solid #dcd9d1;border-radius:16px;overflow:hidden}
-.area{display:block;position:relative;padding:22px 22px 26px;text-decoration:none;color:inherit;border-left:1px solid #dcd9d1;border-bottom:1px solid #dcd9d1;min-height:100%}
-.area:nth-child(3n+1){border-left:0}
-.area:nth-child(n+4){border-bottom:0}
-.area:hover{background:#fff}
+.area-grid{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+.area{background:#fbfaf7;border:1px solid #dcd9d1;border-radius:20px;overflow:hidden;min-height:100%}
+.area.is-open{background:#fff;box-shadow:0 18px 40px -30px rgba(23,63,50,.5)}
+.area-toggle{display:block;width:100%;text-align:left;background:transparent;border:0;padding:28px 28px 24px;font:inherit;color:inherit;cursor:pointer}
 .area-top{display:flex;justify-content:space-between;align-items:center}
-.area-ico{width:34px;height:34px;border-radius:9px;background:#e7ece7;color:#243d33;display:grid;place-items:center}
-.area-no{font-size:12px;font-weight:800;color:#243d33;background:#e7ece7;padding:4px 10px;border-radius:999px}
-.area h3{margin:14px 0 0;font-size:18px;font-weight:800;letter-spacing:-.03em;line-height:1.35}
-.area p{margin:8px 0 0;font-size:14.5px;line-height:1.65;color:#555753}
-.rehab-link{margin:18px 0 0;font-size:14px;font-weight:700}
+.area-ico{width:46px;height:46px;border-radius:14px;background:#e7ece7;color:#173f32;display:grid;place-items:center}
+.area-no{font-size:13px;font-weight:800;color:#173f32;background:#e7ece7;padding:5px 11px;border-radius:999px}
+.area-title{display:block;margin:16px 0 0;font-size:24px;font-weight:800;letter-spacing:-.04em;line-height:1.3}
+.area .lead{display:block;margin:8px 0 0;font-size:16.5px;line-height:1.65;color:#555753}
+.area-more{display:inline-flex;align-items:center;gap:6px;margin-top:16px;color:#173f32;font-size:14px;font-weight:800}
+.area.is-open .area-more{color:#8d6a32}
+.area-panel{padding:4px 28px 28px}
+.area-panel[hidden]{display:none}
+.area-cols{display:grid;grid-template-columns:1fr 1fr;gap:22px;margin-top:8px;padding-top:18px;border-top:1px solid #e7e1d6}
+.area-panel h4{margin:0 0 10px;font-size:13px;font-weight:800;letter-spacing:.12em;color:#173f32}
+.area-panel ul{margin:0;padding:0 0 0 1.15em;color:#3a403c;font-size:15.5px;line-height:1.7}
+.area-panel li+li{margin-top:6px}
+.area-panel .btn{margin-top:20px;min-height:52px}
+.rehab-link{margin:22px 0 0;font-size:16px;font-weight:700}
 .rehab-link a{color:var(--pine)}
 .thanks{background:#e4edf2}
 .thanks-note{margin:0 0 28px;color:#3e4744;font-size:13px;line-height:1.5;font-weight:500}
@@ -111,8 +119,8 @@ h2{font-size:clamp(32px,3.6vw,46px);line-height:1.22;margin:0 0 14px;letter-spac
 #steps.proc .proc-step.proc-last h3,#steps.proc .proc-step.proc-last p{color:#fff}
 #steps.proc .proc-step.proc-last p{color:rgba(255,255,255,.88)}
 .faq details{border-bottom:1px solid var(--line);padding:18px 0}
-.faq summary{cursor:pointer;font-weight:750;font-size:18px;letter-spacing:-.03em}
-.faq p{margin:10px 0 0;color:var(--muted);max-width:46em}
+.faq summary{cursor:pointer;font-weight:750;font-size:20px;letter-spacing:-.03em;line-height:1.45}
+.faq p{margin:12px 0 4px;color:var(--muted);max-width:46em;font-size:16.5px}
 .faq a{color:var(--pine);font-weight:700}
 .consult .form-card{max-width:720px;background:#fff;border:1px solid var(--line);border-radius:18px;padding:28px 26px 26px;box-shadow:0 8px 22px rgba(23,42,36,.05)}
 .form-row{display:grid;grid-template-columns:1fr 1fr;gap:0 16px}
@@ -125,6 +133,8 @@ h2{font-size:clamp(32px,3.6vw,46px);line-height:1.22;margin:0 0 14px;letter-spac
 .consult details{margin-top:8px}
 .consult details p{margin:8px 0 0;color:var(--muted);font-size:14px;line-height:1.6}
 .err{color:var(--warn);font-size:14px;min-height:1.4em;margin:8px 0 0}
+.ready{margin:10px 0 0;padding:12px 14px;border-radius:12px;background:#e7ece7;color:#173f32;font-size:15px;font-weight:700;line-height:1.5}
+.ready:empty{display:none;padding:0;margin:0}
 .consult .btn{width:100%;margin-top:8px}
 .trust{background:#101816;color:#f6f3ec;padding:80px 0}
 .trust h2,.trust p{color:#f6f3ec}
@@ -143,11 +153,7 @@ footer p{margin:10px 0 0}
 @media (max-width:960px){
   #steps.proc .proc-flow{grid-template-columns:1fr 1fr}
   #steps.proc .proc-flow::before{display:none}
-  .area-grid{grid-template-columns:1fr 1fr}
-  .area:nth-child(3n+1){border-left:1px solid #dcd9d1}
-  .area:nth-child(odd){border-left:0}
-  .area:nth-child(n+4){border-bottom:1px solid #dcd9d1}
-  .area:nth-child(n+5){border-bottom:0}
+  .area-grid,.area-cols{grid-template-columns:1fr}
 }
 @media(max-width:800px){
   body{padding-bottom:84px}
@@ -168,11 +174,10 @@ footer p{margin:10px 0 0}
   #steps.proc .proc-step{flex-direction:row;gap:14px;align-items:flex-start}
   #steps.proc .proc-node{width:46px;height:46px;flex:none}
   #steps.proc .proc-card{margin-top:0}
-  .form-row{grid-template-columns:1fr}
-  .area-grid{grid-template-columns:1fr}
-  .area,.area:nth-child(odd),.area:nth-child(3n+1){border-left:0}
-  .area{border-bottom:1px solid #dcd9d1}
-  .area:last-child{border-bottom:0}
+  .form-row,.area-grid,.area-cols{grid-template-columns:1fr}
+  .area-toggle{padding:22px 18px 18px}
+  .area-panel{padding:0 18px 22px}
+  .area-title{font-size:22px}
   .dock{display:grid;grid-template-columns:1fr 1.15fr;gap:8px;position:fixed;left:0;right:0;bottom:0;z-index:30;background:#fff;border-top:1px solid var(--line);padding:10px 12px calc(10px + env(safe-area-inset-bottom))}
   .dock .btn{width:100%;padding:0 8px;font-size:15px;min-height:48px}
   .trust{padding:56px 0}
@@ -221,38 +226,194 @@ footer p{margin:10px 0 0}
       <h2 id="areah">다루는 사건</h2>
       <p class="sub">형사와 민사로 나뉘는 일을 유형별로 봅니다.</p>
       <div class="area-grid">
-        <a class="area" href="#consult" data-matter="형사 고소·피소">
-          <span class="area-top"><span class="area-ico" aria-hidden="true"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l8 3v6c0 4.5-3.4 8.3-8 9-4.6-.7-8-4.5-8-9V6z"/><path d="M9 12h6"/></svg></span><span class="area-no">01</span></span>
-          <h3>형사 고소·피소</h3>
-          <p>출석 요구와 고소·고발. 조사 전에 사실관계와 자료를 같이 정리합니다.</p>
-        </a>
-        <a class="area" href="#consult" data-matter="채권 회수">
-          <span class="area-top"><span class="area-ico" aria-hidden="true"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="6" width="18" height="14" rx="2"/><path d="M3 10h18"/><path d="M7 15h4"/></svg></span><span class="area-no">02</span></span>
-          <h3>채권 회수</h3>
-          <p>공사대금, 물품대금, 빌려 준 돈. 청구의 순서와 보전 여부를 같이 봅니다.</p>
-        </a>
-        <a class="area" href="#consult" data-matter="부동산">
-          <span class="area-top"><span class="area-ico" aria-hidden="true"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 21V8l6-4v17"/><path d="M10 21h10V11l-10-3"/><path d="M14 14h2M14 17h2"/></svg></span><span class="area-no">03</span></span>
-          <h3>부동산</h3>
-          <p>전세보증금과 매매계약. 계약서에서 다툼이 되는 부분을 짚습니다.</p>
-        </a>
-        <a class="area" href="#consult" data-matter="스마트팜">
-          <span class="area-top"><span class="area-ico" aria-hidden="true"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21V10"/><path d="M12 13c-4 0-6-2-7-5 3 0 5 1 7 5z"/><path d="M12 11c3 0 6-1 8-4-1 4-3 6-8 6z"/></svg></span><span class="area-no">04</span></span>
-          <h3>스마트팜 투자·시공</h3>
-          <p>투자금 피해와 납품·시공 다툼. 계약, 입금, 사진과 문자를 자료로 모읍니다.</p>
-        </a>
-        <a class="area" href="#consult" data-matter="학교폭력">
-          <span class="area-top"><span class="area-ico" aria-hidden="true"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="3"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></span><span class="area-no">05</span></span>
-          <h3>학교폭력</h3>
-          <p>피해 학생과 가해로 지목된 학생. 학폭위 절차와 사실관계를 봅니다.</p>
-        </a>
-        <a class="area" href="#consult" data-matter="정산·레퍼럴">
-          <span class="area-top"><span class="area-ico" aria-hidden="true"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 3h12v18l-3-2-3 2-3-2-3 2z"/><path d="M9 8h6M9 12h6M9 16h4"/></svg></span><span class="area-no">06</span></span>
-          <h3>정산·레퍼럴</h3>
-          <p>동업 정산과 소개 수수료. 계약 관계를 먼저 가르고 청구 범위를 봅니다.</p>
-        </a>
+        <article class="area">
+          <button type="button" class="area-toggle" aria-expanded="false" aria-controls="area-criminal">
+            <span class="area-top"><span class="area-ico" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l8 3v6c0 4.5-3.4 8.3-8 9-4.6-.7-8-4.5-8-9V6z"/></svg></span><span class="area-no">01</span></span>
+            <span class="area-title">형사 고소·피소</span>
+            <span class="lead">출석 요구와 고소·고발. 조사 전에 사실과 자료를 같이 정리합니다.</span>
+            <span class="area-more">자세히 보기</span>
+          </button>
+          <div class="area-panel" id="area-criminal" hidden>
+            <div class="area-cols">
+              <div>
+                <h4>이런 상황이면</h4>
+                <ul>
+                  <li>경찰서 출석 문자를 받았습니다.</li>
+                  <li>고소·고발을 당했거나, 직접 고소를 검토하고 있습니다.</li>
+                  <li>조사에서 무엇을 말해야 할지 정리가 안 됩니다.</li>
+                  <li>같은 일로 민사 다툼도 함께 있습니다.</li>
+                </ul>
+              </div>
+              <div>
+                <h4>미리 챙길 자료</h4>
+                <ul>
+                  <li>출석 통지 문자나 우편</li>
+                  <li>고소장, 받아 둔 조서가 있으면 그 사본</li>
+                  <li>상대와 주고받은 문자, 카카오톡, 이메일</li>
+                  <li>계약서와 입금·송금 내역</li>
+                </ul>
+              </div>
+            </div>
+            <a class="btn pine" href="#consult" data-matter="형사 고소·피소">상담하기</a>
+          </div>
+        </article>
+        <article class="area">
+          <button type="button" class="area-toggle" aria-expanded="false" aria-controls="area-claim">
+            <span class="area-top"><span class="area-ico" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="6" width="18" height="14" rx="2"/><path d="M3 10h18M7 15h4"/></svg></span><span class="area-no">02</span></span>
+            <span class="area-title">채권 회수</span>
+            <span class="lead">공사대금, 물품대금, 빌려 준 돈. 청구 순서와 보전 여부를 같이 봅니다.</span>
+            <span class="area-more">자세히 보기</span>
+          </button>
+          <div class="area-panel" id="area-claim" hidden>
+            <div class="area-cols">
+              <div>
+                <h4>이런 상황이면</h4>
+                <ul>
+                  <li>공사나 물품 대금을 받지 못했습니다.</li>
+                  <li>빌려 준 돈을 받지 못하고 있습니다.</li>
+                  <li>연락하면 곧 준다는 말만 반복됩니다.</li>
+                  <li>내용증명, 가압류, 소송 중 어디부터 볼지 모르겠습니다.</li>
+                </ul>
+              </div>
+              <div>
+                <h4>미리 챙길 자료</h4>
+                <ul>
+                  <li>계약서, 견적서, 거래명세서</li>
+                  <li>세금계산서가 있으면 그 사본</li>
+                  <li>입금·미입금이 보이는 계좌 내역</li>
+                  <li>독촉 문자와 통화 메모</li>
+                </ul>
+              </div>
+            </div>
+            <a class="btn pine" href="#consult" data-matter="채권 회수">상담하기</a>
+          </div>
+        </article>
+        <article class="area">
+          <button type="button" class="area-toggle" aria-expanded="false" aria-controls="area-house">
+            <span class="area-top"><span class="area-ico" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 21V8l6-4v17"/><path d="M10 21h10V11l-10-3"/><path d="M14 14h2M14 17h2"/></svg></span><span class="area-no">03</span></span>
+            <span class="area-title">부동산 전세보증금·매매계약</span>
+            <span class="lead">보증금과 계약금. 계약서에서 다툼이 되는 부분과 순서를 짚습니다.</span>
+            <span class="area-more">자세히 보기</span>
+          </button>
+          <div class="area-panel" id="area-house" hidden>
+            <div class="area-cols">
+              <div>
+                <h4>이런 상황이면</h4>
+                <ul>
+                  <li>전세보증금을 돌려받지 못했습니다.</li>
+                  <li>집주인이 연락을 끊었습니다.</li>
+                  <li>매매 계약금을 두고 말이 다릅니다.</li>
+                  <li>계약서 조항이 어디에 불리한지 모르겠습니다.</li>
+                </ul>
+              </div>
+              <div>
+                <h4>미리 챙길 자료</h4>
+                <ul>
+                  <li>임대차·매매 계약서</li>
+                  <li>중개 서류가 있으면 그 사본</li>
+                  <li>보증금·계약금 이체 내역</li>
+                  <li>내용증명, 문자, 통화 기록</li>
+                </ul>
+              </div>
+            </div>
+            <a class="btn pine" href="#consult" data-matter="부동산">상담하기</a>
+          </div>
+        </article>
+        <article class="area">
+          <button type="button" class="area-toggle" aria-expanded="false" aria-controls="area-farm">
+            <span class="area-top"><span class="area-ico" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21V10"/><path d="M12 13c-4 0-6-2-7-5 3 0 5 1 7 5z"/><path d="M12 11c3 0 6-1 8-4-1 4-3 6-8 6z"/></svg></span><span class="area-no">04</span></span>
+            <span class="area-title">스마트팜 투자·시공 피해</span>
+            <span class="lead">투자금, 납품·시공. 계약과 입금, 사진과 문자를 자료로 모읍니다.</span>
+            <span class="area-more">자세히 보기</span>
+          </button>
+          <div class="area-panel" id="area-farm" hidden>
+            <div class="area-cols">
+              <div>
+                <h4>이런 상황이면</h4>
+                <ul>
+                  <li>투자금 안내 뒤 연락이 끊겼습니다.</li>
+                  <li>시공이나 납품이 계약과 다릅니다.</li>
+                  <li>사진과 문자는 있는데 정리가 안 됩니다.</li>
+                  <li>고소와 민사 중 무엇을 볼지 모르겠습니다.</li>
+                </ul>
+              </div>
+              <div>
+                <h4>미리 챙길 자료</h4>
+                <ul>
+                  <li>계약서, 제안서, 견적서</li>
+                  <li>투자금·대금 이체 내역</li>
+                  <li>현장 사진과 도면이 있으면 그것</li>
+                  <li>문자, 카카오톡, 통화 내용</li>
+                </ul>
+              </div>
+            </div>
+            <a class="btn pine" href="#consult" data-matter="스마트팜">상담하기</a>
+          </div>
+        </article>
+        <article class="area">
+          <button type="button" class="area-toggle" aria-expanded="false" aria-controls="area-school">
+            <span class="area-top"><span class="area-ico" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="3"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></span><span class="area-no">05</span></span>
+            <span class="area-title">학교폭력 피해·가해 지목</span>
+            <span class="lead">피해 학생과 가해로 지목된 학생. 학폭위 절차와 사실관계를 봅니다.</span>
+            <span class="area-more">자세히 보기</span>
+          </button>
+          <div class="area-panel" id="area-school" hidden>
+            <div class="area-cols">
+              <div>
+                <h4>이런 상황이면</h4>
+                <ul>
+                  <li>아이가 학교 이야기를 하지 않거나 가기 힘들어합니다.</li>
+                  <li>학폭위 통지를 받았습니다.</li>
+                  <li>아이가 가해로 지목되어 억울해합니다.</li>
+                  <li>절차가 어떤 순서인지 모르겠습니다.</li>
+                </ul>
+              </div>
+              <div>
+                <h4>미리 챙길 자료</h4>
+                <ul>
+                  <li>학교 통지문과 안내 문자</li>
+                  <li>아이가 남긴 메모, 메시지</li>
+                  <li>사진이나 녹음이 있으면 그것</li>
+                  <li>진료 기록이 있으면 그 사본</li>
+                </ul>
+              </div>
+            </div>
+            <a class="btn pine" href="#consult" data-matter="학교폭력">상담하기</a>
+          </div>
+        </article>
+        <article class="area">
+          <button type="button" class="area-toggle" aria-expanded="false" aria-controls="area-settle">
+            <span class="area-top"><span class="area-ico" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M7 7h11l-2 5H8L6 4H3"/><path d="M8 21h8"/><path d="M9 11v6M15 11v6"/></svg></span><span class="area-no">06</span></span>
+            <span class="area-title">정산·레퍼럴 분쟁</span>
+            <span class="lead">동업 정산과 소개 수수료. 계약 관계를 먼저 가르고 청구 범위를 봅니다.</span>
+            <span class="area-more">자세히 보기</span>
+          </button>
+          <div class="area-panel" id="area-settle" hidden>
+            <div class="area-cols">
+              <div>
+                <h4>이런 상황이면</h4>
+                <ul>
+                  <li>같이 일하던 정산금을 받지 못했습니다.</li>
+                  <li>소개 수수료를 두고 말이 다릅니다.</li>
+                  <li>계약이 말뿐이라 청구 범위가 불분명합니다.</li>
+                  <li>관계를 생각하다 청구를 미루고 있습니다.</li>
+                </ul>
+              </div>
+              <div>
+                <h4>미리 챙길 자료</h4>
+                <ul>
+                  <li>계약, 합의 문자, 메신저 대화</li>
+                  <li>정산표나 계산 메모</li>
+                  <li>입금·미지급이 보이는 내역</li>
+                  <li>맡은 일의 범위가 보이는 자료</li>
+                </ul>
+              </div>
+            </div>
+            <a class="btn pine" href="#consult" data-matter="정산·레퍼럴">상담하기</a>
+          </div>
+        </article>
       </div>
-      <p class="rehab-link"><a href="../hoesaeng/index.html">회생 상담은 별도 페이지에서 안내합니다</a></p>
+      <p class="rehab-link"><a href="../hoesaeng/">회생 상담은 별도 페이지에서 안내합니다</a></p>
     </div>
   </section>
 
@@ -365,24 +526,40 @@ footer p{margin:10px 0 0}
       <h2 id="faqh">자주 묻는 질문</h2>
       <div class="faq">
         <details>
-          <summary>상담에서는 무엇을 듣게 되나요?</summary>
-          <p>사실과 가지고 있는 자료를 보고, 형사와 민사 중 어떤 절차를 볼 수 있는지 설명합니다. 수사와 재판의 판단은 수사기관과 법원에 있습니다.</p>
-        </details>
-        <details>
-          <summary>경찰 출석 문자를 받았습니다.</summary>
+          <summary>경찰 출석 문자를 받으면 그날 바로 가야 하나요?</summary>
           <p>기한과 본인이 어떤 입장인지를 먼저 확인하면 됩니다. 출석 여부는 이 페이지가 대신 정하지 않습니다.</p>
         </details>
         <details>
-          <summary>형사와 민사를 함께 볼 수 있나요?</summary>
-          <p>같은 일이면 함께 살펴볼 수 있습니다. 수사 절차와 민사 절차는 따로 진행됩니다.</p>
+          <summary>고소와 민사 청구를 같이 볼 수 있나요?</summary>
+          <p>같은 일이면 함께 살펴볼 수 있습니다. 수사와 재판은 절차가 따로입니다. 판단은 수사기관과 법원에 있습니다.</p>
         </details>
         <details>
-          <summary>자료가 거의 없어도 상담할 수 있나요?</summary>
-          <p>문자, 계약서, 입금 내역처럼 가진 것부터 보면 됩니다. 더 필요한 자료는 상담 뒤에 무엇을 모을지 정리합니다.</p>
+          <summary>못 받은 돈은 내용증명부터 써야 하나요?</summary>
+          <p>내용증명, 보전, 소송 가운데 어디가 맞는지 자료와 기한을 보고 나눕니다. 순서는 사건마다 다릅니다.</p>
         </details>
         <details>
-          <summary>학교폭력도 상담할 수 있나요?</summary>
+          <summary>전세보증금, 집주인이 연락을 끊으면 무엇을 가져가나요?</summary>
+          <p>임대차계약서와 보증금 이체 내역, 주고받은 문자가 있으면 됩니다. 없는 자료는 상담 뒤에 무엇을 모을지 정리합니다.</p>
+        </details>
+        <details>
+          <summary>매매 계약금 분쟁, 계약서만 있어도 상담이 되나요?</summary>
+          <p>계약서와 계약금 이체 내역부터 보면 됩니다. 중개 서류가 있으면 함께 봅니다.</p>
+        </details>
+        <details>
+          <summary>스마트팜 투자, 계약서가 없어도 상담할 수 있나요?</summary>
+          <p>입금 내역, 문자, 안내 자료처럼 가진 것부터 봅니다. 계약서가 없어도 상담 신청은 남길 수 있습니다.</p>
+        </details>
+        <details>
+          <summary>학교폭력, 피해와 가해 지목 모두 상담되나요?</summary>
           <p>피해를 입은 학생과 가해로 지목된 학생 모두, 학폭위 절차와 사실관계를 봅니다.</p>
+        </details>
+        <details>
+          <summary>학폭위 전에 무엇을 정리하면 되나요?</summary>
+          <p>학교 통지, 아이가 한 말, 메시지와 사진이 있으면 시간 순서로 모아 둡니다. 없는 것은 없다고 적으면 됩니다.</p>
+        </details>
+        <details>
+          <summary>정산금은 계약서가 말로만 있으면요?</summary>
+          <p>문자, 정산 메모, 입금 내역으로 관계와 범위를 같이 봅니다. 서면 계약이 없어도 상담은 가능합니다.</p>
         </details>
         <details>
           <summary>서울이 아니어도 신청할 수 있나요?</summary>
@@ -390,7 +567,7 @@ footer p{margin:10px 0 0}
         </details>
         <details>
           <summary>개인회생은 이 페이지에서 안내하나요?</summary>
-          <p>이 페이지는 일반 소송 안내입니다. <a href="../hoesaeng/index.html">회생 상담은 별도 페이지</a>에서 안내합니다.</p>
+          <p>이 페이지는 일반 소송 안내입니다. <a href="../hoesaeng/">회생 상담은 별도 페이지</a>에서 안내합니다.</p>
         </details>
       </div>
     </div>
@@ -432,9 +609,10 @@ footer p{margin:10px 0 0}
           </div>
           <details>
             <summary>자세히 보기</summary>
-            <p>수집 항목: 이름, 연락처, 사건 분류, 상담 내용. 이용 목적: 형사·민사 상담 연락. 보유 기간: 상담 종료 후 1년, 또는 동의 철회 시 파기. 동의를 거부할 수 있으며, 거부하면 상담 연락이 제한됩니다.</p>
+            <p>수집 항목: 이름, 연락처, 사건 분류, 상담 내용, utm_source, 이전 페이지 주소(referrer). 이용 목적: 형사·민사 상담 연락. 보유 기간: 상담 종료 후 1년, 또는 동의 철회 시 파기. 동의를 거부할 수 있으며, 거부하면 상담 연락이 제한됩니다. 연락처는 문자 그대로 보관합니다.</p>
           </details>
           <p class="err" id="consultErr" role="alert" aria-live="assertive"></p>
+          <p class="ready" id="consultReady" role="status" aria-live="polite"></p>
           <button type="submit" class="btn pine">상담 요청 보내기</button>
         </form>
       </div>
@@ -468,32 +646,105 @@ footer p{margin:10px 0 0}
 </div>
 
 <script>
-/* 시트 주소가 정해지면 FORM_ENDPOINT에 넣습니다.
-   비어 있는 동안은 전송하지 않고, 접수 완료 화면도 열지 않습니다. */
+/* 새 시트 웹 앱 주소가 정해지면 FORM_ENDPOINT에 넣습니다.
+   비어 있으면 전송하지 않고 '접수 준비 중'만 안내합니다.
+   구조는 회생 페이지와 같습니다. sendBeacon, 안 되면 no-cors fetch.
+   phone은 숫자로 바꾸지 않고 문자열로 보냅니다. */
 var FORM_ENDPOINT = "";
+var sending = false;
 
-document.querySelectorAll(".area").forEach(function(link){
-  link.addEventListener("click", function(){
-    var matter = link.getAttribute("data-matter");
-    var sel = document.getElementById("qMatter");
-    if (matter && sel) sel.value = matter;
+document.querySelectorAll(".area-toggle").forEach(function(btn){
+  btn.addEventListener("click", function(){
+    var panel = document.getElementById(btn.getAttribute("aria-controls"));
+    var open = btn.getAttribute("aria-expanded") === "true";
+    document.querySelectorAll(".area-toggle").forEach(function(other){
+      if (other === btn) return;
+      other.setAttribute("aria-expanded", "false");
+      other.closest(".area").classList.remove("is-open");
+      var otherPanel = document.getElementById(other.getAttribute("aria-controls"));
+      if (otherPanel) otherPanel.hidden = true;
+      var label = other.querySelector(".area-more");
+      if (label) label.textContent = "자세히 보기";
+    });
+    btn.setAttribute("aria-expanded", open ? "false" : "true");
+    btn.closest(".area").classList.toggle("is-open", !open);
+    if (panel) panel.hidden = open;
+    var mine = btn.querySelector(".area-more");
+    if (mine) mine.textContent = open ? "자세히 보기" : "접기";
   });
 });
 
+document.querySelectorAll("[data-matter]").forEach(function(link){
+  link.addEventListener("click", function(){
+    var sel = document.getElementById("qMatter");
+    var matter = link.getAttribute("data-matter");
+    if (sel && matter) sel.value = matter;
+  });
+});
+
+function tracking(){
+  var utm = "";
+  var ref = "";
+  try {
+    var q = new URLSearchParams(location.search);
+    utm = q.get("utm_source") || "";
+    if (utm) sessionStorage.setItem("ss_utm", utm);
+    else utm = sessionStorage.getItem("ss_utm") || "";
+  } catch (e) { utm = ""; }
+  try { ref = document.referrer || ""; } catch (e2) { ref = ""; }
+  utm = String(utm).replace(/[\r\n]/g, "").slice(0, 300);
+  ref = String(ref).replace(/[\r\n]/g, "").slice(0, 500);
+  return { utm_source: utm, referrer: ref };
+}
+
 document.getElementById("consultForm").addEventListener("submit", function(ev){
   ev.preventDefault();
+  if (sending) return;
   var name = document.getElementById("qName").value.trim();
-  var phone = document.getElementById("qPhone").value.trim();
+  var phone = String(document.getElementById("qPhone").value).trim();
   var matter = document.getElementById("qMatter").value;
   var brief = document.getElementById("qBrief").value.trim();
   var err = document.getElementById("consultErr");
+  var ready = document.getElementById("consultReady");
+  var sendBtn = ev.target.querySelector('button[type="submit"]');
   err.textContent = "";
+  ready.textContent = "";
   if (!name){ err.textContent = "이름을 입력해 주세요."; document.getElementById("qName").focus(); return; }
-  if (!/^01[016789]-?\d{3,4}-?\d{4}$/.test(phone.replace(/\s/g,""))){ err.textContent = "휴대폰 번호를 정확히 입력해 주세요. (예: 010-1234-5678)"; document.getElementById("qPhone").focus(); return; }
+  if (!/^01[016789]-?\d{3,4}-?\d{4}$/.test(phone.replace(/\s/g, ""))){ err.textContent = "휴대폰 번호를 정확히 입력해 주세요. (예: 010-1234-5678)"; document.getElementById("qPhone").focus(); return; }
   if (!matter){ err.textContent = "사건 분류를 선택해 주세요."; document.getElementById("qMatter").focus(); return; }
   if (!brief){ err.textContent = "간단한 내용을 입력해 주세요."; document.getElementById("qBrief").focus(); return; }
   if (!document.getElementById("qAgree").checked){ err.textContent = "개인정보 수집·이용 동의가 필요합니다."; document.getElementById("qAgree").focus(); return; }
-  if (!FORM_ENDPOINT) return;
+  var track = tracking();
+  if (!FORM_ENDPOINT){
+    ready.textContent = "접수 준비 중";
+    return;
+  }
+  sending = true;
+  sendBtn.disabled = true;
+  sendBtn.textContent = "보내는 중";
+  var body = JSON.stringify({
+    name: name,
+    phone: phone,
+    matter: matter,
+    brief: brief,
+    agreed: true,
+    utm_source: track.utm_source,
+    referrer: track.referrer,
+    ts: new Date().toISOString()
+  });
+  var queued = false;
+  try {
+    queued = !!(navigator.sendBeacon && navigator.sendBeacon(FORM_ENDPOINT, new Blob([body], {type:"text/plain;charset=utf-8"})));
+  } catch (e) { queued = false; }
+  var done = function(okSend){
+    sending = false;
+    sendBtn.disabled = false;
+    sendBtn.textContent = "상담 요청 보내기";
+    if (!okSend){ err.textContent = "전송하지 못했습니다. 잠시 후 다시 눌러 주세요."; return; }
+    ready.textContent = "요청을 전달했습니다. 확인 후 연락드립니다.";
+  };
+  if (queued){ done(true); return; }
+  fetch(FORM_ENDPOINT, {method:"POST", mode:"no-cors", keepalive:true, headers:{"Content-Type":"text/plain;charset=utf-8"}, body:body}).then(function(){ done(true); }).catch(function(){ done(false); });
 });
 </script>
 </body>
