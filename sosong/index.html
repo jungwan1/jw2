@@ -48,7 +48,23 @@ h1{font-size:clamp(40px,4.8vw,68px);line-height:1.16;letter-spacing:-.05em;margi
 .cta-row{display:flex;flex-wrap:wrap;gap:12px}
 .hero .cta-row{flex-direction:column;align-items:stretch;width:100%;max-width:none;gap:14px;margin-top:26px}
 .hero .btn{min-height:60px;font-size:18px;justify-content:center}
+.hero-keys{margin:14px 0 0;color:#3a403c;font-size:14px;font-weight:700;line-height:1.55}
 .hero-cap{position:static;margin:18px 0 0;padding:0;background:transparent;color:#3a403c;font-size:13px;font-weight:700;line-height:1.4;letter-spacing:-.02em}
+.quick{padding:28px 0}
+.quick .form-card{max-width:560px}
+.quick h2{font-size:clamp(26px,3vw,34px);margin-bottom:8px}
+.js-talktalk[hidden]{display:none !important}
+.lawyer{background:#fff}
+.lawyer-grid{display:grid;grid-template-columns:minmax(220px,300px) 1fr;gap:36px;align-items:start}
+.lawyer-photo{border-radius:18px;overflow:hidden;background:#2c2c2c;aspect-ratio:3/4}
+.lawyer-photo img{width:100%;height:100%;object-fit:cover;object-position:center 12%;display:block}
+.lawyer h3{margin:0 0 8px;font-size:clamp(28px,3vw,40px);letter-spacing:-.04em}
+.lawyer .role{margin:0 0 16px;color:var(--pine);font-weight:800}
+.career{margin:0;padding:0;list-style:none}
+.career li{padding:9px 0;border-bottom:1px solid var(--line);font-size:15.5px;line-height:1.5}
+.career b{display:inline-block;min-width:11.5em;color:#3a403c;font-weight:700}
+.source-note{margin:14px 0 0;color:var(--muted);font-size:13px}
+.crime-cases[hidden]{display:none}
 .hero-cap span{display:block;font-size:11px;letter-spacing:.08em;color:#173f32;font-weight:800}
 section{padding:84px 0}
 .hero{padding:0}
@@ -122,10 +138,10 @@ h2{font-size:clamp(32px,3.6vw,46px);line-height:1.22;margin:0 0 14px;letter-spac
 .faq summary{cursor:pointer;font-weight:750;font-size:20px;letter-spacing:-.03em;line-height:1.45}
 .faq p{margin:12px 0 4px;color:var(--muted);max-width:46em;font-size:16.5px}
 .faq a{color:var(--pine);font-weight:700}
-.consult .form-card{max-width:720px;background:#fff;border:1px solid var(--line);border-radius:18px;padding:28px 26px 26px;box-shadow:0 8px 22px rgba(23,42,36,.05)}
+.form-card,.consult .form-card{max-width:720px;background:#fff;border:1px solid var(--line);border-radius:18px;padding:28px 26px 26px;box-shadow:0 8px 22px rgba(23,42,36,.05)}
 .form-row{display:grid;grid-template-columns:1fr 1fr;gap:0 16px}
-.consult label{display:block;font-weight:700;font-size:15px;margin:14px 0 6px}
-.consult input[type="text"],.consult input[type="tel"],.consult select,.consult textarea{width:100%;font:inherit;font-size:16px;padding:12px;border:1px solid #c9c1b2;border-radius:10px;background:#fff;color:inherit}
+.consult label,.quick label{display:block;font-weight:700;font-size:15px;margin:14px 0 6px}
+.consult input[type="text"],.consult input[type="tel"],.consult select,.consult textarea,.quick input[type="text"],.quick input[type="tel"]{width:100%;font:inherit;font-size:16px;padding:12px;border:1px solid #c9c1b2;border-radius:10px;background:#fff;color:inherit}
 .consult textarea{min-height:128px;resize:vertical;line-height:1.6}
 .chk{display:flex;gap:8px;align-items:flex-start;margin-top:14px;font-size:15px}
 .chk input{width:20px;height:20px;margin-top:3px;accent-color:var(--pine);flex:none}
@@ -135,7 +151,7 @@ h2{font-size:clamp(32px,3.6vw,46px);line-height:1.22;margin:0 0 14px;letter-spac
 .err{color:var(--warn);font-size:14px;min-height:1.4em;margin:8px 0 0}
 .ready{margin:10px 0 0;padding:12px 14px;border-radius:12px;background:#e7ece7;color:#173f32;font-size:15px;font-weight:700;line-height:1.5}
 .ready:empty{display:none;padding:0;margin:0}
-.consult .btn{width:100%;margin-top:8px}
+.consult .btn,.quick .btn{width:100%;margin-top:8px}
 .trust{background:#101816;color:#f6f3ec;padding:80px 0}
 .trust h2,.trust p{color:#f6f3ec}
 .trust .sec-k{color:#c6b08a}
@@ -160,10 +176,10 @@ footer p{margin:10px 0 0}
   .wrap,.hero-in{width:min(1180px,calc(100% - 28px))}
   .head{min-height:64px}
   .nav .link,.nav .btn{display:none}
-  .hero{height:calc(100svh - 64px - 84px);min-height:0;background:#f4efe6;display:flex;flex-direction:column}
+  .hero{height:auto;min-height:0;background:#f4efe6;display:flex;flex-direction:column}
   .hero::after{content:none}
   .hero-in{display:block;flex:none;min-height:0;padding:4px 0 0;margin-top:0}
-  .hero-shot{position:relative;inset:auto;flex:1 1 auto;width:100%;min-height:0;height:auto;margin-top:10px;object-fit:cover;object-position:right center}
+  .hero-shot{position:relative;inset:auto;flex:none;width:100%;height:72vw;min-height:260px;margin-top:10px;object-fit:cover;object-position:right center}
   .hero-copy{width:auto;max-width:none;padding:8px 2px 0}
   .hero h1{font-size:clamp(28px,7.4vw,34px)}
   section{padding:56px 0}
@@ -178,6 +194,9 @@ footer p{margin:10px 0 0}
   .area-toggle{padding:22px 18px 18px}
   .area-panel{padding:0 18px 22px}
   .area-title{font-size:22px}
+  .lawyer-grid{grid-template-columns:1fr}
+  .lawyer-photo{max-width:280px;aspect-ratio:3/4}
+  .career b{display:block;min-width:0}
   .dock{display:grid;grid-template-columns:1fr 1.15fr;gap:8px;position:fixed;left:0;right:0;bottom:0;z-index:30;background:#fff;border-top:1px solid var(--line);padding:10px 12px calc(10px + env(safe-area-inset-bottom))}
   .dock .btn{width:100%;padding:0 8px;font-size:15px;min-height:48px}
   .trust{padding:56px 0}
@@ -203,21 +222,42 @@ footer p{margin:10px 0 0}
   <section class="hero">
     <div class="hero-in">
       <div class="hero-copy">
-        <p class="kicker">법무법인 재유 · 형사 · 민사</p>
+        <p class="kicker">형사고소 · 고소장 · 경찰조사</p>
         <h1>
-          <span>경찰 출석 문자,</span>
-          <span>받지 못한 돈,</span>
-          <span>돌려받지 못한 보증금.</span>
-          <span class="hit">혼자 버티지 마세요.</span>
+          <span>고소장,</span>
+          <span class="hit">혼자 쓰지 마세요.</span>
         </h1>
+        <p class="hero-keys">명예훼손 · 사기 · 폭행 고소, 고소취하, 형사합의, 불송치, 경찰조사</p>
         <div class="cta-row">
-          <a class="btn pine" href="#consult">바로 상담하기</a>
-          <a class="btn line" href="#areas">다루는 사건</a>
+          <a class="btn pine js-phone" href="tel:01095921038">전화 010-9592-1038</a>
+          <a class="btn line" href="#quick-top">바로 상담하기</a>
+          <a class="btn line js-talktalk" href="" hidden>네이버 톡톡</a>
         </div>
         <p class="hero-cap"><span>광고책임변호사</span>유성우 변호사</p>
       </div>
     </div>
     <img class="hero-shot" src="hero-desk.jpg" alt="유성우 변호사" width="3172" height="1536">
+  </section>
+
+  <section class="quick" id="quick-top" aria-labelledby="quick-top-h">
+    <div class="wrap">
+      <p class="sec-k">빠른 상담</p>
+      <h2 id="quick-top-h">이름과 번호만 남겨 주세요</h2>
+      <p class="sub">고소장, 출석 요구, 경찰 조사. 어떤 일인지 전화로 이어서 듣습니다.</p>
+      <form class="quick-form form-card" data-place="첫 화면 아래" novalidate>
+        <label for="qt-name">이름</label>
+        <input id="qt-name" name="name" type="text" autocomplete="name" maxlength="40">
+        <label for="qt-phone">연락처</label>
+        <input id="qt-phone" name="phone" type="tel" inputmode="tel" autocomplete="tel" placeholder="010-0000-0000" maxlength="20">
+        <div class="chk">
+          <input id="qt-agree" type="checkbox">
+          <label for="qt-agree">[필수] 개인정보 수집·이용에 동의합니다.</label>
+        </div>
+        <p class="err" role="alert" aria-live="assertive"></p>
+        <p class="ready" role="status" aria-live="polite"></p>
+        <button type="submit" class="btn pine">상담 요청 보내기</button>
+      </form>
+    </div>
   </section>
 
   <section class="areas" id="areas" aria-labelledby="areah">
@@ -414,6 +454,26 @@ footer p{margin:10px 0 0}
         </article>
       </div>
       <p class="rehab-link"><a href="../hoesaeng/">회생 상담은 별도 페이지에서 안내합니다</a></p>
+    </div>
+  </section>
+
+  <section class="quick" id="quick-mid" aria-labelledby="quick-mid-h">
+    <div class="wrap">
+      <p class="sec-k">빠른 상담</p>
+      <h2 id="quick-mid-h">사건 카드를 보다가 바로 남기기</h2>
+      <form class="quick-form form-card" data-place="본문 중간" novalidate>
+        <label for="qm-name">이름</label>
+        <input id="qm-name" name="name" type="text" autocomplete="name" maxlength="40">
+        <label for="qm-phone">연락처</label>
+        <input id="qm-phone" name="phone" type="tel" inputmode="tel" autocomplete="tel" placeholder="010-0000-0000" maxlength="20">
+        <div class="chk">
+          <input id="qm-agree" type="checkbox">
+          <label for="qm-agree">[필수] 개인정보 수집·이용에 동의합니다.</label>
+        </div>
+        <p class="err" role="alert" aria-live="assertive"></p>
+        <p class="ready" role="status" aria-live="polite"></p>
+        <button type="submit" class="btn pine">상담 요청 보내기</button>
+      </form>
     </div>
   </section>
 
@@ -619,6 +679,63 @@ footer p{margin:10px 0 0}
     </div>
   </section>
 
+  <section class="lawyer" id="lawyer" aria-labelledby="lawyerh">
+    <div class="wrap">
+      <p class="sec-k">변호사</p>
+      <div class="lawyer-grid">
+        <div class="lawyer-photo">
+          <img src="kim-sanggeun.jpg" alt="김상근 변호사" width="900" height="1255">
+        </div>
+        <div>
+          <h2 id="lawyerh">김상근</h2>
+          <p class="role">법무법인 재유 대표변호사</p>
+          <ul class="career">
+            <li><b>1997–2007</b> 육군 법무관 (소령 예편)</li>
+            <li><b>2007–2013</b> 변호사김상근법률사무소</li>
+            <li><b>2009–2013</b> 국가보훈처 보훈심사위원회 위원</li>
+            <li><b>2010–2012</b> 인제대학교 해운대백병원 임상시험심사위원회 위원</li>
+            <li><b>2011</b> 부산지방병무청 공익근무요원 복무부적합자 소집해제 심사위원</li>
+            <li><b>2013–현재</b> 법무법인 재유 구성원변호사</li>
+            <li><b>2017–현재</b> 대구 동인1지구지역주택조합 추진위원회 고문변호사</li>
+            <li><b>2018–현재</b> 고려산업 주식회사 고문변호사</li>
+            <li><b>2019–현재</b> 법무법인 재유 대표변호사</li>
+            <li><b>2019–현재</b> 부산경상대학교 부동산과 겸임교수</li>
+            <li><b>학력</b> 대동고등학교, 부산대학교 사법학과 수료, 사법연수원 수료</li>
+            <li><b>등록</b> 2007. 7. 11. 변호사 등록</li>
+          </ul>
+          <p class="source-note">위 경력은 <a href="https://jaeyu.co.kr/ksg" target="_blank" rel="noopener">jaeyu.co.kr/ksg</a>에 적힌 내용입니다. 홈페이지는 <a href="https://jaeyu.co.kr" target="_blank" rel="noopener">jaeyu.co.kr</a>입니다.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="crime-cases" id="crime-cases" hidden>
+    <div class="wrap">
+      <h2>형사 사례</h2>
+      <p>확인할 사건 자료가 모이면 요약을 여기에 넣습니다. 지금은 비워 둡니다.</p>
+    </div>
+  </section>
+
+  <section class="quick" id="quick-bottom" aria-labelledby="quick-bottom-h">
+    <div class="wrap">
+      <p class="sec-k">빠른 상담</p>
+      <h2 id="quick-bottom-h">아래에 번호만 남겨도 됩니다</h2>
+      <form class="quick-form form-card" data-place="하단" novalidate>
+        <label for="qb-name">이름</label>
+        <input id="qb-name" name="name" type="text" autocomplete="name" maxlength="40">
+        <label for="qb-phone">연락처</label>
+        <input id="qb-phone" name="phone" type="tel" inputmode="tel" autocomplete="tel" placeholder="010-0000-0000" maxlength="20">
+        <div class="chk">
+          <input id="qb-agree" type="checkbox">
+          <label for="qb-agree">[필수] 개인정보 수집·이용에 동의합니다.</label>
+        </div>
+        <p class="err" role="alert" aria-live="assertive"></p>
+        <p class="ready" role="status" aria-live="polite"></p>
+        <button type="submit" class="btn pine">상담 요청 보내기</button>
+      </form>
+    </div>
+  </section>
+
   <section class="trust" aria-labelledby="who">
     <div class="wrap">
       <p class="sec-k">사무소</p>
@@ -641,8 +758,8 @@ footer p{margin:10px 0 0}
 </footer>
 
 <div class="dock" aria-label="빠른 이동">
-  <a class="btn line" href="#areas">다루는 사건</a>
-  <a class="btn pine" href="#consult">바로 상담하기</a>
+  <a class="btn line js-phone" href="tel:01095921038">전화 010-9592-1038</a>
+  <a class="btn pine" id="dockSecond" href="#quick-top">상담 신청</a>
 </div>
 
 <script>
@@ -651,7 +768,45 @@ footer p{margin:10px 0 0}
    구조는 회생 페이지와 같습니다. sendBeacon, 안 되면 no-cors fetch.
    phone은 숫자로 바꾸지 않고 문자열로 보냅니다. */
 var FORM_ENDPOINT = "https://script.google.com/macros/s/AKfycbx5Vu9gTcVAvQGQfSXghS9rUBbh0jlu5rVJC4xj43OdOx8mj0Hmg6Oq6jN49pzYrAwzlw/exec";
+var TALKTALK_URL = "";
+var NAVER_WCS_KEY = "";
 var sending = false;
+
+function trackNaver(action){
+  if (!NAVER_WCS_KEY || !window.wcs || typeof wcs.cnv !== "function" || typeof wcs_do !== "function") return;
+  var type = action === "submit" ? "4" : "5";
+  var _nasa = {};
+  _nasa.cnv = wcs.cnv(type, "0");
+  wcs_do(_nasa);
+}
+if (NAVER_WCS_KEY) {
+  var wcsScript = document.createElement("script");
+  wcsScript.src = "https://wcs.naver.net/wcslog.js";
+  wcsScript.onload = function(){
+    window.wcs_add = window.wcs_add || {};
+    wcs_add.wa = NAVER_WCS_KEY;
+    if (window.wcs) { wcs.inflow(); wcs_do({}); }
+  };
+  document.head.appendChild(wcsScript);
+}
+document.querySelectorAll(".js-talktalk").forEach(function(el){
+  if (!TALKTALK_URL) { el.hidden = true; return; }
+  el.hidden = false;
+  el.href = TALKTALK_URL;
+  el.addEventListener("click", function(){ trackNaver("talktalk"); });
+});
+if (TALKTALK_URL) {
+  var dockSecond = document.getElementById("dockSecond");
+  if (dockSecond) {
+    dockSecond.href = TALKTALK_URL;
+    dockSecond.textContent = "네이버 톡톡";
+    dockSecond.classList.add("js-talktalk");
+    dockSecond.addEventListener("click", function(){ trackNaver("talktalk"); });
+  }
+}
+document.querySelectorAll(".js-phone").forEach(function(el){
+  el.addEventListener("click", function(){ trackNaver("phone"); });
+});
 
 document.querySelectorAll(".area-toggle").forEach(function(btn){
   btn.addEventListener("click", function(){
@@ -714,6 +869,7 @@ document.getElementById("consultForm").addEventListener("submit", function(ev){
   if (!matter){ err.textContent = "사건 분류를 선택해 주세요."; document.getElementById("qMatter").focus(); return; }
   if (!brief){ err.textContent = "간단한 내용을 입력해 주세요."; document.getElementById("qBrief").focus(); return; }
   if (!document.getElementById("qAgree").checked){ err.textContent = "개인정보 수집·이용 동의가 필요합니다."; document.getElementById("qAgree").focus(); return; }
+  trackNaver("submit");
   var track = tracking();
   if (!FORM_ENDPOINT){
     ready.textContent = "접수 준비 중";
@@ -746,6 +902,57 @@ document.getElementById("consultForm").addEventListener("submit", function(ev){
   if (queued){ done(true); return; }
   fetch(FORM_ENDPOINT, {method:"POST", mode:"no-cors", keepalive:true, headers:{"Content-Type":"text/plain;charset=utf-8"}, body:body}).then(function(){ done(true); }).catch(function(){ done(false); });
 });
+
+function bindQuick(form){
+  form.addEventListener("submit", function(ev){
+    ev.preventDefault();
+    var nameEl = form.querySelector('input[name="name"]');
+    var phoneEl = form.querySelector('input[name="phone"]');
+    var agreeEl = form.querySelector('input[type="checkbox"]');
+    var err = form.querySelector(".err");
+    var ready = form.querySelector(".ready");
+    var name = nameEl.value.trim();
+    var phone = String(phoneEl.value).trim();
+    err.textContent = "";
+    ready.textContent = "";
+    if (!name){ err.textContent = "이름을 입력해 주세요."; nameEl.focus(); return; }
+    if (!/^01[016789]-?\d{3,4}-?\d{4}$/.test(phone.replace(/\s/g, ""))){ err.textContent = "휴대폰 번호를 정확히 입력해 주세요. (예: 010-1234-5678)"; phoneEl.focus(); return; }
+    if (!agreeEl.checked){ err.textContent = "개인정보 수집·이용 동의가 필요합니다."; agreeEl.focus(); return; }
+    trackNaver("submit");
+    var track = tracking();
+    var place = form.getAttribute("data-place") || "빠른상담";
+    if (!FORM_ENDPOINT){ ready.textContent = "접수 준비 중"; return; }
+    var sendBtn = form.querySelector('button[type="submit"]');
+    sendBtn.disabled = true;
+    sendBtn.textContent = "보내는 중";
+    var body = JSON.stringify({
+      name: name,
+      phone: phone,
+      matter: "빠른상담",
+      brief: "빠른상담 · " + place,
+      agreed: true,
+      utm_source: track.utm_source,
+      referrer: track.referrer,
+      ts: new Date().toISOString()
+    });
+    var queued = false;
+    try {
+      queued = !!(navigator.sendBeacon && navigator.sendBeacon(FORM_ENDPOINT, new Blob([body], {type:"text/plain;charset=utf-8"})));
+    } catch (e) { queued = false; }
+    var finish = function(){
+      sendBtn.disabled = false;
+      sendBtn.textContent = "상담 요청 보내기";
+      ready.textContent = "요청을 전달했습니다. 확인 후 연락드립니다.";
+    };
+    if (queued){ finish(); return; }
+    fetch(FORM_ENDPOINT, {method:"POST", mode:"no-cors", keepalive:true, headers:{"Content-Type":"text/plain;charset=utf-8"}, body:body}).then(finish).catch(function(){
+      sendBtn.disabled = false;
+      sendBtn.textContent = "상담 요청 보내기";
+      err.textContent = "전송하지 못했습니다. 잠시 후 다시 눌러 주세요.";
+    });
+  });
+}
+document.querySelectorAll(".quick-form").forEach(bindQuick);
 </script>
 </body>
 </html>
