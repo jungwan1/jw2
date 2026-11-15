@@ -258,6 +258,23 @@ footer strong{color:var(--ink);font-size:15px}
 .offer-time{background:#173f32;color:#f6f3ec;width:100vw;margin-left:calc(50% - 50vw);padding:42px max(24px,calc((100vw - 980px)/2));text-align:center}
 .offer-time h2{margin:0 0 12px;font-size:clamp(28px,3.6vw,44px);font-weight:800;letter-spacing:-.045em;line-height:1.2;color:#fff}
 .offer-time p{margin:0 auto;max-width:18em;font-size:clamp(18px,2.2vw,24px);font-weight:700;line-height:1.5;color:#f4efe6}
+.js-talktalk[hidden]{display:none !important}
+.quick{padding:8px 0 28px}
+.quick h2{font-size:clamp(26px,3.2vw,36px)}
+.qcard{width:min(560px,100%);background:#fff;border:1px solid var(--line);border-radius:18px;padding:22px}
+.qcard label{display:block;font-weight:700;font-size:15px;margin:12px 0 6px}
+.qcard input{width:100%;font:inherit;font-size:16px;padding:12px;border:1px solid #c9c1b2;border-radius:10px}
+.qcard .btn{width:100%;margin-top:12px}
+.qcard .ready{margin:8px 0 0;color:var(--pine);font-weight:700;min-height:1.4em}
+.bio{padding:12px 0 36px}
+.bio-grid{display:grid;grid-template-columns:minmax(200px,260px) 1fr;gap:28px;align-items:start}
+.bio img{width:100%;height:auto;border-radius:16px;display:block}
+.bio h2{margin-bottom:6px}
+.bio .role{margin:0 0 14px;color:var(--pine);font-weight:800}
+.bio ul{margin:0;padding:0;list-style:none}
+.bio li{padding:8px 0;border-bottom:1px solid var(--line);font-size:15.5px;line-height:1.5}
+.bio li b{display:inline-block;min-width:8.5em}
+.bio .source-note{margin:12px 0 0;color:var(--muted);font-size:13px}
 .dock{display:none}
 @media(max-width:800px){
   body{padding-bottom:84px}
@@ -284,7 +301,10 @@ footer strong{color:var(--ink);font-size:15px}
   .head{min-height:64px}
   .nav .link,.nav .btn{display:none}
   .dock{display:grid;grid-template-columns:1fr 1fr;gap:8px;position:fixed;left:0;right:0;bottom:0;z-index:30;background:#fff;border-top:1px solid var(--line);padding:10px 12px calc(10px + env(safe-area-inset-bottom))}
-  .dock .btn{width:100%;padding:0 8px;font-size:15px;min-height:48px}
+  .dock .btn{width:100%;padding:0 8px;font-size:14px;min-height:48px;white-space:nowrap}
+  .bio-grid{grid-template-columns:1fr}
+  .bio img{max-width:280px}
+  .bio li b{display:block;min-width:0}
   .flow{height:400px}
   .flow-card{width:200px;height:320px;margin-left:-100px;top:24px}
   .yt-head{grid-template-columns:64px minmax(0,1fr)}
@@ -341,10 +361,29 @@ footer strong{color:var(--ink);font-size:15px}
           <div class="hero-shot"><img src="hero-office.jpg" alt="유성우 변호사"></div>
         </div>
         <div class="cta-row">
-          <a class="btn pine js-calc" href="calculator.html">30초 확인</a>
+          <a class="btn pine js-phone" href="tel:01095921038">전화 010-9592-1038</a>
+          <a class="btn line js-calc" href="calculator.html">30초 확인</a>
           <button type="button" class="btn line js-consult">바로 상담하기</button>
+          <a class="btn line js-talktalk" href="" hidden>네이버 톡톡</a>
         </div>
       </div>
+    </div>
+  </section>
+
+  <section class="quick" id="quick-top" aria-labelledby="qtop">
+    <div class="wrap">
+      <p class="sec-k">빠른 상담</p>
+      <h2 id="qtop">이름과 번호만 남겨 주세요</h2>
+      <form class="quick-form qcard" data-place="첫 화면 아래" novalidate>
+        <label for="qt-name">이름</label>
+        <input id="qt-name" name="name" type="text" autocomplete="name" maxlength="40">
+        <label for="qt-phone">연락처</label>
+        <input id="qt-phone" name="phone" type="tel" inputmode="tel" autocomplete="tel" placeholder="010-0000-0000" maxlength="20">
+        <div class="chk"><input id="qt-agree" type="checkbox"><label for="qt-agree" style="margin:0;font-weight:500">[필수] 개인정보 수집·이용에 동의합니다.</label></div>
+        <p class="err" role="alert"></p>
+        <p class="ready" role="status"></p>
+        <button type="submit" class="btn pine">상담 요청 보내기</button>
+      </form>
     </div>
   </section>
 
@@ -518,6 +557,21 @@ footer strong{color:var(--ink);font-size:15px}
       </div>
     </section>
 
+    <section class="quick" id="quick-mid" aria-labelledby="qmid">
+      <p class="sec-k">빠른 상담</p>
+      <h2 id="qmid">중간에 번호만 남기기</h2>
+      <form class="quick-form qcard" data-place="본문 중간" novalidate>
+        <label for="qm-name">이름</label>
+        <input id="qm-name" name="name" type="text" autocomplete="name" maxlength="40">
+        <label for="qm-phone">연락처</label>
+        <input id="qm-phone" name="phone" type="tel" inputmode="tel" autocomplete="tel" placeholder="010-0000-0000" maxlength="20">
+        <div class="chk"><input id="qm-agree" type="checkbox"><label for="qm-agree" style="margin:0;font-weight:500">[필수] 개인정보 수집·이용에 동의합니다.</label></div>
+        <p class="err" role="alert"></p>
+        <p class="ready" role="status"></p>
+        <button type="submit" class="btn pine">상담 요청 보내기</button>
+      </form>
+    </section>
+
     <section class="thanks" id="thanks" aria-labelledby="thanksh">
       <p class="sec-k">인사</p>
       <h2 id="thanksh">고객님이 보내주신 감사 인사</h2>
@@ -674,6 +728,47 @@ footer strong{color:var(--ink);font-size:15px}
       </div>
     </section>
 
+    <section class="bio" id="bio" aria-labelledby="bioh">
+      <p class="sec-k">변호사</p>
+      <div class="bio-grid">
+        <img src="kim-sanggeun.jpg" alt="김상근 변호사" width="900" height="1255">
+        <div>
+          <h2 id="bioh">김상근</h2>
+          <p class="role">법무법인 재유 대표변호사</p>
+          <ul>
+            <li><b>1997–2007</b> 육군 법무관 (소령 예편)</li>
+            <li><b>2007–2013</b> 변호사김상근법률사무소</li>
+            <li><b>2009–2013</b> 국가보훈처 보훈심사위원회 위원</li>
+            <li><b>2010–2012</b> 인제대학교 해운대백병원 임상시험심사위원회 위원</li>
+            <li><b>2011</b> 부산지방병무청 공익근무요원 복무부적합자 소집해제 심사위원</li>
+            <li><b>2013–현재</b> 법무법인 재유 구성원변호사</li>
+            <li><b>2017–현재</b> 대구 동인1지구지역주택조합 추진위원회 고문변호사</li>
+            <li><b>2018–현재</b> 고려산업 주식회사 고문변호사</li>
+            <li><b>2019–현재</b> 법무법인 재유 대표변호사</li>
+            <li><b>2019–현재</b> 부산경상대학교 부동산과 겸임교수</li>
+            <li><b>학력</b> 대동고등학교, 부산대학교 사법학과 수료, 사법연수원 수료</li>
+            <li><b>등록</b> 2007. 7. 11. 변호사 등록</li>
+          </ul>
+          <p class="source-note">경력은 <a href="https://jaeyu.co.kr/ksg" target="_blank" rel="noopener">jaeyu.co.kr/ksg</a>에 적힌 내용입니다.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="quick" id="quick-bottom" aria-labelledby="qbot">
+      <p class="sec-k">빠른 상담</p>
+      <h2 id="qbot">아래에 번호만 남겨도 됩니다</h2>
+      <form class="quick-form qcard" data-place="하단" novalidate>
+        <label for="qb-name">이름</label>
+        <input id="qb-name" name="name" type="text" autocomplete="name" maxlength="40">
+        <label for="qb-phone">연락처</label>
+        <input id="qb-phone" name="phone" type="tel" inputmode="tel" autocomplete="tel" placeholder="010-0000-0000" maxlength="20">
+        <div class="chk"><input id="qb-agree" type="checkbox"><label for="qb-agree" style="margin:0;font-weight:500">[필수] 개인정보 수집·이용에 동의합니다.</label></div>
+        <p class="err" role="alert"></p>
+        <p class="ready" role="status"></p>
+        <button type="submit" class="btn pine">상담 요청 보내기</button>
+      </form>
+    </section>
+
     <footer>
       <strong>법무법인 재유</strong><br>
       대표변호사 강명구 · 사업자등록번호 120-87-34450<br>
@@ -686,8 +781,8 @@ footer strong{color:var(--ink);font-size:15px}
 </main>
 
 <div class="dock" aria-label="빠른 이동">
-  <button type="button" class="btn line js-consult">바로 상담하기</button>
-  <a class="btn pine js-calc" href="calculator.html">30초 확인</a>
+  <a class="btn line js-phone" href="tel:01095921038">전화 010-9592-1038</a>
+  <button type="button" class="btn pine js-consult" id="dockSecond">상담 신청</button>
 </div>
 
 <div class="modal" id="storyModal" hidden>
@@ -769,6 +864,50 @@ getSource();
    sendBeacon이 true이거나 no-cors fetch가 거부되지 않을 때만 완료 문구를 연다.
    네트워크가 명시적으로 실패하면 완료 문구를 열지 않는다. */
 var FORM_ENDPOINT = "https://script.google.com/macros/s/AKfycbwgSmFGlhFv6b-IS35KkaPaaL9dM7evxYj1h8A-EajrN6tUiyaq1-Zmmjty6qY1PcAB/exec";
+var TALKTALK_URL = "";
+var NAVER_WCS_KEY = "";
+function trackNaver(action){
+  if (!NAVER_WCS_KEY || !window.wcs || typeof wcs.cnv !== 'function' || typeof wcs_do !== 'function') return;
+  var _nasa = {};
+  _nasa.cnv = wcs.cnv(action === 'submit' ? '4' : '5', '0');
+  wcs_do(_nasa);
+}
+if (NAVER_WCS_KEY) {
+  var wcsScript = document.createElement('script');
+  wcsScript.src = 'https://wcs.naver.net/wcslog.js';
+  wcsScript.onload = function(){
+    window.wcs_add = window.wcs_add || {};
+    wcs_add.wa = NAVER_WCS_KEY;
+    if (window.wcs) { wcs.inflow(); wcs_do({}); }
+  };
+  document.head.appendChild(wcsScript);
+}
+function phoneString(raw){
+  var d = String(raw == null ? '' : raw).replace(/\D/g, '');
+  if (d.length === 11) return d.slice(0, 3) + '-' + d.slice(3, 7) + '-' + d.slice(7);
+  if (d.length === 10) return d.slice(0, 3) + '-' + d.slice(3, 6) + '-' + d.slice(6);
+  return String(raw == null ? '' : raw).trim();
+}
+document.querySelectorAll('.js-phone').forEach(function(el){
+  el.addEventListener('click', function(){ trackNaver('phone'); });
+});
+document.querySelectorAll('.js-talktalk').forEach(function(el){
+  if (!TALKTALK_URL) { el.hidden = true; return; }
+  el.hidden = false;
+  el.href = TALKTALK_URL;
+  el.addEventListener('click', function(){ trackNaver('talktalk'); });
+});
+if (TALKTALK_URL) {
+  var dockSecond = document.getElementById('dockSecond');
+  if (dockSecond) {
+    var talk = document.createElement('a');
+    talk.className = 'btn pine js-talktalk';
+    talk.href = TALKTALK_URL;
+    talk.textContent = '네이버 톡톡';
+    talk.addEventListener('click', function(){ trackNaver('talktalk'); });
+    dockSecond.replaceWith(talk);
+  }
+}
 var sending = false;
 var modal = document.getElementById('consultModal');
 var dialog = modal.querySelector('.dialog');
@@ -843,11 +982,12 @@ form.addEventListener('submit', function(ev){
   ev.preventDefault();
   if (sending) return;
   var name = document.getElementById('qName').value.trim();
-  var phone = document.getElementById('qPhone').value.trim();
+  var phone = phoneString(document.getElementById('qPhone').value);
   err.textContent = '';
   if (!name){ err.textContent = '이름을 입력해 주세요.'; document.getElementById('qName').focus(); return; }
   if (!/^01[016789]-?\d{3,4}-?\d{4}$/.test(phone.replace(/\s/g,''))){ err.textContent = '휴대폰 번호를 정확히 입력해 주세요. (예: 010-1234-5678)'; document.getElementById('qPhone').focus(); return; }
   if (!document.getElementById('qAgree').checked){ err.textContent = '개인정보 수집·이용 동의가 필요합니다.'; document.getElementById('qAgree').focus(); return; }
+  trackNaver('submit');
   if (!FORM_ENDPOINT){ err.textContent = '전송하지 못했습니다. 잠시 후 다시 눌러 주세요.'; return; }
   sending = true;
   sendBtn.disabled = true;
@@ -873,6 +1013,45 @@ form.addEventListener('submit', function(ev){
   };
   if (queued){ done(true); return; }
   fetch(FORM_ENDPOINT, {method:'POST', mode:'no-cors', keepalive:true, headers:{'Content-Type':'text/plain;charset=utf-8'}, body:body}).then(function(){ done(true); }).catch(function(){ done(false); });
+});
+
+document.querySelectorAll('.quick-form').forEach(function(form){
+  form.addEventListener('submit', function(ev){
+    ev.preventDefault();
+    var nameEl = form.querySelector('input[name="name"]');
+    var phoneEl = form.querySelector('input[name="phone"]');
+    var agreeEl = form.querySelector('input[type="checkbox"]');
+    var err = form.querySelector('.err');
+    var ready = form.querySelector('.ready');
+    var name = nameEl.value.trim();
+    var phone = phoneString(phoneEl.value);
+    err.textContent = '';
+    ready.textContent = '';
+    if (!name){ err.textContent = '이름을 입력해 주세요.'; nameEl.focus(); return; }
+    if (!/^01[016789]-?\d{3,4}-?\d{4}$/.test(String(phoneEl.value).replace(/\s/g,''))){ err.textContent = '휴대폰 번호를 정확히 입력해 주세요. (예: 010-1234-5678)'; phoneEl.focus(); return; }
+    if (!agreeEl.checked){ err.textContent = '개인정보 수집·이용 동의가 필요합니다.'; agreeEl.focus(); return; }
+    trackNaver('submit');
+    var place = form.getAttribute('data-place') || '빠른상담';
+    var payload = quickPayload(name, phone);
+    payload.source = [place, getSource()].filter(Boolean).join(' / ');
+    var sendBtn = form.querySelector('button[type="submit"]');
+    if (!FORM_ENDPOINT){ err.textContent = '전송하지 못했습니다. 잠시 후 다시 눌러 주세요.'; return; }
+    sendBtn.disabled = true;
+    sendBtn.textContent = '보내는 중';
+    var body = JSON.stringify(payload);
+    var queued = false;
+    try {
+      queued = !!(navigator.sendBeacon && navigator.sendBeacon(FORM_ENDPOINT, new Blob([body], {type:'text/plain;charset=utf-8'})));
+    } catch (e) { queued = false; }
+    var finish = function(okSend){
+      sendBtn.disabled = false;
+      sendBtn.textContent = '상담 요청 보내기';
+      if (!okSend){ err.textContent = '전송하지 못했습니다. 잠시 후 다시 눌러 주세요.'; return; }
+      ready.textContent = '요청을 전달했습니다. 확인 후 연락드립니다.';
+    };
+    if (queued){ finish(true); return; }
+    fetch(FORM_ENDPOINT, {method:'POST', mode:'no-cors', keepalive:true, headers:{'Content-Type':'text/plain;charset=utf-8'}, body:body}).then(function(){ finish(true); }).catch(function(){ finish(false); });
+  });
 });
 
 (function(){
