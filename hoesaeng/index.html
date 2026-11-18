@@ -6,6 +6,7 @@
 <title>개인회생·파산 안내 | 법무법인 재유</title>
 <meta name="description" content="법무법인 재유. 매달 갚아도 줄지 않는 빚, 이제 정리할 방법을 확인하세요. 개인회생·파산.">
 <meta name="theme-color" content="#101816">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css">
 <style>
 :root{
@@ -107,11 +108,14 @@ footer strong{color:var(--ink);font-size:15px}
 .avg span{font-size:28px;font-weight:800;padding-bottom:10px}
 .example-grid{display:grid;grid-template-columns:minmax(0,.85fr) minmax(0,1.15fr);gap:56px;align-items:center}
 .example-note,.fine{margin:0 0 14px;color:#3e4744;font-size:13px;line-height:1.55;font-weight:500}
-.ticker-label{margin:0 0 6px;font-size:13px;font-weight:600;letter-spacing:0;color:#3e4744}
+.ticker-label{display:flex;align-items:center;flex-wrap:wrap;gap:8px;margin:0 0 6px;font-size:13px;font-weight:600;letter-spacing:0;color:#3e4744}
+.ex-flag,.ex-mini{display:inline-flex;align-items:center;border:1px solid #8d2f2a;border-radius:999px;color:#8d2f2a;font-style:normal;font-weight:800;background:#fff}
+.ex-flag{min-height:22px;padding:0 8px;font-size:12px}
+.ex-mini{margin-right:6px;padding:0 6px;font-size:11px;line-height:1.6}
 .ticker-window{height:292px;overflow:hidden;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
 .ticker-track{margin:0;padding:0;list-style:none;animation:ticker-up 36s linear infinite}
 .ticker-window:hover .ticker-track,.ticker-window:focus-within .ticker-track{animation-play-state:paused}
-.ticker-track li{display:grid;grid-template-columns:88px 1fr auto;gap:12px;align-items:center;min-height:58px;border-bottom:1px solid var(--line);font-size:16px}
+.ticker-track li{display:grid;grid-template-columns:auto minmax(0,1fr) auto;gap:12px;align-items:center;min-height:58px;border-bottom:1px solid var(--line);font-size:16px}
 .ticker-track li b{font-weight:800}
 .pill{display:inline-flex;align-items:center;min-height:32px;padding:0 12px;border-radius:999px;background:#ece7de;font-size:13px;font-weight:700}
 @keyframes ticker-up{from{transform:translateY(0)}to{transform:translateY(-50%)}}
@@ -269,6 +273,20 @@ footer strong{color:var(--ink);font-size:15px}
 .qcard input{width:100%;font:inherit;font-size:16px;padding:12px;border:1px solid #c9c1b2;border-radius:10px}
 .qcard .btn{width:100%;margin-top:12px}
 .qcard .ready{margin:8px 0 0;color:var(--pine);font-weight:700;min-height:1.4em}
+.qcard .btn:disabled{opacity:.55;cursor:default}
+.qcard .fail{margin:10px 0 0;color:var(--warn);font-size:14px;font-weight:700;line-height:1.5}
+.qcard .fail[hidden]{display:none}
+.qcard .fail .btn{margin-top:8px}
+.qcard .ctype{border:0;margin:14px 0 0;padding:0;min-width:0}
+.qcard .ctype legend{font-weight:700;font-size:15px;padding:0}
+.qcard .ctype legend span{margin-left:6px;font-weight:600;font-size:13px;color:var(--muted)}
+.qcard .ctype-row{display:flex;flex-wrap:wrap;gap:8px}
+.qcard .ctype-row label{display:inline-flex;margin:0;font-weight:700;position:relative}
+.qcard .ctype-row input{position:absolute;width:1px;height:1px;opacity:0}
+.qcard .ctype-row span{display:inline-flex;align-items:center;justify-content:center;min-height:40px;padding:0 12px;border-radius:999px;border:1px solid #cfc6b8;background:#fff;font-size:14px;font-weight:800;cursor:pointer}
+.qcard .ctype-row input:checked + span{background:#173f32;color:#fff;border-color:#173f32}
+.qcard .ctype-row input:focus-visible + span{outline:3px solid var(--gold);outline-offset:2px}
+#quick-top{scroll-margin-top:86px}
 .dock{display:none}
 @media(max-width:800px){
   body{padding-bottom:84px}
@@ -354,7 +372,7 @@ footer strong{color:var(--ink);font-size:15px}
         <div class="cta-row">
           <a class="btn pine js-phone" href="tel:01095921038">전화 010-9592-1038</a>
           <a class="btn line js-calc" href="calculator.html">30초 확인</a>
-          <button type="button" class="btn line js-consult">바로 상담하기</button>
+          <button type="button" class="btn line js-scroll-form">바로 상담하기</button>
           <a class="btn line js-talktalk" href="" hidden>네이버 톡톡</a>
         </div>
       </div>
@@ -364,14 +382,24 @@ footer strong{color:var(--ink);font-size:15px}
   <section class="quick" id="quick-top" aria-labelledby="qtop">
     <div class="wrap">
       <p class="sec-k">빠른 상담</p>
-      <h2 id="qtop">이름과 번호만 남겨 주세요</h2>
+      <h2 id="qtop">이름과 번호를 남겨 주세요</h2>
       <form class="quick-form qcard" data-place="첫 화면 아래" novalidate>
         <label for="qt-name">이름</label>
         <input id="qt-name" name="name" type="text" autocomplete="name" maxlength="40">
         <label for="qt-phone">연락처</label>
         <input id="qt-phone" name="phone" type="tel" inputmode="tel" autocomplete="tel" placeholder="010-0000-0000" maxlength="20">
+        <fieldset class="ctype">
+          <legend>상담 유형 <span>선택, 필수 아님</span></legend>
+          <div class="ctype-row">
+            <label><input type="radio" name="consult_type" value="개인회생"><span>개인회생</span></label>
+            <label><input type="radio" name="consult_type" value="파산"><span>파산</span></label>
+            <label><input type="radio" name="consult_type" value="압류"><span>압류</span></label>
+            <label><input type="radio" name="consult_type" value="잘 모르겠음"><span>잘 모르겠음</span></label>
+          </div>
+        </fieldset>
         <div class="chk"><input id="qt-agree" type="checkbox"><label for="qt-agree" style="margin:0;font-weight:500">[필수] 개인정보 수집·이용에 동의합니다.</label></div>
         <p class="err" role="alert"></p>
+        <p class="fail" hidden><span>접수가 확인되지 않았습니다. 010-9592-1038로 전화 주세요</span><a class="btn line js-phone" href="tel:01095921038">전화 010-9592-1038</a></p>
         <p class="ready" role="status"></p>
         <button type="submit" class="btn pine">상담 요청 보내기</button>
       </form>
@@ -382,8 +410,8 @@ footer strong{color:var(--ink);font-size:15px}
     <section class="offer" aria-labelledby="when">
       <article class="offer-docs">
         <p class="offer-mark" aria-hidden="true">“</p>
-        <h2 id="when">서류발급 무료 대행</h2>
-        <p>개인회생에 필요한 <b>서류발급</b><br><b>무료로 대행해</b> 드리고 있습니다.</p>
+        <h2 id="when">서류 발급 대행</h2>
+        <p>개인회생에 필요한 <b>서류 발급</b>을<br>대행해 드리고 있습니다.</p>
       </article>
       <article class="offer-time">
         <h2>골든타임은 언제일까요?</h2>
@@ -404,21 +432,21 @@ footer strong{color:var(--ink);font-size:15px}
           </div>
         </div>
         <div>
-          <p class="ticker-label">상담 예시</p>
+          <p class="ticker-label">상담 예시 <span class="ex-flag">예시 · 실제 접수 아님</span></p>
           <div class="ticker-window" tabindex="0">
             <ul class="ticker-track">
-              <li><b>김○○</b><span>개인회생</span><span class="pill">상담 예정</span></li>
-              <li><b>이○○</b><span>개인파산</span><span class="pill">접수 완료</span></li>
-              <li><b>박○○</b><span>개인회생</span><span class="pill">상담 예정</span></li>
-              <li><b>최○○</b><span>개인파산</span><span class="pill">접수 완료</span></li>
-              <li><b>정○○</b><span>개인회생</span><span class="pill">상담 예정</span></li>
-              <li><b>한○○</b><span>개인파산</span><span class="pill">접수 완료</span></li>
-              <li class="dup"><b>김○○</b><span>개인회생</span><span class="pill">상담 예정</span></li>
-              <li class="dup"><b>이○○</b><span>개인파산</span><span class="pill">접수 완료</span></li>
-              <li class="dup"><b>박○○</b><span>개인회생</span><span class="pill">상담 예정</span></li>
-              <li class="dup"><b>최○○</b><span>개인파산</span><span class="pill">접수 완료</span></li>
-              <li class="dup"><b>정○○</b><span>개인회생</span><span class="pill">상담 예정</span></li>
-              <li class="dup"><b>한○○</b><span>개인파산</span><span class="pill">접수 완료</span></li>
+              <li><b><i class="ex-mini">예시</i>김○○</b><span>개인회생</span><span class="pill">상담 예정</span></li>
+              <li><b><i class="ex-mini">예시</i>이○○</b><span>개인파산</span><span class="pill">접수 완료</span></li>
+              <li><b><i class="ex-mini">예시</i>박○○</b><span>개인회생</span><span class="pill">상담 예정</span></li>
+              <li><b><i class="ex-mini">예시</i>최○○</b><span>개인파산</span><span class="pill">접수 완료</span></li>
+              <li><b><i class="ex-mini">예시</i>정○○</b><span>개인회생</span><span class="pill">상담 예정</span></li>
+              <li><b><i class="ex-mini">예시</i>한○○</b><span>개인파산</span><span class="pill">접수 완료</span></li>
+              <li class="dup"><b><i class="ex-mini">예시</i>김○○</b><span>개인회생</span><span class="pill">상담 예정</span></li>
+              <li class="dup"><b><i class="ex-mini">예시</i>이○○</b><span>개인파산</span><span class="pill">접수 완료</span></li>
+              <li class="dup"><b><i class="ex-mini">예시</i>박○○</b><span>개인회생</span><span class="pill">상담 예정</span></li>
+              <li class="dup"><b><i class="ex-mini">예시</i>최○○</b><span>개인파산</span><span class="pill">접수 완료</span></li>
+              <li class="dup"><b><i class="ex-mini">예시</i>정○○</b><span>개인회생</span><span class="pill">상담 예정</span></li>
+              <li class="dup"><b><i class="ex-mini">예시</i>한○○</b><span>개인파산</span><span class="pill">접수 완료</span></li>
             </ul>
           </div>
         </div>
@@ -550,14 +578,24 @@ footer strong{color:var(--ink);font-size:15px}
 
     <section class="quick" id="quick-mid" aria-labelledby="qmid">
       <p class="sec-k">빠른 상담</p>
-      <h2 id="qmid">중간에 번호만 남기기</h2>
+      <h2 id="qmid">중간에 번호 남기기</h2>
       <form class="quick-form qcard" data-place="본문 중간" novalidate>
         <label for="qm-name">이름</label>
         <input id="qm-name" name="name" type="text" autocomplete="name" maxlength="40">
         <label for="qm-phone">연락처</label>
         <input id="qm-phone" name="phone" type="tel" inputmode="tel" autocomplete="tel" placeholder="010-0000-0000" maxlength="20">
+        <fieldset class="ctype">
+          <legend>상담 유형 <span>선택, 필수 아님</span></legend>
+          <div class="ctype-row">
+            <label><input type="radio" name="consult_type" value="개인회생"><span>개인회생</span></label>
+            <label><input type="radio" name="consult_type" value="파산"><span>파산</span></label>
+            <label><input type="radio" name="consult_type" value="압류"><span>압류</span></label>
+            <label><input type="radio" name="consult_type" value="잘 모르겠음"><span>잘 모르겠음</span></label>
+          </div>
+        </fieldset>
         <div class="chk"><input id="qm-agree" type="checkbox"><label for="qm-agree" style="margin:0;font-weight:500">[필수] 개인정보 수집·이용에 동의합니다.</label></div>
         <p class="err" role="alert"></p>
+        <p class="fail" hidden><span>접수가 확인되지 않았습니다. 010-9592-1038로 전화 주세요</span><a class="btn line js-phone" href="tel:01095921038">전화 010-9592-1038</a></p>
         <p class="ready" role="status"></p>
         <button type="submit" class="btn pine">상담 요청 보내기</button>
       </form>
@@ -603,7 +641,7 @@ footer strong{color:var(--ink);font-size:15px}
             </div>
             <p class="sit-quote">빚과 세금, 장부를<br><b>한 사람이 함께</b> 봅니다.</p>
             <div class="sit-chips">
-              <div class="sit-chip-line"><span class="sit-chip hl">대한변협 등록 도산전문변호사</span></div>
+              <div class="sit-chip-line"><span class="sit-chip hl">대한변협 등록 전문분야: 도산</span></div>
               <div class="sit-chip-line"><span class="sit-chip">변호사</span><span class="sit-chip">세무사</span><span class="sit-chip">변리사</span><span class="sit-chip">공인중개사</span></div>
             </div>
           </div>
@@ -714,21 +752,31 @@ footer strong{color:var(--ink);font-size:15px}
         </a>
         <a class="yt-card" href="https://www.youtube.com/watch?v=wO_3CdGR40M" target="_blank" rel="noopener">
           <span class="yt-thumb"><img src="yt-consult.jpg" alt=""><span class="yt-play" aria-hidden="true"></span></span>
-          <strong>무료 법률상담을 비추천 하는 이유</strong>
+          <strong>법률상담, 상담료를 먼저 내는 이유</strong>
         </a>
       </div>
     </section>
 
     <section class="quick" id="quick-bottom" aria-labelledby="qbot">
       <p class="sec-k">빠른 상담</p>
-      <h2 id="qbot">아래에 번호만 남겨도 됩니다</h2>
+      <h2 id="qbot">아래에 번호를 남겨도 됩니다</h2>
       <form class="quick-form qcard" data-place="하단" novalidate>
         <label for="qb-name">이름</label>
         <input id="qb-name" name="name" type="text" autocomplete="name" maxlength="40">
         <label for="qb-phone">연락처</label>
         <input id="qb-phone" name="phone" type="tel" inputmode="tel" autocomplete="tel" placeholder="010-0000-0000" maxlength="20">
+        <fieldset class="ctype">
+          <legend>상담 유형 <span>선택, 필수 아님</span></legend>
+          <div class="ctype-row">
+            <label><input type="radio" name="consult_type" value="개인회생"><span>개인회생</span></label>
+            <label><input type="radio" name="consult_type" value="파산"><span>파산</span></label>
+            <label><input type="radio" name="consult_type" value="압류"><span>압류</span></label>
+            <label><input type="radio" name="consult_type" value="잘 모르겠음"><span>잘 모르겠음</span></label>
+          </div>
+        </fieldset>
         <div class="chk"><input id="qb-agree" type="checkbox"><label for="qb-agree" style="margin:0;font-weight:500">[필수] 개인정보 수집·이용에 동의합니다.</label></div>
         <p class="err" role="alert"></p>
+        <p class="fail" hidden><span>접수가 확인되지 않았습니다. 010-9592-1038로 전화 주세요</span><a class="btn line js-phone" href="tel:01095921038">전화 010-9592-1038</a></p>
         <p class="ready" role="status"></p>
         <button type="submit" class="btn pine">상담 요청 보내기</button>
       </form>
@@ -747,7 +795,7 @@ footer strong{color:var(--ink);font-size:15px}
 
 <div class="dock" aria-label="빠른 이동">
   <a class="btn line js-phone" href="tel:01095921038">전화 010-9592-1038</a>
-  <button type="button" class="btn pine js-consult" id="dockSecond">상담 신청</button>
+  <button type="button" class="btn pine js-scroll-form" id="dockSecond">상담 신청</button>
 </div>
 
 <div class="modal" id="storyModal" hidden>
@@ -820,14 +868,12 @@ function getSource(){
 }
 getSource();
 
-/* 바로 상담은 계산기 페이지와 같은 Apps Script 주소로 보냅니다.
+/* 바로 상담 창은 계산기 페이지와 같은 Apps Script 주소로 보냅니다.
    키 이름은 기존 접수와 같고, 묻지 않은 채무·재산·결과 칸은 빈 문자열입니다.
    변제금이나 감면 비율을 만들어 넣지 않습니다.
-   서버 소스가 저장소에 없어, 빈 값 접수가 시트에 남는지 확인하지 않았습니다.
-   Apps Script 응답에는 Access-Control-Allow-Origin이 없어 브라우저가 저장 성공 본문을 읽을 수 없다.
-   스크립트 수정 권한이 없으므로 확정 ack는 불가능하다.
-   sendBeacon이 true이거나 no-cors fetch가 거부되지 않을 때만 완료 문구를 연다.
-   네트워크가 명시적으로 실패하면 완료 문구를 열지 않는다. */
+   상담 창은 sendBeacon이 true이거나 no-cors fetch가 거부되지 않을 때만 완료 문구를 연다.
+   짧은 폼 세 곳은 cors fetch로 보내고, 응답 JSON의 ok가 true일 때만 완료 문구를 연다.
+   application/json은 쓰지 않는다. OPTIONS 사전 요청에 CORS 헤더가 없다. */
 var FORM_ENDPOINT = "https://script.google.com/macros/s/AKfycbwgSmFGlhFv6b-IS35KkaPaaL9dM7evxYj1h8A-EajrN6tUiyaq1-Zmmjty6qY1PcAB/exec";
 var TALKTALK_URL = "";
 var NAVER_WCS_KEY = "";
@@ -907,6 +953,14 @@ function closeConsult(){
   if (lastFocus && lastFocus.focus) lastFocus.focus();
 }
 document.querySelectorAll('.js-consult').forEach(function(b){ b.addEventListener('click', openConsult); });
+document.querySelectorAll('.js-scroll-form').forEach(function(b){
+  b.addEventListener('click', function(){
+    var target = document.getElementById('quick-top');
+    if (!target) return;
+    var motion = window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth';
+    target.scrollIntoView({behavior:motion, block:'start'});
+  });
+});
 document.getElementById('consultClose').addEventListener('click', closeConsult);
 modal.addEventListener('click', function(e){ if (e.target === modal) closeConsult(); });
 document.addEventListener('keydown', function(e){
@@ -980,42 +1034,71 @@ form.addEventListener('submit', function(ev){
   fetch(FORM_ENDPOINT, {method:'POST', mode:'no-cors', keepalive:true, headers:{'Content-Type':'text/plain;charset=utf-8'}, body:body}).then(function(){ done(true); }).catch(function(){ done(false); });
 });
 
+function postQuickForm(body){
+  var ctrl = typeof AbortController === 'function' ? new AbortController() : null;
+  var timer = setTimeout(function(){ if (ctrl) ctrl.abort(); }, 10000);
+  var opts = {
+    method: 'POST',
+    headers: { 'Content-Type': 'text/plain;charset=utf-8' },
+    body: body
+  };
+  if (ctrl) opts.signal = ctrl.signal;
+  return fetch(FORM_ENDPOINT, opts).then(function(res){
+    return res.text();
+  }).then(function(text){
+    clearTimeout(timer);
+    var data = null;
+    try { data = JSON.parse(text); } catch (e) { data = null; }
+    return !!(data && data.ok === true);
+  }, function(){
+    clearTimeout(timer);
+    return false;
+  });
+}
 document.querySelectorAll('.quick-form').forEach(function(form){
   form.addEventListener('submit', function(ev){
     ev.preventDefault();
+    if (form.getAttribute('data-sending') === '1') return;
     var nameEl = form.querySelector('input[name="name"]');
     var phoneEl = form.querySelector('input[name="phone"]');
     var agreeEl = form.querySelector('input[type="checkbox"]');
+    var typeEl = form.querySelector('input[name="consult_type"]:checked');
     var err = form.querySelector('.err');
     var ready = form.querySelector('.ready');
+    var fail = form.querySelector('.fail');
+    var sendBtn = form.querySelector('button[type="submit"]');
     var name = nameEl.value.trim();
     var phone = phoneString(phoneEl.value);
     err.textContent = '';
     ready.textContent = '';
+    if (fail) fail.hidden = true;
     if (!name){ err.textContent = '이름을 입력해 주세요.'; nameEl.focus(); return; }
     if (!/^01[016789]-?\d{3,4}-?\d{4}$/.test(String(phoneEl.value).replace(/\s/g,''))){ err.textContent = '휴대폰 번호를 정확히 입력해 주세요. (예: 010-1234-5678)'; phoneEl.focus(); return; }
     if (!agreeEl.checked){ err.textContent = '개인정보 수집·이용 동의가 필요합니다.'; agreeEl.focus(); return; }
     trackNaver('submit');
     var place = form.getAttribute('data-place') || '빠른상담';
     var payload = quickPayload(name, phone);
+    payload.consult_type = typeEl ? typeEl.value : '';
     payload.source = [place, getSource()].filter(Boolean).join(' / ');
-    var sendBtn = form.querySelector('button[type="submit"]');
-    if (!FORM_ENDPOINT){ err.textContent = '전송하지 못했습니다. 잠시 후 다시 눌러 주세요.'; return; }
+    if (!FORM_ENDPOINT){
+      if (fail) fail.hidden = false;
+      return;
+    }
+    form.setAttribute('data-sending', '1');
     sendBtn.disabled = true;
     sendBtn.textContent = '보내는 중';
-    var body = JSON.stringify(payload);
-    var queued = false;
-    try {
-      queued = !!(navigator.sendBeacon && navigator.sendBeacon(FORM_ENDPOINT, new Blob([body], {type:'text/plain;charset=utf-8'})));
-    } catch (e) { queued = false; }
-    var finish = function(okSend){
+    postQuickForm(JSON.stringify(payload)).then(function(okSend){
+      form.removeAttribute('data-sending');
       sendBtn.disabled = false;
       sendBtn.textContent = '상담 요청 보내기';
-      if (!okSend){ err.textContent = '전송하지 못했습니다. 잠시 후 다시 눌러 주세요.'; return; }
-      ready.textContent = '요청을 전달했습니다. 확인 후 연락드립니다.';
-    };
-    if (queued){ finish(true); return; }
-    fetch(FORM_ENDPOINT, {method:'POST', mode:'no-cors', keepalive:true, headers:{'Content-Type':'text/plain;charset=utf-8'}, body:body}).then(function(){ finish(true); }).catch(function(){ finish(false); });
+      if (!okSend){
+        ready.textContent = '';
+        if (fail) fail.hidden = false;
+        return;
+      }
+      if (fail) fail.hidden = true;
+      ready.textContent = '접수가 완료되었습니다';
+    });
   });
 });
 
