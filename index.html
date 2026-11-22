@@ -1,18 +1,46 @@
-<!DOCTYPE html><html lang="ko"><head><meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate"><meta http-equiv="Pragma" content="no-cache"><meta http-equiv="Expires" content="0"><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>글렙의 러시아어</title>
-<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;1,400&family=Noto+Serif+KR:wght@500;700&family=Noto+Sans+KR:wght@400;500&display=swap" rel="stylesheet">
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+<meta http-equiv="Pragma" content="no-cache">
+<meta http-equiv="Expires" content="0">
+<title>글렙의 러시아어</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;600;700&family=Noto+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
 <style>
 :root{--bg:#faf6ee;--card:#fffdf8;--gold:#b08d4f;--gold2:#8a6a32;--ink:#2a2418;--mute:#9a8f7c}
 *{box-sizing:border-box}
-body{margin:0;min-height:100vh;color:var(--ink);font-family:"Noto Sans KR",-apple-system,sans-serif;background:radial-gradient(ellipse at top,#ffffff 0%,var(--bg) 65%) fixed}
-.wrap{max-width:520px;margin:0 auto;padding:56px 20px 40px;text-align:center}
-.mono{width:64px;height:64px;margin:0 auto 18px;border:1px solid var(--gold);border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:"Playfair Display",serif;font-size:30px;color:var(--gold2);background:#fff;box-shadow:0 0 0 4px var(--bg),0 0 0 5px #b08d4f66,0 6px 16px #b08d4f22}
-h1{font-family:"Noto Serif KR",serif;font-weight:700;font-size:32px;letter-spacing:.04em;margin:0;color:var(--ink)}
-.sub{font-family:"Playfair Display",serif;font-style:italic;color:var(--gold);font-size:17px;margin-top:8px;letter-spacing:.05em}
-.orn{display:flex;align-items:center;gap:12px;margin:26px auto 34px;width:70%;color:var(--gold)}
+body{margin:0;min-height:100vh;color:var(--ink);font-family:"Noto Sans KR","Noto Sans",sans-serif;background:radial-gradient(ellipse at top,#ffffff 0%,var(--bg) 65%) fixed;word-break:keep-all;overflow-wrap:break-word}
+.ru-t,.foot{word-break:normal;overflow-wrap:break-word}
+.wrap{max-width:520px;margin:0 auto;padding:56px 20px 48px;text-align:center}
+.mono{width:64px;height:64px;margin:0 auto 18px;border:1px solid var(--gold);border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:"Noto Sans",sans-serif;font-size:30px;font-weight:600;color:var(--gold2);background:#fff;box-shadow:0 0 0 4px var(--bg),0 0 0 5px #b08d4f66,0 6px 16px #b08d4f22}
+.orn{display:flex;align-items:center;gap:12px;margin:8px auto 28px;width:70%;color:var(--gold)}
 .orn::before,.orn::after{content:"";flex:1;height:1px;background:linear-gradient(90deg,transparent,var(--gold))}
 .orn::after{background:linear-gradient(90deg,var(--gold),transparent)}
-a.b{display:block;position:relative;text-decoration:none;color:var(--ink);font-family:"Noto Serif KR",serif;font-weight:500;font-size:20px;padding:26px 44px 26px 18px;margin:14px 0;border-radius:14px;background:linear-gradient(180deg,#ffffff,#fbf6ec);border:1px solid #d9c49a;box-shadow:0 6px 18px #8a6a3222,inset 0 1px 0 #fff;transition:transform .1s,box-shadow .1s,border-color .2s}
+.wt-block{margin:0 -20px 8px;position:relative}
+.wt-nav{position:absolute;top:50%;z-index:3;width:36px;height:36px;border-radius:50%;border:1px solid var(--gold);background:#fff;color:var(--gold2);font-size:22px;line-height:1;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 12px #8a6a3228;cursor:pointer;padding:0 0 2px;transform:translateY(-50%);transition:background .15s,transform .1s,opacity .2s}
+.wt-nav:active{transform:translateY(-50%) scale(.94)}
+.wt-nav:disabled{opacity:.28;cursor:default}
+.wt-nav.prev{left:8px}
+.wt-nav.next{right:8px}
+.wt-track{display:flex;gap:12px;overflow-x:auto;scroll-snap-type:x mandatory;scroll-behavior:smooth;-webkit-overflow-scrolling:touch;padding:12px calc(50% - 37%);scrollbar-width:none;overscroll-behavior-x:contain}
+.wt-track::-webkit-scrollbar{display:none}
+.wt-card{flex:0 0 74%;scroll-snap-align:center;text-decoration:none;color:var(--ink);text-align:left;background:linear-gradient(180deg,#ffffff,#fbf6ec);border:1px solid #d9c49a;border-radius:16px;padding:20px 18px 18px;box-shadow:0 6px 18px #8a6a3222,inset 0 1px 0 #fff;min-height:168px;display:flex;flex-direction:column;justify-content:space-between;transform:scale(.88);opacity:.58;transition:transform .25s ease,opacity .25s ease,border-color .2s,box-shadow .25s;transform-origin:center center}
+.wt-card.is-center{transform:scale(1);opacity:1;border-color:var(--gold);box-shadow:0 10px 26px #8a6a3230,inset 0 1px 0 #fff}
+.wt-card.thisweek.is-center{background:linear-gradient(180deg,#d6b878,#b08d4f);color:#fff;border-color:#b08d4f;text-shadow:0 1px 1px #0003}
+.wt-card.thisweek.is-center .tag,.wt-card.thisweek.is-center .dates,.wt-card.thisweek.is-center .title,.wt-card.thisweek.is-center .go{color:#fff}
+.wt-card.nolink{cursor:default}
+.wt-card .tag{font-size:12px;font-weight:600;letter-spacing:.06em;color:var(--gold2);margin-bottom:2px}
+.wt-card .dates{font-size:13px;color:var(--mute);font-weight:400;margin-bottom:10px}
+.wt-card .title{font-size:16px;font-weight:700;line-height:1.45;letter-spacing:-.01em}
+.wt-card .go{margin-top:12px;font-size:13px;font-weight:500;color:var(--gold2)}
+.wt-dots{display:flex;justify-content:center;gap:7px;margin:12px 0 18px}
+.wt-dots button{width:7px;height:7px;border-radius:50%;border:0;padding:0;background:#d9c49a;cursor:pointer}
+.wt-dots button.on{background:var(--gold2);width:18px;border-radius:4px}
+a.b{display:block;position:relative;text-decoration:none;color:var(--ink);font-family:"Noto Sans KR",sans-serif;font-weight:500;font-size:20px;padding:26px 44px 26px 18px;margin:14px 0;border-radius:14px;background:linear-gradient(180deg,#ffffff,#fbf6ec);border:1px solid #d9c49a;box-shadow:0 6px 18px #8a6a3222,inset 0 1px 0 #fff;transition:transform .1s,box-shadow .1s,border-color .2s}
 a.b::after{content:"›";position:absolute;right:18px;top:50%;transform:translateY(-52%);font-size:28px;color:var(--gold)}
 a.b:hover{border-color:var(--gold)}
 a.b:active{transform:translateY(2px) scale(.98);box-shadow:0 2px 6px #8a6a3222}
@@ -21,16 +49,190 @@ a.b.main::after{color:#fff}
 .row{display:flex;gap:12px;margin:14px 0}
 .row a.b{flex:1;margin:0;font-size:16px;padding:22px 24px 22px 10px}
 .row a.b::after{right:10px;font-size:22px}
-.foot{margin-top:40px;font-family:"Playfair Display",serif;font-style:italic;color:var(--mute);font-size:13px;letter-spacing:.08em}
-a.b.wt{border:1.5px solid var(--gold);font-weight:700;font-size:21px}a.b.wt .wk{display:block;font-family:"Noto Sans KR",sans-serif;font-weight:400;font-size:13px;color:var(--mute);margin-top:6px}</style></head>
-<body><div class="wrap">
-<div class="mono">Г</div>
+.songs{margin-top:28px;text-align:left}
+.songs h2{margin:0 0 4px;font-size:18px;font-weight:700;letter-spacing:-.02em;text-align:center;line-height:1.4}
+.songs .sub{color:var(--mute);font-size:13px;text-align:center;margin:0 0 18px}
+.day{margin:0 0 18px;padding:16px 14px 12px;background:linear-gradient(180deg,#ffffff,#fbf6ec);border:1px solid #d9c49a;border-radius:16px;box-shadow:0 6px 18px #8a6a3214,inset 0 1px 0 #fff}
+.day h3{margin:0 0 12px;font-size:15px;font-weight:700;color:var(--gold2);display:flex;align-items:baseline;justify-content:space-between;gap:8px}
+.day h3 span{font-weight:400;color:var(--mute);font-size:12px}
+a.song{display:flex;gap:12px;align-items:flex-start;text-decoration:none;color:var(--ink);padding:10px 8px;border-radius:12px;margin:0 -4px 6px;transition:background .15s}
+a.song:hover{background:#f3ead4}
+a.song:active{background:#efe4c8}
+.num{flex:0 0 40px;width:40px;height:40px;border-radius:50%;border:1px solid var(--gold);color:var(--gold2);font-weight:700;font-size:15px;display:flex;align-items:center;justify-content:center;background:#fff;margin-top:1px}
+.song-body{flex:1;min-width:0}
+.role{font-size:11px;color:var(--mute);letter-spacing:.04em;margin-bottom:2px}
+.ko-t{font-size:15px;font-weight:600;line-height:1.35}
+.ru-t{font-family:"Noto Sans",sans-serif;font-size:13px;color:var(--gold2);margin-top:3px;line-height:1.4}
+.song .arr{color:var(--gold);font-size:20px;align-self:center;padding-right:2px}
+.note{font-size:12px;color:var(--mute);line-height:1.5;margin:4px 2px 2px;text-align:left}
+.foot{margin-top:36px;font-style:italic;color:var(--mute);font-size:13px;letter-spacing:.08em;text-align:center;font-family:"Noto Sans",sans-serif}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="mono">Г</div>
+  <div class="orn">✦</div>
 
-<div class="orn">✦</div>
-<a class="b wt" href="watchtower.html?v=1116b">이번 주 파수대<span class="wk">11월 16일–22일 연구 기사</span></a>
-<a class="b main" href="daily.html?v=24">일용할 성구</a>
-<div class="row"><a class="b" href="grammar/index.html">파워 러시아어 문법</a>
-<a class="b" href="words/index.html">문법 제대로 알기</a></div>
-<div class="foot">Шаг за шагом · 한 걸음씩</div>
+  <div class="wt-block" id="carousel">
+    <button type="button" class="wt-nav prev" id="prev" aria-label="지난주 기사">‹</button>
+    <div class="wt-track" id="wtTrack">
+      <div class="wt-card nolink" data-i="0" aria-disabled="true">
+        <div>
+          <div class="tag">지난주</div>
+          <div class="dates">11월 9일–15일 연구 기사</div>
+          <div class="title">“순종하는 마음”을 길러 나가십시오</div>
+        </div>
+      </div>
+      <a class="wt-card thisweek" href="watchtower-2026-11-16.html?v=1116c" data-i="1">
+        <div>
+          <div class="tag">이번주</div>
+          <div class="dates">11월 16일–22일 연구 기사</div>
+          <div class="title">모든 나라 사람들이 자신들의 언어로 진리를 듣고 있습니다</div>
+        </div>
+        <div class="go">기사 열기 ›</div>
+      </a>
+      <a class="wt-card" href="watchtower-2026-11-23.html?v=1" data-i="2">
+        <div>
+          <div class="tag">다음주</div>
+          <div class="dates">11월 23일–29일 연구 기사</div>
+          <div class="title">제사직 마련은 여호와의 사랑을 보여 줍니다</div>
+        </div>
+        <div class="go">기사 열기 ›</div>
+      </a>
+    </div>
+    <button type="button" class="wt-nav next" id="next" aria-label="다음주 기사">›</button>
+  </div>
+  <div class="wt-dots" id="dots" aria-hidden="true"></div>
+
+  <a class="b main" href="daily.html?v=24">일용할 성구</a>
+  <div class="row">
+    <a class="b" href="grammar/index.html">파워 러시아어 문법</a>
+    <a class="b" href="words/index.html">문법 제대로 알기</a>
+  </div>
+
+  <section class="songs" id="songs">
+    <h2>이번 주 집회 노래로 러시아어 공부</h2>
+    <p class="sub">11월 16일–22일 · 금요일·일요일 집회 노래</p>
+
+    <div class="day">
+      <h3>금요일<span>주중 집회 · 생활과 봉사</span></h3>
+      <a class="song" href="songs/28.html">
+        <div class="num">28</div>
+        <div class="song-body">
+          <div class="role">시작 노래</div>
+          <div class="ko-t">여호와의 벗이 되리</div>
+          <div class="ru-t">Стань дру́гом Иего́вы</div>
+        </div>
+        <div class="arr">›</div>
+      </a>
+      <a class="song" href="songs/90.html">
+        <div class="num">90</div>
+        <div class="song-body">
+          <div class="role">중간 노래</div>
+          <div class="ko-t">서로 격려하라</div>
+          <div class="ru-t">Ободря́йте друг дру́га</div>
+        </div>
+        <div class="arr">›</div>
+      </a>
+      <a class="song" href="songs/75.html">
+        <div class="num">75</div>
+        <div class="song-body">
+          <div class="role">마침 노래</div>
+          <div class="ko-t">‘내가 여기 있나이다! 나를 보내 주소서’</div>
+          <div class="ru-t">«Вот я! Пошли́ меня́»</div>
+        </div>
+        <div class="arr">›</div>
+      </a>
+    </div>
+
+    <div class="day">
+      <h3>일요일<span>주말 집회 · 파수대 연구</span></h3>
+      <a class="song" href="songs/84.html">
+        <div class="num">84</div>
+        <div class="song-body">
+          <div class="role">파수대 시작 노래</div>
+          <div class="ko-t">필요한 곳 어디든</div>
+          <div class="ru-t">Слу́жим там, где нужна́ по́мощь</div>
+        </div>
+        <div class="arr">›</div>
+      </a>
+      <a class="song" href="songs/57.html">
+        <div class="num">57</div>
+        <div class="song-body">
+          <div class="role">파수대 마침 노래</div>
+          <div class="ko-t">모든 부류의 사람들에게 전파하라</div>
+          <div class="ru-t">Пропове́дуем лю́дям вся́кого ро́да</div>
+        </div>
+        <div class="arr">›</div>
+      </a>
+      <p class="note">공개 강연 시작·마침 노래는 회중마다 다르고, 생활과 봉사 집회 계획표에도 나오지 않아 여기에 넣지 않았어요.</p>
+    </div>
+  </section>
+
+  <div class="foot">Шаг за шагом · 한 걸음씩</div>
 </div>
-</body></html>
+<script>
+(function () {
+  "use strict";
+  var track = document.getElementById("wtTrack");
+  var cards = Array.prototype.slice.call(track.querySelectorAll(".wt-card"));
+  var prev = document.getElementById("prev");
+  var next = document.getElementById("next");
+  var dotsWrap = document.getElementById("dots");
+  var idx = 1;
+  cards.forEach(function (_, i) {
+    var b = document.createElement("button");
+    b.type = "button";
+    b.setAttribute("aria-label", (i + 1) + "번째 기사");
+    b.addEventListener("click", function () { go(i, true); });
+    dotsWrap.appendChild(b);
+  });
+  var dots = Array.prototype.slice.call(dotsWrap.children);
+  function cardCenterLeft(i) {
+    var c = cards[i];
+    return c.offsetLeft - (track.clientWidth - c.offsetWidth) / 2;
+  }
+  function go(i, smooth) {
+    idx = Math.max(0, Math.min(cards.length - 1, i));
+    track.scrollTo({ left: cardCenterLeft(idx), behavior: smooth ? "smooth" : "auto" });
+    paint();
+  }
+  function nearest() {
+    var mid = track.scrollLeft + track.clientWidth / 2;
+    var best = 0, bestD = 1e9;
+    cards.forEach(function (c, i) {
+      var cx = c.offsetLeft + c.offsetWidth / 2;
+      var d = Math.abs(cx - mid);
+      if (d < bestD) { bestD = d; best = i; }
+    });
+    return best;
+  }
+  function paint() {
+    cards.forEach(function (c, i) {
+      var on = i === idx;
+      c.classList.toggle("is-center", on);
+      c.classList.toggle("is-side", !on);
+    });
+    dots.forEach(function (d, i) { d.classList.toggle("on", i === idx); });
+    prev.disabled = idx === 0;
+    next.disabled = idx === cards.length - 1;
+  }
+  var ticking = false;
+  track.addEventListener("scroll", function () {
+    if (ticking) return;
+    ticking = true;
+    requestAnimationFrame(function () {
+      idx = nearest();
+      paint();
+      ticking = false;
+    });
+  }, { passive: true });
+  prev.addEventListener("click", function () { go(idx - 1, true); });
+  next.addEventListener("click", function () { go(idx + 1, true); });
+  window.addEventListener("resize", function () { go(idx, false); });
+  go(1, false);
+  requestAnimationFrame(function () { go(1, false); });
+})();
+</script>
+</body>
+</html>
