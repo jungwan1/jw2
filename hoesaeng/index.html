@@ -5,6 +5,9 @@
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>개인회생·파산 안내 | 법무법인 재유</title>
 <meta name="description" content="법무법인 재유. 매달 갚아도 줄지 않는 빚, 이제 정리할 방법을 확인하세요. 개인회생·파산.">
+<link rel="alternate" hreflang="ko" href="https://jungwan1.github.io/jw2/hoesaeng/">
+<link rel="alternate" hreflang="zh-Hans" href="https://jungwan1.github.io/jw2/hoesaeng/zh/">
+<link rel="alternate" hreflang="en" href="https://jungwan1.github.io/jw2/hoesaeng/en/">
 <meta name="theme-color" content="#101816">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css">
 <style>
@@ -270,6 +273,10 @@ footer strong{color:var(--ink);font-size:15px}
 .qcard .btn{width:100%;margin-top:12px}
 .qcard .ready{margin:8px 0 0;color:var(--pine);font-weight:700;min-height:1.4em}
 .dock{display:none}
+.head-right{display:flex;align-items:center;gap:8px;margin-left:auto}
+.langs{display:flex;gap:2px;align-items:center;flex:none}
+.langs a{color:var(--muted);text-decoration:none;font-size:13px;font-weight:800;padding:6px 8px;border-radius:999px;letter-spacing:0}
+.langs a[aria-current="page"]{color:#173f32;background:#ece7de}
 @media(max-width:800px){
   body{padding-bottom:84px}
   .wrap,.hero-in{width:min(1180px,calc(100% - 28px))}
@@ -332,6 +339,12 @@ footer strong{color:var(--ink);font-size:15px}
 <header>
   <div class="wrap head">
     <a class="brand" href="index.html">법무법인 재유<small>개인회생 · 파산</small></a>
+    <div class="head-right">
+    <nav class="langs" aria-label="언어">
+      <a href="index.html" hreflang="ko" lang="ko" aria-current="page">KO</a>
+      <a href="zh/index.html" hreflang="zh-Hans" lang="zh-Hans">中文</a>
+      <a href="en/index.html" hreflang="en" lang="en">EN</a>
+    </nav>
     <nav class="nav" aria-label="주요">
       <a class="link" href="#steps">절차</a>
       <a class="link" href="#thanks">감사 인사</a>
@@ -339,6 +352,7 @@ footer strong{color:var(--ink);font-size:15px}
       <button type="button" class="btn line js-consult">바로 상담하기</button>
       <a class="btn pine js-calc" href="calculator.html">30초 확인</a>
     </nav>
+    </div>
   </div>
 </header>
 
@@ -352,7 +366,7 @@ footer strong{color:var(--ink);font-size:15px}
           <div class="hero-shot"><img src="hero-office.jpg" alt="유성우 변호사"></div>
         </div>
         <div class="cta-row">
-          <a class="btn pine js-phone" href="tel:01095921038">전화 010-9592-1038</a>
+          <a class="btn pine js-phone" href="tel:01040175674">전화 010-4017-5674</a>
           <a class="btn line js-calc" href="calculator.html">30초 확인</a>
           <button type="button" class="btn line js-consult">바로 상담하기</button>
           <a class="btn line js-talktalk" href="" hidden>네이버 톡톡</a>
@@ -746,7 +760,7 @@ footer strong{color:var(--ink);font-size:15px}
 </main>
 
 <div class="dock" aria-label="빠른 이동">
-  <a class="btn line js-phone" href="tel:01095921038">전화 010-9592-1038</a>
+  <a class="btn line js-phone" href="tel:01040175674">전화 010-4017-5674</a>
   <button type="button" class="btn pine js-consult" id="dockSecond">상담 신청</button>
 </div>
 
@@ -809,6 +823,12 @@ function applyCalcLinks(){
   document.querySelectorAll('a.js-calc').forEach(function(a){ a.href = href; });
 }
 applyCalcLinks();
+document.querySelectorAll('nav.langs a').forEach(function(a){
+  if (!location.search) return;
+  var href = a.getAttribute('href');
+  if (!href || href.indexOf('?') !== -1) return;
+  a.setAttribute('href', href + location.search);
+});
 
 function getSource(){
   try{
