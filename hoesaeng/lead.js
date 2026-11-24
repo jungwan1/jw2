@@ -1,11 +1,12 @@
 /* Shared consultation submit for the zh/en pages.
-   Same Apps Script endpoint and the same keys as the Korean page.
+   The zh/en pages now post to a separate foreign-lead Google Sheet endpoint
+   (not the Korean page's), same keys.
    lang is sent as its own field and also prefixed onto source, so the
    existing source column still shows the language if unknown keys are dropped.
    utm_source / utm_campaign stay inside source, unchanged. */
 (function(){
   var COPY = window.LEAD_COPY || {};
-  var FORM_ENDPOINT = "https://script.google.com/macros/s/AKfycbwgSmFGlhFv6b-IS35KkaPaaL9dM7evxYj1h8A-EajrN6tUiyaq1-Zmmjty6qY1PcAB/exec";
+  var FORM_ENDPOINT = "https://script.google.com/macros/s/AKfycbya_WQJEgzqtYR3kv0ZFeefFNeSIBuK4-Un7j2NTug5Ji68AFhaqZP_WIY5Ft0tbZnTjw/exec";
   var TALKTALK_URL = "";
   var NAVER_WCS_KEY = "";
 
