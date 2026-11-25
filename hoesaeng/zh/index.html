@@ -12,6 +12,23 @@
 <meta name="theme-color" content="#101816">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css">
 <link rel="stylesheet" href="../page.css?v=1">
+<style>
+/* mobile: put the call-back form on the first screen (TikTok in-app traffic) */
+.qcard .chk input{width:22px;height:22px;flex:0 0 22px;padding:0}
+.qcard .chk label{flex:1}
+.hero-hook{margin:0 0 4px;font-size:17px;line-height:1.5;font-weight:700;color:#173f32}
+@media (max-width:800px){
+  .hero-shot{display:none}
+  .hero .cta-row{display:none}
+  .hero-lead{margin:0 0 8px}
+  .hero .kicker{display:none}
+  .hero h1{font-size:clamp(20px,6vw,26px)}
+  .hero-hook{font-size:15px}
+  .hero-note{margin-top:8px;font-size:12px}
+  #quick-top{padding-top:14px}
+  #quick-top .sec-k{display:none}
+}
+</style>
 </head>
 <body>
 <a class="skip" href="#main">跳到正文</a>
@@ -43,6 +60,7 @@
           <h1><span>韩国法院的</span><span>个人回生与破产，</span><span>可以用中文</span><span>先做一次咨询。</span></h1>
           <div class="hero-shot"><img src="../hero-office.jpg" alt="律师 Yu Seong-woo"></div>
         </div>
+        <p class="hero-hook">在韩国欠款还不上？在下方留下姓名和电话，我们用中文给您回电。</p>
         <p class="hero-note">面向居住在韩国的外国人。本页只提供一般说明，不对具体案件作出判断。</p>
         <div class="cta-row">
           <a class="btn pine js-phone" href="tel:01040175674">电话 010-4017-5674</a>
@@ -56,12 +74,12 @@
   <section class="quick" id="quick-top" aria-labelledby="qtop">
     <div class="wrap">
       <p class="sec-k">咨询</p>
-      <h2 id="qtop">留下姓名和号码即可</h2>
+      <h2 id="qtop">留下电话，用中文给您回电</h2>
       <form class="quick-form qcard" data-place="hero" novalidate>
         <input type="hidden" name="lang" value="zh">
         <label for="qt-name">姓名</label>
         <input id="qt-name" name="name" type="text" autocomplete="name" maxlength="40">
-        <label for="qt-phone">韩国手机号</label>
+        <label for="qt-phone">电话号码</label>
         <input id="qt-phone" name="phone" type="tel" inputmode="tel" autocomplete="tel" placeholder="010-0000-0000" maxlength="20">
         <div class="chk"><input id="qt-agree" type="checkbox"><label for="qt-agree" style="margin:0;font-weight:500">［必填］同意收集并使用个人信息。</label></div>
         <details>
@@ -70,7 +88,7 @@
         </details>
         <p class="err" role="alert"></p>
         <p class="ready" role="status"></p>
-        <button type="submit" class="btn pine">发送咨询请求</button>
+        <button type="submit" class="btn pine">请给我回电</button>
         <p class="lang-flag">此申请会标明语言：中文（zh）。</p>
       </form>
     </div>
@@ -100,7 +118,7 @@
             <li>管辖法院多与登记住址有关</li>
             <li>本页的咨询可以使用中文</li>
           </ul>
-          <p class="example-note">我们只先问姓名和韩国手机号。这通电话不决定案件，本页也不计算偿还金额。</p>
+          <p class="example-note">我们只先问姓名和电话号码。这通电话不决定案件，本页也不计算偿还金额。</p>
           <div class="cta-row">
             <a class="btn pine js-phone" href="tel:01040175674">电话 010-4017-5674</a>
             <button type="button" class="btn line js-consult">预约咨询</button>
@@ -231,7 +249,7 @@
         <input type="hidden" name="lang" value="zh">
         <label for="qm-name">姓名</label>
         <input id="qm-name" name="name" type="text" autocomplete="name" maxlength="40">
-        <label for="qm-phone">韩国手机号</label>
+        <label for="qm-phone">电话号码</label>
         <input id="qm-phone" name="phone" type="tel" inputmode="tel" autocomplete="tel" placeholder="010-0000-0000" maxlength="20">
         <div class="chk"><input id="qm-agree" type="checkbox"><label for="qm-agree" style="margin:0;font-weight:500">［必填］同意收集并使用个人信息。</label></div>
         <details>
@@ -240,7 +258,7 @@
         </details>
         <p class="err" role="alert"></p>
         <p class="ready" role="status"></p>
-        <button type="submit" class="btn pine">发送咨询请求</button>
+        <button type="submit" class="btn pine">请给我回电</button>
         <p class="lang-flag">此申请会标明语言：中文（zh）。</p>
       </form>
     </section>
@@ -317,7 +335,7 @@
           <div class="cta-row" style="margin-top:18px"><a class="btn pine js-phone" href="tel:01040175674">电话 010-4017-5674</a></div>
         </article>
         <article>
-          <h3>发送咨询请求</h3>
+          <h3>请给我回电</h3>
           <p>表格只收姓名和电话。发送之后，并没有因此向法院立案，这个页面也不会显示案号。</p>
           <div class="cta-row" style="margin-top:18px"><button type="button" class="btn line js-consult">预约咨询</button></div>
         </article>
@@ -345,7 +363,7 @@
         <details data-cat="docs"><summary>不住在首尔，也可以留下咨询吗？</summary><p>受理的法院是对登记住址有管辖权的那一家。咨询本身可以在任何城市留下。事务所在首尔瑞草，只有这一处。</p></details>
         <details data-cat="cost"><summary>费用怎样计算？</summary><p>律师委托费因案件而异，所以这里不列金额。法院印纸费和送达费另计，随程序和债权人人数变化。本页不承诺分期，也不承诺退还。</p></details>
         <details data-cat="foreign"><summary>住在韩国的外国人可以向韩国法院申请吗？</summary><p>《债务人回生及破产法》第2条规定，外国人就该法与韩国人具有相同地位。居住在韩国的外国人可以提出申请。案件能否继续，由法院审查收入、财产、债务和管辖后决定。</p></details>
-        <details data-cat="foreign"><summary>咨询可以用中文吗？</summary><p>可以。本页的咨询使用中文。留下姓名和韩国手机号，或致电 010-4017-5674。</p></details>
+        <details data-cat="foreign"><summary>咨询可以用中文吗？</summary><p>可以。本页的咨询使用中文。留下姓名和电话号码，或致电 010-4017-5674。</p></details>
         <details data-cat="recovery"><summary>这个页面会算出每月要还多少吗？</summary><p>不会。本页不给出金额，也不判断余额是否会被免责。</p></details>
       </div>
     </section>
@@ -400,7 +418,7 @@
         <input type="hidden" name="lang" value="zh">
         <label for="qb-name">姓名</label>
         <input id="qb-name" name="name" type="text" autocomplete="name" maxlength="40">
-        <label for="qb-phone">韩国手机号</label>
+        <label for="qb-phone">电话号码</label>
         <input id="qb-phone" name="phone" type="tel" inputmode="tel" autocomplete="tel" placeholder="010-0000-0000" maxlength="20">
         <div class="chk"><input id="qb-agree" type="checkbox"><label for="qb-agree" style="margin:0;font-weight:500">［必填］同意收集并使用个人信息。</label></div>
         <details>
@@ -409,7 +427,7 @@
         </details>
         <p class="err" role="alert"></p>
         <p class="ready" role="status"></p>
-        <button type="submit" class="btn pine">发送咨询请求</button>
+        <button type="submit" class="btn pine">请给我回电</button>
         <p class="lang-flag">此申请会标明语言：中文（zh）。</p>
       </form>
     </section>
@@ -451,7 +469,7 @@
       <input type="hidden" name="lang" value="zh">
       <label for="qName">姓名</label>
       <input id="qName" name="name" type="text" autocomplete="name" maxlength="40">
-      <label for="qPhone">韩国手机号</label>
+      <label for="qPhone">电话号码</label>
       <input id="qPhone" name="phone" type="tel" inputmode="tel" autocomplete="tel" placeholder="010-0000-0000">
       <div class="chk">
         <input id="qAgree" type="checkbox">
@@ -463,7 +481,7 @@
       </details>
       <p class="lang-flag">此申请会标明语言：中文（zh）。</p>
       <p class="err" id="consultErr" role="alert" aria-live="assertive"></p>
-      <button type="submit" class="btn pine" id="consultSend">发送咨询请求</button>
+      <button type="submit" class="btn pine" id="consultSend">请给我回电</button>
     </form>
     <div class="ok" id="consultOk" hidden tabindex="-1">
       <p>咨询请求已发送。事务所工作人员会拨打您留下的号码，通话可以使用中文。</p>
@@ -476,11 +494,11 @@ window.LEAD_COPY = {
   lang: 'zh',
   directVisit: '直接访问',
   errName: '请填写姓名。',
-  errPhone: '请填写正确的韩国手机号，例如 010-1234-5678。',
+  errPhone: '请填写可以联系到您的电话号码，例如 010-1234-5678。',
   errAgree: '需要同意收集并使用个人信息。',
   errFail: '未能发送。请稍后再试。',
   sending: '正在发送',
-  send: '发送咨询请求',
+  send: '请给我回电',
   retry: '再次发送',
   sentForm: '请求已提交。我们核对后会与您联系。',
   sentTitle: '咨询请求已发送。',
@@ -491,6 +509,6 @@ window.LEAD_COPY = {
   moreLong: '展开更多问题'
 };
 </script>
-<script src="../lead.js?v=2"></script>
+<script src="../lead.js?v=3"></script>
 </body>
 </html>

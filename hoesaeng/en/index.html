@@ -12,6 +12,23 @@
 <meta name="theme-color" content="#101816">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css">
 <link rel="stylesheet" href="../page.css?v=1">
+<style>
+/* mobile: put the call-back form on the first screen (TikTok in-app traffic) */
+.qcard .chk input{width:22px;height:22px;flex:0 0 22px;padding:0}
+.qcard .chk label{flex:1}
+.hero-hook{margin:0 0 4px;font-size:17px;line-height:1.5;font-weight:700;color:#173f32}
+@media (max-width:800px){
+  .hero-shot{display:none}
+  .hero .cta-row{display:none}
+  .hero-lead{margin:0 0 8px}
+  .hero .kicker{display:none}
+  .hero h1{font-size:clamp(20px,6vw,26px)}
+  .hero-hook{font-size:15px}
+  .hero-note{margin-top:8px;font-size:12px}
+  #quick-top{padding-top:14px}
+  #quick-top .sec-k{display:none}
+}
+</style>
 </head>
 <body>
 <a class="skip" href="#main">Skip to content</a>
@@ -43,6 +60,7 @@
           <h1><span>Personal rehabilitation</span><span>and bankruptcy</span><span>in a Korean court,</span><span>explained in English.</span></h1>
           <div class="hero-shot"><img src="../hero-office.jpg" alt="Attorney Yu Seong-woo"></div>
         </div>
+        <p class="hero-hook">Behind on loans or card debt in Korea? Leave your name and number below. We call you back in English.</p>
         <p class="hero-note">For foreign residents in Korea. This page is general information. It does not decide any case.</p>
         <div class="cta-row">
           <a class="btn pine js-phone" href="tel:01040175674">Call 010-4017-5674</a>
@@ -56,12 +74,12 @@
   <section class="quick" id="quick-top" aria-labelledby="qtop">
     <div class="wrap">
       <p class="sec-k">CONSULTATION</p>
-      <h2 id="qtop">Leave a name and a number</h2>
+      <h2 id="qtop">Get a call back in English</h2>
       <form class="quick-form qcard" data-place="hero" novalidate>
         <input type="hidden" name="lang" value="en">
         <label for="qt-name">Name</label>
         <input id="qt-name" name="name" type="text" autocomplete="name" maxlength="40">
-        <label for="qt-phone">Korean mobile number</label>
+        <label for="qt-phone">Phone number</label>
         <input id="qt-phone" name="phone" type="tel" inputmode="tel" autocomplete="tel" placeholder="010-0000-0000" maxlength="20">
         <div class="chk"><input id="qt-agree" type="checkbox"><label for="qt-agree" style="margin:0;font-weight:500">[Required] I agree to the collection and use of my personal information.</label></div>
         <details>
@@ -70,7 +88,7 @@
         </details>
         <p class="err" role="alert"></p>
         <p class="ready" role="status"></p>
-        <button type="submit" class="btn pine">Send request</button>
+        <button type="submit" class="btn pine">Request a call back</button>
         <p class="lang-flag">This request is marked as English (en).</p>
       </form>
     </div>
@@ -100,7 +118,7 @@
             <li>Which court has jurisdiction, usually by registered address</li>
             <li>That the conversation on this page can be held in English</li>
           </ul>
-          <p class="example-note">We ask for a name and a Korean mobile number. The call does not decide a case, and this page does not calculate a payment figure.</p>
+          <p class="example-note">We ask for a name and a phone number. The call does not decide a case, and this page does not calculate a payment figure.</p>
           <div class="cta-row">
             <a class="btn pine js-phone" href="tel:01040175674">Call 010-4017-5674</a>
             <button type="button" class="btn line js-consult">Request a consultation</button>
@@ -231,7 +249,7 @@
         <input type="hidden" name="lang" value="en">
         <label for="qm-name">Name</label>
         <input id="qm-name" name="name" type="text" autocomplete="name" maxlength="40">
-        <label for="qm-phone">Korean mobile number</label>
+        <label for="qm-phone">Phone number</label>
         <input id="qm-phone" name="phone" type="tel" inputmode="tel" autocomplete="tel" placeholder="010-0000-0000" maxlength="20">
         <div class="chk"><input id="qm-agree" type="checkbox"><label for="qm-agree" style="margin:0;font-weight:500">[Required] I agree to the collection and use of my personal information.</label></div>
         <details>
@@ -240,7 +258,7 @@
         </details>
         <p class="err" role="alert"></p>
         <p class="ready" role="status"></p>
-        <button type="submit" class="btn pine">Send request</button>
+        <button type="submit" class="btn pine">Request a call back</button>
         <p class="lang-flag">This request is marked as English (en).</p>
       </form>
     </section>
@@ -345,7 +363,7 @@
         <details data-cat="docs"><summary>Can I request a consultation if I live outside Seoul?</summary><p>The court is the one with jurisdiction over the registered address. A consultation request can be left from anywhere. The office is in Seocho, Seoul.</p></details>
         <details data-cat="cost"><summary>What do the fees look like?</summary><p>Attorney fees differ by case, so no amount is listed here. Court stamp duty and service fees are paid separately and depend on the procedure and the number of creditors. This page does not promise payment in installments, or a refund.</p></details>
         <details data-cat="foreign"><summary>Can a foreign resident apply in a Korean court?</summary><p>Article 2 of the Debtor Rehabilitation and Bankruptcy Act gives a foreign national the same status as a Korean national under that Act. A foreigner residing in Korea may apply. Whether a case proceeds depends on the court’s review of income, assets, debts, and jurisdiction.</p></details>
-        <details data-cat="foreign"><summary>Can the consultation be in English?</summary><p>Yes. On this page, the consultation is available in English. Leave a name and a Korean mobile number, or call 010-4017-5674.</p></details>
+        <details data-cat="foreign"><summary>Can the consultation be in English?</summary><p>Yes. On this page, the consultation is available in English. Leave a name and a phone number, or call 010-4017-5674.</p></details>
         <details data-cat="recovery"><summary>Does this page calculate a payment?</summary><p>No. It does not produce a figure, and it does not decide whether any balance would be discharged.</p></details>
       </div>
     </section>
@@ -400,7 +418,7 @@
         <input type="hidden" name="lang" value="en">
         <label for="qb-name">Name</label>
         <input id="qb-name" name="name" type="text" autocomplete="name" maxlength="40">
-        <label for="qb-phone">Korean mobile number</label>
+        <label for="qb-phone">Phone number</label>
         <input id="qb-phone" name="phone" type="tel" inputmode="tel" autocomplete="tel" placeholder="010-0000-0000" maxlength="20">
         <div class="chk"><input id="qb-agree" type="checkbox"><label for="qb-agree" style="margin:0;font-weight:500">[Required] I agree to the collection and use of my personal information.</label></div>
         <details>
@@ -409,7 +427,7 @@
         </details>
         <p class="err" role="alert"></p>
         <p class="ready" role="status"></p>
-        <button type="submit" class="btn pine">Send request</button>
+        <button type="submit" class="btn pine">Request a call back</button>
         <p class="lang-flag">This request is marked as English (en).</p>
       </form>
     </section>
@@ -451,7 +469,7 @@
       <input type="hidden" name="lang" value="en">
       <label for="qName">Name</label>
       <input id="qName" name="name" type="text" autocomplete="name" maxlength="40">
-      <label for="qPhone">Korean mobile number</label>
+      <label for="qPhone">Phone number</label>
       <input id="qPhone" name="phone" type="tel" inputmode="tel" autocomplete="tel" placeholder="010-0000-0000">
       <div class="chk">
         <input id="qAgree" type="checkbox">
@@ -463,7 +481,7 @@
       </details>
       <p class="lang-flag">This request is marked as English (en).</p>
       <p class="err" id="consultErr" role="alert" aria-live="assertive"></p>
-      <button type="submit" class="btn pine" id="consultSend">Send request</button>
+      <button type="submit" class="btn pine" id="consultSend">Request a call back</button>
     </form>
     <div class="ok" id="consultOk" hidden tabindex="-1">
       <p>Your request has been sent. Someone from the firm will contact you at the number you left. The call can be in English.</p>
@@ -476,11 +494,11 @@ window.LEAD_COPY = {
   lang: 'en',
   directVisit: 'direct',
   errName: 'Please enter your name.',
-  errPhone: 'Please enter a Korean mobile number, for example 010-1234-5678.',
+  errPhone: 'Please enter a phone number we can call, for example 010-1234-5678.',
   errAgree: 'Please agree to the collection and use of personal information.',
   errFail: 'We could not send the request. Please try again shortly.',
   sending: 'Sending',
-  send: 'Send request',
+  send: 'Request a call back',
   retry: 'Send again',
   sentForm: 'We have passed your request on and will contact you after it is reviewed.',
   sentTitle: 'Your request has been sent.',
@@ -491,6 +509,6 @@ window.LEAD_COPY = {
   moreLong: 'Show more questions'
 };
 </script>
-<script src="../lead.js?v=2"></script>
+<script src="../lead.js?v=3"></script>
 </body>
 </html>

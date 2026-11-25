@@ -57,6 +57,12 @@
     return String(raw == null ? '' : raw).trim();
   }
 
+  /* Foreign residents: accept any callable number (Korean 010, landline, or +country code), 9-15 digits. */
+  function validPhone(raw){
+    var d = String(raw == null ? '' : raw).replace(/\D/g, '');
+    return d.length >= 9 && d.length <= 15;
+  }
+
   function quickPayload(form, name, phone, place){
     return {
       name: name,
@@ -154,7 +160,7 @@
     var phone = phoneString(document.getElementById('qPhone').value);
     err.textContent = '';
     if (!name){ err.textContent = COPY.errName; document.getElementById('qName').focus(); return; }
-    if (!/^01[016789]-?\d{3,4}-?\d{4}$/.test(phone.replace(/\s/g,''))){ err.textContent = COPY.errPhone; document.getElementById('qPhone').focus(); return; }
+    if (!validPhone(phone)){ err.textContent = COPY.errPhone; document.getElementById('qPhone').focus(); return; }
     if (!document.getElementById('qAgree').checked){ err.textContent = COPY.errAgree; document.getElementById('qAgree').focus(); return; }
     trackNaver('submit');
     if (!FORM_ENDPOINT){ err.textContent = COPY.errFail; return; }
@@ -191,7 +197,7 @@
       qerr.textContent = '';
       ready.textContent = '';
       if (!name){ qerr.textContent = COPY.errName; nameEl.focus(); return; }
-      if (!/^01[016789]-?\d{3,4}-?\d{4}$/.test(String(phoneEl.value).replace(/\s/g,''))){ qerr.textContent = COPY.errPhone; phoneEl.focus(); return; }
+      if (!validPhone(phoneEl.value)){ qerr.textContent = COPY.errPhone; phoneEl.focus(); return; }
       if (!agreeEl.checked){ qerr.textContent = COPY.errAgree; agreeEl.focus(); return; }
       trackNaver('submit');
       var place = qform.getAttribute('data-place') || 'form';
