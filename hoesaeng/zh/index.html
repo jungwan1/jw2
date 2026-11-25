@@ -17,18 +17,46 @@
 .qcard .chk input{width:22px;height:22px;flex:0 0 22px;padding:0}
 .qcard .chk label{flex:1}
 .hero-hook{margin:0 0 4px;font-size:17px;line-height:1.5;font-weight:700;color:#173f32}
+.btn.kakao{background:#FEE500;color:#191919;border-color:#E6CF00}
+.kakao-note{margin:8px 0 0;font-size:13px;line-height:1.45;font-weight:700;color:#173f32}
 @media (max-width:800px){
   .hero-shot{display:none}
   .hero .cta-row{display:none}
   .hero-lead{margin:0 0 8px}
   .hero .kicker{display:none}
-  .hero h1{font-size:clamp(20px,6vw,26px)}
-  .hero-hook{font-size:15px}
-  .hero-note{margin-top:8px;font-size:12px}
-  #quick-top{padding-top:14px}
+  .hero-copy{padding:10px 12px 8px}
+  .hero h1,
+  html[lang="en"] .hero h1,
+  html[lang|="zh"] .hero h1{margin:0 0 6px;font-size:clamp(18px,5.2vw,22px);line-height:1.2}
+  .hero-hook{font-size:14px;line-height:1.35}
+  .hero-note{margin-top:4px;font-size:11px;line-height:1.35}
+  #quick-top{padding-top:4px}
   #quick-top .sec-k{display:none}
+  #quick-top h2{font-size:22px;margin:0 0 8px}
+  #quick-top .qcard{padding:12px 12px 10px}
+  #quick-top .qcard label{margin:6px 0 4px}
+  #quick-top .qcard input{padding:10px}
+  #quick-top .js-kakao{min-height:44px;margin-top:8px;font-size:14px;padding:8px 12px}
+  body{padding-bottom:128px}
+  .dock{padding:8px 12px calc(8px + env(safe-area-inset-bottom));gap:6px}
+  .dock .btn{min-height:44px}
+  .dock .js-kakao{grid-column:1 / -1;white-space:normal;font-size:13px;line-height:1.25;min-height:36px;padding:6px 10px}
+  .dock .kakao-note{grid-column:1 / -1;margin:0;font-size:12px}
 }
 </style>
+<!-- TikTok Pixel Code Start -->
+<script>
+!function (w, d, t) {
+  w.TiktokAnalyticsObject=t;var ttq=w[t]=w[t]||[];ttq.methods=["page","track","identify","instances","debug","on","off","once","ready","alias","group","enableCookie","disableCookie","holdConsent","revokeConsent","grantConsent"],ttq.setAndDefer=function(t,e){t[e]=function(){t.push([e].concat(Array.prototype.slice.call(arguments,0)))}};for(var i=0;i<ttq.methods.length;i++)ttq.setAndDefer(ttq,ttq.methods[i]);ttq.instance=function(t){for(
+var e=ttq._i[t]||[],n=0;n<ttq.methods.length;n++)ttq.setAndDefer(e,ttq.methods[n]);return e},ttq.load=function(e,n){var r="https://analytics.tiktok.com/i18n/pixel/events.js",o=n&&n.partner;ttq._i=ttq._i||{},ttq._i[e]=[],ttq._i[e]._u=r,ttq._t=ttq._t||{},ttq._t[e]=+new Date,ttq._o=ttq._o||{},ttq._o[e]=n||{};n=document.createElement("script")
+;n.type="text/javascript",n.async=!0,n.src=r+"?sdkid="+e+"&lib="+t;e=document.getElementsByTagName("script")[0];e.parentNode.insertBefore(n,e)};
+
+
+  ttq.load('DC3942BC77UFT0UGGH00');
+  ttq.page();
+}(window, document, 'ttq');
+</script>
+<!-- TikTok Pixel Code End -->
 </head>
 <body>
 <a class="skip" href="#main">跳到正文</a>
@@ -89,6 +117,8 @@
         <p class="err" role="alert"></p>
         <p class="ready" role="status"></p>
         <button type="submit" class="btn pine">请给我回电</button>
+        <button type="button" class="btn kakao js-kakao">用KakaoTalk咨询 (ID: jaeyulegal)</button>
+        <p class="kakao-note" role="status" hidden></p>
         <p class="lang-flag">此申请会标明语言：中文（zh）。</p>
       </form>
     </div>
@@ -259,6 +289,8 @@
         <p class="err" role="alert"></p>
         <p class="ready" role="status"></p>
         <button type="submit" class="btn pine">请给我回电</button>
+        <button type="button" class="btn kakao js-kakao">用KakaoTalk咨询 (ID: jaeyulegal)</button>
+        <p class="kakao-note" role="status" hidden></p>
         <p class="lang-flag">此申请会标明语言：中文（zh）。</p>
       </form>
     </section>
@@ -428,6 +460,8 @@
         <p class="err" role="alert"></p>
         <p class="ready" role="status"></p>
         <button type="submit" class="btn pine">请给我回电</button>
+        <button type="button" class="btn kakao js-kakao">用KakaoTalk咨询 (ID: jaeyulegal)</button>
+        <p class="kakao-note" role="status" hidden></p>
         <p class="lang-flag">此申请会标明语言：中文（zh）。</p>
       </form>
     </section>
@@ -447,6 +481,8 @@
 <div class="dock" aria-label="快捷操作">
   <a class="btn line js-phone" href="tel:01040175674">电话 010-4017-5674</a>
   <button type="button" class="btn pine js-consult" id="dockSecond">申请咨询</button>
+  <button type="button" class="btn kakao js-kakao">用KakaoTalk咨询 (ID: jaeyulegal)</button>
+  <p class="kakao-note" role="status" hidden></p>
 </div>
 
 <div class="modal" id="storyModal" hidden>
@@ -482,6 +518,8 @@
       <p class="lang-flag">此申请会标明语言：中文（zh）。</p>
       <p class="err" id="consultErr" role="alert" aria-live="assertive"></p>
       <button type="submit" class="btn pine" id="consultSend">请给我回电</button>
+      <button type="button" class="btn kakao js-kakao">用KakaoTalk咨询 (ID: jaeyulegal)</button>
+      <p class="kakao-note" role="status" hidden></p>
     </form>
     <div class="ok" id="consultOk" hidden tabindex="-1">
       <p>咨询请求已发送。事务所工作人员会拨打您留下的号码，通话可以使用中文。</p>
@@ -506,9 +544,11 @@ window.LEAD_COPY = {
   modalPlace: 'modal',
   fold: '收起',
   moreShort: '展开',
-  moreLong: '展开更多问题'
+  moreLong: '展开更多问题',
+  kakaoSearch: '请在 KakaoTalk 中搜索。',
+  kakaoCopied: '已复制。'
 };
 </script>
-<script src="../lead.js?v=3"></script>
+<script src="../lead.js?v=4"></script>
 </body>
 </html>

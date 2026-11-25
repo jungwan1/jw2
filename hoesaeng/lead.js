@@ -97,8 +97,25 @@
     fetch(FORM_ENDPOINT, {method:'POST', mode:'no-cors', keepalive:true, headers:{'Content-Type':'text/plain;charset=utf-8'}, body:body}).then(function(){ done(true); }).catch(function(){ done(false); });
   }
 
+  function trackTikTokClick(){
+    try { if (window.ttq) ttq.track('ClickButton'); } catch (e) {}
+  }
+
+  function trackTikTokLead(form){
+    try {
+      if (window.ttq) {
+        var lang = pageLang(form);
+        ttq.track('SubmitForm', {content_name: 'hoesaeng_' + lang});
+        ttq.track('Contact');
+      }
+    } catch (e) {}
+  }
+
   document.querySelectorAll('.js-phone').forEach(function(el){
-    el.addEventListener('click', function(){ trackNaver('phone'); });
+    el.addEventListener('click', function(){
+      trackNaver('phone');
+      trackTikTokClick();
+    });
   });
   document.querySelectorAll('.js-talktalk').forEach(function(el){
     if (!TALKTALK_URL) { el.hidden = true; return; }
@@ -181,6 +198,7 @@
       form.hidden = true;
       ok.hidden = false;
       ok.focus();
+      trackTikTokLead(form);
     });
   });
 
@@ -211,6 +229,7 @@
         qbtn.textContent = COPY.send;
         if (!okSend){ qerr.textContent = COPY.errFail; return; }
         ready.textContent = COPY.sentForm;
+        trackTikTokLead(qform);
       });
     });
   });
@@ -349,6 +368,50 @@
     else if (narrow.addListener) narrow.addListener(paint);
     paint();
   })();
+
+  var KAKAO_ID = 'jaeyulegal';
+  var KAKAO_LINE = 'KakaoTalk ID: ' + KAKAO_ID;
+
+  function copyText(text){
+    if (navigator.clipboard && navigator.clipboard.writeText) return navigator.clipboard.writeText(text);
+    return new Promise(function(resolve, reject){
+      var ta = document.createElement('textarea');
+      ta.value = text;
+      ta.setAttribute('readonly', '');
+      ta.style.position = 'fixed';
+      ta.style.top = '0';
+      ta.style.left = '0';
+      ta.style.opacity = '0';
+      document.body.appendChild(ta);
+      ta.focus();
+      ta.select();
+      try {
+        var ok = document.execCommand('copy');
+        document.body.removeChild(ta);
+        if (ok) resolve();
+        else reject(new Error('copy'));
+      } catch (err) {
+        document.body.removeChild(ta);
+        reject(err);
+      }
+    });
+  }
+
+  document.querySelectorAll('.js-kakao').forEach(function(btn){
+    btn.addEventListener('click', function(){
+      trackTikTokClick();
+      var note = btn.nextElementSibling;
+      if (!note || !note.classList.contains('kakao-note')) note = null;
+      function show(copied){
+        if (!note) return;
+        var hint = COPY.kakaoSearch || 'Search in KakaoTalk.';
+        var done = copied ? (' ' + (COPY.kakaoCopied || 'Copied.')) : '';
+        note.hidden = false;
+        note.textContent = KAKAO_LINE + '. ' + hint + done;
+      }
+      copyText(KAKAO_LINE).then(function(){ show(true); }, function(){ show(false); });
+    });
+  });
 
   document.querySelectorAll('.tabs button').forEach(function(btn){
     btn.addEventListener('click', function(){
