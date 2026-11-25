@@ -369,50 +369,6 @@
     paint();
   })();
 
-  var KAKAO_ID = 'jaeyulegal';
-  var KAKAO_LINE = 'KakaoTalk ID: ' + KAKAO_ID;
-
-  function copyText(text){
-    if (navigator.clipboard && navigator.clipboard.writeText) return navigator.clipboard.writeText(text);
-    return new Promise(function(resolve, reject){
-      var ta = document.createElement('textarea');
-      ta.value = text;
-      ta.setAttribute('readonly', '');
-      ta.style.position = 'fixed';
-      ta.style.top = '0';
-      ta.style.left = '0';
-      ta.style.opacity = '0';
-      document.body.appendChild(ta);
-      ta.focus();
-      ta.select();
-      try {
-        var ok = document.execCommand('copy');
-        document.body.removeChild(ta);
-        if (ok) resolve();
-        else reject(new Error('copy'));
-      } catch (err) {
-        document.body.removeChild(ta);
-        reject(err);
-      }
-    });
-  }
-
-  document.querySelectorAll('.js-kakao').forEach(function(btn){
-    btn.addEventListener('click', function(){
-      trackTikTokClick();
-      var note = btn.nextElementSibling;
-      if (!note || !note.classList.contains('kakao-note')) note = null;
-      function show(copied){
-        if (!note) return;
-        var hint = COPY.kakaoSearch || 'Search in KakaoTalk.';
-        var done = copied ? (' ' + (COPY.kakaoCopied || 'Copied.')) : '';
-        note.hidden = false;
-        note.textContent = KAKAO_LINE + '. ' + hint + done;
-      }
-      copyText(KAKAO_LINE).then(function(){ show(true); }, function(){ show(false); });
-    });
-  });
-
   document.querySelectorAll('.tabs button').forEach(function(btn){
     btn.addEventListener('click', function(){
       document.querySelectorAll('.tabs button').forEach(function(b){ b.setAttribute('aria-pressed','false'); });

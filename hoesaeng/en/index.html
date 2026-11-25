@@ -17,8 +17,6 @@
 .qcard .chk input{width:22px;height:22px;flex:0 0 22px;padding:0}
 .qcard .chk label{flex:1}
 .hero-hook{margin:0 0 4px;font-size:17px;line-height:1.5;font-weight:700;color:#173f32}
-.btn.kakao{background:#FEE500;color:#191919;border-color:#E6CF00}
-.kakao-note{margin:8px 0 0;font-size:13px;line-height:1.45;font-weight:700;color:#173f32}
 @media (max-width:800px){
   .hero-shot{display:none}
   .hero .cta-row{display:none}
@@ -36,12 +34,6 @@
   #quick-top .qcard{padding:12px 12px 10px}
   #quick-top .qcard label{margin:6px 0 4px}
   #quick-top .qcard input{padding:10px}
-  #quick-top .js-kakao{min-height:44px;margin-top:8px;font-size:14px;padding:8px 12px}
-  body{padding-bottom:128px}
-  .dock{padding:8px 12px calc(8px + env(safe-area-inset-bottom));gap:6px}
-  .dock .btn{min-height:44px}
-  .dock .js-kakao{grid-column:1 / -1;white-space:normal;font-size:13px;line-height:1.25;min-height:36px;padding:6px 10px}
-  .dock .kakao-note{grid-column:1 / -1;margin:0;font-size:12px}
 }
 </style>
 <!-- TikTok Pixel Code Start -->
@@ -117,8 +109,6 @@ var e=ttq._i[t]||[],n=0;n<ttq.methods.length;n++)ttq.setAndDefer(e,ttq.methods[n
         <p class="err" role="alert"></p>
         <p class="ready" role="status"></p>
         <button type="submit" class="btn pine">Request a call back</button>
-        <button type="button" class="btn kakao js-kakao">Chat on KakaoTalk (ID: jaeyulegal)</button>
-        <p class="kakao-note" role="status" hidden></p>
         <p class="lang-flag">This request is marked as English (en).</p>
       </form>
     </div>
@@ -289,8 +279,6 @@ var e=ttq._i[t]||[],n=0;n<ttq.methods.length;n++)ttq.setAndDefer(e,ttq.methods[n
         <p class="err" role="alert"></p>
         <p class="ready" role="status"></p>
         <button type="submit" class="btn pine">Request a call back</button>
-        <button type="button" class="btn kakao js-kakao">Chat on KakaoTalk (ID: jaeyulegal)</button>
-        <p class="kakao-note" role="status" hidden></p>
         <p class="lang-flag">This request is marked as English (en).</p>
       </form>
     </section>
@@ -460,8 +448,6 @@ var e=ttq._i[t]||[],n=0;n<ttq.methods.length;n++)ttq.setAndDefer(e,ttq.methods[n
         <p class="err" role="alert"></p>
         <p class="ready" role="status"></p>
         <button type="submit" class="btn pine">Request a call back</button>
-        <button type="button" class="btn kakao js-kakao">Chat on KakaoTalk (ID: jaeyulegal)</button>
-        <p class="kakao-note" role="status" hidden></p>
         <p class="lang-flag">This request is marked as English (en).</p>
       </form>
     </section>
@@ -481,8 +467,6 @@ var e=ttq._i[t]||[],n=0;n<ttq.methods.length;n++)ttq.setAndDefer(e,ttq.methods[n
 <div class="dock" aria-label="Quick actions">
   <a class="btn line js-phone" href="tel:01040175674">Call 010-4017-5674</a>
   <button type="button" class="btn pine js-consult" id="dockSecond">Request a call</button>
-  <button type="button" class="btn kakao js-kakao">Chat on KakaoTalk (ID: jaeyulegal)</button>
-  <p class="kakao-note" role="status" hidden></p>
 </div>
 
 <div class="modal" id="storyModal" hidden>
@@ -518,8 +502,6 @@ var e=ttq._i[t]||[],n=0;n<ttq.methods.length;n++)ttq.setAndDefer(e,ttq.methods[n
       <p class="lang-flag">This request is marked as English (en).</p>
       <p class="err" id="consultErr" role="alert" aria-live="assertive"></p>
       <button type="submit" class="btn pine" id="consultSend">Request a call back</button>
-      <button type="button" class="btn kakao js-kakao">Chat on KakaoTalk (ID: jaeyulegal)</button>
-      <p class="kakao-note" role="status" hidden></p>
     </form>
     <div class="ok" id="consultOk" hidden tabindex="-1">
       <p>Your request has been sent. Someone from the firm will contact you at the number you left. The call can be in English.</p>
@@ -544,11 +526,9 @@ window.LEAD_COPY = {
   modalPlace: 'modal',
   fold: 'Show less',
   moreShort: 'Show more',
-  moreLong: 'Show more questions',
-  kakaoSearch: 'Search in KakaoTalk.',
-  kakaoCopied: 'Copied.'
+  moreLong: 'Show more questions'
 };
 </script>
-<script src="../lead.js?v=4"></script>
+<script src="../lead.js?v=5"></script>
 </body>
 </html>
